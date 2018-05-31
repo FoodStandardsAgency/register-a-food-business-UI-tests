@@ -8,18 +8,21 @@
   },
   "repository": {
     "type": "git",
-    "url":
-      "git+https://github.com/slice-and-dice/register-a-food-business-UI-tests.git"
+    "url": "git+https://github.com/slice-and-dice/register-a-food-business-UI-tests.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url":
-      "https://github.com/slice-and-dice/register-a-food-business-UI-tests/issues"
+    "url": "https://github.com/slice-and-dice/register-a-food-business-UI-tests/issues"
   },
-  "homepage":
-    "https://github.com/slice-and-dice/register-a-food-business-UI-tests#readme",
+  "homepage": "https://github.com/slice-and-dice/register-a-food-business-UI-tests#readme",
   "devDependencies": {
     "cucumber": "^4.2.1"
+  },
+  "dependencies": {
+    "chromedriver": "^2.38.3",
+    "dotenv": "^5.0.1",
+    "geckodriver": "^1.11.0",
+    "selenium-webdriver": "^4.0.0-alpha.1"
   }
 }

@@ -1,3 +1,4 @@
+@qa_ready
 Feature: Landing Page
 
    Landing Page flows to next page

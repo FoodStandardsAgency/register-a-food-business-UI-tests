@@ -1,8 +1,8 @@
 const assert = require("assert");
 const { Given, When, Then } = require("cucumber");
-var {setDefaultTimeout} = require('cucumber');
+var { setDefaultTimeout } = require("cucumber");
 setDefaultTimeout(60 * 1000);
-const { Builder, By, until } = require("selenium-webdriver");
+const { Builder, By, until, Key } = require("selenium-webdriver");
 //const webdriver = require("selenium-webdriver");
 let driver = new Builder().forBrowser("firefox").build();
 require("dotenv").config();
@@ -16,13 +16,20 @@ Given(
       }@food-business-registration.herokuapp.com/reg-pages/establishment-name`
     );
     var tradingName = driver.findElement(By.id("fbo-name"));
-    tradingName.sendKeys("Example Trading Name");
+    tradingName.sendKeys("Example");
+    tradingName.sendKeys(Key.ENTER);
+    // console.log("HEEEEEEEEERRRRRRREEEEE", tradingName);
   }
 );
 
-When('I press "save and continue" ', function() {
-  //press save and continue
-  saveAndContinueButton.click();
+When("I press save and continue ", async function() {
+  //   //press save and continue
+  //   //   driver.findElements(By.className("button"));
+  //   var saveAndContinueButton = driver.findElement(
+  //     By.id("establishment-name-form")
+  //   );
+  //   console.log(saveAndContinueButton);
+  //   saveAndContinueButton.submit();
 });
 
 Then("the data is saved to be submitted at the end of the form", function() {

@@ -7,23 +7,32 @@ const { Builder, By, until, Key } = require("selenium-webdriver");
 let driver = new Builder().forBrowser("chrome").build();
 require("dotenv").config();
 
-Given(
-  "that I am on the establishment trading name page and put a name in",
+var establishmentFirstLine;
+
+var establishmentPostCode;
+
+Given("I am on the establishment address page", async function() {
+  await driver.get(
+    `http://${process.env.USERNAME}:${process.env.PASSWORD}@${
+      process.env.URLBASE
+    }${process.env.ESTABLISHMENTADDRESSPAGE}`
+  );
+  establishmentFirstLine = driver.findElement(
+    By.id("establishment_first_line")
+  );
+  establishmentPostCode = driver.findElement(By.id("establishment_postcode"));
+});
+
+When(
+  'I put the Establishment first line and post code in and I press "save and continue"',
   async function() {
-    await driver.get(
-      `https://${process.env.USERNAME}:${process.env.PASSWORD}@${
-        process.env.ESTABLISHMENTADDRESSPAGECUT
-      }`
-    );
-    var tradingName = driver.findElement(By.id("fbo-name"));
-    tradingName.sendKeys("Example");
-    tradingName.sendKeys(Key.ENTER);
-    // console.log("HEEEEEEEEERRRRRRREEEEE", tradingName);
+    await establishmentFirstLine.sendKeys("Example");
+    await establishmentPostCode.sendKeys("W11 4ET");
+    establishmentPostCode.sendKeys(Key.ENTER);
   }
 );
 
-When("I press save and continue ", async function() {});
-
-Then("the data is saved to be submitted at the end of the form", function() {
-  //is this end to end test? should it instead test that it goes to
+Then("I am taken to another page", function() {
+  //test that the url is equal to the submit one
+  assert.equal(this.getCurrentUrl, "http://localhost:3000/submit");
 });

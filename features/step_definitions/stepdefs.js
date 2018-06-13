@@ -1,6 +1,5 @@
 const assert = require("assert");
-const { Given, When, Then } = require("cucumber");
-var { setDefaultTimeout } = require("cucumber");
+const { Given, When, Then, setDefaultTimeout, After, Before } = require("cucumber");
 setDefaultTimeout(60 * 1000);
 //const { Builder, By, until, Key } = require("selenium-webdriver");
 
@@ -33,6 +32,14 @@ Given("I have opened a new window", async function() {
   driver = await new webdriver.Builder().forBrowser("chrome").build();
 });
 
+Before(async () => {
+  driver = await new webdriver.Builder().forBrowser("chrome").build();
+});
+
+After(async () => {
+  return driver.quit();
+});
+
 Given("I am on the establishment address page", async function() {
   //newWindow = await driver.webdriver.createSession();
   // await new webdriver.Builder().forBrowser("chrome").build();
@@ -53,6 +60,7 @@ When("I put a valid Establishment first line in", async function() {
 
   //establishmentPostCode.sendKeys(Key.ENTER);
 });
+
 When("I put a valid post code in", async function() {
   await establishmentPostCode.sendKeys(validPostCode);
 });
@@ -135,30 +143,23 @@ Then("the valid PostCode is still there", async function() {
   assert.equal(currentPostCode, validPostCode, "text is no longer there");
 });
 
-// Given("I open a window", async function() {
-//   driver = new webdriver.Builder().forBrowser("chrome").build();
-// });
-
 Then("it closes the window", async function() {
   quit = driver.quit();
 });
 
 ///////// LANDING PAGE /////////
 
-// Given("I have opened a new window for the landing page", async function() {
-//   driver = await new webdriver.Builder().forBrowser("chrome").build();
-// });
-
 require("dotenv").config();
 
 var beginButton;
 var theUrl;
-Given("that I am on the start page", async function() {
+
+Given("I am on the start page", async function() {
   await driver.get(`http://${process.env.URLBASE}`);
 });
 
 When("I click begin registration", async function() {
-  beginButton = await driver.findElement(webdriver.By.className("css-wu1qf"));
+  beginButton = await driver.findElement(webdriver.By.className("css-1b7o5ue"));
   beginButton.submit();
 });
 
@@ -171,40 +172,34 @@ Then("I am directed to another page", async function() {
 ////////SUBMIT REGISTRATION ////
 
 require("dotenv").config();
-var form1;
-var form2;
-var form3;
+var declarataion1;
+var declarataion2;
+var declarataion3;
 
 //current url
 var currentUrl;
 var boxSelected;
 
-// Given(
-//   "I have opened a new window for the submit registration",
-//   async function() {
-//     driver = await new webdriver.Builder().forBrowser("chrome").build();
-//   }
-// );
-
-Given("that I am on the declaration page", async function() {
+Given("I am on the declaration page", async function() {
   await driver.get(`http://${process.env.URLBASE}${process.env.DECLARATION}`);
-  form1 = driver.findElement(webdriver.By.name("declaration1"));
-  form2 = driver.findElement(webdriver.By.name("declaration2"));
-  form3 = driver.findElement(webdriver.By.name("declaration3"));
+  declarataion1 = driver.findElement(webdriver.By.name("declaration1"));
+  declarataion2 = driver.findElement(webdriver.By.name("declaration2"));
+  declarataion3 = driver.findElement(webdriver.By.name("declaration3"));
 });
 
 Given("I have ticked all the boxes", async function() {
-  form1.click();
-  form2.click();
-  form3.click();
+  declarataion1.click();
+  declarataion2.click();
+  declarataion3.click();
 });
 
 Given("I have ticked one of the boxes", async function() {
-  form1.click();
+  declarataion1.click();
 });
 
 When("I click submit", async function() {
-  await form3.submit();
+  submitButton = await driver.findElement(webdriver.By.className("css-nyvlzd"));
+  await submitButton.submit();
 });
 
 Then("I am shown an error", async function() {
@@ -231,8 +226,8 @@ Then("I am directed to the application complete page", async function() {
 });
 
 Then("my box is still ticked", async function() {
-  form1 = driver.findElement(webdriver.By.name("declaration1"));
-  boxSelected = await form1.isSelected();
+  declarataion1 = driver.findElement(webdriver.By.name("declaration1"));
+  boxSelected = await declarataion1.isSelected();
   console.log("box selected", boxSelected);
   assert.equal(boxSelected, true, "box isn't selected");
 });

@@ -12,31 +12,40 @@ Operator Name section validation
         Then I am taken to another page
 
     @no_first_name_SDB-35
-    Scenario: testing happy path for Operator Name
+    Scenario: no first name input
         Given I am on the operator name page
         When I put a valid last name in
         And I click save and continue
-        Then I am shown the no first name error
+        Then I am shown the first name error
 
     @no_last_name_SDB-35
-    Scenario: testing happy path for Operator Name
+    Scenario: no last name input
         Given I am on the operator name page
-        When I put a valid first (and middle) name in
+        When I put a valid first and middle name in
         And I click save and continue
-        Then I am shown an error #need to change this to be specific
+        Then I am shown the last name error
 
     @invalid_last_name_SDB-35
-    Scenario: testing when user input an invalid last name
+    Scenario: invalid last name input
         Given I am on the operator name page
-        When I put a valid first (and middle) name in
+        When I put a valid first and middle name in
         And I put an invalid last name in
         And I click save and continue
-        Then I am shown an error
+        Then I am shown the last name error
 
     @invalid_first_name_SDB-35
-    Scenario: testing when user input an invalid first name
+    Scenario: invalid first name input
         Given I am on the operator name page
-        When I put an invalid first (and middle) name in
+        When I put a valid first and middle name in
         And I put a valid last name in
         And I click save and continue
-        Then I am shown an error
+        Then I am shown the last name error
+
+    @invalid_both_names_SDB-35
+    Scenario: invalid first and last name input
+        Given I am on the operator name page
+        When I put a valid first and middle name in
+        And I put a valid last name in
+        And I click save and continue
+        Then I am shown the first name error
+        And I am shown the last name error

@@ -4,33 +4,125 @@ setDefaultTimeout(60 * 1000);
 //const { Builder, By, until, Key } = require("selenium-webdriver");
 
 const webdriver = require("selenium-webdriver");
-var driver;
+let driver;
 
 require("dotenv").config();
 
+// buttons
+let saveContinueButton;
+
 //form fields
-var establishmentFirstLine;
-var establishmentPostCode;
+let establishmentFirstLine;
+let establishmentPostCode;
+let establishmentTradingName;
+let operatorFirstName;
+let operatorLastName;
 
 //validdetails
-var validPostCode = "W11 4ET";
-var validFirstLine = "Example Establishment Address";
+let validPostCode = "W11 4ET";
+let validFirstLine = "Example Establishment Address";
+let validFirstName = "Joe";
+let validLastName = "Brady";
+let validTradingName = "Anishas Awful Avocados";
 
 //invaliddetails
-var invalidPostCode = "notapostcode";
-var nothing = "";
+let invalidPostCode = "notapostcode";
+let invalidTradingName = "§§§§§";
+let nothing = "";
 
 //current url
-var urltest;
+let urltest;
+let previousUrl;
+let currentUrl;
 
 //error
-var error;
+let error;
+const errorCss = "css-jdwgdl";
+const tradinNameErrorText = "Not a valid establishment trading name";
 
-//////ESTABLISHMENT ADDRESS /////////
+////// GENERAL //////
 
-Given("I have opened a new window", async function() {
-  driver = await new webdriver.Builder().forBrowser("chrome").build();
+When("I click save and continue", async () => {
+  previousUrl = await driver.getCurrentUrl();
+  saveContinueButton = await driver.findElement(webdriver.By.className("css-nyvlzd"));
+  await saveContinueButton.submit();
 });
+
+Then("I am taken to another page", async () => {
+  currentUrl = await driver.getCurrentUrl();
+  assert.notEqual(
+    currentUrl,
+    previousUrl,
+    "URLs do match"
+  );
+});
+
+////// ESTABLISHMENT TRADING NAME //////
+
+Given("I am on the establishment trading name page", async () => {
+  await driver.get(
+    `http://${process.env.URLBASE}${process.env.ESTABLISHMENTTRADINGNAMEPAGE}`
+  );
+  establishmentTradingName = await driver.findElement(
+    webdriver.By.name("establishment_trading_name")
+  );
+});
+
+When("I put in a valid establishment trading name", async () => {
+  await establishmentTradingName.sendKeys(validTradingName);
+});
+
+When("I put in an invalid establishment trading name", async () => {
+  await establishmentTradingName.sendKeys(invalidTradingName);
+});
+
+Then("I am shown the trading name error", async () => {
+  const tradingNameError = await driver.findElement(
+    webdriver.By.className(errorCss)
+  );
+  const errorText = await tradingNameError.getText();
+  assert.equal(
+    errorText,
+    tradinNameErrorText,
+    "Trading name error text doesn't match"
+  );
+});
+
+Then("the invalid trading name is still there", async () => {
+  establishmentTradingName = await driver.findElement(
+    webdriver.By.name("establishment_trading_name")
+  );
+  const tradingNameText = await establishmentTradingName.getAttribute("value");
+  assert.equal(tradingNameText, invalidTradingName, "Trading name no longer there");
+});
+
+////// OPERATOR NAME ////// 
+
+Given("I am on the operator name page", async () => {
+  await driver.get(
+    `http://${process.env.URLBASE}${process.env.OPERATORNAMEPAGE}`
+  );
+  operatorFirstName = driver.findElement(
+    webdriver.By.name("operator_first_name")
+  );
+  operatorLastName = driver.findElement(
+    webdriver.By.name("operator_last_name")
+  );
+});
+
+When("I put a valid first and middle name in", async () => {
+  await operatorFirstName.sendKeys(validFirstName);
+});
+
+When("I put a valid last name in", async () => {
+  await operatorLastName.sendKeys(validLastName);
+});
+
+Then("I am shown the no first name error", async () => {
+  
+});
+
+////// ESTABLISHMENT ADDRESS ////// 
 
 Before(async () => {
   driver = await new webdriver.Builder().forBrowser("chrome").build();
@@ -41,24 +133,19 @@ After(async () => {
 });
 
 Given("I am on the establishment address page", async function() {
-  //newWindow = await driver.webdriver.createSession();
-  // await new webdriver.Builder().forBrowser("chrome").build();
-
   await driver.get(
     `http://${process.env.URLBASE}${process.env.ESTABLISHMENTADDRESSPAGE}`
   );
-  establishmentFirstLine = driver.findElement(
+  establishmentFirstLine = await driver.findElement(
     webdriver.By.name("establishment_first_line")
   );
-  establishmentPostCode = driver.findElement(
+  establishmentPostCode = await driver.findElement(
     webdriver.By.name("establishment_postcode")
   );
 });
 
 When("I put a valid Establishment first line in", async function() {
   await establishmentFirstLine.sendKeys(validFirstLine);
-
-  //establishmentPostCode.sendKeys(Key.ENTER);
 });
 
 When("I put a valid post code in", async function() {
@@ -67,21 +154,6 @@ When("I put a valid post code in", async function() {
 
 When("I put an invalid post code in", async function() {
   await establishmentPostCode.sendKeys("notapostcode");
-});
-
-When("I press save and continue", async function() {
-  //await establishmentPostCode.sendKeys(webdriver.Key.ENTER);
-  await establishmentPostCode.submit();
-});
-
-Then("I am taken to another page", async function() {
-  urltest = await driver.getCurrentUrl();
-  console.log("THIS IS THE URL", urltest);
-  assert.notEqual(
-    urltest,
-    `http://${process.env.URLBASE}${process.env.ESTABLISHMENTADDRESSPAGE}`,
-    "URLs do match"
-  );
 });
 
 Then("the valid Establishment first line is still there", async function() {
@@ -96,7 +168,6 @@ Then("the invalid PostCode is still there", async function() {
   currentPostCode = await driver
     .findElement(webdriver.By.name("establishment_postcode"))
     .getAttribute("value");
-  console.log("CURRENT POST CODE", currentPostCode);
   assert.equal(currentPostCode, invalidPostCode, "text is no longer there");
 });
 
@@ -176,8 +247,6 @@ var declarataion1;
 var declarataion2;
 var declarataion3;
 
-//current url
-var currentUrl;
 var boxSelected;
 
 Given("I am on the declaration page", async function() {

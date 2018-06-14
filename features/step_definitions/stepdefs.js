@@ -43,6 +43,8 @@ const errorCss = "css-jdwgdl";
 const tradingNameErrorText = "Not a valid establishment trading name";
 const firstNameErrorText = "Not a valid first name";
 const lastNameErrorText = "Not a valid last name";
+const postCodeErrorText = "Not a valid postcode";
+const firstLineErrorText = "Not a valid first line of address";
 
 ////// GENERAL //////
 
@@ -210,7 +212,6 @@ Then("the valid Establishment first line is still there", async function() {
   var currentFirstLine = await driver
     .findElement(webdriver.By.name("establishment_first_line"))
     .getAttribute("value");
-  console.log("FIRST LINE", currentFirstLine);
   assert.equal(currentFirstLine, validFirstLine, "text is no longer there");
 });
 
@@ -226,20 +227,12 @@ Then("an error appears telling me my postcode is invalid", async function() {
   postCodeError = await driver.findElement(
     webdriver.By.className("css-jdwgdl")
   );
-  postCodeErrorText = await postCodeError.getText();
-  console.log("Postcode Error Text", postCodeErrorText);
+  const errorText = await postCodeError.getText();
   assert.equal(
+    errorText,
     postCodeErrorText,
-    "Not a valid Postcode",
-    "error message doesnt match"
+    "Postcode error text doesn't match"
   );
-  //the below doesn't work
-  // postcode = await driver.findElement(
-  //   webdriver.By.js(function() {
-  //     var pcode = document.getElementsByTagName("span");
-  //   })
-  // );
-  // console.log("POSTCODE", postcode);
 });
 
 Then("an error appears telling me my first line is invalid", async function() {
@@ -247,12 +240,11 @@ Then("an error appears telling me my first line is invalid", async function() {
   firstLineError = await driver.findElement(
     webdriver.By.className("css-jdwgdl")
   );
-  firstLineErrorText = await firstLineError.getText();
-  console.log("First Line Error Text", firstLineErrorText);
+  const errorText = await firstLineError.getText();
   assert.equal(
+    errorText,
     firstLineErrorText,
-    "Not a valid First Line of address",
-    "error message doesnt match"
+    "First line error text doesn't match"
   );
 });
 
@@ -260,7 +252,6 @@ Then("the valid PostCode is still there", async function() {
   currentPostCode = await driver
     .findElement(webdriver.By.name("establishment_postcode"))
     .getAttribute("value");
-  console.log("CURRENT POST CODE", currentPostCode);
   assert.equal(currentPostCode, validPostCode, "text is no longer there");
 });
 
@@ -286,34 +277,33 @@ When("I click begin registration", async function() {
 
 Then("I am directed to another page", async function() {
   theUrl = await driver.getCurrentUrl();
-  console.log("THIS IS THE URL", theUrl);
   assert.notEqual(theUrl, "http://localhost:3000/", "URLs match");
 });
 
 ////////SUBMIT REGISTRATION ////
 
 require("dotenv").config();
-var declarataion1;
-var declarataion2;
-var declarataion3;
+var declaration1;
+var declaration2;
+var declaration3;
 
 var boxSelected;
 
 Given("I am on the declaration page", async function() {
   await driver.get(`http://${process.env.URLBASE}${process.env.DECLARATION}`);
-  declarataion1 = driver.findElement(webdriver.By.name("declaration1"));
-  declarataion2 = driver.findElement(webdriver.By.name("declaration2"));
-  declarataion3 = driver.findElement(webdriver.By.name("declaration3"));
+  declaration1 = driver.findElement(webdriver.By.name("declaration1"));
+  declaration2 = driver.findElement(webdriver.By.name("declaration2"));
+  declaration3 = driver.findElement(webdriver.By.name("declaration3"));
 });
 
 Given("I have ticked all the boxes", async function() {
-  declarataion1.click();
-  declarataion2.click();
-  declarataion3.click();
+  declaration1.click();
+  declaration2.click();
+  declaration3.click();
 });
 
 Given("I have ticked one of the boxes", async function() {
-  declarataion1.click();
+  declaration1.click();
 });
 
 When("I click submit", async function() {
@@ -326,7 +316,6 @@ Then("I am shown an error", async function() {
     webdriver.By.className("css-jdwgdl")
   );
   declarationErrorText = await declarationError.getText();
-  console.log("First Line Error Text", declarationErrorText);
   assert.equal(
     declarationErrorText,
     "You must tick all the declarations before continuing",
@@ -336,7 +325,6 @@ Then("I am shown an error", async function() {
 
 Then("I am directed to the application complete page", async function() {
   currentUrl = await driver.getCurrentUrl();
-  console.log("THIS IS THE URL", currentUrl);
   assert.equal(
     currentUrl,
     "http://localhost:3000/application-complete",
@@ -345,8 +333,7 @@ Then("I am directed to the application complete page", async function() {
 });
 
 Then("my box is still ticked", async function() {
-  declarataion1 = driver.findElement(webdriver.By.name("declaration1"));
-  boxSelected = await declarataion1.isSelected();
-  console.log("box selected", boxSelected);
+  declaration1 = driver.findElement(webdriver.By.name("declaration1"));
+  boxSelected = await declaration1.isSelected();
   assert.equal(boxSelected, true, "box isn't selected");
 });

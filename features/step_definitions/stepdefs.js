@@ -48,6 +48,14 @@ const firstLineErrorText = "Not a valid first line of address";
 
 ////// GENERAL //////
 
+Before(async () => {
+  driver = await new webdriver.Builder().forBrowser("chrome").build();
+});
+
+After(async () => {
+  return driver.quit();
+});
+
 When("I click save and continue", async () => {
   previousUrl = await driver.getCurrentUrl();
   saveContinueButton = await driver.findElement(webdriver.By.className("css-nyvlzd"));
@@ -175,14 +183,6 @@ Then("I am shown first and last name error messages", async () => {
 });
 
 ////// ESTABLISHMENT ADDRESS ////// 
-
-Before(async () => {
-  driver = await new webdriver.Builder().forBrowser("chrome").build();
-});
-
-After(async () => {
-  return driver.quit();
-});
 
 Given("I am on the establishment address page", async function() {
   await driver.get(

@@ -28,6 +28,8 @@ let validTradingName = "Anishas Awful Avocados";
 //invaliddetails
 let invalidPostCode = "notapostcode";
 let invalidTradingName = "§§§§§";
+let invalidFirstName = "§§";
+let invalidLastName = "§§±±";
 let nothing = "";
 
 //current url
@@ -38,7 +40,9 @@ let currentUrl;
 //error
 let error;
 const errorCss = "css-jdwgdl";
-const tradinNameErrorText = "Not a valid establishment trading name";
+const tradingNameErrorText = "Not a valid establishment trading name";
+const firstNameErrorText = "Not a valid first name";
+const lastNameErrorText = "Not a valid last name";
 
 ////// GENERAL //////
 
@@ -83,7 +87,7 @@ Then("I am shown the trading name error", async () => {
   const errorText = await tradingNameError.getText();
   assert.equal(
     errorText,
-    tradinNameErrorText,
+    tradingNameErrorText,
     "Trading name error text doesn't match"
   );
 });
@@ -118,8 +122,54 @@ When("I put a valid last name in", async () => {
   await operatorLastName.sendKeys(validLastName);
 });
 
-Then("I am shown the no first name error", async () => {
-  
+When("I put an invalid first and middle name in", async () => {
+  await operatorFirstName.sendKeys(invalidFirstName);
+});
+
+When("I put an invalid last name in", async () => {
+  await operatorLastName.sendKeys(invalidLastName);
+});
+
+Then("I am shown the first name error", async () => {
+  const firstNameError = await driver.findElement(
+    webdriver.By.className(errorCss)
+  );
+  const errorText = await firstNameError.getText();
+  assert.equal(
+    errorText,
+    firstNameErrorText,
+    "First name error text doesn't match"
+  );
+});
+
+Then("I am shown the last name error", async () => {
+  const lastNameError = await driver.findElement(
+    webdriver.By.className(errorCss)
+  );
+  const errorText = await lastNameError.getText();
+  assert.equal(
+    errorText,
+    lastNameErrorText,
+    "Last name error text doesn't match"
+  );
+});
+
+Then("I am shown first and last name error messages", async () => {
+  const errors = await driver.findElements(
+    webdriver.By.className(errorCss)
+  );
+  const firstNameError = await errors[0].getText();
+  const lastNameError = await errors[1].getText();
+  assert.equal(
+    firstNameError,
+    firstNameErrorText,
+    "First name error text doesn't match"
+  );
+  assert.equal(
+    lastNameError,
+    lastNameErrorText,
+    "Last name error text doesn't match"
+  );
 });
 
 ////// ESTABLISHMENT ADDRESS ////// 

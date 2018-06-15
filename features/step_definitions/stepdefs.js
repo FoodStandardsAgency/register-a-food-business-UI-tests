@@ -356,9 +356,9 @@ Given("I have filled out the data in the previous sections", async () => {
 
 Then("I am taken to the declaration page", async () => {
   currentUrl = await driver.getCurrentUrl();
-  assert.notEqual(
+  assert.equal(
     currentUrl,
-    "http://${process.env.URLBASE}${process.env.DECLARATION}",
+    `http://${process.env.URLBASE}${process.env.DECLARATION}`,
     "URL is not declaration"
   );
 });

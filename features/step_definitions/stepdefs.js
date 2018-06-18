@@ -297,13 +297,13 @@ Given("I am on the declaration page", async function() {
 });
 
 Given("I have ticked all the boxes", async function() {
-  declaration1.click();
-  declaration2.click();
-  declaration3.click();
+  await declaration1.click();
+  await declaration2.click();
+  await declaration3.click();
 });
 
 Given("I have ticked one of the boxes", async function() {
-  declaration1.click();
+  await declaration1.click();
 });
 
 When("I click submit", async function() {
@@ -336,4 +336,47 @@ Then("my box is still ticked", async function() {
   declaration1 = driver.findElement(webdriver.By.name("declaration1"));
   boxSelected = await declaration1.isSelected();
   assert.equal(boxSelected, true, "box isn't selected");
+});
+
+///////// REGISTRATION SUMMARY /////////
+
+Given("I am on the registration summary page", async () => {
+  await driver.get(`http://${process.env.URLBASE}${process.env.SUMMARY}`);
+});
+
+Given("I have filled out the data in the previous sections", async () => {
+  await driver.get(`http://${process.env.URLBASE}${process.env.ESTABLISHMENTTRADINGNAMEPAGE}`);
+  establishmentTradingName = await driver.findElement(
+    webdriver.By.name("establishment_trading_name")
+  );
+  await establishmentTradingName.sendKeys(validTradingName);
+  saveContinueButton = await driver.findElement(webdriver.By.className("css-nyvlzd"));
+  await saveContinueButton.submit();
+});
+
+Then("I am taken to the declaration page", async () => {
+  currentUrl = await driver.getCurrentUrl();
+  assert.equal(
+    currentUrl,
+    `http://${process.env.URLBASE}${process.env.DECLARATION}`,
+    "URL is not declaration"
+  );
+});
+
+Then("The data I entered should be displayed", async() => {
+  const summaryTradingName = await driver.findElement(
+    webdriver.By.id("establishment_trading_name")
+  ).getText();
+  assert.equal(summaryTradingName, validTradingName, "Trading name does not match");
+});
+
+Then("The data I did not enter should not be displayed", async() => {
+  let summaryTradingName;
+  try {
+    summaryTradingName = await driver.findElement(
+      webdriver.By.id("operator_name")
+    );
+  } catch(err) {
+    assert.equal(err.message.split(":")[0], 'no such element', "Operator name is displayed");
+  }
 });

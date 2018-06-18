@@ -297,13 +297,13 @@ Given("I am on the declaration page", async function() {
 });
 
 Given("I have ticked all the boxes", async function() {
-  declaration1.click();
-  declaration2.click();
-  declaration3.click();
+  await declaration1.click();
+  await declaration2.click();
+  await declaration3.click();
 });
 
 Given("I have ticked one of the boxes", async function() {
-  declaration1.click();
+  await declaration1.click();
 });
 
 When("I click submit", async function() {

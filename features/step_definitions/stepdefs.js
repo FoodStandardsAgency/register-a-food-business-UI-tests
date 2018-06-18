@@ -337,3 +337,46 @@ Then("my box is still ticked", async function() {
   boxSelected = await declaration1.isSelected();
   assert.equal(boxSelected, true, "box isn't selected");
 });
+
+///////// REGISTRATION SUMMARY /////////
+
+Given("I am on the registration summary page", async () => {
+  await driver.get(`http://${process.env.URLBASE}${process.env.SUMMARY}`);
+});
+
+Given("I have filled out the data in the previous sections", async () => {
+  await driver.get(`http://${process.env.URLBASE}${process.env.ESTABLISHMENTTRADINGNAMEPAGE}`);
+  establishmentTradingName = await driver.findElement(
+    webdriver.By.name("establishment_trading_name")
+  );
+  await establishmentTradingName.sendKeys(validTradingName);
+  saveContinueButton = await driver.findElement(webdriver.By.className("css-nyvlzd"));
+  await saveContinueButton.submit();
+});
+
+Then("I am taken to the declaration page", async () => {
+  currentUrl = await driver.getCurrentUrl();
+  assert.equal(
+    currentUrl,
+    `http://${process.env.URLBASE}${process.env.DECLARATION}`,
+    "URL is not declaration"
+  );
+});
+
+Then("The data I entered should be displayed", async() => {
+  const summaryTradingName = await driver.findElement(
+    webdriver.By.id("establishment_trading_name")
+  ).getText();
+  assert.equal(summaryTradingName, validTradingName, "Trading name does not match");
+});
+
+Then("The data I did not enter should not be displayed", async() => {
+  let summaryTradingName;
+  try {
+    summaryTradingName = await driver.findElement(
+      webdriver.By.id("operator_name")
+    );
+  } catch(err) {
+    assert.equal(err.message.split(":")[0], 'no such element', "Operator name is displayed");
+  }
+});

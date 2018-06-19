@@ -1,5 +1,12 @@
 const assert = require("assert");
-const { Given, When, Then, setDefaultTimeout, After, Before } = require("cucumber");
+const {
+  Given,
+  When,
+  Then,
+  setDefaultTimeout,
+  After,
+  Before
+} = require("cucumber");
 setDefaultTimeout(60 * 1000);
 //const { Builder, By, until, Key } = require("selenium-webdriver");
 
@@ -17,6 +24,8 @@ let establishmentPostCode;
 let establishmentTradingName;
 let operatorFirstName;
 let operatorLastName;
+let operatorEmailAddress;
+let operatorPrimaryNumber;
 
 //validdetails
 let validPostCode = "W11 4ET";
@@ -24,6 +33,9 @@ let validFirstLine = "Example Establishment Address";
 let validFirstName = "Joe";
 let validLastName = "Brady";
 let validTradingName = "Anishas Awful Avocados";
+let validOperatorEmailAddress = "slice@dice.com";
+let validOperatorPhoneNumber = "0771234567";
+let validOperatorSecondaryPhoneNumber = "0712345678";
 
 //invaliddetails
 let invalidPostCode = "notapostcode";
@@ -31,6 +43,9 @@ let invalidTradingName = "§§§§§";
 let invalidFirstName = "§§";
 let invalidLastName = "§§±±";
 let nothing = "";
+let invalidOperatorEmailAddress = "±§§±.com";
+let invalidOperatorPhoneNumber = "0±±±§§§";
+let invalidOperatorSecondaryPhoneNumber = "!!§§§";
 
 //current url
 let urltest;
@@ -45,6 +60,8 @@ const firstNameErrorText = "Not a valid first name";
 const lastNameErrorText = "Not a valid last name";
 const postCodeErrorText = "Not a valid postcode";
 const firstLineErrorText = "Not a valid first line of address";
+const PrimaryNumberErrorText = "Not a valid phone number";
+const emailAddressErrorText = "Not a valid email address";
 
 ////// GENERAL //////
 
@@ -58,17 +75,15 @@ After(async () => {
 
 When("I click save and continue", async () => {
   previousUrl = await driver.getCurrentUrl();
-  saveContinueButton = await driver.findElement(webdriver.By.className("css-nyvlzd"));
+  saveContinueButton = await driver.findElement(
+    webdriver.By.className("css-nyvlzd")
+  );
   await saveContinueButton.submit();
 });
 
 Then("I am taken to another page", async () => {
   currentUrl = await driver.getCurrentUrl();
-  assert.notEqual(
-    currentUrl,
-    previousUrl,
-    "URLs do match"
-  );
+  assert.notEqual(currentUrl, previousUrl, "URLs do match");
 });
 
 ////// ESTABLISHMENT TRADING NAME //////
@@ -107,10 +122,14 @@ Then("the invalid trading name is still there", async () => {
     webdriver.By.name("establishment_trading_name")
   );
   const tradingNameText = await establishmentTradingName.getAttribute("value");
-  assert.equal(tradingNameText, invalidTradingName, "Trading name no longer there");
+  assert.equal(
+    tradingNameText,
+    invalidTradingName,
+    "Trading name no longer there"
+  );
 });
 
-////// OPERATOR NAME ////// 
+////// OPERATOR NAME //////
 
 Given("I am on the operator name page", async () => {
   await driver.get(
@@ -165,9 +184,7 @@ Then("I am shown the last name error", async () => {
 });
 
 Then("I am shown first and last name error messages", async () => {
-  const errors = await driver.findElements(
-    webdriver.By.className(errorCss)
-  );
+  const errors = await driver.findElements(webdriver.By.className(errorCss));
   const firstNameError = await errors[0].getText();
   const lastNameError = await errors[1].getText();
   assert.equal(
@@ -182,7 +199,7 @@ Then("I am shown first and last name error messages", async () => {
   );
 });
 
-////// ESTABLISHMENT ADDRESS ////// 
+////// ESTABLISHMENT ADDRESS //////
 
 Given("I am on the establishment address page", async function() {
   await driver.get(
@@ -345,12 +362,16 @@ Given("I am on the registration summary page", async () => {
 });
 
 Given("I have filled out the data in the previous sections", async () => {
-  await driver.get(`http://${process.env.URLBASE}${process.env.ESTABLISHMENTTRADINGNAMEPAGE}`);
+  await driver.get(
+    `http://${process.env.URLBASE}${process.env.ESTABLISHMENTTRADINGNAMEPAGE}`
+  );
   establishmentTradingName = await driver.findElement(
     webdriver.By.name("establishment_trading_name")
   );
   await establishmentTradingName.sendKeys(validTradingName);
-  saveContinueButton = await driver.findElement(webdriver.By.className("css-nyvlzd"));
+  saveContinueButton = await driver.findElement(
+    webdriver.By.className("css-nyvlzd")
+  );
   await saveContinueButton.submit();
 });
 
@@ -363,20 +384,96 @@ Then("I am taken to the declaration page", async () => {
   );
 });
 
-Then("The data I entered should be displayed", async() => {
-  const summaryTradingName = await driver.findElement(
-    webdriver.By.id("establishment_trading_name")
-  ).getText();
-  assert.equal(summaryTradingName, validTradingName, "Trading name does not match");
+Then("The data I entered should be displayed", async () => {
+  const summaryTradingName = await driver
+    .findElement(webdriver.By.id("establishment_trading_name"))
+    .getText();
+  assert.equal(
+    summaryTradingName,
+    validTradingName,
+    "Trading name does not match"
+  );
 });
 
-Then("The data I did not enter should not be displayed", async() => {
+Then("The data I did not enter should not be displayed", async () => {
   let summaryTradingName;
   try {
     summaryTradingName = await driver.findElement(
       webdriver.By.id("operator_name")
     );
-  } catch(err) {
-    assert.equal(err.message.split(":")[0], 'no such element', "Operator name is displayed");
+  } catch (err) {
+    assert.equal(
+      err.message.split(":")[0],
+      "no such element",
+      "Operator name is displayed"
+    );
   }
 });
+
+////////////OPERATOR CONTACT DETAILS SDB-156 /////////////
+
+Given("I am on the contact details page", async () => {
+  await driver.get(
+    `http://${process.env.URLBASE}${process.env.OPERATORCONTACTDETAILS}`
+  );
+  operatorEmailAddress = await driver.findElement(
+    webdriver.By.name("operator_email")
+  );
+  operatorPrimaryNumber = await driver.findElement(
+    webdriver.By.name("operator_primary_number")
+  );
+  operatorSecondaryNumber = await driver.findElement(
+    webdriver.By.name("operator_secondary_number")
+  );
+});
+
+When("I put in a valid operator email address", async () => {
+  await operatorEmailAddress.sendKeys(validOperatorEmailAddress);
+});
+
+When("I put in an invalid operator email address", async () => {
+  await operatorEmailAddress.sendKeys(invalidOperatorEmailAddress);
+});
+
+When("I put in a valid operator phone number", async () => {
+  await operatorPrimaryNumber.sendKeys(validOperatorPhoneNumber);
+});
+
+When("I put in an invalid operator phone number", async () => {
+  await operatorPrimaryNumber.sendKeys(invalidOperatorPhoneNumber);
+});
+
+When("I put in a valid optional operator phone number", async () => {
+  await operatorSecondaryNumber.sendKeys(validOperatorSecondaryPhoneNumber);
+});
+
+When("I put in a invalid optional operator phone number", async () => {
+  await operatorSecondaryNumber.sendKeys(invalidOperatorSecondaryPhoneNumber);
+});
+
+Then("I am shown the operator email error", async function() {
+  //the following works but using classname, which isnt ideal as is likely to change
+  emailAddressError = await driver.findElement(
+    webdriver.By.className("css-jdwgdl")
+  );
+  const errorText = await emailAddressError.getText();
+  assert.equal(
+    errorText,
+    emailAddressErrorText,
+    "Email error text doesn't match"
+  );
+});
+
+Then("I am shown the operator phone number error", async function() {
+  //the following works but using classname, which isnt ideal as is likely to change
+  primaryNumberError = await driver.findElement(
+    webdriver.By.className("css-jdwgdl")
+  );
+  const errorText = await primaryNumberError.getText();
+  assert.equal(
+    errorText,
+    PrimaryNumberErrorText,
+    "Operator number error text doesn't match"
+  );
+});
+

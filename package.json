@@ -1,29 +1,47 @@
 {
-  "name": "register-a-food-business-ui-tests",
-  "version": "1.0.0",
-  "description": "",
-  "main": "cucumber.js",
-  "scripts": {
-    "test": "cucumber-js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/slice-and-dice/register-a-food-business-UI-tests.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/slice-and-dice/register-a-food-business-UI-tests/issues"
-  },
-  "homepage": "https://github.com/slice-and-dice/register-a-food-business-UI-tests#readme",
-  "devDependencies": {
-    "cucumber": "^4.2.1"
-  },
-  "dependencies": {
-    "assert": "^1.4.1",
-    "chromedriver": "^2.38.3",
-    "dotenv": "^5.0.1",
-    "geckodriver": "^1.11.0",
-    "selenium-webdriver": "^4.0.0-alpha.1"
-  }
+    "name": "register-a-food-business-ui-tests",
+    "version": "1.0.0",
+    "description": "",
+    "main": "cucumber.js",
+    "scripts": {
+        "clean": "read -p \"Are you sure you want to clean the project? [y/n] \" REPLY; if [[ $REPLY =~ ^[Yy]$ ]]; then rm -R .git .github demo-app test .codeclimate.yml .travis.yml jest.json wdio.BUILD.conf.js src/features/**; fi",
+        "local-webserver": "forever start -s ./node_modules/.bin/http-server ./demo-app -s",
+        "test": "npm run test:validate && npm run test:unit && npm run test:features",
+        "test:features": "npm run local-webserver & (wdio wdio.BUILD.conf.js; wdio_ret=$?; forever stopall; exit $wdio_ret)",
+        "test:unit": "jest --config=jest.json",
+        "test:validate": "eslint 'src/**/*.js' 'test/**/*.js!(setup.js)'"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/slice-and-dice/register-a-food-business-UI-tests.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/slice-and-dice/register-a-food-business-UI-tests/issues"
+    },
+    "homepage": "https://github.com/slice-and-dice/register-a-food-business-UI-tests#readme",
+    "devDependencies": {
+        "cucumber": "^4.2.1",
+        "babel-core": "~6.26.3",
+        "babel-jest": "~23.0.1",
+        "babel-polyfill": "~6.26.0",
+        "eslint": "~4.19.0",
+        "eslint-config-airbnb-base": "~12.1.0",
+        "eslint-plugin-import": "~2.12.0",
+        "forever": "~0.15.3",
+        "http-server": "~0.11.0",
+        "jest": "~23.0.0"
+    },
+    "dependencies": {
+        "dotenv": "^5.0.1",
+        "babel-preset-env": "~1.7.0",
+        "babel-register": "~6.26.0",
+        "chai": "~4.1.2",
+        "wdio-cucumber-framework": "~2.1.0",
+        "wdio-phantomjs-service": "~0.2.2",
+        "wdio-selenium-standalone-service": "~0.0.9",
+        "wdio-spec-reporter": "~0.1.2",
+        "webdriverio": "4.13.0"
+    }
 }

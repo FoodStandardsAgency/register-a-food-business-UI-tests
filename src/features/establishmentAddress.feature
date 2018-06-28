@@ -15,7 +15,8 @@ Establishment address section validation
 
     @invalid_postcode
     Scenario: Invalid Postcode
-        Given I open the url "http://localhost:3000/establishment-address"
+        Given I reload my session
+        And I open the url "http://localhost:3000/establishment-address"
         When I set "test" to the inputfield "estabAddress.firstline"
         And I set "±±±±" to the inputfield "estabAddress.postcode"
         And I click on the element "estabAddress.button"
@@ -25,10 +26,11 @@ Establishment address section validation
 
     @invalid_firstline
     Scenario: Valid Postcode and not putting in first line
-        Given I open the url "http://localhost:3000/establishment-address"
-        When I set "" to the inputfield "estabAddress.firstline"
-        And I set "WC1H 8DH" to the inputfield "estabAddress.postcode"
+        Given I reload my session
+        And I open the url "http://localhost:3000/establishment-address"
+        When I set "WC1H 8DH" to the inputfield "estabAddress.postcode"
         And I click on the element "estabAddress.button"
         Then I expect that element "estabAddress.error" contains the text "Not a valid first line of address"
         And I expect that element "estabAddress.postcode" contains the text "WC1H 8DH"
+
 

@@ -1,4 +1,4 @@
-const opContactType = {
+const opType = {
     operatorPerson: "#operator_type_person",
     operatorCompany: "#operator_type_company",
     operatorCharity: "#operator_type_charity",
@@ -6,4 +6,4 @@ const opContactType = {
     error: ".css-jdwgdl"
 };
 
-module.exports = opContactType;
+module.exports = opType;

@@ -32,7 +32,7 @@ exports.config = {
     // spawned. The property handles how many capabilities from the same test
     // should run tests.
     //
-    maxInstances: 5,
+    maxInstances: 1,
     //
     // If you have trouble getting all important capabilities together, check
     // out the Sauce Labs platform configurator - a great tool to configure your
@@ -45,7 +45,7 @@ exports.config = {
             // make sure that not more than 5 instance gets started at a time.
             maxInstances: 5,
             //
-            browserName: "firefox"
+            browserName: "chrome"
         }
     ],
     //
@@ -149,7 +149,8 @@ exports.config = {
         require: [
             "./src/steps/given.js",
             "./src/steps/then.js",
-            "./src/steps/when.js"
+            "./src/steps/when.js",
+            "./src/steps/setupAndTeardown.js"
             // Or search a (sub)folder for JS files with a wildcard
             // works since version 1.1 of the wdio-cucumber-framework
             //'./src/**/*.js',
@@ -163,7 +164,7 @@ exports.config = {
         // https://docs.cucumber.io/tag-expressions/
         tagExpression: "not @Pending",
         // <boolean> add cucumber tags to feature or scenario name
-        tagsInTitle: false,
+        tagsInTitle: true,
         // <number> timeout for step definitions
         timeout: 20000
     },
@@ -194,6 +195,7 @@ exports.config = {
         global.expect = chai.expect;
         global.assert = chai.assert;
         global.should = chai.should();
+        // browser.reload();
     }
     //
     // Hook that gets executed before the suite starts
@@ -213,8 +215,8 @@ exports.config = {
     // Function to be executed before a test (in Mocha/Jasmine) or a step (in
     // Cucumber) starts.
     // beforeTest: function beforeTest(test) {
-    // },
-    //
+    // }
+
     // Runs before a WebdriverIO command gets executed.
     // beforeCommand: function beforeCommand(commandName, args) {
     // },
@@ -226,7 +228,9 @@ exports.config = {
     // Function to be executed after a test (in Mocha/Jasmine) or a step (in
     // Cucumber) starts.
     // afterTest: function afterTest(test) {
-    // },
+
+    //
+    // }
     //
     // Hook that gets executed after the suite has ended
     // afterSuite: function afterSuite(suite) {
@@ -240,5 +244,13 @@ exports.config = {
     // Gets executed after all workers got shut down and the process is about to
     // exit. It is not possible to defer the end of the process using a promise.
     // onComplete: function onComplete(exitCode) {
+    // }
+    // beforeScenario: function(scenario) {
+    //     browser.reload();
+    //     console.log("PLS WORK");
+    // }
+    // afterScenario: function(scenario) {
+    //     driver.close();
+    //     console.log("PLS WORK");
     // }
 };

@@ -1,3 +1,4 @@
+import getSelector from "../../pageObjects/page";
 /**
  * Check the selected state of the given element
  * @param  {String}   element   Element selector
@@ -5,6 +6,7 @@
  *                              not
  */
 module.exports = (element, falseCase) => {
+    element = getSelector(element);
     /**
      * The selected state
      * @type {Boolean}
@@ -12,10 +14,11 @@ module.exports = (element, falseCase) => {
     const isSelected = browser.isSelected(element);
 
     if (falseCase) {
-        expect(isSelected).to.not
-            .equal(true, `"${element}" should not be selected`);
+        expect(isSelected).to.not.equal(
+            true,
+            `"${element}" should not be selected`
+        );
     } else {
-        expect(isSelected).to
-            .equal(true, `"${element}" should be selected`);
+        expect(isSelected).to.equal(true, `"${element}" should be selected`);
     }
 };

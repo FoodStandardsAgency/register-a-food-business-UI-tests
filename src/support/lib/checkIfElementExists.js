@@ -21,7 +21,7 @@ module.exports = (element, falsCase, exactly) => {
         expect(nrOfElements).to.have.lengthOf(
             exactly,
             `Element with selector "${element}" should exist exactly ` +
-            `${exactly} time(s)`
+                `${exactly} time(s)`
         );
     } else {
         expect(nrOfElements).to.have.length.of.at.least(

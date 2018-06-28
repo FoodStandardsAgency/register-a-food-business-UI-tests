@@ -1,3 +1,5 @@
+import getSelector from "../../pageObjects/page";
+
 /**
  * Check if the given elements text is the same as the given text
  * @param  {String}   elementType   Element type (element or button)
@@ -7,17 +9,18 @@
  * @param  {String}   expectedText  The text to validate against
  */
 module.exports = (elementType, element, falseCase, expectedText) => {
+    element = getSelector(element);
     /**
      * The command to execute on the browser object
      * @type {String}
      */
-    let command = 'getValue';
+    let command = "getValue";
 
     if (
-        elementType === 'button' ||
-        browser.getAttribute(element, 'value') === null
+        elementType === "button" ||
+        browser.getAttribute(element, "value") === null
     ) {
-        command = 'getText';
+        command = "getText";
     }
 
     /**
@@ -33,14 +36,14 @@ module.exports = (elementType, element, falseCase, expectedText) => {
     let boolFalseCase = !!falseCase;
 
     // Check for empty element
-    if (typeof parsedExpectedText === 'function') {
-        parsedExpectedText = '';
+    if (typeof parsedExpectedText === "function") {
+        parsedExpectedText = "";
 
         boolFalseCase = !boolFalseCase;
     }
 
     if (parsedExpectedText === undefined && falseCase === undefined) {
-        parsedExpectedText = '';
+        parsedExpectedText = "";
         boolFalseCase = true;
     }
 

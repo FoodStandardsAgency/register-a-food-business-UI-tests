@@ -1,3 +1,4 @@
+//import getSelector from "../../pageObjects/page";
 /**
  * Move to the given element with an optional offset on a X and Y position
  * @param  {String}   element  Element selector
@@ -5,6 +6,7 @@
  * @param  {String}   y        Y coordinate to move to
  */
 module.exports = (element, x, y) => {
+    //element = getSelector(element);
     /**
      * X coordinate
      * @type {Int}

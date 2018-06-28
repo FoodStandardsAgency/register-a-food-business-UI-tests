@@ -1,3 +1,4 @@
+import getSelector from "../../pageObjects/page";
 /**
  * Check if the given element is enabled
  * @param  {String}   element   Element selector
@@ -5,6 +6,7 @@
  *                              or not
  */
 module.exports = (element, falseCase) => {
+    element = getSelector(element);
     /**
      * The enabled state of the given element
      * @type {Boolean}
@@ -12,10 +14,14 @@ module.exports = (element, falseCase) => {
     const isEnabled = browser.isEnabled(element);
 
     if (falseCase) {
-        expect(isEnabled).to.not
-            .equal(true, `Expected element "${element}" not to be enabled`);
+        expect(isEnabled).to.not.equal(
+            true,
+            `Expected element "${element}" not to be enabled`
+        );
     } else {
-        expect(isEnabled).to
-            .equal(true, `Expected element "${element}" to be enabled`);
+        expect(isEnabled).to.equal(
+            true,
+            `Expected element "${element}" to be enabled`
+        );
     }
 };

@@ -1,3 +1,5 @@
+//import getSelector from "../../pageObjects/page";
+
 /**
  * Check if the given elements contains text
  * @param  {String}   elementType   Element type (element or button)
@@ -6,17 +8,18 @@
  *                                  text or not
  */
 module.exports = (elementType, element, falseCase) => {
+    // element = getSelector(element);
     /**
      * The command to perform on the browser object
      * @type {String}
      */
-    let command = 'getValue';
+    let command = "getValue";
 
     if (
-        elementType === 'button' ||
-        browser.getAttribute(element, 'value') === null
+        elementType === "button" ||
+        browser.getAttribute(element, "value") === null
     ) {
-        command = 'getText';
+        command = "getText";
     }
 
     /**
@@ -31,15 +34,15 @@ module.exports = (elementType, element, falseCase) => {
      */
     const text = browser[command](element);
 
-    if (typeof falseCase === 'undefined') {
+    if (typeof falseCase === "undefined") {
         boolFalseCase = false;
     } else {
         boolFalseCase = !!falseCase;
     }
 
     if (boolFalseCase) {
-        expect(text).to.equal('');
+        expect(text).to.equal("");
     } else {
-        expect(text).to.not.equal('');
+        expect(text).to.not.equal("");
     }
 };

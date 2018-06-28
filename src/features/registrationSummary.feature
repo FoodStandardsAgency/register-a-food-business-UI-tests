@@ -4,8 +4,8 @@ Feature: Summary Page
   @SDB-8_happy_path_navigation
   Scenario: navigate to declaration page
     Given I open the url "http://localhost:3000/registration-summary"
-    When I click on the element "submitRegistration.button"
-    Then I expect that the url is "http://localhost:3000/declaration"
+    When I click on the element "registrationSummary.button"
+    Then I expect that the url is not "http://localhost:3000/registration-summary"
 
   @SDB-8_entered_data
   Scenario: data is displayed

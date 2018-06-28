@@ -22,7 +22,7 @@ export default function(method, value, element) {
     checkIfElementExists(elem, false, 1);
 
     if (!value) {
-        checkValue = '';
+        checkValue = "";
     }
 
     browser[command](elem, checkValue);

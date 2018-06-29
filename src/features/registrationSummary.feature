@@ -26,3 +26,7 @@ Feature: Summary Page
     When I open the url "http://localhost:3000/registration-summary"
     Then I expect that element "registrationSummary.operatorFirstName" is not visible
 
+  @SDB-8_full_data_injection
+  Scenario: all possible data is displayed
+    Given I go to the special QA registration summary page at url "http://localhost:3000/qa-registration-summary" with injected data
+    Then I expect that element "registrationSummary.tradingName" contains the text "Trading name"

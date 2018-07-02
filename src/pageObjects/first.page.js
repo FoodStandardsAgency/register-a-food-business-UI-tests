@@ -1,5 +1,5 @@
 const firstpage = {
-    button: ".css-1b7o5ue"
+    button: ".css-1otp00k"
 };
 
 module.exports = firstpage;

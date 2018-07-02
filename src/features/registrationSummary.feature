@@ -9,8 +9,8 @@ Feature: Summary Page
 
   @SDB-8_entered_data
   Scenario: data is displayed
-
-    Given I open the url "http://localhost:3000/establishment-trading-name"
+    Given I reload my session
+    And I open the url "http://localhost:3000/establishment-trading-name"
     And I set "Test Trading Name" to the inputfield "estabTradingName.tradingNameInput"
     And I click on the element "estabTradingName.button"
     When I open the url "http://localhost:3000/registration-summary"
@@ -19,7 +19,8 @@ Feature: Summary Page
 
   @SDB-8_missing_data
   Scenario: missing data not displayed
-    Given I open the url "http://localhost:3000/establishment-trading-name"
+    Given I reload my session
+    And I open the url "http://localhost:3000/establishment-trading-name"
     And I set "Test Trading Name" to the inputfield "estabTradingName.tradingNameInput"
     And I click on the element "estabTradingName.button"
     When I open the url "http://localhost:3000/registration-summary"

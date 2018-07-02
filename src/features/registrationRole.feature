@@ -45,6 +45,7 @@ Operator Type section validation
         Then I expect that element "regRole.error" contains the text "You must select a role before continuing"
 
 
+
     @can_not_deselect_role_SDB-54
     Scenario: I can not deselect a role
         Given I reload my session

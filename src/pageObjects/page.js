@@ -8,6 +8,7 @@ let regRole = require("./registrationRole.page.js");
 let opContactType = require("./operatorType.page.js");
 let opContactDetails = require("./operatorContactDetails.page.js");
 let opContactName = require("./operatorContactName.page.js");
+const opAddress = require("./operatorAddress.page.js");
 
 let companyDetails = require("./limitedCompanyDetails.page.js");
 let charityDetails = require("./charityDetails.page.js");

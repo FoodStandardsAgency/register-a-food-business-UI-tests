@@ -1,5 +1,5 @@
-@test_first_page
-Feature: testing clicking begin registration
+@establishment_address
+Feature: testing establishment address
 
 Establishment address section validation
 
@@ -23,6 +23,7 @@ Establishment address section validation
         Then I expect that element "estabAddress.error" contains the text "Not a valid postcode"
         And I expect that element "estabAddress.firstline" contains the text "test"
         And I expect that element "estabAddress.postcode" contains the text "±±±±"
+
 
     @invalid_firstline
     Scenario: Valid Postcode and not putting in first line

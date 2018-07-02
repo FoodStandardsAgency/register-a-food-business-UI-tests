@@ -21,6 +21,7 @@ import isVisible from "../support/check/isVisible";
 import openWebsite from "../support/action/openWebsite";
 import resizeScreenSize from "../support/action/resizeScreenSize";
 import injectDataIntoRegSummary from "../support/action/injectDataIntoRegSummary";
+import switchTab from "../support/action/switchTab";
 
 const { Given } = require("cucumber");
 
@@ -28,6 +29,8 @@ Given(
     /^I go to the special QA registration summary page at url "([^"]*)?" with injected data$/,
     injectDataIntoRegSummary
 );
+
+Given(/^I switch to the second tab$/, switchTab);
 
 Given(/^I open the (url|site) "([^"]*)?"$/, openWebsite);
 

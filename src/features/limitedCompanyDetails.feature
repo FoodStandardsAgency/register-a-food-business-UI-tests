@@ -47,5 +47,5 @@ Limited Company section validation
         And I open the url "http://localhost:3000/operator-company-details"
         When I click on the element "companyDetails.questions"
         And I click on the element "companyDetails.link"
+        And I switch to the second tab
         Then I expect that the url is "https://beta.companieshouse.gov.uk/"
-

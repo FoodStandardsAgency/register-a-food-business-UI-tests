@@ -26,7 +26,7 @@ import switchTab from "../support/action/switchTab";
 const { Given } = require("cucumber");
 
 Given(
-    /^I go to the special QA registration summary page at url "([^"]*)?" with injected data$/,
+    /^I go to a special QA page at url "([^"]*)?" with injected "([^"]*)?" data$/,
     injectDataIntoRegSummary
 );
 

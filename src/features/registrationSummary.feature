@@ -28,5 +28,5 @@ Feature: Summary Page
 
   @SDB-8_full_data_injection
   Scenario: all possible data is displayed
-    Given I go to the special QA registration summary page at url "http://localhost:3000/qa-registration-summary" with injected data
+    Given I go to a special QA page at url "http://localhost:3000/qa/registration-summary" with injected "registration-summary" data
     Then I expect that element "registrationSummary.tradingName" contains the text "Trading name"

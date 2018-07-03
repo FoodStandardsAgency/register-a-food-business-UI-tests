@@ -1,3 +1,4 @@
+import getSelector from "../../pageObjects/page";
 /**
  * Check the given property of the given element
  * @param  {String}   isCSS         Whether to check for a CSS property or an
@@ -9,17 +10,18 @@
  * @param  {String}   expectedValue The value to match against
  */
 module.exports = (isCSS, attrName, elem, falseCase, expectedValue) => {
+    elem = getSelector(elem);
     /**
      * The command to use for fetching the expected value
      * @type {String}
      */
-    const command = isCSS ? 'getCssProperty' : 'getAttribute';
+    const command = isCSS ? "getCssProperty" : "getAttribute";
 
     /**
      * Te label to identify the attribute by
      * @type {String}
      */
-    const attrType = (isCSS ? 'CSS attribute' : 'Attribute');
+    const attrType = isCSS ? "CSS attribute" : "Attribute";
 
     /**
      * The actual attribute value
@@ -36,18 +38,16 @@ module.exports = (isCSS, attrName, elem, falseCase, expectedValue) => {
     }
 
     if (falseCase) {
-        expect(attributeValue).to.not
-            .equal(
-                expectedValue,
-                `${attrType} of element "${elem}" should not contain ` +
+        expect(attributeValue).to.not.equal(
+            expectedValue,
+            `${attrType} of element "${elem}" should not contain ` +
                 `"${attributeValue}"`
-            );
+        );
     } else {
-        expect(attributeValue).to
-            .equal(
-                expectedValue,
-                `${attrType} of element "${elem}" should not contain ` +
+        expect(attributeValue).to.equal(
+            expectedValue,
+            `${attrType} of element "${elem}" should not contain ` +
                 `"${attributeValue}", but "${expectedValue}"`
-            );
+        );
     }
 };

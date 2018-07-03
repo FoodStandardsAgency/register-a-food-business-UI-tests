@@ -45,7 +45,7 @@ Limited Company section validation
         Given I reload my session
         And I open the url "http://localhost:3000/operator-company-details"
         When I click on the element "companyDetails.questions"
-        And I click on the element "companyDetails.link"
-        And I pause for 2000ms
-        And I switch to the second tab
-        Then I expect that the url is "https://beta.companieshouse.gov.uk/"
+        Then I expect that the attribute "href" from element "companyDetails.link" is "https://beta.companieshouse.gov.uk/"
+        Given I click on the element "companyDetails.link"
+        And I pause for 1000ms
+        Then I expect a new tab has been opened

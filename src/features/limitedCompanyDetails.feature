@@ -3,7 +3,6 @@ Feature: Limited Company SDB-36
 
 Limited Company section validation
 
-
     @happy_path_SDB-36
     Scenario: happy path
         Given I open the url "http://localhost:3000/operator-company-details"
@@ -47,5 +46,6 @@ Limited Company section validation
         And I open the url "http://localhost:3000/operator-company-details"
         When I click on the element "companyDetails.questions"
         And I click on the element "companyDetails.link"
+        And I pause for 2000ms
         And I switch to the second tab
         Then I expect that the url is "https://beta.companieshouse.gov.uk/"

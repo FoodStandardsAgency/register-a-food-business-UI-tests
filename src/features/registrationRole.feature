@@ -7,7 +7,7 @@ Operator Type section validation
     @change_registration_role_SDB-54
     Scenario: able to change registration role
         Given I reload my session
-        And I open the url "http://localhost:3000/registration-role"
+        And I open the url "/registration-role"
         When I click on the element "regRole.soleTrader"
         And I click on the element "regRole.partnership"
         Then I expect that element "regRole.partnership" is selected
@@ -16,31 +16,31 @@ Operator Type section validation
     @happy_path_sole_trader_SDB-54
     Scenario: happy path for registration role sole trader
         Given I reload my session
-        And I open the url "http://localhost:3000/registration-role"
+        And I open the url "/registration-role"
         When I click on the element "regRole.soleTrader"
         And I click on the element "regRole.button"
-        Then I expect that the url is "http://localhost:3000/operator-name"
+        Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/operator-name"
 
     @happy_path__partnership_SDB-54
     Scenario: happy path for registration role partnership
         Given I reload my session
-        And I open the url "http://localhost:3000/registration-role"
+        And I open the url "/registration-role"
         When I click on the element "regRole.partnership"
         And I click on the element "regRole.button"
-        Then I expect that the url is "http://localhost:3000/operator-name"
+        Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/operator-name"
 
     @happy_path__representative_SDB-54
     Scenario: happy path for registration role representative
         Given I reload my session
-        And I open the url "http://localhost:3000/registration-role"
+        And I open the url "/registration-role"
         When I click on the element "regRole.representative"
         And I click on the element "regRole.button"
-        Then I expect that the url is "http://localhost:3000/operator-type"
+        Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/operator-type"
 
     @not_selected_registration_role_SDB-54
     Scenario: error shows when no registration is selected
         Given I reload my session
-        And I open the url "http://localhost:3000/registration-role"
+        And I open the url "/registration-role"
         When I click on the element "regRole.button"
         Then I expect that element "regRole.error" contains the text "You must select a role before continuing"
 
@@ -49,7 +49,7 @@ Operator Type section validation
     @can_not_deselect_role_SDB-54
     Scenario: I can not deselect a role
         Given I reload my session
-        And I open the url "http://localhost:3000/registration-role"
+        And I open the url "/registration-role"
         When I click on the element "regRole.soleTrader"
         And I click on the element "regRole.soleTrader"
         Then I expect that element "regRole.soleTrader" is selected

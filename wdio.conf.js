@@ -1,4 +1,6 @@
 exports.config = {
+    user: "libertyjacklin2",
+    key: "4yS51VYzDYsgNGWfpfeJ",
     //
     // ==================
     // Specify Test Files
@@ -39,15 +41,28 @@ exports.config = {
     // capabilities: https://docs.saucelabs.com/reference/platforms-configurator
     //
     capabilities: [
+        //
         {
-            // maxInstances can get overwritten per capability. So if you have an
-            // in-house Selenium grid with only 5 firefox instance available you can
-            // make sure that not more than 5 instance gets started at a time.
-            maxInstances: 5,
-            //
-            browserName: "chrome"
+            //os: "OS X",
+            //os_version: "High Sierra",
+            // browserName: "Chrome",
+            // browser_version: "67.0",
+            //browserName: "Firefox",
+            //browser_version: "61.0",
+            os: "Windows",
+            os_version: "10",
+            //browserName: "IE",
+            //browser_version: "11.0",
+            browserName: "Edge",
+            browser_version: "17.0",
+            project: "test_project"
         }
     ],
+    // maxInstances can get overwritten per capability. So if you have an
+    // in-house Selenium grid with only 5 firefox instance available you can
+    // make sure that not more than 5 instance gets started at a time.
+    maxInstances: 5,
+
     //
     // ===================
     // Test Configurations
@@ -71,7 +86,7 @@ exports.config = {
     //
     // Set a base URL in order to shorten url command calls. If your url
     // parameter starts with "/", then the base url gets prepended.
-    baseUrl: "http://localhost:8080",
+    baseUrl: "https://register-a-food-business-dev.azurewebsites.net",
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,

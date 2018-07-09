@@ -5,16 +5,16 @@ Limited Company section validation
 
     @happy_path_SDB-36
     Scenario: happy path
-        Given I open the url "http://localhost:3000/operator-company-details"
+        Given I open the url "/operator-company-details"
         When I set "Bob's Burgers" to the inputfield "companyDetails.name"
         And I set "12345678" to the inputfield "companyDetails.companiesHouseNumber"
         And I click on the element "companyDetails.button"
-        Then I expect that the url is not "http://localhost:3000/operator-company-details"
+        Then I expect that the url is not "https://register-a-food-business-dev.azurewebsites.net/operator-company-details"
 
     @not_filled_in_name_SDB-36
     Scenario: not filled in company name
         Given I reload my session
-        And I open the url "http://localhost:3000/operator-company-details"
+        And I open the url "/operator-company-details"
         When I set "12345678" to the inputfield "companyDetails.companiesHouseNumber"
         And I click on the element "companyDetails.button"
         Then I expect that element "companyDetails.error" contains the text "Not a valid company name"
@@ -23,7 +23,7 @@ Limited Company section validation
     @not_filled_in_number_SDB-36
     Scenario: not filled in company number
         Given I reload my session
-        And I open the url "http://localhost:3000/operator-company-details"
+        And I open the url "/operator-company-details"
         When I set "Bob's Burgers" to the inputfield "companyDetails.name"
         And I click on the element "companyDetails.button"
         Then I expect that element "companyDetails.error" contains the text "Not a valid Companies House reference number"
@@ -32,7 +32,7 @@ Limited Company section validation
     @invalid_number_SDB-36
     Scenario: invalid company number
         Given I reload my session
-        And I open the url "http://localhost:3000/operator-company-details"
+        And I open the url "/operator-company-details"
         When I set "Diane's Diner" to the inputfield "companyDetails.name"
         And I set "§§21" to the inputfield "companyDetails.companiesHouseNumber"
         And I click on the element "companyDetails.button"
@@ -43,7 +43,7 @@ Limited Company section validation
     @more_info_SDB-36
     Scenario: I want to find my companies house reference
         Given I reload my session
-        And I open the url "http://localhost:3000/operator-company-details"
+        And I open the url "/operator-company-details"
         When I click on the element "companyDetails.questions"
         Then I expect that the attribute "href" from element "companyDetails.link" is "https://beta.companieshouse.gov.uk/"
         Given I click on the element "companyDetails.link"

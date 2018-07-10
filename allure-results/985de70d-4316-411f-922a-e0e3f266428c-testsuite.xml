@@ -1,0 +1,117 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1531154935638' stop='1531154959105'>
+    <name>@operator_name: Operator Name @operator_name, @happy_path_SDB-35: happy path for Operator Name @operator_name, @no_first_name_SDB-35: no first name input @operator_name, @no_last_name_SDB-35: no last name input @operator_name, @invalid_last_name_SDB-35: invalid last name input</name>
+    <title>@operator_name: Operator Name @operator_name, @happy_path_SDB-35: happy path for Operator Name @operator_name, @no_first_name_SDB-35: no first name input @operator_name, @no_last_name_SDB-35: no last name input @operator_name, @invalid_last_name_SDB-35: invalid last name input</title>
+    <test-cases>
+        <test-case start='1531154939072' status='broken' stop='1531154959083'>
+            <name>I reload my session</name>
+            <title>I reload my session</title>
+            <labels>
+                <label name='feature' value='Operator Name'/>
+                <label name='story' value='no first name input'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='Chrome'/>
+                <parameter kind='environment-variable' name='capabilities' value='{"os":"OS X","os_version":"High Sierra","browserName":"Chrome","browser_version":"67.0","project":"test_project"}'/>
+                <parameter kind='environment-variable' name='spec files' value='["/Users/liberty.jacklin@ibm.com/Documents/PROJECTS/FSA/QA/GIT/register-a-food-business-UI-tests/src/features/operatorName.feature"]'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>function timed out, ensure the promise resolves within 20000 milliseconds</message>
+                <stack-trace>Error: function timed out, ensure the promise resolves within 20000 milliseconds
+                    at Timeout._onTimeout (/Users/liberty.jacklin@ibm.com/Documents/PROJECTS/FSA/QA/GIT/register-a-food-business-UI-tests/node_modules/cucumber/src/user_code_runner.js:61:18)
+                    at ontimeout (timers.js:475:11)
+                    at tryOnTimeout (timers.js:310:5)
+                    at Timer.listOnTimeout (timers.js:270:5)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1531154959083' status='pending' stop='1531154959088'>
+            <name>I open the url "/operator-name"</name>
+            <title>I open the url "/operator-name"</title>
+            <labels>
+                <label name='feature' value='Operator Name'/>
+                <label name='story' value='no first name input'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='Chrome'/>
+                <parameter kind='environment-variable' name='capabilities' value='{"os":"OS X","os_version":"High Sierra","browserName":"Chrome","browser_version":"67.0","project":"test_project"}'/>
+                <parameter kind='environment-variable' name='spec files' value='["/Users/liberty.jacklin@ibm.com/Documents/PROJECTS/FSA/QA/GIT/register-a-food-business-UI-tests/src/features/operatorName.feature"]'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1531154959088' status='pending' stop='1531154959092'>
+            <name>I set "Smith" to the inputfield "opContactName.lastName"</name>
+            <title>I set "Smith" to the inputfield "opContactName.lastName"</title>
+            <labels>
+                <label name='feature' value='Operator Name'/>
+                <label name='story' value='no first name input'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='Chrome'/>
+                <parameter kind='environment-variable' name='capabilities' value='{"os":"OS X","os_version":"High Sierra","browserName":"Chrome","browser_version":"67.0","project":"test_project"}'/>
+                <parameter kind='environment-variable' name='spec files' value='["/Users/liberty.jacklin@ibm.com/Documents/PROJECTS/FSA/QA/GIT/register-a-food-business-UI-tests/src/features/operatorName.feature"]'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1531154959092' status='pending' stop='1531154959097'>
+            <name>I click on the element "opContactName.button"</name>
+            <title>I click on the element "opContactName.button"</title>
+            <labels>
+                <label name='feature' value='Operator Name'/>
+                <label name='story' value='no first name input'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='Chrome'/>
+                <parameter kind='environment-variable' name='capabilities' value='{"os":"OS X","os_version":"High Sierra","browserName":"Chrome","browser_version":"67.0","project":"test_project"}'/>
+                <parameter kind='environment-variable' name='spec files' value='["/Users/liberty.jacklin@ibm.com/Documents/PROJECTS/FSA/QA/GIT/register-a-food-business-UI-tests/src/features/operatorName.feature"]'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1531154959097' status='pending' stop='1531154959100'>
+            <name>I expect that element "opContactName.lastName" contains the text "Smith"</name>
+            <title>I expect that element "opContactName.lastName" contains the text "Smith"</title>
+            <labels>
+                <label name='feature' value='Operator Name'/>
+                <label name='story' value='no first name input'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='Chrome'/>
+                <parameter kind='environment-variable' name='capabilities' value='{"os":"OS X","os_version":"High Sierra","browserName":"Chrome","browser_version":"67.0","project":"test_project"}'/>
+                <parameter kind='environment-variable' name='spec files' value='["/Users/liberty.jacklin@ibm.com/Documents/PROJECTS/FSA/QA/GIT/register-a-food-business-UI-tests/src/features/operatorName.feature"]'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1531154959100' status='pending' stop='1531154959102'>
+            <name>I expect that element "opContactName.error" contains the text "Not a valid first name"</name>
+            <title>I expect that element "opContactName.error" contains the text "Not a valid first name"</title>
+            <labels>
+                <label name='feature' value='Operator Name'/>
+                <label name='story' value='no first name input'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='Chrome'/>
+                <parameter kind='environment-variable' name='capabilities' value='{"os":"OS X","os_version":"High Sierra","browserName":"Chrome","browser_version":"67.0","project":"test_project"}'/>
+                <parameter kind='environment-variable' name='spec files' value='["/Users/liberty.jacklin@ibm.com/Documents/PROJECTS/FSA/QA/GIT/register-a-food-business-UI-tests/src/features/operatorName.feature"]'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

@@ -43,18 +43,21 @@ exports.config = {
     capabilities: [
         //
         {
-            //os: "OS X",
-            //os_version: "High Sierra",
-            // browserName: "Chrome",
-            // browser_version: "67.0",
+            os: "OS X",
+            os_version: "High Sierra",
+            browserName: "Chrome",
+            browser_version: "67.0",
             //browserName: "Firefox",
             //browser_version: "61.0",
-            os: "Windows",
-            os_version: "10",
+            //browserName: "Safari",
+            //browser_version: "11.1",
+            /////////////
+            //os: "Windows",
+            //os_version: "10",
             //browserName: "IE",
             //browser_version: "11.0",
-            browserName: "Edge",
-            browser_version: "17.0",
+            //browserName: "Edge",
+            //browser_version: "17.0",
             project: "test_project"
         }
     ],
@@ -134,6 +137,15 @@ exports.config = {
     // The only one supported by default is 'dot'
     // see also: http://webdriver.io/guide/testrunner/reporters.html
     reporters: ["spec"],
+    // reporters: ["allure"],
+    // reporterOptions: {
+    //     allure: {
+    //         outputDir: "allure-results",
+    //         disableWebdriverStepsReporting: true,
+    //         disableWebdriverScreenshotsReporting: true,
+    //         useCucumberStepReporter: false
+    //     }
+    // },
     //
     // If you are using Cucumber you need to specify the location of your step
     // definitions.

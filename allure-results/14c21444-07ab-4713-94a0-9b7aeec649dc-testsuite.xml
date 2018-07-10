@@ -1,0 +1,143 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1531230246857' stop='1531230288499'>
+    <name>@operator_name: Operator Name @operator_name, @happy_path_SDB-35: happy path for Operator Name</name>
+    <title>@operator_name: Operator Name @operator_name, @happy_path_SDB-35: happy path for Operator Name</title>
+    <test-cases>
+        <test-case start='1531230281954' status='passed' stop='1531230286096'>
+            <name>I reload my session</name>
+            <title>I reload my session</title>
+            <labels>
+                <label name='feature' value='Operator Name'/>
+                <label name='story' value='invalid first name input'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='Chrome'/>
+                <parameter kind='environment-variable' name='capabilities' value='{"os":"OS X","os_version":"High Sierra","browserName":"Chrome","browser_version":"67.0","project":"test_project"}'/>
+                <parameter kind='environment-variable' name='spec files' value='["/Users/liberty.jacklin@ibm.com/Documents/PROJECTS/FSA/QA/GIT/register-a-food-business-UI-tests/src/features/operatorName.feature"]'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1531230286096' status='passed' stop='1531230286832'>
+            <name>I open the url "/operator-name"</name>
+            <title>I open the url "/operator-name"</title>
+            <labels>
+                <label name='feature' value='Operator Name'/>
+                <label name='story' value='invalid first name input'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='Chrome'/>
+                <parameter kind='environment-variable' name='capabilities' value='{"os":"OS X","os_version":"High Sierra","browserName":"Chrome","browser_version":"67.0","project":"test_project"}'/>
+                <parameter kind='environment-variable' name='spec files' value='["/Users/liberty.jacklin@ibm.com/Documents/PROJECTS/FSA/QA/GIT/register-a-food-business-UI-tests/src/features/operatorName.feature"]'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1531230286832' status='passed' stop='1531230287119'>
+            <name>I set "§§§" to the inputfield "opContactName.firstName"</name>
+            <title>I set "§§§" to the inputfield "opContactName.firstName"</title>
+            <labels>
+                <label name='feature' value='Operator Name'/>
+                <label name='story' value='invalid first name input'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='Chrome'/>
+                <parameter kind='environment-variable' name='capabilities' value='{"os":"OS X","os_version":"High Sierra","browserName":"Chrome","browser_version":"67.0","project":"test_project"}'/>
+                <parameter kind='environment-variable' name='spec files' value='["/Users/liberty.jacklin@ibm.com/Documents/PROJECTS/FSA/QA/GIT/register-a-food-business-UI-tests/src/features/operatorName.feature"]'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1531230287119' status='passed' stop='1531230287353'>
+            <name>I set "Smith" to the inputfield "opContactName.lastName"</name>
+            <title>I set "Smith" to the inputfield "opContactName.lastName"</title>
+            <labels>
+                <label name='feature' value='Operator Name'/>
+                <label name='story' value='invalid first name input'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='Chrome'/>
+                <parameter kind='environment-variable' name='capabilities' value='{"os":"OS X","os_version":"High Sierra","browserName":"Chrome","browser_version":"67.0","project":"test_project"}'/>
+                <parameter kind='environment-variable' name='spec files' value='["/Users/liberty.jacklin@ibm.com/Documents/PROJECTS/FSA/QA/GIT/register-a-food-business-UI-tests/src/features/operatorName.feature"]'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1531230287353' status='passed' stop='1531230287829'>
+            <name>I click on the element "opContactName.button"</name>
+            <title>I click on the element "opContactName.button"</title>
+            <labels>
+                <label name='feature' value='Operator Name'/>
+                <label name='story' value='invalid first name input'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='Chrome'/>
+                <parameter kind='environment-variable' name='capabilities' value='{"os":"OS X","os_version":"High Sierra","browserName":"Chrome","browser_version":"67.0","project":"test_project"}'/>
+                <parameter kind='environment-variable' name='spec files' value='["/Users/liberty.jacklin@ibm.com/Documents/PROJECTS/FSA/QA/GIT/register-a-food-business-UI-tests/src/features/operatorName.feature"]'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1531230287829' status='passed' stop='1531230288022'>
+            <name>I expect that element "opContactName.error" contains the text "Not a valid first name"</name>
+            <title>I expect that element "opContactName.error" contains the text "Not a valid first name"</title>
+            <labels>
+                <label name='feature' value='Operator Name'/>
+                <label name='story' value='invalid first name input'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='Chrome'/>
+                <parameter kind='environment-variable' name='capabilities' value='{"os":"OS X","os_version":"High Sierra","browserName":"Chrome","browser_version":"67.0","project":"test_project"}'/>
+                <parameter kind='environment-variable' name='spec files' value='["/Users/liberty.jacklin@ibm.com/Documents/PROJECTS/FSA/QA/GIT/register-a-food-business-UI-tests/src/features/operatorName.feature"]'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1531230288022' status='passed' stop='1531230288302'>
+            <name>I expect that element "opContactName.firstName" contains the text "§§§"</name>
+            <title>I expect that element "opContactName.firstName" contains the text "§§§"</title>
+            <labels>
+                <label name='feature' value='Operator Name'/>
+                <label name='story' value='invalid first name input'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='Chrome'/>
+                <parameter kind='environment-variable' name='capabilities' value='{"os":"OS X","os_version":"High Sierra","browserName":"Chrome","browser_version":"67.0","project":"test_project"}'/>
+                <parameter kind='environment-variable' name='spec files' value='["/Users/liberty.jacklin@ibm.com/Documents/PROJECTS/FSA/QA/GIT/register-a-food-business-UI-tests/src/features/operatorName.feature"]'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1531230288303' status='passed' stop='1531230288490'>
+            <name>I expect that element "opContactName.lastName" contains the text "Smith"</name>
+            <title>I expect that element "opContactName.lastName" contains the text "Smith"</title>
+            <labels>
+                <label name='feature' value='Operator Name'/>
+                <label name='story' value='invalid first name input'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='Chrome'/>
+                <parameter kind='environment-variable' name='capabilities' value='{"os":"OS X","os_version":"High Sierra","browserName":"Chrome","browser_version":"67.0","project":"test_project"}'/>
+                <parameter kind='environment-variable' name='spec files' value='["/Users/liberty.jacklin@ibm.com/Documents/PROJECTS/FSA/QA/GIT/register-a-food-business-UI-tests/src/features/operatorName.feature"]'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

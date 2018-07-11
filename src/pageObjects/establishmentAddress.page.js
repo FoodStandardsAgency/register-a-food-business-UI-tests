@@ -1,7 +1,7 @@
 const estabAddress = {
     firstline: '[name="establishment_first_line"]',
     postcode: '[name="establishment_postcode"]',
-    button: ".css-nyvlzd",
+    button: "#continue-button",
     error: ".css-jdwgdl"
 };
 

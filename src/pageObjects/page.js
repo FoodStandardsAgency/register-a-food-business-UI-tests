@@ -4,6 +4,7 @@ const firstpage = require("./first.page.js");
 
 const estabAddress = require("./establishmentAddress.page.js");
 const estabTradingName = require("./establishmentTradingName.page.js");
+const estabContactDetails = require("./establishmentContactDetails.page.js");
 
 const regRole = require("./registrationRole.page.js");
 const opType = require("./operatorType.page.js");

@@ -43,21 +43,21 @@ exports.config = {
     capabilities: [
         //
         {
-            os: "OS X",
-            os_version: "High Sierra",
-            browserName: "Chrome",
-            browser_version: "67.0",
+            // os: "OS X",
+            //os_version: "High Sierra",
+            //browserName: "Chrome",
+            //browser_version: "67.0",
             //browserName: "Firefox",
             //browser_version: "61.0",
             //browserName: "Safari",
             //browser_version: "11.1",
             /////////////
-            //os: "Windows",
-            //os_version: "10",
+            os: "Windows",
+            os_version: "10",
             //browserName: "IE",
             //browser_version: "11.0",
-            //browserName: "Edge",
-            //browser_version: "17.0",
+            browserName: "Edge",
+            browser_version: "17.0",
             project: "test_project"
         }
     ],

@@ -12,6 +12,7 @@ const opType = require("./operatorType.page.js");
 const opContactDetails = require("./operatorContactDetails.page.js");
 const opContactName = require("./operatorContactName.page.js");
 const opAddress = require("./operatorAddress.page.js");
+const repOpContactDetails = require("./representativeOperatorContactDetails.page.js");
 
 const custType = require("./customerType.page.js");
 

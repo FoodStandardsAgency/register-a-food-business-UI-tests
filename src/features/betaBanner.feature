@@ -6,7 +6,13 @@ Beta Banner validation
 
     @beta_banner_SDB-373
     Scenario: beta banner is visible
-        Given I want to register a service 
-        When I start using the service
+        Given I reload my session
+        When I open the url "<url>"
         Then I can see the banner on all pages
+
+# Examples:
+# | url |
+# | /operator-charity-details |
+# | /customer-type |
+# | /establishment-address |
 

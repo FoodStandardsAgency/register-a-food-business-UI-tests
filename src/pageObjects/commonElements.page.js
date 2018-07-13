@@ -1,6 +1,6 @@
 const commonElements = {
-    backButton: "#back-link"
-    betaBanner: 
+    backButton: "#back-link",
+    betaBanner: ""
 };
 
 module.exports = commonElements;

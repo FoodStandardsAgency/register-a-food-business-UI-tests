@@ -75,7 +75,7 @@ Establishment address simple contact details section validation
         And I expect that element "estabContactDetails.primaryPhoneNumber" contains the text "07788292373"
         And I expect that element "estabContactDetails.optionalPhoneNumber" contains the text "§§§§"
 
-    @SDB-113_happy_path_same_as_operator
+    @SDB-113_happy_path_same_as_operator_sole_trader
     Scenario: happy path using operator details
         Given I reload my session
         And I open the url "https://register-a-food-business-dev.azurewebsites.net/operator-contact-details"
@@ -89,6 +89,21 @@ Establishment address simple contact details section validation
         When I click on the element "submitRegistration.button"
         Then I expect that the url is not "https://register-a-food-business-dev.azurewebsites.net/establishment-contact-details"
 
+# This scenario is reliant on a currently incomplete story
+    @SDB-113_happy_path_same_as_operator_via_representative
+    Scenario: happy path using operator details
+        Given I reload my session
+        And I open the url "https://register-a-food-business-dev.azurewebsites.net/contact-representative"
+        And I set "repvalid@email.com" to the inputfield "opContactDetails.emailAddress"
+        And I set "07788292373" to the inputfield "opContactDetails.primaryPhoneNumber"
+        And I click on the element "opContactDetails.button"
+        And I open the url "https://register-a-food-business-dev.azurewebsites.net/establishment-contact-details"
+        When I click on the element "estabContactDetails.checkbox"
+        Then I expect that element "estabContactDetails.emailAddress" contains the text "repvalid@email.com"
+        And I expect that element "estabContactDetails.primaryPhoneNumber" contains the text "07788292373"
+        When I click on the element "submitRegistration.button"
+        Then I expect that the url is not "https://register-a-food-business-dev.azurewebsites.net/establishment-contact-details"
+# 
     @SDB-113_happy_path_same_as_operator_overwrite
     Scenario: happy path using operator details overwriting
         Given I reload my session

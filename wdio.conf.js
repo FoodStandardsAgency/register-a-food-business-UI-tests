@@ -59,6 +59,7 @@ exports.config = {
             browserName: "Edge",
             browser_version: "17.0",
             project: "test_project"
+
         }
     ],
     // maxInstances can get overwritten per capability. So if you have an

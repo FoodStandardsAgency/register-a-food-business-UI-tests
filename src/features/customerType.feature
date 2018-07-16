@@ -6,7 +6,7 @@ Customer Type section validation
     @customer_operator_type_SDB-117_others
     Scenario: happy path for selecting supply food to other businesses
         Given I reload my session
-        And I open the url "hhttps://register-a-food-business-dev.azurewebsites.net/customer-type"
+        And I open the url "https://register-a-food-business-dev.azurewebsites.net/customer-type"
         When I click on the element "custType.supplyOther"
         And I click on the element "custType.button"
         Then I expect that the url is not "https://register-a-food-business-dev.azurewebsites.net/customer-type"

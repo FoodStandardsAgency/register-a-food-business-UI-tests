@@ -44,11 +44,11 @@ exports.config = {
         //
         {
             browserName: "chrome"
-            // os: "OS X",
-            // os_version: "High Sierra",
-            // browserName: "Chrome",
-            // browser_version: "67.0",
-            // browserName: "Firefox",
+            os: "OS X",
+            os_version: "High Sierra",
+            browserName: "Chrome",
+            browser_version: "67.0",
+            //browserName: "Firefox",
             //browser_version: "61.0",
             //browserName: "Safari",
             //browser_version: "11.1",
@@ -59,7 +59,7 @@ exports.config = {
             //browser_version: "11.0",
             //browserName: "Edge",
             //browser_version: "17.0",
-            // project: "test_project"
+            project: "test_project"
         }
     ],
     // maxInstances can get overwritten per capability. So if you have an

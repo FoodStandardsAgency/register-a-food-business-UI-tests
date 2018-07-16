@@ -1,6 +1,6 @@
 exports.config = {
-    user: "libertyjacklin2",
-    key: "4yS51VYzDYsgNGWfpfeJ",
+    // user: "libertyjacklin2",
+    // key: "4yS51VYzDYsgNGWfpfeJ",
     //
     // ==================
     // Specify Test Files
@@ -11,7 +11,7 @@ exports.config = {
     // then the current working directory is where your package.json resides, so
     // `wdio` will be called from there.
     //
-    specs: ["./src/features/**/errorSummary.feature"],
+    specs: ["./src/features/**/*.feature"],
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'

@@ -1,6 +1,6 @@
 exports.config = {
-    user: "libertyjacklin2",
-    key: "4yS51VYzDYsgNGWfpfeJ",
+    // user: "libertyjacklin2",
+    // key: "4yS51VYzDYsgNGWfpfeJ",
     //
     // ==================
     // Specify Test Files
@@ -43,7 +43,7 @@ exports.config = {
     capabilities: [
         //
         {
-
+            browserName: "chrome"
             os: "OS X",
             os_version: "High Sierra",
             browserName: "Chrome",
@@ -60,7 +60,6 @@ exports.config = {
             //browserName: "Edge",
             //browser_version: "17.0",
             project: "test_project"
-
         }
     ],
     // maxInstances can get overwritten per capability. So if you have an

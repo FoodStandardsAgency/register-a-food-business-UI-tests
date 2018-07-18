@@ -44,6 +44,7 @@ exports.config = {
         {
             user: process.env.BROWSERSTACK_USERNAME,
             key: process.env.BROWSERSTACK_ACCESS_KEY,
+            browserName: "chrome"
             os: "OS X",
             os_version: "High Sierra",
             browserName: "Chrome",

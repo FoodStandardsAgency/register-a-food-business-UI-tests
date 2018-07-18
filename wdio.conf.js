@@ -1,6 +1,4 @@
 exports.config = {
-    // user: "libertyjacklin2",
-    // key: "4yS51VYzDYsgNGWfpfeJ",
     //
     // ==================
     // Specify Test Files
@@ -40,14 +38,17 @@ exports.config = {
     // out the Sauce Labs platform configurator - a great tool to configure your
     // capabilities: https://docs.saucelabs.com/reference/platforms-configurator
     //
+
     capabilities: [
         //
         {
-
+            user: process.env.BROWSERSTACK_USERNAME,
+            key: process.env.BROWSERSTACK_ACCESS_KEY,
             os: "OS X",
             os_version: "High Sierra",
             browserName: "Chrome",
             browser_version: "67.0",
+
             //browserName: "Firefox",
             //browser_version: "61.0",
             //browserName: "Safari",
@@ -60,7 +61,6 @@ exports.config = {
             //browserName: "Edge",
             //browser_version: "17.0",
             project: "test_project"
-
         }
     ],
     // maxInstances can get overwritten per capability. So if you have an

@@ -12,7 +12,7 @@ Feature: Summary Page
     Given I reload my session
     And I open the url "/establishment-trading-name"
     And I set "Test Trading Name" to the inputfield "estabTradingName.tradingNameInput"
-    And I click on the element "estabTradingName.button"
+    And I click on the element "estabTradingName.changeOperatorEmail"
     When I open the url "/registration-summary"
     Then I expect that element "registrationSummary.tradingName" contains the text "Test Trading Name"
 
@@ -30,4 +30,5 @@ Feature: Summary Page
   Scenario: all possible data is displayed
     Given I go to a special QA page at url "https://register-a-food-business-dev.azurewebsites.net/qa/registration-summary" with injected "registration-summary" data
     Then I expect that element "registrationSummary.tradingName" contains the text "Trading name"
-# Then I expect that the url is "hadkadada"
+
+    

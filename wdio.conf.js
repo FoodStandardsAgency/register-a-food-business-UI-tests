@@ -11,7 +11,31 @@ exports.config = {
     // then the current working directory is where your package.json resides, so
     // `wdio` will be called from there.
     //
-    specs: ["./src/features/**/*.feature"],
+    // specs: ["./src/features/**/*.feature"],
+    // specs: [
+    //     "./src/features/**/backButton.feature",
+    //     "./src/features/**/charityDetails.feature",
+    //     "./src/features/**/customerType.feature",
+    //     "./src/features/**/landingPage.feature",
+    //     "./src/features/**/limitedCompanyDetails.feature"
+    // ],
+    specs: [
+        // "./src/features/**/establishmentAddress.feature",
+        "./src/features/**/establishmentContactDetails.feature"
+        // "./src/features/**/establishmentTradingName.feature"
+    ],
+    // specs: [
+    //     "./src/features/**/operatorAddress.feature",
+    //     "./src/features/**/operatorContactDetails.feature",
+    //     "./src/features/**/operatorName.feature",
+    //     "./src/features/**/operatorType.feature"
+    // ],
+    // specs: [
+    // "./src/features/**/registrationRole.feature",
+    // "./src/features/**/registrationSummary.feature",
+    // "./src/features/**/representativeOperatorContactDetails.feature"
+    // "./src/features/**/submitRegistration.feature"
+    // ],
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
@@ -43,23 +67,22 @@ exports.config = {
     capabilities: [
         //
         {
-            // os: "OS X",
-            //os_version: "High Sierra",
-            //browserName: "Chrome",
-            //browser_version: "67.0",
-            //browserName: "Firefox",
-            //browser_version: "61.0",
+            os: "OS X",
+            os_version: "High Sierra",
+            // browserName: "Chrome",
+            // browser_version: "67.0",
+            browserName: "Firefox",
+            browser_version: "61.0",
             //browserName: "Safari",
             //browser_version: "11.1",
             /////////////
-            os: "Windows",
-            os_version: "10",
+            //os: "Windows",
+            //os_version: "10",
             //browserName: "IE",
             //browser_version: "11.0",
-            browserName: "Edge",
-            browser_version: "17.0",
+            //browserName: "Edge",
+            //browser_version: "17.0",
             project: "test_project"
-
         }
     ],
     // maxInstances can get overwritten per capability. So if you have an
@@ -137,16 +160,16 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: http://webdriver.io/guide/testrunner/reporters.html
-    reporters: ["spec"],
-    // reporters: ["allure"],
-    // reporterOptions: {
-    //     allure: {
-    //         outputDir: "allure-results",
-    //         disableWebdriverStepsReporting: true,
-    //         disableWebdriverScreenshotsReporting: true,
-    //         useCucumberStepReporter: false
-    //     }
-    // },
+    // reporters: ["spec"],
+    reporters: ["allure"],
+    reporterOptions: {
+        allure: {
+            outputDir: "allure-results",
+            disableWebdriverStepsReporting: true,
+            disableWebdriverScreenshotsReporting: true,
+            useCucumberStepReporter: false
+        }
+    },
     //
     // If you are using Cucumber you need to specify the location of your step
     // definitions.

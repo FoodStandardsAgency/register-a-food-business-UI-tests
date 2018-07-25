@@ -69,5 +69,5 @@ Feature: As Samantha I need to be able to edit details in the summary of my regi
         When I set "" to the inputfield "estabAddress.street"
         And I click on the element "estabAddress.button"
         Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/registration-summary"
-        And I expect that element "registrationSummary.establishmentAddressStreet" is not visiblegit s
+        And I expect that element "registrationSummary.establishmentAddressStreet" is not visible
 

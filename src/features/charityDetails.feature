@@ -42,14 +42,14 @@ Charity Details section validation
         Then I expect that element "charityDetails.error" contains the text "Not a valid charity number"
         And I expect that element "charityDetails.charityName" contains the text "Charity Name example"
 
-# following scenario will fail due to two different dropdowns on same page
-# @charity_details_more_info_SDB-40
-# Scenario: I want to find more info on my charity reference number
-#     Given I reload my session
-#     And I open the url "/operator-charity-details"
-#     When I click on the element "charityDetails.questions"
-#     And I click on the element "charityDetails.link"
-#     Then I expect that the url is "https://beta.charitycommission.gov.uk/"
-
+    @charity_details_more_info_SDB-40
+    Scenario: testing more info for charity details
+        Given I reload my session
+        And I open the url "https://register-a-food-business-dev.azurewebsites.net/operator-charity-details"
+        When I click on the element "charityDetails.questionsCharityReference"
+        Then I expect that the attribute "href" from element "charityDetails.link" is "https://beta.charitycommission.gov.uk/"
+        Given I click on the element "charityDetails.link"
+        And I pause for 1000ms
+        Then I expect a new tab has been opened
 
 

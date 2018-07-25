@@ -63,15 +63,20 @@ exports.config = {
     // out the Sauce Labs platform configurator - a great tool to configure your
     // capabilities: https://docs.saucelabs.com/reference/platforms-configurator
     //
+
     capabilities: [
         //
         {
+
+            user: process.env.BROWSERSTACK_USERNAME,
+            key: process.env.BROWSERSTACK_ACCESS_KEY,
+            browserName: "chrome"
             os: "OS X",
             os_version: "High Sierra",
-            // browserName: "Chrome",
-            // browser_version: "67.0",
-            browserName: "Firefox",
-            browser_version: "61.0",
+            browserName: "Chrome",
+            browser_version: "67.0",
+            //browserName: "Firefox",
+            //browser_version: "61.0",
             //browserName: "Safari",
             //browser_version: "11.1",
             /////////////

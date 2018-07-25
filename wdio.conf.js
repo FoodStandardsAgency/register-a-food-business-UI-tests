@@ -14,10 +14,10 @@ exports.config = {
     // specs: ["./src/features/**/*.feature"],
     specs: [
         // "./src/features/**/backButton.feature",
-        "./src/features/**/charityDetails.feature",
+        "./src/features/**/charityDetails.feature"
         // "./src/features/**/customerType.feature",
         // "./src/features/**/landingPage.feature",
-        "./src/features/**/limitedCompanyDetails.feature"
+        // "./src/features/**/limitedCompanyDetails.feature"
     ],
     // specs: [
     // "./src/features/**/establishmentAddress.feature",

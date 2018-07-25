@@ -46,7 +46,7 @@ Charity Details section validation
     Scenario: testing more info for charity details
         Given I reload my session
         And I open the url "https://register-a-food-business-dev.azurewebsites.net/operator-charity-details"
-        When I click on the element "charityDetails.questions"
+        When I click on the element "charityDetails.questionsCharityReference"
         Then I expect that the attribute "href" from element "charityDetails.link" is "https://beta.charitycommission.gov.uk/"
         Given I click on the element "charityDetails.link"
         And I pause for 1000ms

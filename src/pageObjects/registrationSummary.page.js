@@ -7,6 +7,7 @@ const registrationSummary = {
     operatorPrimaryNumber: "#operator_primary_number",
     tradingName: "#establishment_trading_name",
     establishmentEmail: "#establishment_email",
+    establishmentAddressStreet: "#establishment_street",
 
     changeCompanyName: "#changeOperatorCompanyNameRow",
     changeCompanyNumber: "#change",

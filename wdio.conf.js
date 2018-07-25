@@ -19,23 +19,24 @@ exports.config = {
     //     "./src/features/**/landingPage.feature",
     //     "./src/features/**/limitedCompanyDetails.feature"
     // ],
-    specs: [
-        // "./src/features/**/establishmentAddress.feature",
-        "./src/features/**/establishmentContactDetails.feature"
-        // "./src/features/**/establishmentTradingName.feature"
-    ],
+    // specs: [
+    // "./src/features/**/establishmentAddress.feature",
+    // "./src/features/**/establishmentContactDetails.feature"
+    // "./src/features/**/establishmentTradingName.feature"
+    // ],
     // specs: [
     //     "./src/features/**/operatorAddress.feature",
     //     "./src/features/**/operatorContactDetails.feature",
     //     "./src/features/**/operatorName.feature",
     //     "./src/features/**/operatorType.feature"
     // ],
-    // specs: [
-    // "./src/features/**/registrationRole.feature",
-    // "./src/features/**/registrationSummary.feature",
-    // "./src/features/**/representativeOperatorContactDetails.feature"
-    // "./src/features/**/submitRegistration.feature"
-    // ],
+    specs: [
+        // "./src/features/**/registrationRole.feature",
+        // "./src/features/**/registrationSummary.feature",
+        // "./src/features/**/representativeOperatorContactDetails.feature"
+        // "./src/features/**/submitRegistration.feature"
+        "./src/features/**/editSummary.feature"
+    ],
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'

@@ -1,6 +1,4 @@
 exports.config = {
-    user: "libertyjacklin2",
-    key: "4yS51VYzDYsgNGWfpfeJ",
     //
     // ==================
     // Specify Test Files
@@ -11,7 +9,7 @@ exports.config = {
     // then the current working directory is where your package.json resides, so
     // `wdio` will be called from there.
     //
-    // specs: ["./src/features/**/*.feature"],
+    specs: ["./src/features/**/*.feature"],
     // specs: [
     //     "./src/features/**/backButton.feature",
     //     "./src/features/**/charityDetails.feature",
@@ -35,7 +33,7 @@ exports.config = {
         // "./src/features/**/registrationSummary.feature",
         // "./src/features/**/representativeOperatorContactDetails.feature"
         // "./src/features/**/submitRegistration.feature"
-        "./src/features/**/editSummary.feature"
+        // "./src/features/**/editSummary.feature"
     ],
     // Patterns to exclude.
     exclude: [

@@ -10,18 +10,20 @@ exports.config = {
     // `wdio` will be called from there.
     //
     // specs: ["./src/features/**/*.feature"],
-    specs: [
+    // specs: [
         // "./src/features/**/backButton.feature",
-        "./src/features/**/charityDetails.feature"
+        // "./src/features/**/charityDetails.feature"
         // "./src/features/**/customerType.feature",
         // "./src/features/**/landingPage.feature",
         // "./src/features/**/limitedCompanyDetails.feature"
-    ],
-    // specs: [
-    // "./src/features/**/establishmentAddress.feature",
-    // "./src/features/**/establishmentContactDetails.feature"
-    // "./src/features/**/establishmentTradingName.feature"
     // ],
+    specs: [
+    // "./src/features/**/establishmentAddress.feature",
+    "./src/features/**/establishmentAddressType.feature"
+
+    // "./src/features/**/establishmentContactDetails.feature",
+    // "./src/features/**/establishmentTradingName.feature"
+    ],
     // specs: [
     //     "./src/features/**/operatorAddress.feature",
     //     "./src/features/**/operatorContactDetails.feature",

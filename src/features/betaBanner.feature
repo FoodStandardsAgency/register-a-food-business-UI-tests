@@ -60,11 +60,20 @@ Beta Banner validation
     Scenario: I want to fill in the feedback form
         Given I reload my session
         When I open the url "/operator-company-details"
-        # When I click on the element "commonElements.betaLink"
         Then I expect that the attribute "href" from element "commonElements.betaLink" is "https://goo.gl/forms/WB5adxvWQdDIfVvs2"
         Given I click on the element "commonElements.betaLink"
         And I pause for 1000ms
         Then I expect a new tab has been opened
+
+    @beta_banner_SDB-373_summary_confirmation
+    Scenario: I want to fill in the feedback form
+        Given I reload my session
+        When I open the url "/summary-confirmation"
+        Then I expect that the attribute "href" from element "commonElements.betaLink" is "https://goo.gl/forms/WB5adxvWQdDIfVvs2"
+        Given I click on the element "commonElements.betaLink"
+        And I pause for 1000ms
+        Then I expect a new tab has been opened
+
 
 
 

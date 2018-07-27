@@ -22,6 +22,7 @@ const charityDetails = require("./charityDetails.page.js");
 
 const submitRegistration = require("./submitRegistration.page.js");
 const registrationSummary = require("./registrationSummary.page.js");
+const summaryConfirmation = require("./summaryConfirmation.page.js");
 
 function getSelector(elem) {
     return eval(elem);

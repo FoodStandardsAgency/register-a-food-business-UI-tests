@@ -6,7 +6,7 @@ Establishment address type section validation
 
     @change_establishment_address_type_SDB-50
     Scenario: able to change establishment address Type
-        Given I open the url "/establishment-address-details"
+        Given I open the url "/establishment-address-type"
         When I click on the element "estabAddressType.businessCommercial"
         And I click on the element "estabAddressType.mobileMoveable"
         Then I expect that element "estabAddressType.mobileMoveable" is selected
@@ -15,7 +15,7 @@ Establishment address type section validation
     @happy_path_SDB-50
     Scenario: happy path for establishment address Type
         Given I reload my session
-        And I open the url "/establishment-address-details"
+        And I open the url "/establishment-address-type"
         When I click on the element "estabAddressType.businessCommercial"
         And I click on the element "estabAddressType.button"
         Then I expect that the url is not "https://register-a-food-business-dev.azurewebsites.net/establishment-address-details"
@@ -24,7 +24,7 @@ Establishment address type section validation
     @not_selected_establishment_type_SDB-50
     Scenario: error shows when no establishment type is selected
         Given I reload my session
-        Given I open the url "/establishment-address-details"
+        Given I open the url "/establishment-address-type"
         When I click on the element "estabAddressType.button"
         Then I expect that element "estabAddressType.error" contains the text "You must select an establishment type before continuing"
 

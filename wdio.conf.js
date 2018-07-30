@@ -9,14 +9,15 @@ exports.config = {
     // then the current working directory is where your package.json resides, so
     // `wdio` will be called from there.
     //
-    // specs: ["./src/features/**/*.feature"],
-    specs: [
-        // "./src/features/**/backButton.feature",
-        "./src/features/**/charityDetails.feature"
-        // "./src/features/**/customerType.feature",
-        // "./src/features/**/landingPage.feature",
-        // "./src/features/**/limitedCompanyDetails.feature"
-    ],
+    specs: ["./src/features/**/*.feature"],
+    // specs: [
+    // "./src/features/**/betaBanner.feature"
+    // "./src/features/**/backButton.feature",
+    // "./src/features/**/charityDetails.feature"
+    // "./src/features/**/customerType.feature",
+    // "./src/features/**/landingPage.feature",
+    // "./src/features/**/limitedCompanyDetails.feature"
+    // ],
     // specs: [
     // "./src/features/**/establishmentAddress.feature",
     // "./src/features/**/establishmentContactDetails.feature"
@@ -66,25 +67,24 @@ exports.config = {
     capabilities: [
         //
         {
-
-            user: process.env.BROWSERSTACK_USERNAME,
-            key: process.env.BROWSERSTACK_ACCESS_KEY,
-            browserName: "chrome"
+            // user: process.env.BROWSERSTACK_USERNAME,
+            // key: process.env.BROWSERSTACK_ACCESS_KEY,
+            browserName: "chrome",
             os: "OS X",
             os_version: "High Sierra",
             browserName: "Chrome",
             browser_version: "67.0",
-            //browserName: "Firefox",
-            //browser_version: "61.0",
+            // browserName: "Firefox",
+            // browser_version: "61.0",
             //browserName: "Safari",
             //browser_version: "11.1",
             /////////////
-            //os: "Windows",
-            //os_version: "10",
+            // os: "Windows",
+            // os_version: "10",
             //browserName: "IE",
             //browser_version: "11.0",
-            //browserName: "Edge",
-            //browser_version: "17.0",
+            // browserName: "Edge",
+            // browser_version: "17.0",
             project: "test_project"
         }
     ],

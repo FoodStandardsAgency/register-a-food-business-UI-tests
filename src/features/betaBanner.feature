@@ -7,7 +7,7 @@ Beta Banner validation
 # @beta_banner_SDB-373
 # Scenario Outline: beta banner is visible
 #     Given I reload my session
-#     When I open the url "/blah"
+#     When I open the url <url>
 #     Then I expect that element "commonElements.betaBeta" is visible
 
 #     Examples:
@@ -68,7 +68,8 @@ Beta Banner validation
     @beta_banner_SDB-373_summary_confirmation
     Scenario: I want to fill in the feedback form
         Given I reload my session
-        When I open the url "/summary-confirmation"
+        And I go to a special QA page at url "https://register-a-food-business-dev.azurewebsites.net/qa/application-complete" with injected "registration-summary" data
+        When I open the url "/application-complete"
         Then I expect that the attribute "href" from element "commonElements.betaLink" is "https://goo.gl/forms/WB5adxvWQdDIfVvs2"
         Given I click on the element "commonElements.betaLink"
         And I pause for 1000ms

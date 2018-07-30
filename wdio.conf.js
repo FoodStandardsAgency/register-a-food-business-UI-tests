@@ -20,7 +20,9 @@ exports.config = {
     // ],
     // specs: [
     // "./src/features/**/establishmentAddress.feature",
-    // "./src/features/**/establishmentContactDetails.feature"
+    // "./src/features/**/establishmentAddressType.feature"
+
+    // "./src/features/**/establishmentContactDetails.feature",
     // "./src/features/**/establishmentTradingName.feature"
     // ],
     // specs: [
@@ -298,13 +300,5 @@ exports.config = {
     // Gets executed after all workers got shut down and the process is about to
     // exit. It is not possible to defer the end of the process using a promise.
     // onComplete: function onComplete(exitCode) {
-    // }
-    // beforeScenario: function(scenario) {
-    //     browser.reload();
-    //     console.log("PLS WORK");
-    // }
-    // afterScenario: function(scenario) {
-    //     driver.close();
-    //     console.log("PLS WORK");
     // }
 };

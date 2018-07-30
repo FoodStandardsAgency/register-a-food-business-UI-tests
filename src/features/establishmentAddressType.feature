@@ -26,6 +26,6 @@ Establishment address type section validation
         Given I reload my session
         Given I open the url "/establishment-address-type"
         When I click on the element "estabAddressType.button"
-        Then I expect that element "estabAddressType.error" contains the text "You must select an establishment type before continuing"
+        Then I expect that element "estabAddressType.error" contains the text "You must select an establishment address type before continuing"
 
 

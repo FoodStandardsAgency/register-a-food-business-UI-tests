@@ -3,6 +3,7 @@ const commonElements = require("./commonElements.page.js");
 const firstpage = require("./first.page.js");
 
 const estabAddress = require("./establishmentAddress.page.js");
+const estabAddressType = require("./establishmentAddressType.page.js");
 const estabTradingName = require("./establishmentTradingName.page.js");
 const estabContactDetails = require("./establishmentContactDetails.page.js");
 const estabOpeningDate = require("./establishmentOpeningDate.page.js");
@@ -22,6 +23,7 @@ const charityDetails = require("./charityDetails.page.js");
 
 const submitRegistration = require("./submitRegistration.page.js");
 const registrationSummary = require("./registrationSummary.page.js");
+const submissionPage = require("./submissionPage.page.js");
 
 function getSelector(elem) {
     return eval(elem);

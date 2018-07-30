@@ -11,6 +11,7 @@ exports.config = {
     //
     specs: ["./src/features/**/*.feature"],
     // specs: [
+    // "./src/features/**/betaBanner.feature"
     // "./src/features/**/backButton.feature",
     // "./src/features/**/charityDetails.feature"
     // "./src/features/**/customerType.feature",
@@ -82,8 +83,8 @@ exports.config = {
             /////////////
             // os: "Windows",
             // os_version: "10",
-            // browserName: "IE",
-            // browser_version: "11.0",
+            //browserName: "IE",
+            //browser_version: "11.0",
             // browserName: "Edge",
             // browser_version: "17.0",
             project: "test_project"

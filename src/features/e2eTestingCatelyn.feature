@@ -23,7 +23,7 @@ Testing whole flow for current pages for Catelyn
         When I set "sophie.vale-morris@gmail.com" to the inputfield "opContactDetails.emailAddress"
         And I set "02749 482642" to the inputfield "opContactDetails.primaryPhoneNumber"
         And I set "07937 485112" to the inputfield "opContactDetails.optionalPhoneNumber"
-        And I click on the element "submitRegistration.button"
+        And I click on the element "opContactDetails.button"
         Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/establishment-trading-name"
         When I set "Old Lyme Cafe" to the inputfield "estabTradingName.tradingNameInput"
         And I click on the element "estabTradingName.button"

@@ -1,7 +1,7 @@
 @end_to_end_testing_Catelyn
 Feature: Testing user journey for Catelyn
 
-Testing whole flow for current pages
+Testing whole flow for current pages for Catelyn
 
     @happy_path_
     Scenario: happy path
@@ -15,17 +15,48 @@ Testing whole flow for current pages
         And I set "Vale" to the inputfield "opContactName.lastName"
         And I click on the element "opContactName.button"
         Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/operator-address"
-         And I set "EX19 7UM" to the inputfield "opAddress.postcode"
-        When I click on the element "opAddress.findAddress"
+        When I set "EX19 7UM" to the inputfield "opAddress.postcode"
+        And I click on the element "opAddress.findAddress"
         Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/operator-address-select"
         When I click on the element "opAddress.button"
         Then I expect that the url is not "https://register-a-food-business-dev.azurewebsites.net/operator-contact-details"
-         When I set "sophie.vale-morris@gmail.com" to the inputfield "opContactDetails.emailAddress"
+        When I set "sophie.vale-morris@gmail.com" to the inputfield "opContactDetails.emailAddress"
         And I set "02749 482642" to the inputfield "opContactDetails.primaryPhoneNumber"
         And I set "07937 485112" to the inputfield "opContactDetails.optionalPhoneNumber"
         And I click on the element "submitRegistration.button"
         Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/establishment-trading-name"
-         When I set "Old Lyme Cafe" to the inputfield "estabTradingName.tradingNameInput"
+        When I set "Old Lyme Cafe" to the inputfield "estabTradingName.tradingNameInput"
         And I click on the element "estabTradingName.button"
         Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/establishment-address"
-        
+        And I set "EX19 7UU" to the inputfield "estabAddress.postcode"
+        When I click on the element "estabAddress.findAddress"
+        Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/establishment-address-select"
+        When I click on the element "estabAddress.button"
+        Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/establishment-address-type"
+        When I click on the element "estabAddressType.businessCommercial"
+        And I click on the element "estabAddressType.button"
+        Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/establishment-contact-details"
+        When I click on the element "estabContactDetails.checkbox"
+        And I set "023 475 2455" to the inputfield "estabContactDetails.primaryPhoneNumber"
+        And I click on the element "estabContactDetails.button"
+        Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/establishment-opening-status"
+        When I click on the element "estabOpeningDate.alreadyTrading"
+        And I click on the element "estabOpeningDate.button"
+        Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/establishment-opening-date-retroactive"
+        When I set "08" to the inputfield "estabOpeningDate.day"
+        And I set "12" to the inputfield "estabOpeningDate.month"
+        And I set "2017" to the inputfield "estabOpeningDate.year"
+        And I click on the element "estabOpeningDate.button"
+        Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/customer-type"
+        When I click on the element "custType.supplyDirectly"
+        And I click on the element "custType.button"
+        Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/registration-summary"
+        When I click on the element "registrationSummary.button"
+        Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/declaration"
+        When I click on the element "submitRegistration.firstCheckbox"
+        And I click on the element "submitRegistration.secondCheckbox"
+        And I click on the element "submitRegistration.thirdCheckbox"
+        And I click on the element "submitRegistration.button"
+        Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/summary-confirmation"
+
+

@@ -34,8 +34,9 @@ exports.config = {
     // specs: [
     // "./src/features/**/registrationRole.feature",
     // "./src/features/**/registrationSummary.feature",
-    // "./src/features/**/representativeOperatorContactDetails.feature"
-    // "./src/features/**/submitRegistration.feature"
+    // "./src/features/**/representativeOperatorContactDetails.feature",
+    // "./src/features/**/submitRegistration.feature",
+    // "./src/features/**/submissionPage.feature"
     // ],
     // Patterns to exclude.
     exclude: [
@@ -75,7 +76,7 @@ exports.config = {
             os: "OS X",
             os_version: "High Sierra",
             browserName: "Chrome",
-            browser_version: "67.0",
+            // browser_version: "67.0",
             // browserName: "Firefox",
             // browser_version: "61.0",
             //browserName: "Safari",
@@ -166,7 +167,7 @@ exports.config = {
     // The only one supported by default is 'dot'
     // see also: http://webdriver.io/guide/testrunner/reporters.html
     // reporters: ["spec"],
-    reporters: ["allure"],
+    // reporters: ["allure"],
     reporterOptions: {
         allure: {
             outputDir: "allure-results",

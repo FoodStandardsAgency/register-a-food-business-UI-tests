@@ -18,8 +18,9 @@ exports.config = {
     //     "./src/features/**/limitedCompanyDetails.feature"
     // ],
     specs: [
-        // "./src/features/**/establishmentAddress.feature",
-        "./src/features/**/establishmentContactDetails.feature"
+        "./src/features/**/establishmentAddress.feature",
+        "./src/features/**/operatorAddress.feature"
+        // "./src/features/**/establishmentContactDetails.feature"
         // "./src/features/**/establishmentTradingName.feature"
     ],
     // specs: [

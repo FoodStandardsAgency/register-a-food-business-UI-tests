@@ -1,4 +1,6 @@
 exports.config = {
+    user: "libertyjacklin2",
+    key: "4yS51VYzDYsgNGWfpfeJ",
     //
     // ==================
     // Specify Test Files
@@ -10,13 +12,13 @@ exports.config = {
     // `wdio` will be called from there.
     //
     // specs: ["./src/features/**/*.feature"],
-    specs: [
-        // "./src/features/**/backButton.feature",
-        "./src/features/**/charityDetails.feature"
-        // "./src/features/**/customerType.feature",
-        // "./src/features/**/landingPage.feature",
-        // "./src/features/**/limitedCompanyDetails.feature"
-    ],
+    // specs: [
+    // "./src/features/**/backButton.feature",
+    // "./src/features/**/charityDetails.feature"
+    // "./src/features/**/customerType.feature",
+    // "./src/features/**/landingPage.feature",
+    // "./src/features/**/limitedCompanyDetails.feature"
+    // ],
     // specs: [
     // "./src/features/**/establishmentAddress.feature",
     // "./src/features/**/establishmentContactDetails.feature"
@@ -28,12 +30,13 @@ exports.config = {
     //     "./src/features/**/operatorName.feature",
     //     "./src/features/**/operatorType.feature"
     // ],
-    // specs: [
-    // "./src/features/**/registrationRole.feature",
-    // "./src/features/**/registrationSummary.feature",
-    // "./src/features/**/representativeOperatorContactDetails.feature"
-    // "./src/features/**/submitRegistration.feature"
-    // ],
+    specs: [
+        // "./src/features/**/registrationRole.feature",
+        // "./src/features/**/registrationSummary.feature",
+        // "./src/features/**/representativeOperatorContactDetails.feature"
+        // "./src/features/**/submitRegistration.feature",
+        "./src/features/**/receiveConfirmationNumber.feature"
+    ],
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
@@ -66,10 +69,9 @@ exports.config = {
     capabilities: [
         //
         {
-
-            user: process.env.BROWSERSTACK_USERNAME,
-            key: process.env.BROWSERSTACK_ACCESS_KEY,
-            browserName: "chrome"
+            // user: process.env.BROWSERSTACK_USERNAME,
+            // key: process.env.BROWSERSTACK_ACCESS_KEY,
+            browserName: "chrome",
             os: "OS X",
             os_version: "High Sierra",
             browserName: "Chrome",

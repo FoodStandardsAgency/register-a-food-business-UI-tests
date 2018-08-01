@@ -10,11 +10,6 @@ exports.config = {
     //
     // specs: ["./src/features/**/*.feature"],
     // specs: [
-    // "./src/features/**/backButton.feature",
-    // "./src/features/**/charityDetails.feature"
-    // "./src/features/**/customerType.feature",
-    // "./src/features/**/landingPage.feature",
-    // "./src/features/**/limitedCompanyDetails.feature"
     // ],
     // specs: [
     // "./src/features/**/establishmentAddress.feature",
@@ -29,13 +24,6 @@ exports.config = {
     //     "./src/features/**/operatorName.feature",
     //     "./src/features/**/operatorType.feature"
     // ],
-    specs: [
-        // "./src/features/**/registrationRole.feature",
-        // "./src/features/**/registrationSummary.feature",
-        // "./src/features/**/representativeOperatorContactDetails.feature"
-        // "./src/features/**/submitRegistration.feature",
-        "./src/features/**/receiveConfirmationNumber.feature"
-    ],
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
@@ -74,7 +62,7 @@ exports.config = {
             os: "OS X",
             os_version: "High Sierra",
             browserName: "Chrome",
-            browser_version: "67.0",
+            // browser_version: "67.0",
             // browserName: "Firefox",
             // browser_version: "61.0",
             //browserName: "Safari",
@@ -164,16 +152,16 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: http://webdriver.io/guide/testrunner/reporters.html
-    // reporters: ["spec"],
-    reporters: ["allure"],
-    reporterOptions: {
-        allure: {
-            outputDir: "allure-results",
-            disableWebdriverStepsReporting: true,
-            disableWebdriverScreenshotsReporting: true,
-            useCucumberStepReporter: false
-        }
-    },
+    reporters: ["spec"],
+    // reporters: ["allure"],
+    // reporterOptions: {
+    //     allure: {
+    //         outputDir: "allure-results",
+    //         disableWebdriverStepsReporting: true,
+    //         disableWebdriverScreenshotsReporting: true,
+    //         useCucumberStepReporter: false
+    //     }
+    // },
     //
     // If you are using Cucumber you need to specify the location of your step
     // definitions.

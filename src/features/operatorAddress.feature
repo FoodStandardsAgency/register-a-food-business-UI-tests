@@ -21,7 +21,7 @@ Operator address section validation
         And I set "SW1A 1AA" to the inputfield "opAddress.postcode"
         When I click on the element "opAddress.findAddress"
         Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/operator-address-select"
-        When I select the 2nd option for element "opAddress.postcodeDropdown"
+        When I select the option with the value "2" for element "opAddress.postcodeDropdown"
         And I click on the element "opAddress.button"
         Then I expect that the url is not "https://register-a-food-business-dev.azurewebsites.net/operator-address-select" 
 
@@ -55,7 +55,8 @@ Operator address section validation
         When I click on the element "opAddress.findAddress"
         Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/operator-address-select"
         And I expect that element "opAddress.postcodeDisplay" contains the text "AA11 1AA"
-        When I click on the element "opAddress.cantFindAddress"
+        # When I click on the element "opAddress.hiddenText"
+        When I click on the link "opAddress.cantFindAddress"
         Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/operator-address-manual"
         When I set "test first line" to the inputfield "opAddress.firstline"
         And I set "AA11 1AA" to the inputfield "opAddress.postcode"
@@ -68,33 +69,31 @@ Operator address section validation
         Given I reload my session
         And I open the url "/operator-address-manual"
         When I set "±±±" to the inputfield "opAddress.firstline"
-        And I set "AA11 1AA" to the inputfield "opAddress.postcode"
+        And I set "AA11 1AA" to the inputfield "opAddress.manualPostcode"
         And I click on the element "opAddress.button"
         Then I expect that element "opAddress.error" contains the text "Not a valid first line of address"
-        And I expect that element "opAddress.postcode" contains the text "AA11 1AA"
+        And I expect that element "opAddress.manualPostcode" contains the text "AA11 1AA"
         And I expect that element "opAddress.firstline" contains the text "±±±"
 
     @SDB-12_operator_address_cant_find_address_error_no_firstline
     Scenario: using manual input - error
         Given I reload my session
         And I open the url "/operator-address-manual"
-        And I set "AA11 1AA" to the inputfield "opAddress.postcode"
+        And I set "AA11 1AA" to the inputfield "opAddress.manualPostcode"
         And I click on the element "opAddress.button"
         Then I expect that element "opAddress.error" contains the text "Not a valid first line of address"
-        And I expect that element "opAddress.postcode" contains the text "AA11 1AA"
-        And I expect that element "opAddress.firstline" contains the text "±±±"
-
+        And I expect that element "opAddress.manualPostcode" contains the text "AA11 1AA"
 
     @SDB-12_operator_address_cant_find_address_error_postcode
     Scenario: using manual input - error
         Given I reload my session
         And I open the url "/operator-address-manual"
         When I set "test first line" to the inputfield "opAddress.firstline"
-        And I set "±±±" to the inputfield "opAddress.postcode"
+        And I set "±±±" to the inputfield "opAddress.manualPostcode"
         And I click on the element "opAddress.button"
-        Then I expect that element "opAddress.error" contains the text "Not a valid first line of address"
-        And I expect that element "opAddress.postcode" contains the text "AA11 1AA"
-        And I expect that element "opAddress.firstline" contains the text "±±±"
+        Then I expect that element "opAddress.error" contains the text "Not a valid postcode"
+        And I expect that element "opAddress.manualPostcode" contains the text "±±±"
+        And I expect that element "opAddress.firstline" contains the text "test first line"
 
     @SDB-12_operator_address_cant_find_address_error_no_postcode
     Scenario: using manual input - error
@@ -102,6 +101,5 @@ Operator address section validation
         And I open the url "/operator-address-manual"
         When I set "test first line" to the inputfield "opAddress.firstline"
         And I click on the element "opAddress.button"
-        Then I expect that element "opAddress.error" contains the text "Not a valid first line of address"
-        And I expect that element "opAddress.postcode" contains the text "AA11 1AA"
-        And I expect that element "opAddress.firstline" contains the text "±±±"
+        Then I expect that element "opAddress.error" contains the text "Not a valid postcode"
+        And I expect that element "opAddress.firstline" contains the text "test first line"

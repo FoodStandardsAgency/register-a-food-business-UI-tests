@@ -52,6 +52,8 @@ Establishment address section validation
         When I click on the element "estabAddress.findAddress"
         Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/establishment-address-select"
         And I expect that element "estabAddress.postcodeDisplay" contains the text "AA11 1AA"
+        When I click on the element "estabAddress.hiddenText"
+        Then I wait on element "estabAddress.cantFindAddress" to be visible
         When I click on the element "estabAddress.cantFindAddress"
         Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/establishment-address-manual"
         When I set "test first line" to the inputfield "estabAddress.firstline"
@@ -65,33 +67,31 @@ Establishment address section validation
         Given I reload my session
         And I open the url "/establishment-address-manual"
         When I set "±±±" to the inputfield "estabAddress.firstline"
-        And I set "AA11 1AA" to the inputfield "estabAddress.postcode"
+        And I set "AA11 1AA" to the inputfield "estabAddress.manualPostcode"
         And I click on the element "estabAddress.button"
         Then I expect that element "estabAddress.error" contains the text "Not a valid first line of address"
-        And I expect that element "estabAddress.postcode" contains the text "AA11 1AA"
+        And I expect that element "estabAddress.manualPostcode" contains the text "AA11 1AA"
         And I expect that element "estabAddress.firstline" contains the text "±±±"
 
     @SDB-12_establishment_address_cant_find_address__error_no_firstline
     Scenario: using manual input - error
         Given I reload my session
         And I open the url "/establishment-address-manual"
-        And I set "AA11 1AA" to the inputfield "estabAddress.postcode"
+        And I set "AA11 1AA" to the inputfield "estabAddress.manualPostcode"
         And I click on the element "estabAddress.button"
         Then I expect that element "estabAddress.error" contains the text "Not a valid first line of address"
-        And I expect that element "estabAddress.postcode" contains the text "AA11 1AA"
-        And I expect that element "estabAddress.firstline" contains the text "±±±"
-
+        And I expect that element "estabAddress.manualPostcode" contains the text "AA11 1AA"
 
     @SDB-12_establishment_address_cant_find_address_error_postcode
     Scenario: using manual input - error
         Given I reload my session
         And I open the url "/establishment-address-manual"
         When I set "test first line" to the inputfield "estabAddress.firstline"
-        And I set "±±±" to the inputfield "estabAddress.postcode"
+        And I set "±±±" to the inputfield "estabAddress.manualPostcode"
         And I click on the element "estabAddress.button"
-        Then I expect that element "estabAddress.error" contains the text "Not a valid first line of address"
-        And I expect that element "estabAddress.postcode" contains the text "AA11 1AA"
-        And I expect that element "estabAddress.firstline" contains the text "±±±"
+        Then I expect that element "estabAddress.error" contains the text "Not a valid postcode"
+        And I expect that element "estabAddress.manualPostcode" contains the text "±±±"
+        And I expect that element "estabAddress.firstline" contains the text "test first line"
 
     @SDB-12_establishment_address_cant_find_address_error_no_postcode
     Scenario: using manual input - error
@@ -99,8 +99,7 @@ Establishment address section validation
         And I open the url "/establishment-address-manual"
         When I set "test first line" to the inputfield "estabAddress.firstline"
         And I click on the element "estabAddress.button"
-        Then I expect that element "estabAddress.error" contains the text "Not a valid first line of address"
-        And I expect that element "estabAddress.postcode" contains the text "AA11 1AA"
-        And I expect that element "estabAddress.firstline" contains the text "±±±"
+        Then I expect that element "estabAddress.error" contains the text "Not a valid postcode"
+        And I expect that element "estabAddress.firstline" contains the text "test first line"
 
 

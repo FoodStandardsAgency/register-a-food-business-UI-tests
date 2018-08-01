@@ -25,13 +25,6 @@ exports.config = {
     //     "./src/features/**/operatorName.feature",
     //     "./src/features/**/operatorType.feature"
     // ],
-    specs: [
-        // "./src/features/**/registrationRole.feature",
-        // "./src/features/**/registrationSummary.feature",
-        // "./src/features/**/representativeOperatorContactDetails.feature"
-        // "./src/features/**/submitRegistration.feature"
-        // "./src/features/**/editSummary.feature"
-    ],
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
@@ -70,7 +63,7 @@ exports.config = {
             os: "OS X",
             os_version: "High Sierra",
             browserName: "Chrome",
-            browser_version: "67.0",
+            // browser_version: "67.0",
             // browserName: "Firefox",
             // browser_version: "61.0",
             //browserName: "Safari",

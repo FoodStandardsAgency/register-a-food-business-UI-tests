@@ -9,21 +9,25 @@ exports.config = {
     // `wdio` will be called from there.
     //
     // specs: ["./src/features/**/*.feature"],
-    // specs: [
-    // ],
-    // specs: [
-    // "./src/features/**/establishmentAddress.feature",
-    // "./src/features/**/establishmentAddressType.feature"
-
-    // "./src/features/**/establishmentContactDetails.feature",
-    // "./src/features/**/establishmentTradingName.feature"
-    // ],
-    // specs: [
-    //     "./src/features/**/operatorAddress.feature",
-    //     "./src/features/**/operatorContactDetails.feature",
-    //     "./src/features/**/operatorName.feature",
-    //     "./src/features/**/operatorType.feature"
-    // ],
+    specs: [
+        // "./src/features/**/backButton.feature",
+        // "./src/features/**/charityDetails.feature",
+        // "./src/features/**/customerType.feature",
+        // "./src/features/**/establishmentAddress.feature",
+        "./src/features/**/establishmentContactDetails.feature"
+        // "./src/features/**/establishmentTradingName.feature"
+        // "./src/features/**/landingPage.feature",
+        // "./src/features/**/limitedCompanyDetails.feature"
+        // "./src/features/**/operatorAddress.feature"
+        // "./src/features/**/operatorAddress.feature",
+        // "./src/features/**/operatorContactDetails.feature",
+        // "./src/features/**/operatorName.feature",
+        // "./src/features/**/operatorType.feature"
+        // "./src/features/**/registrationRole.feature",
+        // "./src/features/**/registrationSummary.feature",
+        // "./src/features/**/representativeOperatorContactDetails.feature"
+        // "./src/features/**/submitRegistration.feature"
+    ],
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
@@ -62,7 +66,7 @@ exports.config = {
             os: "OS X",
             os_version: "High Sierra",
             browserName: "Chrome",
-            // browser_version: "67.0",
+            browser_version: "67.0",
             // browserName: "Firefox",
             // browser_version: "61.0",
             //browserName: "Safari",

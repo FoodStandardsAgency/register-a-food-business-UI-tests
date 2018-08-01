@@ -1,0 +1,28 @@
+{
+    "urls": [
+        "https://register-a-food-business-dev.azurewebsites.net/",
+        "https://register-a-food-business-dev.azurewebsites.net/registration-role",
+        "https://register-a-food-business-dev.azurewebsites.net/operator-name",
+        "https://register-a-food-business-dev.azurewebsites.net/operator-type",
+        "https://register-a-food-business-dev.azurewebsites.net/operator-address",
+        "https://register-a-food-business-dev.azurewebsites.net/operator-contact-details",
+        "https://register-a-food-business-dev.azurewebsites.net/operator-company-details",
+        "https://register-a-food-business-dev.azurewebsites.net/operator-charity-details",
+        "https://register-a-food-business-dev.azurewebsites.net/establishment-trading-name",
+        "https://register-a-food-business-dev.azurewebsites.net/establishment-address",
+        "https://register-a-food-business-dev.azurewebsites.net/establishment-address-type",
+        "https://register-a-food-business-dev.azurewebsites.net/establishment-contact-details",
+        "https://register-a-food-business-dev.azurewebsites.net/establishment-opening-status",
+        "https://register-a-food-business-dev.azurewebsites.net/establishment-opening-date-retroactive",
+        "https://register-a-food-business-dev.azurewebsites.net/establishment-opening-date-proactive",
+        "https://register-a-food-business-dev.azurewebsites.net/customer-type",
+        "https://register-a-food-business-dev.azurewebsites.net/registration-summary",
+        "https://register-a-food-business-dev.azurewebsites.net/declaration",
+        "https://register-a-food-business-dev.azurewebsites.net/application-complete"
+
+
+
+
+
+    ]
+}

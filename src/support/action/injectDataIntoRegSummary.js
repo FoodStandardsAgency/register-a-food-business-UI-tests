@@ -18,7 +18,8 @@ const datasets = {
         establishment_first_line: "First line",
         establishment_street: "Street",
         establishment_town: "Town",
-        establishment_postcode: "AA11 1AA"
+        establishment_postcode: "AA11 1AA",
+        establishment_type: "domestic"
     },
     declaration: {
         operator_first_line: "First line",
@@ -33,7 +34,8 @@ const datasets = {
         establishment_first_line: "First line",
         establishment_street: "Street",
         establishment_town: "Town",
-        establishment_postcode: "AA11 1AA"
+        establishment_postcode: "AA11 1AA",
+        establishment_type: "domestic"
     }
 };
 

@@ -1,5 +1,4 @@
 exports.config = {
-    //
     // ==================
     // Specify Test Files
     // ==================
@@ -57,9 +56,13 @@ exports.config = {
     // out the Sauce Labs platform configurator - a great tool to configure your
     // capabilities: https://docs.saucelabs.com/reference/platforms-configurator
     //
+
     capabilities: [
         //
         {
+            // user: process.env.BROWSERSTACK_USERNAME,
+            // key: process.env.BROWSERSTACK_ACCESS_KEY,
+            browserName: "chrome",
             os: "OS X",
             os_version: "High Sierra",
             browserName: "Chrome",
@@ -69,12 +72,12 @@ exports.config = {
             //browserName: "Safari",
             //browser_version: "11.1",
             /////////////
-            //os: "Windows",
-            //os_version: "10",
+            // os: "Windows",
+            // os_version: "10",
             //browserName: "IE",
             //browser_version: "11.0",
-            //browserName: "Edge",
-            //browser_version: "17.0",
+            // browserName: "Edge",
+            // browser_version: "17.0",
             project: "test_project"
         }
     ],
@@ -153,16 +156,16 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: http://webdriver.io/guide/testrunner/reporters.html
-    // reporters: ["spec"],
-    reporters: ["allure"],
-    reporterOptions: {
-        allure: {
-            outputDir: "allure-results",
-            disableWebdriverStepsReporting: true,
-            disableWebdriverScreenshotsReporting: true,
-            useCucumberStepReporter: false
-        }
-    },
+    reporters: ["spec"],
+    // reporters: ["allure"],
+    // reporterOptions: {
+    //     allure: {
+    //         outputDir: "allure-results",
+    //         disableWebdriverStepsReporting: true,
+    //         disableWebdriverScreenshotsReporting: true,
+    //         useCucumberStepReporter: false
+    //     }
+    // },
     //
     // If you are using Cucumber you need to specify the location of your step
     // definitions.
@@ -288,13 +291,5 @@ exports.config = {
     // Gets executed after all workers got shut down and the process is about to
     // exit. It is not possible to defer the end of the process using a promise.
     // onComplete: function onComplete(exitCode) {
-    // }
-    // beforeScenario: function(scenario) {
-    //     browser.reload();
-    //     console.log("PLS WORK");
-    // }
-    // afterScenario: function(scenario) {
-    //     driver.close();
-    //     console.log("PLS WORK");
     // }
 };

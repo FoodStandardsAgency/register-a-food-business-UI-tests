@@ -6,6 +6,8 @@ const estabAddress = {
     postcodeDisplay: "#establishmentPostcodeDisplay",
     changePostcode: "#changeEstablishmentPostcode",
     postcodeDropdown: '[name="establishment_address_selected"]',
+    street: '[name="establishment_street"]',
+    town: '[name="establishment_town"]',
     button: "#continue-button",
     error: ".css-jdwgdl",
     hiddenText: "#hiddenTextCantFindAddress",

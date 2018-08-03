@@ -1,6 +1,4 @@
 exports.config = {
-    user: "libertyjacklin2",
-    key: "4yS51VYzDYsgNGWfpfeJ",
     // ==================
     // Specify Test Files
     // ==================

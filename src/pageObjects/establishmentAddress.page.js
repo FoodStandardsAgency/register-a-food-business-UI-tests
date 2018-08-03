@@ -5,7 +5,7 @@ const estabAddress = {
     findAddress: "#find-address",
     postcodeDisplay: "#establishmentPostcodeDisplay",
     changePostcode: "#changeEstablishmentPostcode",
-    postcodeDropdown: '[name="establishment_address_selected"]',
+    postcodeDropdown: "#establishmentAddressDropdown",
     street: '[name="establishment_street"]',
     town: '[name="establishment_town"]',
     button: "#continue-button",

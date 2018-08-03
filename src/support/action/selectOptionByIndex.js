@@ -1,3 +1,5 @@
+import getSelector from "../../pageObjects/page";
+
 /**
  * Select a option from a select element by it's index
  * @param  {String}   index      The index of the option
@@ -7,6 +9,7 @@
  * @todo  merge with selectOption
  */
 module.exports = (index, obsolete, selectElem) => {
+    selectElem = getSelector(selectElem);
     /**
      * The index of the option to select
      * @type {Int}

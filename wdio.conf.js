@@ -13,8 +13,8 @@ exports.config = {
         // "./src/features/**/backButton.feature",
         // "./src/features/**/charityDetails.feature",
         // "./src/features/**/customerType.feature",
-        // "./src/features/**/establishmentAddress.feature",
-        "./src/features/**/establishmentContactDetails.feature"
+        "./src/features/**/establishmentAddress.feature"
+        // "./src/features/**/establishmentContactDetails.feature"
         // "./src/features/**/establishmentTradingName.feature"
         // "./src/features/**/landingPage.feature",
         // "./src/features/**/limitedCompanyDetails.feature"

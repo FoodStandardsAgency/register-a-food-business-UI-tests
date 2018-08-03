@@ -17,7 +17,7 @@ Establishment address section validation
     Scenario: able to find address using lookup service on the establishment address page
         Given I reload my session
         And I open the url "/establishment-address"
-        And I set "SW1A 1AA" to the inputfield "estabAddress.postcode"
+        And I set "E20 1EJ" to the inputfield "estabAddress.postcode"
         When I click on the element "estabAddress.findAddress"
         Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/establishment-address-select"
         When I select the 2nd option for element "estabAddress.postcodeDropdown"
@@ -36,22 +36,22 @@ Establishment address section validation
     Scenario: entering postcode, pressing Find Address and then changing postcode
         Given I reload my session
         And I open the url "/establishment-address"
-        And I set "AA11 1AA" to the inputfield "estabAddress.postcode"
+        And I set "E20 1EJ" to the inputfield "estabAddress.postcode"
         When I click on the element "estabAddress.findAddress"
         Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/establishment-address-select"
-        And I expect that element "estabAddress.postcodeDisplay" contains the text "AA11 1AA"
+        And I expect that element "estabAddress.postcodeDisplay" contains the text "E20 1EJ"
         When I click on the element "estabAddress.changePostcode"
         Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/establishment-address"
-        And I expect that element "estabAddress.postcode" contains the text "AA11 1AA"
+        And I expect that element "estabAddress.postcode" contains the text "E20 1EJ"
 
     @SDB-12_establishment_address_cant_find_address
     Scenario: entering postcode, pressing Find Address and then not able to find address in dropdown
         Given I reload my session
         And I open the url "/establishment-address"
-        And I set "AA11 1AA" to the inputfield "estabAddress.postcode"
+        And I set "E20 1EJ" to the inputfield "estabAddress.postcode"
         When I click on the element "estabAddress.findAddress"
         Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/establishment-address-select"
-        And I expect that element "estabAddress.postcodeDisplay" contains the text "AA11 1AA"
+        And I expect that element "estabAddress.postcodeDisplay" contains the text "E20 1EJ"
         When I click on the element "estabAddress.hiddenText"
         Then I wait on element "estabAddress.cantFindAddress" to be visible
         When I click on the element "estabAddress.cantFindAddress"
@@ -67,20 +67,20 @@ Establishment address section validation
         Given I reload my session
         And I open the url "/establishment-address-manual"
         When I set "±±±" to the inputfield "estabAddress.firstline"
-        And I set "AA11 1AA" to the inputfield "estabAddress.manualPostcode"
+        And I set "E20 1EJ" to the inputfield "estabAddress.manualPostcode"
         And I click on the element "estabAddress.button"
         Then I expect that element "estabAddress.error" contains the text "Not a valid first line of address"
-        And I expect that element "estabAddress.manualPostcode" contains the text "AA11 1AA"
+        And I expect that element "estabAddress.manualPostcode" contains the text "E20 1EJ"
         And I expect that element "estabAddress.firstline" contains the text "±±±"
 
     @SDB-12_establishment_address_cant_find_address__error_no_firstline
     Scenario: using manual input - error
         Given I reload my session
         And I open the url "/establishment-address-manual"
-        And I set "AA11 1AA" to the inputfield "estabAddress.manualPostcode"
+        And I set "E20 1EJ" to the inputfield "estabAddress.manualPostcode"
         And I click on the element "estabAddress.button"
         Then I expect that element "estabAddress.error" contains the text "Not a valid first line of address"
-        And I expect that element "estabAddress.manualPostcode" contains the text "AA11 1AA"
+        And I expect that element "estabAddress.manualPostcode" contains the text "E20 1EJ"
 
     @SDB-12_establishment_address_cant_find_address_error_postcode
     Scenario: using manual input - error

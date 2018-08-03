@@ -14,7 +14,7 @@ Feature: As Samantha I need to be able to edit details in the summary of my regi
         Given I reload my session
         And I go to a special QA page at url "https://register-a-food-business-dev.azurewebsites.net/qa/registration-summary" with injected "registration-summary" data
         When I click on the element "registrationSummary.changeOperatorEmail"
-        Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/operator-contact-details"
+        Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/operator-contact-details?edit=on"
         And I expect that element "opContactDetails.emailAddress" contains the text "email@email.com"
         And I expect that element "commonElements.backButton" is not visible
         When I set "changed@email.com" to the inputfield "opContactDetails.emailAddress"
@@ -28,7 +28,7 @@ Feature: As Samantha I need to be able to edit details in the summary of my regi
         Given I reload my session
         And I go to a special QA page at url "https://register-a-food-business-dev.azurewebsites.net/qa/registration-summary" with injected "registration-summary" data
         When I click on the element "registrationSummary.changeTradingName"
-        Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/establishment-trading-name"
+        Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/establishment-trading-name?edit=on"
         And I expect that element "estabTradingName.tradingNameInput" contains the text "Trading name"
         When I set "Changed Trading Name" to the inputfield "estabTradingName.tradingNameInput"
         And I click on the element "estabTradingName.button"
@@ -41,7 +41,7 @@ Feature: As Samantha I need to be able to edit details in the summary of my regi
         Given I reload my session
         And I go to a special QA page at url "https://register-a-food-business-dev.azurewebsites.net/qa/registration-summary" with injected "registration-summary" data
         When I click on the element "registrationSummary.changeTradingName"
-        Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/establishment-trading-name"
+        Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/establishment-trading-name?edit=on"
         And I expect that element "commonElements.backButton" is not visible
 
 
@@ -50,24 +50,9 @@ Feature: As Samantha I need to be able to edit details in the summary of my regi
         Given I reload my session
         And I go to a special QA page at url "https://register-a-food-business-dev.azurewebsites.net/qa/registration-summary" with injected "registration-summary" data
         When I click on the element "registrationSummary.changeOperatorEmail"
-        Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/operator-contact-details"
+        Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/operator-contact-details?edit=on"
         And I expect that element "opContactDetails.emailAddress" contains the text "email@email.com"
         And I expect that element "commonElements.backButton" is not visible
         When I set "±±±" to the inputfield "opContactDetails.emailAddress"
         And I click on the element "opContactDetails.button"
         Then I expect that element "opContactDetails.error" contains the text "Not a valid email address"
-
-
-    @SDB-157_getting_rid_of_optional_details
-    Scenario: editing establishment address to get rid of optional field - should no longer appear on reg summary
-        Given I reload my session
-        And I go to a special QA page at url "https://register-a-food-business-dev.azurewebsites.net/qa/registration-summary" with injected "registration-summary" data
-        When I click on the element "registrationSummary.changeEstablishmentAddress"
-        Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/establishment-address"
-        And I expect that element "estabAddress.street" contains the text "Street"
-        And I expect that element "commonElements.backButton" is not visible
-        When I set "" to the inputfield "estabAddress.street"
-        And I click on the element "estabAddress.button"
-        Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/registration-summary"
-        And I expect that element "registrationSummary.establishmentAddressStreet" is not visible
-

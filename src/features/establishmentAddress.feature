@@ -53,11 +53,10 @@ Establishment address section validation
         Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/establishment-address-select"
         And I expect that element "estabAddress.postcodeDisplay" contains the text "E20 1EJ"
         When I click on the element "estabAddress.hiddenText"
-        Then I wait on element "estabAddress.cantFindAddress" to be visible
-        When I click on the element "estabAddress.cantFindAddress"
+        And I click on the element "estabAddress.cantFindAddress"
         Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/establishment-address-manual"
         When I set "test first line" to the inputfield "estabAddress.firstline"
-        And I set "AA11 1AA" to the inputfield "estabAddress.postcode"
+        And I set "AA11 1AA" to the inputfield "estabAddress.manualPostcode"
         And I click on the element "estabAddress.button"
         Then I expect that the url is not "https://register-a-food-business-dev.azurewebsites.net/establishment-address-manual"
 

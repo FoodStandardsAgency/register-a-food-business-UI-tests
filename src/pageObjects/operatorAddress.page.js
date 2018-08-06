@@ -7,14 +7,14 @@ const opAddress = {
     findAddress: "#find-address",
     postcodeDisplay: "#operatorPostcodeDisplay",
     changePostcode: "#changeOperatorPostcode",
-    postcodeDropdown: 'operatorAddressDropdown',
-    cantFindAddress: ".css-1kl76s2",
-    hiddenText: "#hiddenTextCantFindAddress",
+    postcodeDropdown: "#operatorAddressDropdown",
+    hiddenText: "#hiddenTextCantFindAddress summary",
+    cantFindAddress: "#hiddenTextCantFindAddress a",
     button: ".css-nyvlzd",
     error: ".css-jdwgdl",
-    errorSummary: '.css-1dlyiqe:nth-child(1)',
-    errorSummaryFirstLineLink: '.css-h8gy0l:nth-child(1)',
-    errorSummaryPostCode: '.css-h8gy0l:nth-child(2)',
+    errorSummary: ".css-1dlyiqe:nth-child(1)",
+    errorSummaryFirstLineLink: ".css-h8gy0l:nth-child(1)",
+    errorSummaryPostCode: ".css-h8gy0l:nth-child(2)"
 };
 
 module.exports = opAddress;

@@ -13,7 +13,7 @@ exports.config = {
         // "./src/features/**/backButton.feature",
         // "./src/features/**/charityDetails.feature",
         // "./src/features/**/customerType.feature",
-        "./src/features/**/establishmentAddress.feature"
+        // "./src/features/**/establishmentAddress.feature"
         // "./src/features/**/establishmentContactDetails.feature"
         // "./src/features/**/establishmentTradingName.feature"
         // "./src/features/**/landingPage.feature",
@@ -27,6 +27,7 @@ exports.config = {
         // "./src/features/**/registrationSummary.feature",
         // "./src/features/**/representativeOperatorContactDetails.feature"
         // "./src/features/**/submitRegistration.feature"
+         "./src/features/**/receiveConfirmationNumber.feature"
     ],
     // Patterns to exclude.
     exclude: [

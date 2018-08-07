@@ -3,9 +3,9 @@ Feature: Summary Page
 
   @SDB-8_happy_path_navigation
   Scenario: navigate to declaration page
-    Given I go to a special QA page at url "https://register-a-food-business-dev.azurewebsites.net/qa/registration-summary" with injected "registration-summary" data
+    Given I go to a special QA page at url "/qa/registration-summary" with injected "registration-summary" data
     When I click on the element "registrationSummary.button"
-    Then I expect that the url is not "https://register-a-food-business-dev.azurewebsites.net/registration-summary"
+    Then I expect that the url is not "/registration-summary"
 
   @SDB-8_missing_data
   Scenario: missing data not displayed
@@ -18,6 +18,6 @@ Feature: Summary Page
 
   @SDB-8_full_data_injection
   Scenario: all possible data is displayed
-    Given I go to a special QA page at url "https://register-a-food-business-dev.azurewebsites.net/qa/registration-summary" with injected "registration-summary" data
+    Given I go to a special QA page at url "/qa/registration-summary" with injected "registration-summary" data
     Then I expect that element "registrationSummary.tradingName" contains the text "Trading name"
 

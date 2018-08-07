@@ -1,4 +1,9 @@
+require("dotenv").config();
+
 exports.config = {
+    user: process.env.BROWSERSTACK_USERNAME,
+    key: process.env.BROWSERSTACK_ACCESS_KEY,
+
     // ==================
     // Specify Test Files
     // ==================
@@ -8,27 +13,31 @@ exports.config = {
     // then the current working directory is where your package.json resides, so
     // `wdio` will be called from there.
     //
-    // specs: ["./src/features/**/*.feature"],
-    specs: [
-        // "./src/features/**/backButton.feature",
-        // "./src/features/**/charityDetails.feature",
-        // "./src/features/**/customerType.feature",
-        // "./src/features/**/establishmentAddress.feature"
-        // "./src/features/**/establishmentContactDetails.feature"
-        // "./src/features/**/establishmentTradingName.feature"
-        // "./src/features/**/landingPage.feature",
-        // "./src/features/**/limitedCompanyDetails.feature"
-        // "./src/features/**/operatorAddress.feature"
-        // "./src/features/**/operatorAddress.feature",
-        // "./src/features/**/operatorContactDetails.feature",
-        // "./src/features/**/operatorName.feature",
-        // "./src/features/**/operatorType.feature"
-        // "./src/features/**/registrationRole.feature",
-        // "./src/features/**/registrationSummary.feature",
-        // "./src/features/**/representativeOperatorContactDetails.feature"
-        // "./src/features/**/submitRegistration.feature"
-         "./src/features/**/receiveConfirmationNumber.feature"
-    ],
+    specs: ["./src/features/**/*.feature"],
+    // specs: [
+    // "./src/features/**/backButton.feature",
+    // "./src/features/**/betaBanner.feature",
+    // "./src/features/**/charityDetails.feature",
+    // "./src/features/**/customerType.feature",
+    // "./src/features/**/editSummary.feature",
+    // "./src/features/**/establishmentAddress.feature",
+    // "./src/features/**/establishmentAddressType.feature",
+    // "./src/features/**/establishmentContactDetails.feature",
+    // "./src/features/**/establishmentOpeningDate.feature",
+    // "./src/features/**/establishmentTradingName.feature",
+    // "./src/features/**/landingPage.feature",
+    // "./src/features/**/limitedCompanyDetails.feature",
+    // "./src/features/**/operatorAddress.feature",
+    // "./src/features/**/operatorContactDetails.feature",
+    // "./src/features/**/operatorName.feature",
+    // "./src/features/**/operatorType.feature"
+    // "./src/features/**/registrationRole.feature",
+    // "./src/features/**/receiveConfirmationNumber.feature",
+    // "./src/features/**/representativeOperatorContactDetails.feature",
+    // "./src/features/**/submitRegistration.feature",
+    // "./src/features/**/registrationSummary.feature",
+    // "./src/features/**/submissionPage.feature",
+    // ],
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
@@ -51,7 +60,7 @@ exports.config = {
     // spawned. The property handles how many capabilities from the same test
     // should run tests.
     //
-    maxInstances: 1,
+    maxInstances: 5,
     //
     // If you have trouble getting all important capabilities together, check
     // out the Sauce Labs platform configurator - a great tool to configure your
@@ -61,9 +70,6 @@ exports.config = {
     capabilities: [
         //
         {
-            // user: process.env.BROWSERSTACK_USERNAME,
-            // key: process.env.BROWSERSTACK_ACCESS_KEY,
-            browserName: "chrome",
             os: "OS X",
             os_version: "High Sierra",
             browserName: "Chrome",
@@ -157,16 +163,16 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: http://webdriver.io/guide/testrunner/reporters.html
-    reporters: ["spec"],
-    // reporters: ["allure"],
-    // reporterOptions: {
-    //     allure: {
-    //         outputDir: "allure-results",
-    //         disableWebdriverStepsReporting: true,
-    //         disableWebdriverScreenshotsReporting: true,
-    //         useCucumberStepReporter: false
-    //     }
-    // },
+    // reporters: ["spec"],
+    reporters: ["allure"],
+    reporterOptions: {
+        allure: {
+            outputDir: "allure-results",
+            disableWebdriverStepsReporting: true,
+            disableWebdriverScreenshotsReporting: true,
+            useCucumberStepReporter: true
+        }
+    },
     //
     // If you are using Cucumber you need to specify the location of your step
     // definitions.

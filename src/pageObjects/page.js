@@ -22,6 +22,7 @@ const companyDetails = require("./limitedCompanyDetails.page.js");
 const charityDetails = require("./charityDetails.page.js");
 
 const submitRegistration = require("./submitRegistration.page.js");
+const submissionPage = require("./submissionPage.page.js");
 const registrationSummary = require("./registrationSummary.page.js");
 const summaryConfirmation = require("./summaryConfirmation.page.js");
 

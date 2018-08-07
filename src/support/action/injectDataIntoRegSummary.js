@@ -22,20 +22,30 @@ const datasets = {
         establishment_type: "domestic"
     },
     declaration: {
-        operator_first_line: "First line",
+        operator_first_name: "Fred",
+        operator_last_name: "Bloggs",
         operator_postcode: "AA11 1AA",
-        operator_type: "A company",
-        operator_company_name: "My company Ltd.",
-        operator_company_house_number: "AA123456",
+        operator_first_line: "11",
+        operator_street: "Some Street",
+        operator_town: "London",
         operator_primary_number: "01234567890",
-        operator_email: "email@email.com",
-        registration_role: "Representative",
+        operator_email: "testemail@email.com",
+        operator_type: "Sole Trader",
+        registration_role: "A person",
         establishment_trading_name: "Trading name",
+        establishment_email: "establishment@email.com",
+        establishment_primary_number: "01234567890",
         establishment_first_line: "First line",
         establishment_street: "Street",
         establishment_town: "Town",
         establishment_postcode: "AA11 1AA",
-        establishment_type: "domestic"
+        establishment_type: "domestic",
+        supply_directly: "true",
+        supply_other: "true",
+
+        day: "01",
+        month: "01",
+        year: "2001"
     }
 };
 

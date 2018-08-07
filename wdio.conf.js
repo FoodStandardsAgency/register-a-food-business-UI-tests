@@ -13,35 +13,76 @@ exports.config = {
     // then the current working directory is where your package.json resides, so
     // `wdio` will be called from there.
     //
-    specs: ["./src/features/**/*.feature"],
+    // specs: ["./src/features/**/*.feature"],
     // specs: [
-    // "./src/features/**/backButton.feature",
-    // "./src/features/**/betaBanner.feature",
-    // "./src/features/**/charityDetails.feature",
-    // "./src/features/**/customerType.feature",
-    // "./src/features/**/editSummary.feature",
-    // "./src/features/**/establishmentAddress.feature",
-    // "./src/features/**/establishmentAddressType.feature",
-    // "./src/features/**/establishmentContactDetails.feature",
-    // "./src/features/**/establishmentOpeningDate.feature",
-    // "./src/features/**/establishmentTradingName.feature",
-    // "./src/features/**/landingPage.feature",
-    // "./src/features/**/limitedCompanyDetails.feature",
-    // "./src/features/**/operatorAddress.feature",
-    // "./src/features/**/operatorContactDetails.feature",
-    // "./src/features/**/operatorName.feature",
-    // "./src/features/**/operatorType.feature"
-    // "./src/features/**/registrationRole.feature",
-    // "./src/features/**/receiveConfirmationNumber.feature",
-    // "./src/features/**/representativeOperatorContactDetails.feature",
-    // "./src/features/**/submitRegistration.feature",
-    // "./src/features/**/registrationSummary.feature",
-    // "./src/features/**/submissionPage.feature",
+        // "./src/features/**/backButton.feature",
+        // "./src/features/**/betaBanner.feature",
+        // "./src/features/**/charityDetails.feature",
+        // "./src/features/**/customerType.feature",
+        // "./src/features/**/editSummary.feature",
+        // "./src/features/**/establishmentAddress.feature",
+        // "./src/features/**/establishmentAddressType.feature",
+        // "./src/features/**/establishmentContactDetails.feature",
+        // "./src/features/**/establishmentOpeningDate.feature",
+        // "./src/features/**/establishmentTradingName.feature",
+        // "./src/features/**/landingPage.feature",
+        // "./src/features/**/limitedCompanyDetails.feature",
+        // "./src/features/**/operatorAddress.feature",
+        // "./src/features/**/operatorContactDetails.feature",
+        // "./src/features/**/operatorName.feature",
+        // "./src/features/**/operatorType.feature"
+        // "./src/features/**/registrationRole.feature",
+        // "./src/features/**/receiveConfirmationNumber.feature"
+        // "./src/features/**/representativeOperatorContactDetails.feature",
+        // "./src/features/**/submitRegistration.feature",
+        // "./src/features/**/registrationSummary.feature",
+        // "./src/features/**/submissionPage.feature",
     // ],
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
     ],
+    //defining specific suites
+    suites: {
+        establishmentdetails: [
+            "./src/features/**/establishmentContactDetails.feature",
+            "./src/features/**/establishmentOpeningDate.feature",
+            "./src/features/**/establishmentTradingName.feature"
+        ],
+        establishmentaddress: [
+            "./src/features/**/establishmentAddress.feature",
+            "./src/features/**/establishmentAddressType.feature"
+        ],
+        operator: [
+            "./src/features/**/operatorAddress.feature",
+            "./src/features/**/operatorName.feature",
+            "./src/features/**/operatorType.feature"
+        ],
+        operatordetails: [
+            "./src/features/**/operatorContactDetails.feature",
+            "./src/features/**/representativeOperatorContactDetails.feature",
+            "./src/features/**/registrationRole.feature"
+        ],
+        registration: [
+            "./src/features/**/submitRegistration.feature",
+            "./src/features/**/registrationSummary.feature",
+            "./src/features/**/editSummary.feature"
+        ],
+        submission: [
+            "./src/features/**/submissionPage.feature",
+            "./src/features/**/receiveConfirmationNumber.feature"
+        ],
+        operatorextra: [
+            "./src/features/**/charityDetails.feature",
+            "./src/features/**/customerType.feature",
+            "./src/features/**/limitedCompanyDetails.feature"
+        ],
+        websitefeatures: [
+            "./src/features/**/landingPage.feature",
+            "./src/features/**/backButton.feature",
+            "./src/features/**/betaBanner.feature"
+        ]
+    },
     //
     // ============
     // Capabilities
@@ -60,7 +101,7 @@ exports.config = {
     // spawned. The property handles how many capabilities from the same test
     // should run tests.
     //
-    maxInstances: 5,
+    maxInstances: 10,
     //
     // If you have trouble getting all important capabilities together, check
     // out the Sauce Labs platform configurator - a great tool to configure your
@@ -74,24 +115,57 @@ exports.config = {
             os_version: "High Sierra",
             browserName: "Chrome",
             browser_version: "67.0",
-            // browserName: "Firefox",
-            // browser_version: "61.0",
-            //browserName: "Safari",
-            //browser_version: "11.1",
-            /////////////
-            // os: "Windows",
-            // os_version: "10",
-            //browserName: "IE",
-            //browser_version: "11.0",
-            // browserName: "Edge",
-            // browser_version: "17.0",
-            project: "test_project"
+            maxInstances: 3
+        },
+        {
+            os: "OS X",
+            os_version: "High Sierra",
+            browserName: "Firefox",
+            browser_version: "61.0",
+            maxInstances: 3
+        },
+        {
+            os: "OS X",
+            os_version: "High Sierra",
+            browserName: "Safari",
+            browser_version: "11.1",
+            maxInstances: 3
+        },
+        {
+            os: "Windows",
+            os_version: "10",
+            browserName: "IE",
+            browser_version: "11.0",
+            maxInstances: 3
+        },
+        {
+            os: "Windows",
+            os_version: "10",
+            browserName: "Edge",
+            browser_version: "17.0",
+            maxInstances: 3
         }
+        // {
+        //     os: "OS X",
+        //     os_version: "High Sierra",
+        //     browserName: "Firefox",
+        //     browser_version: "61.0"
+        //browserName: "Safari",
+        //browser_version: "11.1",
+        /////////////
+        // os: "Windows",
+        // os_version: "10",
+        //browserName: "IE",
+        //browser_version: "11.0",
+        // browserName: "Edge",
+        // browser_version: "17.0",
+        // project: "test_project"
+        // }
     ],
     // maxInstances can get overwritten per capability. So if you have an
     // in-house Selenium grid with only 5 firefox instance available you can
     // make sure that not more than 5 instance gets started at a time.
-    maxInstances: 5,
+    // maxInstances: 5,
 
     //
     // ===================

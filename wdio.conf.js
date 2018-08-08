@@ -13,31 +13,32 @@ exports.config = {
     // then the current working directory is where your package.json resides, so
     // `wdio` will be called from there.
     //
-    specs: ["./src/features/**/*.feature"],
-    // specs: [
-    // "./src/features/**/backButton.feature",
-    // "./src/features/**/betaBanner.feature",
-    // "./src/features/**/charityDetails.feature",
-    // "./src/features/**/customerType.feature",
-    // "./src/features/**/editSummary.feature",
-    // "./src/features/**/establishmentAddress.feature",
-    // "./src/features/**/establishmentAddressType.feature",
-    // "./src/features/**/establishmentContactDetails.feature",
-    // "./src/features/**/establishmentOpeningDate.feature",
-    // "./src/features/**/establishmentTradingName.feature",
-    // "./src/features/**/landingPage.feature",
-    // "./src/features/**/limitedCompanyDetails.feature",
-    // "./src/features/**/operatorAddress.feature",
-    // "./src/features/**/operatorContactDetails.feature",
-    // "./src/features/**/operatorName.feature",
-    // "./src/features/**/operatorType.feature"
-    // "./src/features/**/registrationRole.feature",
-    // "./src/features/**/receiveConfirmationNumber.feature",
-    // "./src/features/**/representativeOperatorContactDetails.feature",
-    // "./src/features/**/submitRegistration.feature",
-    // "./src/features/**/registrationSummary.feature",
-    // "./src/features/**/submissionPage.feature",
-    // ],
+    // specs: ["./src/features/**/*.feature"],
+    specs: [
+        // "./src/features/**/backButton.feature",
+        // "./src/features/**/betaBanner.feature",
+        // "./src/features/**/charityDetails.feature",
+        // "./src/features/**/customerType.feature",
+        // "./src/features/**/editSummary.feature",
+        // "./src/features/**/establishmentAddress.feature",
+        // "./src/features/**/establishmentAddressType.feature",
+        // "./src/features/**/establishmentContactDetails.feature",
+        // "./src/features/**/establishmentOpeningDate.feature",
+        // "./src/features/**/establishmentTradingName.feature",
+        // "./src/features/**/landingPage.feature",
+        // "./src/features/**/limitedCompanyDetails.feature",
+        // "./src/features/**/operatorAddress.feature",
+        // "./src/features/**/operatorContactDetails.feature",
+        // "./src/features/**/operatorName.feature",
+        // "./src/features/**/operatorType.feature"
+        // "./src/features/**/registrationRole.feature",
+        // "./src/features/**/receiveConfirmationNumber.feature",
+        // "./src/features/**/representativeOperatorContactDetails.feature",
+        // "./src/features/**/submitRegistration.feature",
+        // "./src/features/**/registrationSummary.feature",
+        // "./src/features/**/submissionPage.feature",
+        "./src/features/**/businessTypeIn.feature"
+    ],
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'

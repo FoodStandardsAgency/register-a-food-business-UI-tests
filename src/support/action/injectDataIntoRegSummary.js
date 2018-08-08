@@ -19,7 +19,8 @@ const datasets = {
         establishment_street: "Street",
         establishment_town: "Town",
         establishment_postcode: "AA11 1AA",
-        establishment_type: "domestic"
+        establishment_type: "domestic",
+        business_type: "Livestock farm"
     },
     declaration: {
         operator_first_name: "Fred",
@@ -42,7 +43,7 @@ const datasets = {
         establishment_type: "domestic",
         supply_directly: "true",
         supply_other: "true",
-
+        business_type: "Livestock farm",
         day: "01",
         month: "01",
         year: "2001"

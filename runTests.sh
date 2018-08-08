@@ -1,15 +1,13 @@
 echo "Running landingpage tests"
 ./node_modules/.bin/wdio wdio.conf.js --suite landingpage
-echo "Running establishmentaddress tests"
-./node_modules/.bin/wdio wdio.conf.js --suite establishmentaddress
+echo "Running establishment tests"
+./node_modules/.bin/wdio wdio.conf.js --suite establishment
 echo "Running operator tests"
 ./node_modules/.bin/wdio wdio.conf.js --suite operator
-echo "Running operatordetails tests"
-./node_modules/.bin/wdio wdio.conf.js --suite operatordetails
-echo "Running registration tests"
-./node_modules/.bin/wdio wdio.conf.js --suite registration
-echo "Running submissions tests"
-./node_modules/.bin/wdio wdio.conf.js --suite submission
+
+echo "Running registrationSubmission tests"
+./node_modules/.bin/wdio wdio.conf.js --suite registrationSubmission
+
 echo "Running operatorextra tests"
 ./node_modules/.bin/wdio wdio.conf.js --suite operatorextra
 echo "Running websitefeatures tests"

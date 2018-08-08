@@ -9,7 +9,7 @@ Feature: Summary Page
 
   @SDB-8_missing_data
   Scenario: missing data not displayed
-    Given I reload my session
+    Given I open the url "/cleansession"
     And I open the url "/establishment-trading-name"
     And I set "Test Trading Name" to the inputfield "estabTradingName.tradingNameInput"
     And I click on the element "estabTradingName.button"

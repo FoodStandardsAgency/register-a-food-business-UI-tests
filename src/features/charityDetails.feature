@@ -5,7 +5,7 @@ Charity Details section validation
 
     @charity_details_happy_path_SDB-40
     Scenario: testing charity details happy path
-        Given I reload my session
+        Given I open the url "/cleansession"
         And I open the url "/operator-charity-details"
         When I set "Charity Name example" to the inputfield "charityDetails.charityName"
         Then I click on the element "charityDetails.button"
@@ -13,7 +13,7 @@ Charity Details section validation
 
     @charity_details_happy_path_with_number_SDB-40
     Scenario: testing charity details happy path
-        Given I reload my session
+        Given I open the url "/cleansession"
         And I open the url "/operator-charity-details"
         When I set "Charity Name example" to the inputfield "charityDetails.charityName"
         And I set "12345678" to the inputfield "charityDetails.charityNumber"
@@ -24,7 +24,7 @@ Charity Details section validation
 
     @charity_details_not_filled_name_SDB-40
     Scenario: testing error message when not input charity name
-        Given I reload my session
+        Given I open the url "/cleansession"
         And I open the url "/operator-charity-details"
         When I set "12345678" to the inputfield "charityDetails.charityNumber"
         And I click on the element "charityDetails.button"
@@ -34,7 +34,7 @@ Charity Details section validation
 
     @charity_details_invalid_number_SDB-40
     Scenario: testing error message when input invalid charity number
-        Given I reload my session
+        Given I open the url "/cleansession"
         And I open the url "/operator-charity-details"
         When I set "Charity Name example" to the inputfield "charityDetails.charityName"
         And I set "±±±±" to the inputfield "charityDetails.charityNumber"
@@ -44,7 +44,7 @@ Charity Details section validation
 
     @charity_details_more_info_SDB-40
     Scenario: testing more info for charity details
-        Given I reload my session
+        Given I open the url "/cleansession"
         And I open the url "/operator-charity-details"
         When I click on the element "charityDetails.questionsCharityReference"
         Then I expect that the attribute "href" from element "charityDetails.link" is "https://beta.charitycommission.gov.uk/"

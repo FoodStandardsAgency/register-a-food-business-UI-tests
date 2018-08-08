@@ -5,7 +5,7 @@ Establishment address simple contact details section validation
 
     @SDB-1113_happy_path
     Scenario: happy path without optional field
-        Given I reload my session
+        Given I open the url "/cleansession"
         And I open the url "/establishment-contact-details"
         When I set "valid@email.com" to the inputfield "estabContactDetails.emailAddress"
         And I set "01234567890" to the inputfield "estabContactDetails.primaryPhoneNumber"
@@ -14,7 +14,7 @@ Establishment address simple contact details section validation
 
     @SDB-113_happy_path_all_fields
     Scenario: happy path with optional field
-        Given I reload my session
+        Given I open the url "/cleansession"
         And I open the url "/establishment-contact-details"
         When I set "valid@email.com" to the inputfield "estabContactDetails.emailAddress"
         And I set "01234567890" to the inputfield "estabContactDetails.primaryPhoneNumber"
@@ -24,7 +24,7 @@ Establishment address simple contact details section validation
 
     @SDB-113_invalid_email
     Scenario: invalid email address
-        Given I reload my session
+        Given I open the url "/cleansession"
         And I open the url "/establishment-contact-details"
         When I set "invalidemail" to the inputfield "estabContactDetails.emailAddress"
         And I set "01234567890" to the inputfield "estabContactDetails.primaryPhoneNumber"
@@ -35,7 +35,7 @@ Establishment address simple contact details section validation
 
     @SDB-113_invalid_phone_number
     Scenario: invalid phone number
-        Given I reload my session
+        Given I open the url "/cleansession"
         Given I open the url "/establishment-contact-details"
         When I set "invalidnumber" to the inputfield "estabContactDetails.primaryPhoneNumber"
         And I set "valid@email.com" to the inputfield "estabContactDetails.emailAddress"
@@ -46,7 +46,7 @@ Establishment address simple contact details section validation
 
     @SDB-113_no_email_address
     Scenario: no email address
-        Given I reload my session
+        Given I open the url "/cleansession"
         And I open the url "/establishment-contact-details"
         When I set "01234567890" to the inputfield "estabContactDetails.primaryPhoneNumber"
         And I click on the element "estabContactDetails.button"
@@ -55,7 +55,7 @@ Establishment address simple contact details section validation
 
     @SDB-113_no_phone_number
     Scenario: no phone number
-        Given I reload my session
+        Given I open the url "/cleansession"
         And I open the url "/establishment-contact-details"
         When I set "valid@email.com" to the inputfield "estabContactDetails.emailAddress"
         And I click on the element "estabContactDetails.button"
@@ -64,7 +64,7 @@ Establishment address simple contact details section validation
 
     @SDB-113_invalid_optional_phone_number
     Scenario: invalid secondary phone number
-        Given I reload my session
+        Given I open the url "/cleansession"
         And I open the url "/establishment-contact-details"
         When I set "valid@email.com" to the inputfield "estabContactDetails.emailAddress"
         And I set "01234567890" to the inputfield "estabContactDetails.primaryPhoneNumber"
@@ -77,7 +77,7 @@ Establishment address simple contact details section validation
 
     @SDB-113_happy_path_same_as_operator
     Scenario: happy path using operator details
-        Given I reload my session
+        Given I open the url "/cleansession"
         And I go to a special QA page at url "/qa/establishment-contact-details" with injected "declaration" data
         When I click on the element "estabContactDetails.checkbox"
         Then I expect that element "estabContactDetails.emailAddress" contains the text "email@email.com"
@@ -87,7 +87,7 @@ Establishment address simple contact details section validation
 
     @SDB-113_happy_path_same_as_operator_overwrite
     Scenario: happy path using operator details overwriting
-        Given I reload my session
+        Given I open the url "/cleansession"
         And I go to a special QA page at url "/qa/establishment-contact-details" with injected "declaration" data
         When I set "valid2nd@email.com" to the inputfield "estabContactDetails.emailAddress"
         And I set "07766292321" to the inputfield "estabContactDetails.primaryPhoneNumber"
@@ -99,7 +99,7 @@ Establishment address simple contact details section validation
 
     @SDB-113_happy_path_same_as_operator_edit
     Scenario: happy path using operator details
-        Given I reload my session
+        Given I open the url "/cleansession"
         And I go to a special QA page at url "/qa/establishment-contact-details" with injected "declaration" data
         And I open the url "/establishment-contact-details"
         When I click on the element "estabContactDetails.checkbox"
@@ -114,7 +114,7 @@ Establishment address simple contact details section validation
 
     @SDB-113_same_as_operator_try_deselect
     Scenario: happy path using operator details deselect
-        Given I reload my session
+        Given I open the url "/cleansession"
         And I go to a special QA page at url "/qa/establishment-contact-details" with injected "declaration" data
         And I open the url "/establishment-contact-details"
         And I click on the element "estabContactDetails.checkbox"

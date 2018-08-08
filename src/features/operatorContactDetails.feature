@@ -6,7 +6,7 @@ Simple operator contact details
 
     @SDB-156_happy_path
     Scenario: happy path without optional field
-        Given I reload my session
+        Given I open the url "/cleansession"
         And I open the url "/operator-contact-details"
         When I set "valid@email.com" to the inputfield "opContactDetails.emailAddress"
         And I set "07788292373" to the inputfield "opContactDetails.primaryPhoneNumber"
@@ -15,7 +15,7 @@ Simple operator contact details
 
     @SDB-156_happy_path_all_fields
     Scenario: happy path with optional field
-        Given I reload my session
+        Given I open the url "/cleansession"
         And I open the url "/operator-contact-details"
         When I set "valid@email.com" to the inputfield "opContactDetails.emailAddress"
         And I set "07788292373" to the inputfield "opContactDetails.primaryPhoneNumber"
@@ -25,7 +25,7 @@ Simple operator contact details
 
     @SDB-156_invalid_email
     Scenario: invalid email address
-        Given I reload my session
+        Given I open the url "/cleansession"
         And I open the url "/operator-contact-details"
         When I set "invalidemail" to the inputfield "opContactDetails.emailAddress"
         And I set "07788292373" to the inputfield "opContactDetails.primaryPhoneNumber"
@@ -36,7 +36,7 @@ Simple operator contact details
 
     @SDB-156_invalid_phone_number
     Scenario: invalid phone number
-        Given I reload my session
+        Given I open the url "/cleansession"
         Given I open the url "/operator-contact-details"
         When I set "invalidnumber" to the inputfield "opContactDetails.primaryPhoneNumber"
         And I set "valid@email.com" to the inputfield "opContactDetails.emailAddress"
@@ -47,7 +47,7 @@ Simple operator contact details
 
     @SDB-156_no_email_address
     Scenario: no email address
-        Given I reload my session
+        Given I open the url "/cleansession"
         And I open the url "/operator-contact-details"
         When I set "07788292373" to the inputfield "opContactDetails.primaryPhoneNumber"
         And I click on the element "opContactDetails.button"
@@ -56,7 +56,7 @@ Simple operator contact details
 
     @SDB-156_no_phone_number
     Scenario: no phone number
-        Given I reload my session
+        Given I open the url "/cleansession"
         And I open the url "/operator-contact-details"
         When I set "valid@email.com" to the inputfield "opContactDetails.emailAddress"
         And I click on the element "opContactDetails.button"
@@ -65,7 +65,7 @@ Simple operator contact details
 
     @SDB-156_invalid_optional_phone_number
     Scenario: invalid secondary phone number
-        Given I reload my session
+        Given I open the url "/cleansession"
         And I open the url "/operator-contact-details"
         When I set "valid@email.com" to the inputfield "opContactDetails.emailAddress"
         And I set "07788292373" to the inputfield "opContactDetails.primaryPhoneNumber"

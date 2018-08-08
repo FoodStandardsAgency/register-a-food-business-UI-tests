@@ -5,7 +5,7 @@ Back button functionality with multiple paths
 
   @select_sole_trader_direct_route_SDB-232
   Scenario: go directly to operator name then return to registration role
-    Given I reload my session
+    Given I open the url "/cleansession"
     And I open the url "/registration-role"
     When I click on the element "regRole.soleTrader"
     And I click on the element "regRole.button"
@@ -16,7 +16,7 @@ Back button functionality with multiple paths
 
   @select_representative_indirect_route_SDB-232
   Scenario: go directly to operator name then return to registration role
-    Given I reload my session
+    Given I open the url "/cleansession"
     And I open the url "/registration-role"
     When I click on the element "regRole.representative"
     And I click on the element "regRole.button"
@@ -34,7 +34,7 @@ Back button functionality with multiple paths
 
   @same_page_via_different_routes_SDB-232
   Scenario: go directly to operator name then return to registration role
-    Given I reload my session
+    Given I open the url "/cleansession"
     And I open the url "/registration-role"
     When I click on the element "regRole.soleTrader"
     And I click on the element "regRole.button"
@@ -66,7 +66,7 @@ Back button functionality with multiple paths
 
   @different_page_via_different_routes_SDB-232
   Scenario: go directly to operator name then return to registration role
-    Given I reload my session
+    Given I open the url "/cleansession"
     And I open the url "/registration-role"
     When I click on the element "regRole.soleTrader"
     And I click on the element "regRole.button"

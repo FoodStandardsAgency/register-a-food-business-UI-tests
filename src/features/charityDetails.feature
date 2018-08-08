@@ -9,7 +9,7 @@ Charity Details section validation
         And I open the url "/operator-charity-details"
         When I set "Charity Name example" to the inputfield "charityDetails.charityName"
         Then I click on the element "charityDetails.button"
-        And I expect that the url is not "https://register-a-food-business-dev.azurewebsites.net/operator-charity-details"
+        And I expect that the path is not "/operator-charity-details"
 
     @charity_details_happy_path_with_number_SDB-40
     Scenario: testing charity details happy path
@@ -18,7 +18,7 @@ Charity Details section validation
         When I set "Charity Name example" to the inputfield "charityDetails.charityName"
         And I set "12345678" to the inputfield "charityDetails.charityNumber"
         Then I click on the element "charityDetails.button"
-        And I expect that the url is not "https://register-a-food-business-dev.azurewebsites.net/operator-charity-details"
+        And I expect that the path is not "/operator-charity-details"
 
 
 
@@ -45,7 +45,7 @@ Charity Details section validation
     @charity_details_more_info_SDB-40
     Scenario: testing more info for charity details
         Given I reload my session
-        And I open the url "https://register-a-food-business-dev.azurewebsites.net/operator-charity-details"
+        And I open the url "/operator-charity-details"
         When I click on the element "charityDetails.questionsCharityReference"
         Then I expect that the attribute "href" from element "charityDetails.link" is "https://beta.charitycommission.gov.uk/"
         Given I click on the element "charityDetails.link"

@@ -19,7 +19,7 @@ Operator Type section validation
         And I open the url "/registration-role"
         When I click on the element "regRole.soleTrader"
         And I click on the element "regRole.button"
-        Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/operator-name"
+        Then I expect that the path is "/operator-name"
 
     @happy_path__partnership_SDB-54
     Scenario: happy path for registration role partnership
@@ -27,7 +27,7 @@ Operator Type section validation
         And I open the url "/registration-role"
         When I click on the element "regRole.partnership"
         And I click on the element "regRole.button"
-        Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/operator-name"
+        Then I expect that the path is "/operator-name"
 
     @happy_path__representative_SDB-54
     Scenario: happy path for registration role representative
@@ -35,7 +35,7 @@ Operator Type section validation
         And I open the url "/registration-role"
         When I click on the element "regRole.representative"
         And I click on the element "regRole.button"
-        Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/operator-type"
+        Then I expect that the path is "/operator-type"
 
     @not_selected_registration_role_SDB-54
     Scenario: error shows when no registration is selected

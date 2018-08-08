@@ -5,7 +5,7 @@ Feature: Summary Page
   Scenario: navigate to declaration page
     Given I go to a special QA page at url "/qa/registration-summary" with injected "registration-summary" data
     When I click on the element "registrationSummary.button"
-    Then I expect that the url is not "/registration-summary"
+    Then I expect that the path is not "/registration-summary"
 
   @SDB-8_missing_data
   Scenario: missing data not displayed

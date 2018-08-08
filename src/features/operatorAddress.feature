@@ -9,9 +9,9 @@ Operator address section validation
         And I open the url "/operator-address"
         And I set "E20 1EJ" to the inputfield "opAddress.postcode"
         When I click on the element "opAddress.findAddress"
-        Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/operator-address-select"
+        Then I expect that the path is "/operator-address-select"
         When I click on the element "opAddress.button"
-        Then I expect that the url is not "https://register-a-food-business-dev.azurewebsites.net/operator-address-select"
+        Then I expect that the path is not "/operator-address-select"
 
 
     @SDB-12_happy_path_operator_address_select_2nd_option
@@ -20,10 +20,10 @@ Operator address section validation
         And I open the url "/operator-address"
         And I set "E20 1EJ" to the inputfield "opAddress.postcode"
         When I click on the element "opAddress.findAddress"
-        Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/operator-address-select"
+        Then I expect that the path is "/operator-address-select"
         When I select the 2nd option for element "opAddress.postcodeDropdown"
         And I click on the element "opAddress.button"
-        Then I expect that the url is not "https://register-a-food-business-dev.azurewebsites.net/operator-address-select"
+        Then I expect that the path is not "/operator-address-select"
 
 
     @SDB-12_error_operator_address
@@ -40,10 +40,10 @@ Operator address section validation
         And I open the url "/operator-address"
         And I set "E20 1EJ" to the inputfield "opAddress.postcode"
         When I click on the element "opAddress.findAddress"
-        Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/operator-address-select"
+        Then I expect that the path is "/operator-address-select"
         And I expect that element "opAddress.postcodeDisplay" contains the text "E20 1EJ"
         When I click on the element "opAddress.changePostcode"
-        Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/operator-address"
+        Then I expect that the path is "/operator-address"
         And I expect that element "opAddress.postcode" contains the text "E20 1EJ"
 
 
@@ -53,15 +53,15 @@ Operator address section validation
         And I open the url "/operator-address"
         And I set "E20 1EJ" to the inputfield "opAddress.postcode"
         When I click on the element "opAddress.findAddress"
-        Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/operator-address-select"
+        Then I expect that the path is "/operator-address-select"
         And I expect that element "opAddress.postcodeDisplay" contains the text "E20 1EJ"
         When I click on the element "opAddress.hiddenText"
         And I click on the element "opAddress.cantFindAddress"
-        Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/operator-address-manual"
+        Then I expect that the path is "/operator-address-manual"
         When I set "test first line" to the inputfield "opAddress.firstline"
         And I set "AA11 1AA" to the inputfield "opAddress.manualPostcode"
         And I click on the element "opAddress.button"
-        Then I expect that the url is not "https://register-a-food-business-dev.azurewebsites.net/operator-address-manual"
+        Then I expect that the path is not "/operator-address-manual"
 
 
     @SDB-12_operator_address_cant_find_address_error_firstline

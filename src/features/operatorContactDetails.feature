@@ -11,7 +11,7 @@ Simple operator contact details
         When I set "valid@email.com" to the inputfield "opContactDetails.emailAddress"
         And I set "07788292373" to the inputfield "opContactDetails.primaryPhoneNumber"
         And I click on the element "opContactDetails.button"
-        Then I expect that the url is not "https://register-a-food-business-dev.azurewebsites.net/operator-contact-details"
+        Then I expect that the path is not "/operator-contact-details"
 
     @SDB-156_happy_path_all_fields
     Scenario: happy path with optional field
@@ -21,7 +21,7 @@ Simple operator contact details
         And I set "07788292373" to the inputfield "opContactDetails.primaryPhoneNumber"
         And I set "07788292121" to the inputfield "opContactDetails.optionalPhoneNumber"
         And I click on the element "submitRegistration.button"
-        Then I expect that the url is not "https://register-a-food-business-dev.azurewebsites.net/operator-contact-details"
+        Then I expect that the path is not "/operator-contact-details"
 
     @SDB-156_invalid_email
     Scenario: invalid email address

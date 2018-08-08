@@ -8,7 +8,7 @@ Establishment address section validation
         Given I open the url "/establishment-trading-name"
         When I set "Test Trading Name" to the inputfield "estabTradingName.tradingNameInput"
         And I click on the element "estabTradingName.button"
-        Then I expect that the url is not "https://register-a-food-business-dev.azurewebsites.net/establishment-trading-name"
+        Then I expect that the path is not "/establishment-trading-name"
 
     @incomplete_form_SDB-4
     Scenario: user does not input a trading name

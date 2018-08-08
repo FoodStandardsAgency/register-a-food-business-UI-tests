@@ -9,7 +9,7 @@ Operator Name section validation
         When I set "Bob" to the inputfield "opContactName.firstName"
         And I set "Smith" to the inputfield "opContactName.lastName"
         And I click on the element "opContactName.button"
-        Then I expect that the url is not "https://register-a-food-business-dev.azurewebsites.net/operator-name"
+        Then I expect that the path is not "/operator-name"
 
     @no_first_name_SDB-35
     Scenario: no first name input

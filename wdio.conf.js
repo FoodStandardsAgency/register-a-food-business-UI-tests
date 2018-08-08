@@ -14,7 +14,7 @@ exports.config = {
     // `wdio` will be called from there.
     //
     // specs: ["./src/features/**/*.feature"],
-    // specs: [
+    specs: [
         // "./src/features/**/backButton.feature",
         // "./src/features/**/betaBanner.feature",
         // "./src/features/**/charityDetails.feature",
@@ -31,13 +31,13 @@ exports.config = {
         // "./src/features/**/operatorContactDetails.feature",
         // "./src/features/**/operatorName.feature",
         // "./src/features/**/operatorType.feature"
-        // "./src/features/**/registrationRole.feature",
+        "./src/features/**/registrationRole.feature"
         // "./src/features/**/receiveConfirmationNumber.feature"
         // "./src/features/**/representativeOperatorContactDetails.feature",
         // "./src/features/**/submitRegistration.feature",
         // "./src/features/**/registrationSummary.feature",
         // "./src/features/**/submissionPage.feature",
-    // ],
+    ],
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'

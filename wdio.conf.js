@@ -44,6 +44,7 @@ exports.config = {
     ],
     //defining specific suites
     suites: {
+        landingpage: ["./src/features/**/landingPage.feature"],
         establishmentdetails: [
             "./src/features/**/establishmentContactDetails.feature",
             "./src/features/**/establishmentOpeningDate.feature",
@@ -78,9 +79,9 @@ exports.config = {
             "./src/features/**/limitedCompanyDetails.feature"
         ],
         websitefeatures: [
-            "./src/features/**/landingPage.feature",
             "./src/features/**/backButton.feature",
-            "./src/features/**/betaBanner.feature"
+            "./src/features/**/betaBanner.feature",
+            "./src/features/**/errorSummary.feature"
         ]
     },
     //

@@ -1,5 +1,5 @@
-echo "Running establishmentdetails tests"
-./node_modules/.bin/wdio wdio.conf.js --suite establishmentdetails
+echo "Running landingpage tests"
+./node_modules/.bin/wdio wdio.conf.js --suite landingpage
 echo "Running establishmentaddress tests"
 ./node_modules/.bin/wdio wdio.conf.js --suite establishmentaddress
 echo "Running operator tests"

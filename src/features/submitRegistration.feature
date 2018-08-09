@@ -3,17 +3,17 @@ Feature: Declaration Page
 
     @declaration_page_happy
     Scenario: declaration page flow to application complete
-        Given I reload my session
+        Given I open the url "/cleansession"
         And I go to a special QA page at url "/qa/declaration" with injected "declaration" data
         And I click on the element "submitRegistration.firstCheckbox"
         And I click on the element "submitRegistration.secondCheckbox"
         And I click on the element "submitRegistration.thirdCheckbox"
         When I click on the element "submitRegistration.button"
-        Then I expect that the url is not "https://register-a-food-business-dev.azurewebsites.net/declaration"
+        Then I expect that the path is not "/declaration"
 
     @declaration_page_one_checked
     Scenario: declaration page errors for one ticked
-        Given I reload my session
+        Given I open the url "/cleansession"
         And I open the url "/declaration"
         When I click on the element "submitRegistration.firstCheckbox"
         And I click on the element "submitRegistration.button"
@@ -24,7 +24,7 @@ Feature: Declaration Page
 
     @declaration_page_sad
     Scenario: declaration page errors for none ticked
-        Given I reload my session
+        Given I open the url "/cleansession"
         And I open the url "/declaration"
         When I click on the element "submitRegistration.button"
         Then I expect that element "submitRegistration.error" contains the text "You must tick all the declarations before continuing"

@@ -6,29 +6,29 @@ Representative operator contact details
 
     @SDB-241_happy_path
     Scenario: happy path without optional field
-        Given I reload my session
-        And I open the url "https://register-a-food-business-dev.azurewebsites.net/contact-representative"
+        Given I open the url "/cleansession"
+        And I open the url "/contact-representative"
         When I set "Test McTestface" to the inputfield "repOpContactDetails.contactName"
         And I set "07788292373" to the inputfield "repOpContactDetails.phoneNumber"
         And I set "representative@email.com" to the inputfield "repOpContactDetails.email"
         And I click on the element "repOpContactDetails.button"
-        Then I expect that the url is not "https://register-a-food-business-dev.azurewebsites.net/contact-representative"
+        Then I expect that the path is not "/contact-representative"
 
     @SDB-241_happy_path_all_fields
     Scenario: happy path with optional field
-        Given I reload my session
-        And I open the url "https://register-a-food-business-dev.azurewebsites.net/contact-representative"
+        Given I open the url "/cleansession"
+        And I open the url "/contact-representative"
         When I set "Test McTestface" to the inputfield "repOpContactDetails.contactName"
         And I set "07788292373" to the inputfield "repOpContactDetails.phoneNumber"
         And I set "Tester" to the inputfield "repOpContactDetails.role"
         And I set "representative@email.com" to the inputfield "repOpContactDetails.email"
         And I click on the element "repOpContactDetails.button"
-        Then I expect that the url is not "https://register-a-food-business-dev.azurewebsites.net/contact-representative"
+        Then I expect that the path is not "/contact-representative"
 
     @SDB-241_invalid_email
     Scenario: invalid email address
-        Given I reload my session
-        And I open the url "https://register-a-food-business-dev.azurewebsites.net/contact-representative"
+        Given I open the url "/cleansession"
+        And I open the url "/contact-representative"
         When I set "Test McTestface" to the inputfield "repOpContactDetails.contactName"
         And I set "07788292373" to the inputfield "repOpContactDetails.phoneNumber"
         And I set "±±±§§§§" to the inputfield "repOpContactDetails.email"
@@ -40,8 +40,8 @@ Representative operator contact details
 
     @SDB-241_invalid_phone_number
     Scenario: invalid phone number
-        Given I reload my session
-        And I open the url "https://register-a-food-business-dev.azurewebsites.net/contact-representative"
+        Given I open the url "/cleansession"
+        And I open the url "/contact-representative"
         When I set "Test McTestface" to the inputfield "repOpContactDetails.contactName"
         And I set "§§§±±" to the inputfield "repOpContactDetails.phoneNumber"
         And I set "representative@email.com" to the inputfield "repOpContactDetails.email"
@@ -53,8 +53,8 @@ Representative operator contact details
 
     @SDB-241_no_email_address
     Scenario: no email address
-        Given I reload my session
-        And I open the url "https://register-a-food-business-dev.azurewebsites.net/contact-representative"
+        Given I open the url "/cleansession"
+        And I open the url "/contact-representative"
         When I set "Test McTestface" to the inputfield "repOpContactDetails.contactName"
         And I set "07788292373" to the inputfield "repOpContactDetails.phoneNumber"
         And I click on the element "repOpContactDetails.button"
@@ -64,8 +64,8 @@ Representative operator contact details
 
     @SDB-241_no_phone_number
     Scenario: no phone number
-        Given I reload my session
-        And I open the url "https://register-a-food-business-dev.azurewebsites.net/contact-representative"
+        Given I open the url "/cleansession"
+        And I open the url "/contact-representative"
         When I set "Test McTestface" to the inputfield "repOpContactDetails.contactName"
         And I set "representative@email.com" to the inputfield "repOpContactDetails.email"
         And I click on the element "repOpContactDetails.button"

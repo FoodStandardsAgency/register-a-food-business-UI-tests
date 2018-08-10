@@ -38,7 +38,7 @@ exports.config = {
     // "./src/features/**/registrationSummary.feature",
     // "./src/features/**/submissionPage.feature",
     // "./src/features/**/errorSummary.feature",
-    // "./src/features/**/businessTypeIn.feature"
+    // "./src/features/**/businessTypeIn.feature",
     // ],
     // Patterns to exclude.
     exclude: [
@@ -76,7 +76,7 @@ exports.config = {
             "./src/features/**/charityDetails.feature",
             "./src/features/**/customerType.feature",
             "./src/features/**/limitedCompanyDetails.feature",
-            "./src/features/**/businessTypeIn.feature"
+           "./src/features/**/businessTypeIn.feature"
         ],
         websitefeatures: [
             "./src/features/**/backButton.feature",

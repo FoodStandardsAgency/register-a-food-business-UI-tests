@@ -73,7 +73,8 @@ exports.config = {
         operatorextra: [
             "./src/features/**/charityDetails.feature",
             "./src/features/**/customerType.feature",
-            "./src/features/**/limitedCompanyDetails.feature"
+            "./src/features/**/limitedCompanyDetails.feature",
+            "./src/features/**/importExportActivities.feature"
         ],
         websitefeatures: [
             "./src/features/**/backButton.feature",

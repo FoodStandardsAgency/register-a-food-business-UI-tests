@@ -37,6 +37,8 @@ exports.config = {
     // "./src/features/**/submitRegistration.feature",
     // "./src/features/**/registrationSummary.feature",
     // "./src/features/**/submissionPage.feature",
+    // "./src/features/**/errorSummary.feature",
+    // "./src/features/**/businessTypeIn.feature",
     // ],
     // Patterns to exclude.
     exclude: [
@@ -75,6 +77,9 @@ exports.config = {
             "./src/features/**/customerType.feature",
             "./src/features/**/limitedCompanyDetails.feature",
             "./src/features/**/importExportActivities.feature"
+
+           "./src/features/**/businessTypeIn.feature"
+
         ],
         websitefeatures: [
             "./src/features/**/backButton.feature",
@@ -114,7 +119,7 @@ exports.config = {
             os_version: "High Sierra",
             browserName: "Chrome",
             browser_version: "67.0",
-            maxInstances: 10
+            maxInstances: 2
         }
         // {
         //     os: "OS X",
@@ -122,7 +127,7 @@ exports.config = {
         //     browserName: "Firefox",
         //     browser_version: "61.0",
         //     maxInstances: 2
-        // },
+        // }
         // {
         //     os: "OS X",
         //     os_version: "High Sierra",
@@ -236,16 +241,16 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: http://webdriver.io/guide/testrunner/reporters.html
-    // reporters: ["spec"],
-    reporters: ["allure"],
-    reporterOptions: {
-        allure: {
-            outputDir: "allure-results",
-            disableWebdriverStepsReporting: true,
-            disableWebdriverScreenshotsReporting: true,
-            useCucumberStepReporter: true
-        }
-    },
+    reporters: ["spec"],
+    // reporters: ["allure"],
+    // reporterOptions: {
+    //     allure: {
+    //         outputDir: "allure-results",
+    //         disableWebdriverStepsReporting: true,
+    //         disableWebdriverScreenshotsReporting: true,
+    //         useCucumberStepReporter: true
+    //     }
+    // },
     //
     // If you are using Cucumber you need to specify the location of your step
     // definitions.

@@ -10,7 +10,9 @@
         "test:features": "npm run local-webserver & (wdio wdio.BUILD.conf.js; wdio_ret=$?; forever stopall; exit $wdio_ret)",
         "test:unit": "jest --config=jest.json",
         "test:validate": "eslint 'src/**/*.js' 'test/**/*.js!(setup.js)'",
-        "test:accessibility": "pa11y-ci"
+        "test:accessibility": "pa11y-ci",
+        "test:locally": "./node_modules/.bin/wdio wdio.conf.local.js",
+        "test:browserstack": "sh runTests.sh"
     },
     "repository": {
         "type": "git",

@@ -5,80 +5,80 @@ Back button functionality with multiple paths
 
   @select_sole_trader_direct_route_SDB-232
   Scenario: go directly to operator name then return to registration role
-    Given I reload my session
+    Given I open the url "/cleansession"
     And I open the url "/registration-role"
     When I click on the element "regRole.soleTrader"
     And I click on the element "regRole.button"
-    Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/operator-name"
+    Then I expect that the path is "/operator-name"
 
     Given I click on the element "commonElements.backButton"
-    Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/registration-role"
+    Then I expect that the path is "/registration-role"
 
   @select_representative_indirect_route_SDB-232
   Scenario: go directly to operator name then return to registration role
-    Given I reload my session
+    Given I open the url "/cleansession"
     And I open the url "/registration-role"
     When I click on the element "regRole.representative"
     And I click on the element "regRole.button"
-    Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/operator-type"
+    Then I expect that the path is "/operator-type"
 
     Given I click on the element "opType.operatorPerson"
     And I click on the element "opType.button"
-    Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/operator-name"
+    Then I expect that the path is "/operator-name"
 
     Given I click on the element "commonElements.backButton"
-    Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/operator-type"
+    Then I expect that the path is "/operator-type"
 
     Given I click on the element "commonElements.backButton"
-    Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/registration-role"
+    Then I expect that the path is "/registration-role"
 
   @same_page_via_different_routes_SDB-232
   Scenario: go directly to operator name then return to registration role
-    Given I reload my session
+    Given I open the url "/cleansession"
     And I open the url "/registration-role"
     When I click on the element "regRole.soleTrader"
     And I click on the element "regRole.button"
-    Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/operator-name"
+    Then I expect that the path is "/operator-name"
 
     Given I set "Bob" to the inputfield "opContactName.firstName"
     And I set "Smith" to the inputfield "opContactName.lastName"
     And I click on the element "opContactName.button"
-    Then I expect that the url is not "https://register-a-food-business-dev.azurewebsites.net/operator-name"
+    Then I expect that the path is not "/operator-name"
 
     Given I click on the element "commonElements.backButton"
-    Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/operator-name"
+    Then I expect that the path is "/operator-name"
     And I expect that element "opContactName.firstName" contains the text "Bob"
     And I expect that element "opContactName.lastName" contains the text "Smith"
 
     Given I click on the element "commonElements.backButton"
-    Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/registration-role"
+    Then I expect that the path is "/registration-role"
     And I expect that checkbox "regRole.soleTrader" is checked
 
     Given I click on the element "regRole.representative"
     And I click on the element "regRole.button"
-    Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/operator-type"
+    Then I expect that the path is "/operator-type"
 
     Given I click on the element "opType.operatorPerson"
     And I click on the element "opType.button"
-    Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/operator-name"
+    Then I expect that the path is "/operator-name"
     And I expect that element "opContactName.firstName" not contains the text "Bob"
     And I expect that element "opContactName.lastName" not contains the text "Smith"
 
   @different_page_via_different_routes_SDB-232
   Scenario: go directly to operator name then return to registration role
-    Given I reload my session
+    Given I open the url "/cleansession"
     And I open the url "/registration-role"
     When I click on the element "regRole.soleTrader"
     And I click on the element "regRole.button"
-    Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/operator-name"
+    Then I expect that the path is "/operator-name"
 
     Given I set "Bob" to the inputfield "opContactName.firstName"
     And I set "Smith" to the inputfield "opContactName.lastName"
     And I click on the element "opContactName.button"
-    Then I expect that the url is not "https://register-a-food-business-dev.azurewebsites.net/operator-name"
+    Then I expect that the path is not "/operator-name"
 
     Given I click on the element "commonElements.backButton"
-    Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/operator-name"
+    Then I expect that the path is "/operator-name"
     And I expect that element "opContactName.firstName" contains the text "Bob"
     And I expect that element "opContactName.lastName" contains the text "Smith"
 
@@ -91,11 +91,11 @@ Back button functionality with multiple paths
 
     Given I click on the element "regRole.representative"
     And I click on the element "regRole.button"
-    Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/operator-type"
+    Then I expect that the path is "/operator-type"
 
     Given I click on the element "opType.operatorCompany"
     And I click on the element "opType.button"
-    Then I expect that the url is "https://register-a-food-business-dev.azurewebsites.net/operator-company-details"
+    Then I expect that the path is "/operator-company-details"
 
     Given I open the url "/registration-summary"
     Then I expect that element "registrationSummary.operatorFirstName" does not exist

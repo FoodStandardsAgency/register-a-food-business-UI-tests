@@ -9,11 +9,11 @@ Operator Name section validation
         When I set "Bob" to the inputfield "opContactName.firstName"
         And I set "Smith" to the inputfield "opContactName.lastName"
         And I click on the element "opContactName.button"
-        Then I expect that the url is not "https://register-a-food-business-dev.azurewebsites.net/operator-name"
+        Then I expect that the path is not "/operator-name"
 
     @no_first_name_SDB-35
     Scenario: no first name input
-        Given I reload my session
+        Given I open the url "/cleansession"
         And I open the url "/operator-name"
         And I set "Smith" to the inputfield "opContactName.lastName"
         And I click on the element "opContactName.button"
@@ -22,7 +22,7 @@ Operator Name section validation
 
     @no_last_name_SDB-35
     Scenario: no last name input
-        Given I reload my session
+        Given I open the url "/cleansession"
         And I open the url "/operator-name"
         When I set "Bob" to the inputfield "opContactName.firstName"
         And I click on the element "opContactName.button"
@@ -31,7 +31,7 @@ Operator Name section validation
 
     @invalid_last_name_SDB-35
     Scenario: invalid last name input
-        Given I reload my session
+        Given I open the url "/cleansession"
         And I open the url "/operator-name"
         When I set "Bob" to the inputfield "opContactName.firstName"
         And I set "§§§" to the inputfield "opContactName.lastName"
@@ -42,7 +42,7 @@ Operator Name section validation
 
     @invalid_first_name_SDB-35
     Scenario: invalid first name input
-        Given I reload my session
+        Given I open the url "/cleansession"
         And I open the url "/operator-name"
         When I set "§§§" to the inputfield "opContactName.firstName"
         And I set "Smith" to the inputfield "opContactName.lastName"

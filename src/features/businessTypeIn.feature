@@ -8,7 +8,7 @@ Business Type In Validation
         Given I open the url "/cleansession"
         And I open the url "/business-type"
         When I set "Restaurant" to the inputfield "businessTypeIn.search"
-        And I press "Enter"
+        And I click on the element "businessTypeIn.option2"
         When I click on the element "businessTypeIn.button"
         And I click on the element "businessTypeIn.button"
         Then I expect that the path is not "/business-type"
@@ -33,7 +33,7 @@ Business Type In Validation
         And I expect that element "businessTypeIn.error" contains the text "You must select a business type before continuing"
 
     @business_Type_In_invalid_SDB-5
-    Scenario: testing business type in not entering anything
+    Scenario: testing business type in invalid 
         Given I open the url "/cleansession"
         And I open the url "/business-type"
         When I set "±±±" to the inputfield "businessTypeIn.search"

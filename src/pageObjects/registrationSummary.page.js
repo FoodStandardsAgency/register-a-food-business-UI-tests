@@ -8,7 +8,7 @@ const registrationSummary = {
     tradingName: "#establishment_trading_name",
     establishmentEmail: "#establishment_email",
     establishmentAddressStreet: "#establishment_street",
-    foodActivities: "#business_import_export",
+    foodActivities: "#import_export_activities",
 
     changeCompanyName: "#changeOperatorCompanyNameRow",
     changeCompanyNumber: "#change",

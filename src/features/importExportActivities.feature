@@ -39,7 +39,7 @@ Import/Export Activities section validation
         Then I expect that checkbox "importExportActivities.directImport" is checked
         And I expect that checkbox "importExportActivities.none" is checked
 
-    @import_export_activities_direct_import_and_none_forward_then_back_SDB-124
+    @import_export_activities_direct_import_and_none_registration_summary_SDB-124
     Scenario: selects one option and then deselects it
         Given I open the url "/cleansession"
         And I open the url "/business-import-export"

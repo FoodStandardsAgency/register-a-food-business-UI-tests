@@ -1,7 +1,7 @@
 const importExportActivities = {
-    directImport: "#business_import_export_directly_import",
-    directExport: "#business_import_export_directly_export",
-    none: "#business_import_export_none",
+    directImport: "#import_export_activities_directly_import",
+    directExport: "#import_export_activities_directly_export",
+    none: "#import_export_activities_none",
     hiddenText: "#hiddenTextImportExportActivities",
     link: "#link-fsa-website",
     button: ".css-nyvlzd",

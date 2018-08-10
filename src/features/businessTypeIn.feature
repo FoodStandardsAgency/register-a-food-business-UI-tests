@@ -10,6 +10,7 @@ Business Type In Validation
         When I set "Restaurant" to the inputfield "businessTypeIn.search"
         And I press "Enter"
         When I click on the element "businessTypeIn.button"
+        And I click on the element "businessTypeIn.button"
         Then I expect that the path is not "/business-type"
 
     @business_Type_In_no_selection_SDB-5
@@ -17,6 +18,7 @@ Business Type In Validation
         Given I open the url "/cleansession"
         And I open the url "/business-type"
         When I set "Egg" to the inputfield "businessTypeIn.search"
+        And I click on the element "businessTypeIn.button"
         And I click on the element "businessTypeIn.button"
         Then I expect that the path is "/business-type"
         And I expect that element "businessTypeIn.error" contains the text "You must select a business type before continuing"
@@ -26,6 +28,7 @@ Business Type In Validation
         Given I open the url "/cleansession"
         And I open the url "/business-type"
         When I click on the element "businessTypeIn.button"
+        And I click on the element "businessTypeIn.button"
         Then I expect that the path is "/business-type"
         And I expect that element "businessTypeIn.error" contains the text "You must select a business type before continuing"
 
@@ -34,6 +37,7 @@ Business Type In Validation
         Given I open the url "/cleansession"
         And I open the url "/business-type"
         When I set "±±±" to the inputfield "businessTypeIn.search"
+        And I click on the element "businessTypeIn.button"
         And I click on the element "businessTypeIn.button"
         Then I expect that the path is "/business-type"
         And I expect that element "businessTypeIn.error" contains the text "You must select a business type before continuing"

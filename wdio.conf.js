@@ -69,14 +69,15 @@ exports.config = {
             "./src/features/**/registrationSummary.feature",
             "./src/features/**/editSummary.feature",
             "./src/features/**/submissionPage.feature",
-            "./src/features/**/receiveConfirmationNumber.feature"
+            "./src/features/**/receiveConfirmationNumber.feature",
+            "./src/features/**/receiveConfirmationEmail.feature"
         ],
 
         operatorextra: [
             "./src/features/**/charityDetails.feature",
             "./src/features/**/customerType.feature",
             "./src/features/**/limitedCompanyDetails.feature",
-           "./src/features/**/businessTypeIn.feature"
+            "./src/features/**/businessTypeIn.feature"
         ],
         websitefeatures: [
             "./src/features/**/backButton.feature",

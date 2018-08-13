@@ -33,7 +33,8 @@ exports.config = {
         "./src/features/**/registrationSummary.feature",
         "./src/features/**/submissionPage.feature",
         "./src/features/**/errorSummary.feature",
-        "./src/features/**/businessTypeIn.feature"
+        "./src/features/**/businessTypeIn.feature",
+        "./src/features/**/receiveConfirmationEmail.feature"
     ],
     // Patterns to exclude.
     exclude: [

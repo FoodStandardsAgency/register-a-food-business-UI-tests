@@ -76,10 +76,8 @@ exports.config = {
             "./src/features/**/charityDetails.feature",
             "./src/features/**/customerType.feature",
             "./src/features/**/limitedCompanyDetails.feature",
-            "./src/features/**/importExportActivities.feature"
-
-           "./src/features/**/businessTypeIn.feature"
-
+            "./src/features/**/importExportActivities.feature",
+            "./src/features/**/businessTypeIn.feature"
         ],
         websitefeatures: [
             "./src/features/**/backButton.feature",
@@ -127,7 +125,7 @@ exports.config = {
         //     browserName: "Firefox",
         //     browser_version: "61.0",
         //     maxInstances: 2
-        // }
+        // },
         // {
         //     os: "OS X",
         //     os_version: "High Sierra",
@@ -194,7 +192,7 @@ exports.config = {
     //
     // Set a base URL in order to shorten url command calls. If your url
     // parameter starts with "/", then the base url gets prepended.
-    baseUrl: "https://register-a-food-business-dev-double.azurewebsites.net/",
+    baseUrl: "https://dev-register-a-food-business.azurewebsites.net/",
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,

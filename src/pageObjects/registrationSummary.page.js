@@ -8,6 +8,7 @@ const registrationSummary = {
     tradingName: "#establishment_trading_name",
     establishmentEmail: "#establishment_email",
     establishmentAddressStreet: "#establishment_street",
+    foodActivities: "#import_export_activities",
 
     changeCompanyName: "#changeOperatorCompanyNameRow",
     changeCompanyNumber: "#change",
@@ -20,7 +21,9 @@ const registrationSummary = {
     changeEstablishmentAddress: "#changeEstablishmentAddressRow",
     changeEstablishmentContactDetails: "#changeEstablishmentContactDetailsRow",
     changeEstablishmentEmail: "#changeEstablishmentEmailRow",
-    changeEstablishmentLocationType: "#changeEstablishmentLocationType"
+    changeEstablishmentLocationType: "#changeEstablishmentLocationType",
+    changeActivitiesBusinessImportExportRow:
+        "#changeActivitiesBusinessImportExportRow"
 };
 
 module.exports = registrationSummary;

@@ -12,3 +12,5 @@ echo "Running operatorextra tests"
 ./node_modules/.bin/wdio wdio.conf.js --suite operatorextra
 echo "Running websitefeatures tests"
 ./node_modules/.bin/wdio wdio.conf.js --suite websitefeatures
+echo "Running end2end tests"
+./node_modules/.bin/wdio wdio.conf.js --suite end2end

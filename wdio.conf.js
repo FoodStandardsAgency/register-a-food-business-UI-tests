@@ -83,7 +83,8 @@ exports.config = {
             "./src/features/**/backButton.feature",
             "./src/features/**/betaBanner.feature",
             "./src/features/**/errorSummary.feature"
-        ]
+        ],
+        end2end: ["./src/features/**/e2eTestingCatelyn.feature"]
     },
     //
     // ============

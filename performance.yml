@@ -1,5 +1,5 @@
 config:
-  target: 'https://test-register-a-food-business.azurewebsites.net/'
+  target: 'https://staging-register-a-food-business.azurewebsites.net/'
   phases:
     - duration: 60
       arrivalRate: 1

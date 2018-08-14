@@ -13,8 +13,7 @@
         "test:accessibility": "pa11y-ci",
         "test:locally": "./node_modules/.bin/wdio wdio.conf.local.js",
         "test:browserstack": "sh runTests.sh",
-        "test:performance": "artillery quick --count 10 -n 20 https://dev-register-a-food-business.azurewebsites.net/",
-        "test:performancescript": "artillery run performance.yml"
+        "test:performance": "artillery run performance.yml"
     },
     "repository": {
         "type": "git",

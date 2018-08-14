@@ -1,9 +1,5 @@
-require("dotenv").config();
-
 exports.config = {
-    user: process.env.BROWSERSTACK_USERNAME,
-    key: process.env.BROWSERSTACK_ACCESS_KEY,
-
+    //
     // ==================
     // Specify Test Files
     // ==================
@@ -13,78 +9,37 @@ exports.config = {
     // then the current working directory is where your package.json resides, so
     // `wdio` will be called from there.
     //
-    // specs: ["./src/features/**/*.feature"],
-    // specs: [
-    // "./src/features/**/backButton.feature",
-    // "./src/features/**/betaBanner.feature",
-    // "./src/features/**/charityDetails.feature",
-    // "./src/features/**/customerType.feature",
-    // "./src/features/**/editSummary.feature",
-    // "./src/features/**/establishmentAddress.feature"
-    // "./src/features/**/establishmentAddressType.feature",
-    // "./src/features/**/establishmentContactDetails.feature",
-    // "./src/features/**/establishmentOpeningDate.feature",
-    // "./src/features/**/establishmentTradingName.feature",
-    // "./src/features/**/landingPage.feature",
-    // "./src/features/**/limitedCompanyDetails.feature",
-    // "./src/features/**/operatorAddress.feature",
-    // "./src/features/**/operatorContactDetails.feature",
-    // "./src/features/**/operatorName.feature",
-    // "./src/features/**/operatorType.feature"
-    // "./src/features/**/registrationRole.feature"
-    // "./src/features/**/receiveConfirmationNumber.feature"
-    // "./src/features/**/representativeOperatorContactDetails.feature",
-    // "./src/features/**/submitRegistration.feature",
-    // "./src/features/**/registrationSummary.feature",
-    // "./src/features/**/submissionPage.feature",
-    // "./src/features/**/errorSummary.feature",
-    // "./src/features/**/businessTypeIn.feature",
-    // ],
+    specs: [
+        "./src/features/**/backButton.feature",
+        "./src/features/**/betaBanner.feature",
+        "./src/features/**/charityDetails.feature",
+        "./src/features/**/customerType.feature",
+        "./src/features/**/editSummary.feature",
+        "./src/features/**/establishmentAddress.feature",
+        "./src/features/**/establishmentAddressType.feature",
+        "./src/features/**/establishmentContactDetails.feature",
+        "./src/features/**/establishmentOpeningDate.feature",
+        "./src/features/**/establishmentTradingName.feature",
+        "./src/features/**/landingPage.feature",
+        "./src/features/**/limitedCompanyDetails.feature",
+        "./src/features/**/operatorAddress.feature",
+        "./src/features/**/operatorContactDetails.feature",
+        "./src/features/**/operatorName.feature",
+        "./src/features/**/operatorType.feature",
+        "./src/features/**/registrationRole.feature",
+        "./src/features/**/receiveConfirmationNumber.feature",
+        "./src/features/**/representativeOperatorContactDetails.feature",
+        "./src/features/**/submitRegistration.feature",
+        "./src/features/**/registrationSummary.feature",
+        "./src/features/**/submissionPage.feature",
+        "./src/features/**/errorSummary.feature",
+        "./src/features/**/businessTypeIn.feature",
+        "./src/features/**/importExportActivities.feature"
+    ],
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
     ],
-    //defining specific suites
-    suites: {
-        landingpage: ["./src/features/**/landingPage.feature"],
-        establishment: [
-            "./src/features/**/establishmentContactDetails.feature",
-            "./src/features/**/establishmentOpeningDate.feature",
-            "./src/features/**/establishmentTradingName.feature",
-            "./src/features/**/establishmentAddress.feature",
-            "./src/features/**/establishmentAddressType.feature"
-        ],
-
-        operator: [
-            "./src/features/**/operatorAddress.feature",
-            "./src/features/**/operatorName.feature",
-            "./src/features/**/operatorType.feature",
-            "./src/features/**/operatorContactDetails.feature",
-            "./src/features/**/representativeOperatorContactDetails.feature",
-            "./src/features/**/registrationRole.feature"
-        ],
-
-        registrationSubmission: [
-            "./src/features/**/submitRegistration.feature",
-            "./src/features/**/registrationSummary.feature",
-            "./src/features/**/editSummary.feature",
-            "./src/features/**/submissionPage.feature",
-            "./src/features/**/receiveConfirmationNumber.feature"
-        ],
-
-        operatorextra: [
-            "./src/features/**/charityDetails.feature",
-            "./src/features/**/customerType.feature",
-            "./src/features/**/limitedCompanyDetails.feature",
-            "./src/features/**/importExportActivities.feature",
-            "./src/features/**/businessTypeIn.feature"
-        ],
-        websitefeatures: [
-            "./src/features/**/backButton.feature",
-            "./src/features/**/betaBanner.feature",
-            "./src/features/**/errorSummary.feature"
-        ]
-    },
     //
     // ============
     // Capabilities
@@ -103,72 +58,22 @@ exports.config = {
     // spawned. The property handles how many capabilities from the same test
     // should run tests.
     //
-    maxInstances: 10,
+    maxInstances: 5,
     //
     // If you have trouble getting all important capabilities together, check
     // out the Sauce Labs platform configurator - a great tool to configure your
     // capabilities: https://docs.saucelabs.com/reference/platforms-configurator
     //
-
     capabilities: [
-        //
         {
-            os: "OS X",
-            os_version: "High Sierra",
-            browserName: "Chrome",
-            browser_version: "67.0",
-            maxInstances: 2
+            // maxInstances can get overwritten per capability. So if you have an
+            // in-house Selenium grid with only 5 firefox instance available you can
+            // make sure that not more than 5 instance gets started at a time.
+            maxInstances: 5,
+            //
+            browserName: "chrome"
         }
-        // {
-        //     os: "OS X",
-        //     os_version: "High Sierra",
-        //     browserName: "Firefox",
-        //     browser_version: "61.0",
-        //     maxInstances: 2
-        // },
-        // {
-        //     os: "OS X",
-        //     os_version: "High Sierra",
-        //     browserName: "Safari",
-        //     browser_version: "11.1",
-        //     maxInstances: 2
-        // },
-        // {
-        //     os: "Windows",
-        //     os_version: "10",
-        //     browserName: "IE",
-        //     browser_version: "11.0",
-        //     maxInstances: 2
-        // },
-        // {
-        //     os: "Windows",
-        //     os_version: "10",
-        //     browserName: "Edge",
-        //     browser_version: "17.0",
-        //     maxInstances: 2
-        // }
-        // {
-        //     os: "OS X",
-        //     os_version: "High Sierra",
-        //     browserName: "Firefox",
-        //     browser_version: "61.0"
-        //browserName: "Safari",
-        //browser_version: "11.1",
-        /////////////
-        // os: "Windows",
-        // os_version: "10",
-        //browserName: "IE",
-        //browser_version: "11.0",
-        // browserName: "Edge",
-        // browser_version: "17.0",
-        // project: "test_project"
-        // }
     ],
-    // maxInstances can get overwritten per capability. So if you have an
-    // in-house Selenium grid with only 5 firefox instance available you can
-    // make sure that not more than 5 instance gets started at a time.
-    // maxInstances: 5,
-
     //
     // ===================
     // Test Configurations
@@ -240,15 +145,6 @@ exports.config = {
     // The only one supported by default is 'dot'
     // see also: http://webdriver.io/guide/testrunner/reporters.html
     reporters: ["spec"],
-    // reporters: ["allure"],
-    // reporterOptions: {
-    //     allure: {
-    //         outputDir: "allure-results",
-    //         disableWebdriverStepsReporting: true,
-    //         disableWebdriverScreenshotsReporting: true,
-    //         useCucumberStepReporter: true
-    //     }
-    // },
     //
     // If you are using Cucumber you need to specify the location of your step
     // definitions.
@@ -279,8 +175,7 @@ exports.config = {
         require: [
             "./src/steps/given.js",
             "./src/steps/then.js",
-            "./src/steps/when.js",
-            "./src/steps/setupAndTeardown.js"
+            "./src/steps/when.js"
             // Or search a (sub)folder for JS files with a wildcard
             // works since version 1.1 of the wdio-cucumber-framework
             //'./src/**/*.js',
@@ -294,7 +189,7 @@ exports.config = {
         // https://docs.cucumber.io/tag-expressions/
         tagExpression: "not @Pending",
         // <boolean> add cucumber tags to feature or scenario name
-        tagsInTitle: true,
+        tagsInTitle: false,
         // <number> timeout for step definitions
         timeout: 20000
     },
@@ -325,7 +220,6 @@ exports.config = {
         global.expect = chai.expect;
         global.assert = chai.assert;
         global.should = chai.should();
-        // browser.reload();
     }
     //
     // Hook that gets executed before the suite starts
@@ -345,8 +239,8 @@ exports.config = {
     // Function to be executed before a test (in Mocha/Jasmine) or a step (in
     // Cucumber) starts.
     // beforeTest: function beforeTest(test) {
-    // }
-
+    // },
+    //
     // Runs before a WebdriverIO command gets executed.
     // beforeCommand: function beforeCommand(commandName, args) {
     // },
@@ -358,9 +252,7 @@ exports.config = {
     // Function to be executed after a test (in Mocha/Jasmine) or a step (in
     // Cucumber) starts.
     // afterTest: function afterTest(test) {
-
-    //
-    // }
+    // },
     //
     // Hook that gets executed after the suite has ended
     // afterSuite: function afterSuite(suite) {
@@ -374,9 +266,5 @@ exports.config = {
     // Gets executed after all workers got shut down and the process is about to
     // exit. It is not possible to defer the end of the process using a promise.
     // onComplete: function onComplete(exitCode) {
-    // }
-    // beforeScenario: function(scenario) {
-    //     browser.url("/cleansession");
-    //     console.log("HI", scenario);
     // }
 };

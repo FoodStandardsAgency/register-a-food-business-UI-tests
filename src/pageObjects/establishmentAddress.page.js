@@ -1,8 +1,17 @@
 const estabAddress = {
     firstline: '[name="establishment_first_line"]',
-    postcode: '[name="establishment_postcode"]',
+    postcode: '[name="establishment_postcode_find"]',
+    manualPostcode: '[name="establishment_postcode"]',
+    findAddress: "#find-address",
+    postcodeDisplay: "#establishmentPostcodeDisplay",
+    changePostcode: "#changeEstablishmentPostcode",
+    postcodeDropdown: "#establishmentAddressDropdown",
+    street: '[name="establishment_street"]',
+    town: '[name="establishment_town"]',
     button: "#continue-button",
-    error: ".css-jdwgdl"
+    error: ".css-jdwgdl",
+    hiddenText: "#hiddenTextCantFindAddress summary",
+    cantFindAddress: "#hiddenTextCantFindAddress a"
 };
 
 module.exports = estabAddress;

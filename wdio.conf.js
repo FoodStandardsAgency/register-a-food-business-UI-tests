@@ -139,8 +139,11 @@ exports.config = {
         //     os_version: "10",
         //     browserName: "IE",
         //     browser_version: "11.0",
-        //     maxInstances: 2
-        // },
+        //     maxInstances: 2,
+        //     "browserstack.selenium_version": "2.53.1",
+        //     "browserstack.ie.arch": "x32",
+        //     "browserstack.ie.driver": "2.53.1"
+        // }
         // {
         //     os: "Windows",
         //     os_version: "10",

@@ -14,7 +14,7 @@ Feature: Declaration Page
     @declaration_page_one_checked
     Scenario: declaration page errors for one ticked
         Given I open the url "/cleansession"
-        And I open the url "/declaration"
+        And I open the url "declaration"
         When I click on the element "submitRegistration.firstCheckbox"
         And I click on the element "submitRegistration.button"
         Then I expect that element "submitRegistration.error" contains the text "You must tick all the declarations before continuing"
@@ -25,7 +25,7 @@ Feature: Declaration Page
     @declaration_page_sad
     Scenario: declaration page errors for none ticked
         Given I open the url "/cleansession"
-        And I open the url "/declaration"
+        And I open the url "declaration"
         When I click on the element "submitRegistration.button"
         Then I expect that element "submitRegistration.error" contains the text "You must tick all the declarations before continuing"
 

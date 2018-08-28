@@ -27,7 +27,7 @@ Beta Banner validation
 
     @beta_banner_SDB-373
     Scenario: beta banner is visible
-        Given I open the url "/"
+        Given I open the url "index"
         When I open the url "/operator-charity-details"
         Then I expect that element "commonElements.betaBeta" is visible
 

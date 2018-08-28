@@ -4,7 +4,7 @@ const importExportActivities = {
     none: "#import_export_activities_none",
     hiddenText: "#hiddenTextImportExportActivities",
     link: "#link-fsa-website",
-    button: ".css-nyvlzd",
+    button: "#continue-button",
     error: ".css-jdwgdl"
 };
 

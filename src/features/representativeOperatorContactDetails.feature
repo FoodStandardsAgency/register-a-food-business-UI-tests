@@ -12,7 +12,7 @@ Representative operator contact details
         And I set "07788292373" to the inputfield "repOpContactDetails.phoneNumber"
         And I set "representative@email.com" to the inputfield "repOpContactDetails.email"
         And I click on the element "repOpContactDetails.button"
-        Then I expect that the path is not "/contact-representative"
+        Then I expect the url to not contain "contact-representative"
 
     @SDB-241_happy_path_all_fields
     Scenario: happy path with optional field
@@ -23,7 +23,7 @@ Representative operator contact details
         And I set "Tester" to the inputfield "repOpContactDetails.role"
         And I set "representative@email.com" to the inputfield "repOpContactDetails.email"
         And I click on the element "repOpContactDetails.button"
-        Then I expect that the path is not "/contact-representative"
+        Then I expect the url to not contain "contact-representative"
 
     @SDB-241_invalid_email
     Scenario: invalid email address

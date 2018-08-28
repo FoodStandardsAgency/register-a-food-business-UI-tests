@@ -5,7 +5,7 @@ const submissionPage = {
     primaryAuthorityLink: "#primaryAuthorityLink",
     establishmentAddress: "#establishmentAddressRow",
     table: ".css-arcg3r",
-    button: ".css-nyvlzd",
+    button: "#continue-button",
     error: ".css-jdwgdl"
 };
 

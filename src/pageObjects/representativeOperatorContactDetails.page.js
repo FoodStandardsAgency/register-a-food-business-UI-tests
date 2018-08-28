@@ -3,7 +3,7 @@ const repOpContactDetails = {
     role: '[name="contact_representative_role"]',
     phoneNumber: '[name="contact_representative_number"]',
     email: '[name="contact_representative_email"]',
-    button: ".css-nyvlzd",
+    button: "#continue-button",
     error: ".css-jdwgdl"
 };
 

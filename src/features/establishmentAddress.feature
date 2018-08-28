@@ -9,9 +9,9 @@ Establishment address section validation
         And I open the url "/establishment-address"
         And I set "BS249ST" to the inputfield "estabAddress.postcode"
         When I click on the element "estabAddress.findAddress"
-        Then I expect that the path is "/establishment-address-select"
+        Then I expect the url to contain "establishment-address-select"
         When I click on the element "estabAddress.button"
-        Then I expect that the path is not "/establishment-address-select"
+        Then I expect the url to not contain "establishment-address-select"
 
     @SDB-12_happy_path_establishment_address_select_2nd_option
     Scenario: able to find address using lookup service on the establishment address page
@@ -19,10 +19,10 @@ Establishment address section validation
         And I open the url "/establishment-address"
         And I set "BS249ST" to the inputfield "estabAddress.postcode"
         When I click on the element "estabAddress.findAddress"
-        Then I expect that the path is "/establishment-address-select"
+        Then I expect the url to contain "establishment-address-select"
         When I select the 2nd option for element "estabAddress.postcodeDropdown"
         When I click on the element "estabAddress.button"
-        Then I expect that the path is not "/establishment-address-select"
+        Then I expect the url to not contain "establishment-address-select"
 
     @SDB-12_error_establishment_address
     Scenario: entering postcode in invalid format and pressing Find Address
@@ -38,10 +38,10 @@ Establishment address section validation
         And I open the url "/establishment-address"
         And I set "BS249ST" to the inputfield "estabAddress.postcode"
         When I click on the element "estabAddress.findAddress"
-        Then I expect that the path is "/establishment-address-select"
+        Then I expect the url to contain "establishment-address-select"
         And I expect that element "estabAddress.postcodeDisplay" contains the text "BS249ST"
         When I click on the element "estabAddress.changePostcode"
-        Then I expect that the path is "/establishment-address"
+        Then I expect the url to contain "establishment-address"
         And I expect that element "estabAddress.postcode" contains the text "BS249ST"
 
     @SDB-12_establishment_address_cant_find_address
@@ -50,15 +50,15 @@ Establishment address section validation
         And I open the url "/establishment-address"
         And I set "BS249ST" to the inputfield "estabAddress.postcode"
         When I click on the element "estabAddress.findAddress"
-        Then I expect that the path is "/establishment-address-select"
+        Then I expect the url to contain "establishment-address-select"
         And I expect that element "estabAddress.postcodeDisplay" contains the text "BS249ST"
         When I click on the element "estabAddress.hiddenText"
         And I click on the element "estabAddress.cantFindAddress"
-        Then I expect that the path is "/establishment-address-manual"
+        Then I expect the url to contain "establishment-address-manual"
         When I set "test first line" to the inputfield "estabAddress.firstline"
         And I set "AA11 1AA" to the inputfield "estabAddress.manualPostcode"
         And I click on the element "estabAddress.button"
-        Then I expect that the path is not "/establishment-address-manual"
+        Then I expect the url to not contain "establishment-address-manual"
 
 
     @SDB-12_establishment_address_cant_find_address_error_firstline

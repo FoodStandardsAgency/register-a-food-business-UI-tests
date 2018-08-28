@@ -9,7 +9,7 @@ Feature: Declaration Page
         And I click on the element "submitRegistration.secondCheckbox"
         And I click on the element "submitRegistration.thirdCheckbox"
         When I click on the element "submitRegistration.button"
-        Then I expect that the path is not "/declaration"
+        Then I expect the url to not contain "declaration"
 
     @declaration_page_one_checked
     Scenario: declaration page errors for one ticked

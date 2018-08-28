@@ -9,7 +9,7 @@ Operator Name section validation
         When I set "Bob" to the inputfield "opContactName.firstName"
         And I set "Smith" to the inputfield "opContactName.lastName"
         And I click on the element "opContactName.button"
-        Then I expect that the path is not "/operator-name"
+        Then I expect the url to not contain "operator-name"
 
     @no_first_name_SDB-35
     Scenario: no first name input

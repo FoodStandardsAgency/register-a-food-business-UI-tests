@@ -9,14 +9,14 @@ Import/Export Activities section validation
         And I open the url "/business-import-export"
         When I click on the element "importExportActivities.directImport"
         And I click on the element "importExportActivities.button"
-        Then I expect that the path is not "/business-import-export"
+        Then I expect the url to not contain "business-import-export"
 
     @import_export_activities_no_selection_SDB-124
     Scenario: not selected any options and tries to continue
         Given I open the url "/cleansession"
         And I open the url "/business-import-export"
         When I click on the element "importExportActivities.button"
-        Then I expect that the path is "/business-import-export"
+        Then I expect the url to contain "business-import-export"
         And I expect that element "importExportActivities.error" contains the text "You must select an option before continuing"
 
     @import_export_activities_deselect_SDB-124
@@ -34,7 +34,7 @@ Import/Export Activities section validation
         When I click on the element "importExportActivities.directImport"
         And I click on the element "importExportActivities.none"
         And I click on the element "importExportActivities.button"
-        Then I expect that the path is not "/business-import-export"
+        Then I expect the url to not contain "business-import-export"
         When I click on the element "commonElements.backButton"
         Then I expect that checkbox "importExportActivities.directImport" is checked
         And I expect that checkbox "importExportActivities.none" is checked
@@ -46,7 +46,7 @@ Import/Export Activities section validation
         When I click on the element "importExportActivities.directImport"
         And I click on the element "importExportActivities.none"
         And I click on the element "importExportActivities.button"
-        Then I expect that the path is not "/business-import-export"
+        Then I expect the url to not contain "business-import-export"
         When I open the url "/registration-summary"
         Then I expect that element "registrationSummary.foodActivities" contains the text "Directly import"
 

@@ -1,5 +1,5 @@
 const registrationSummary = {
-    button: ".css-nyvlzd",
+    button: "#continue-button",
     error: ".css-jdwgdl",
     operatorFirstName: "#operator_first_name",
     operatorLastName: "#operator_last_name",

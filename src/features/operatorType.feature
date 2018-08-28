@@ -18,7 +18,7 @@ Operator Type section validation
         And I open the url "/operator-type"
         When I click on the element "opType.operatorPerson"
         And I click on the element "opType.button"
-        Then I expect that the path is not "/operator-type"
+        Then I expect the url to not contain "operator-type"
 
 
     @not_selected_operator_type_SDB-55

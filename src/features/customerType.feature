@@ -9,7 +9,7 @@ Customer Type section validation
         And I open the url "/customer-type"
         When I click on the element "custType.supplyOther"
         And I click on the element "custType.button"
-        Then I expect that the path is not "/customer-type"
+        Then I expect the url to not contain "customer-type"
 
     @customer_operator_type_SDB-117_direct
     Scenario: happy path for selecting supply food directly to customers
@@ -17,7 +17,7 @@ Customer Type section validation
         And I open the url "/customer-type"
         When I click on the element "custType.supplyDirectly"
         And I click on the element "custType.button"
-        Then I expect that the path is not "/customer-type"
+        Then I expect the url to not contain "customer-type"
 
     @customer_operator_type_SDB-117_direct_and_others
     Scenario: happy path for selecting both options
@@ -26,7 +26,7 @@ Customer Type section validation
         When I click on the element "custType.supplyDirectly"
         And I click on the element "custType.supplyOther"
         And I click on the element "custType.button"
-        Then I expect that the path is not "/customer-type"
+        Then I expect the url to not contain "customer-type"
 
 
     @customer_operator_type_SDB-117_no_selection
@@ -43,9 +43,9 @@ Customer Type section validation
         And I open the url "/customer-type"
         And I click on the element "custType.supplyDirectly"
         And I click on the element "custType.button"
-        Then I expect that the path is not "/customer-type"
+        Then I expect the url to not contain "customer-type"
         When I click on the element "commonElements.backButton"
-        Then I expect that the path is "/customer-type"
+        Then I expect the url to contain "customer-type"
         When I click on the element "custType.supplyDirectly"
         Then I expect that checkbox "custType.supplyDirectly" is not checked
         When I click on the element "custType.button"

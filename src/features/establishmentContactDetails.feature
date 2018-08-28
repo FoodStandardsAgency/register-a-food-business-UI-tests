@@ -10,7 +10,7 @@ Establishment address simple contact details section validation
         When I set "valid@email.com" to the inputfield "estabContactDetails.emailAddress"
         And I set "01234567890" to the inputfield "estabContactDetails.primaryPhoneNumber"
         And I click on the element "estabContactDetails.button"
-        Then I expect that the path is not "/establishment-contact-details"
+        Then I expect the url to not contain "establishment-contact-details"
 
     @SDB-113_happy_path_all_fields
     Scenario: happy path with optional field
@@ -20,7 +20,7 @@ Establishment address simple contact details section validation
         And I set "01234567890" to the inputfield "estabContactDetails.primaryPhoneNumber"
         And I set "07788292121" to the inputfield "estabContactDetails.optionalPhoneNumber"
         And I click on the element "submitRegistration.button"
-        Then I expect that the path is not "/establishment-contact-details"
+        Then I expect the url to not contain "establishment-contact-details"
 
     @SDB-113_invalid_email
     Scenario: invalid email address
@@ -83,7 +83,7 @@ Establishment address simple contact details section validation
         Then I expect that element "estabContactDetails.emailAddress" contains the text "email@email.com"
         And I expect that element "estabContactDetails.primaryPhoneNumber" contains the text "01234567890"
         When I click on the element "submitRegistration.button"
-        Then I expect that the path is not "/establishment-contact-details"
+        Then I expect the url to not contain "establishment-contact-details"
 
     @SDB-113_happy_path_same_as_operator_overwrite
     Scenario: happy path using operator details overwriting
@@ -95,7 +95,7 @@ Establishment address simple contact details section validation
         Then I expect that element "estabContactDetails.emailAddress" contains the text "email@email.com"
         And I expect that element "estabContactDetails.primaryPhoneNumber" contains the text "01234567890"
         When I click on the element "submitRegistration.button"
-        Then I expect that the path is not "/establishment-contact-details"
+        Then I expect the url to not contain "establishment-contact-details"
 
     @SDB-113_happy_path_same_as_operator_edit
     Scenario: happy path using operator details

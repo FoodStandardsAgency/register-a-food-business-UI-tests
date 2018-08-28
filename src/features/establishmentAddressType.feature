@@ -18,7 +18,7 @@ Establishment address type section validation
         And I open the url "/establishment-address-type"
         When I click on the element "estabAddressType.businessCommercial"
         And I click on the element "estabAddressType.button"
-        Then I expect that the path is not "/establishment-address-details"
+        Then I expect the url to not contain "establishment-address-details"
 
 
     @not_selected_establishment_type_SDB-50

@@ -9,7 +9,7 @@ Charity Details section validation
         And I open the url "/operator-charity-details"
         When I set "Charity Name example" to the inputfield "charityDetails.charityName"
         Then I click on the element "charityDetails.button"
-        And I expect that the path is not "/operator-charity-details"
+        And I expect the url to not contain "operator-charity-details"
 
     @charity_details_happy_path_with_number_SDB-40
     Scenario: testing charity details happy path
@@ -18,7 +18,7 @@ Charity Details section validation
         When I set "Charity Name example" to the inputfield "charityDetails.charityName"
         And I set "12345678" to the inputfield "charityDetails.charityNumber"
         Then I click on the element "charityDetails.button"
-        And I expect that the path is not "/operator-charity-details"
+        And I expect the url to not contain "operator-charity-details"
 
 
 

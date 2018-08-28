@@ -5,6 +5,6 @@ const estabOpeningDate = {
     month: '[name="month"]',
     year: '[name="year"]',
     error: '.css-jdwgdl',
-    button: '.css-nyvlzd',
+    button: '#continue-button',
 };
 module.exports = estabOpeningDate;

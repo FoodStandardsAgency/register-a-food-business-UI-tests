@@ -9,7 +9,7 @@ Limited Company section validation
         When I set "Bob's Burgers" to the inputfield "companyDetails.name"
         And I set "12345678" to the inputfield "companyDetails.companiesHouseNumber"
         And I click on the element "companyDetails.button"
-        Then I expect that the path is not "/operator-company-details"
+        Then I expect the url to not contain "operator-company-details"
 
     @not_filled_in_name_SDB-36
     Scenario: not filled in company name

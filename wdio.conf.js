@@ -86,7 +86,10 @@ exports.config = {
             "./src/features/**/betaBanner.feature",
             "./src/features/**/errorSummary.feature"
         ],
-        end2end: ["./src/features/**/e2eTestingCatelyn.feature"]
+        end2end: [
+            "./src/features/**/e2eTestingCatelyn.feature",
+            "./src/features/**/e2eTestingJamie.feature"
+        ]
     },
     //
     // ============

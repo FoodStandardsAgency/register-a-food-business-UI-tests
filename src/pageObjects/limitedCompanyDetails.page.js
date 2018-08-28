@@ -4,7 +4,7 @@ const companyDetails = {
     questions: ".css-qsm963",
     explanation: ".css-b3ybmf",
     link: "#link-companies-house",
-    button: ".css-nyvlzd",
+    button: "#continue-button",
     error: ".css-jdwgdl"
 };
 

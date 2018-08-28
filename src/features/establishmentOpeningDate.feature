@@ -24,7 +24,7 @@ Establishment opening status and date
         And I click on the element "estabOpeningDate.button"
         Then I expect the url to contain "establishment-opening-date-proactive"
         And I click on the element "estabOpeningDate.button"
-        And I expect that the path is "/establishment-opening-date-proactive"
+        And I expect the url to contain "establishment-opening-date-proactive"
         Then I expect that element "estabOpeningDate.error" contains the text "Not a valid opening date"
 
     @SDB-114_trading_date_proactive_past_date
@@ -38,7 +38,7 @@ Establishment opening status and date
         And I set "03" to the inputfield "estabOpeningDate.month"
         And I set "1999" to the inputfield "estabOpeningDate.year"
         And I click on the element "estabOpeningDate.button"
-        And I expect that the path is "/establishment-opening-date-proactive"
+        And I expect the url to contain "establishment-opening-date-proactive"
         Then I expect that element "estabOpeningDate.error" contains the text "Not a valid opening date"
 
     @SDB-114_trading_date_proactive_invalid_date
@@ -52,7 +52,7 @@ Establishment opening status and date
         And I set "28974" to the inputfield "estabOpeningDate.month"
         And I set "§§§" to the inputfield "estabOpeningDate.year"
         And I click on the element "estabOpeningDate.button"
-        And I expect that the path is "/establishment-opening-date-proactive"
+        And I expect the url to contain "establishment-opening-date-proactive"
         Then I expect that element "estabOpeningDate.error" contains the text "Not a valid opening date"
 
     @SDB-115_trading_date_retroactive_happy_path
@@ -76,7 +76,7 @@ Establishment opening status and date
         And I click on the element "estabOpeningDate.button"
         Then I expect the url to contain "establishment-opening-date-retroactive"
         And I click on the element "estabOpeningDate.button"
-        And I expect that the path is "/establishment-opening-date-retroactive"
+        And I expect the url to contain "establishment-opening-date-retroactive"
         Then I expect that element "estabOpeningDate.error" contains the text "Not a valid opening date"
 
     @SDB-115_trading_date_retroactive_future_date
@@ -90,7 +90,7 @@ Establishment opening status and date
         And I set "03" to the inputfield "estabOpeningDate.month"
         And I set "2999" to the inputfield "estabOpeningDate.year"
         And I click on the element "estabOpeningDate.button"
-        And I expect that the path is "/establishment-opening-date-retroactive"
+        And I expect the url to contain "establishment-opening-date-retroactive"
         Then I expect that element "estabOpeningDate.error" contains the text "Not a valid opening date"
 
     @SDB-115_trading_date_retroactive_invalid_date
@@ -104,5 +104,5 @@ Establishment opening status and date
         And I set "28974" to the inputfield "estabOpeningDate.month"
         And I set "§§§" to the inputfield "estabOpeningDate.year"
         And I click on the element "estabOpeningDate.button"
-        And I expect that the path is "/establishment-opening-date-retroactive"
+        And I expect the url to contain "establishment-opening-date-retroactive"
         Then I expect that element "estabOpeningDate.error" contains the text "Not a valid opening date"

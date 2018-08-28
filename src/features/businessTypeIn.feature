@@ -18,7 +18,7 @@ Business Type In Validation
         Given I open the url "/cleansession"
         And I open the url "business-type"
         When I set "Egg" to the inputfield "businessTypeIn.search"
-        And I click on the element "businessTypeIn.button"
+        And I click on the element "businessTypeIn.title"
         And I click on the element "businessTypeIn.button"
         Then I expect the url to contain "business-type"
         And I expect that element "businessTypeIn.error" contains the text "You must select a business type before continuing"

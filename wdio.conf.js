@@ -20,6 +20,8 @@ exports.config = {
     // "./src/features/**/charityDetails.feature",
     // "./src/features/**/customerType.feature",
     // "./src/features/**/editSummary.feature",
+    // "./src/features/**/e2eTestingCatelyn.feature",
+    // "./src/features/**/e2eTestingJamie.feature",
     // "./src/features/**/establishmentAddress.feature"
     // "./src/features/**/establishmentAddressType.feature",
     // "./src/features/**/establishmentContactDetails.feature",

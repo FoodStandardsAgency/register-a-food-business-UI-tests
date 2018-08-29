@@ -1,7 +1,7 @@
 const summaryConfirmation = {
     fsaRn: "#fsa-rn",
     fsaRnUnresponsive: "#fsa-rn-unresponsive",
-    button: ".css-nyvlzd",
+    button: "#continue-button",
     error: ".css-jdwgdl"
 };
 

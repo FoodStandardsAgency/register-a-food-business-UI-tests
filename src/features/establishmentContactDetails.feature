@@ -6,26 +6,26 @@ Establishment address simple contact details section validation
     @SDB-1113_happy_path
     Scenario: happy path without optional field
         Given I open the url "/cleansession"
-        And I open the url "/establishment-contact-details"
+        And I open the url "establishment-contact-details"
         When I set "valid@email.com" to the inputfield "estabContactDetails.emailAddress"
         And I set "01234567890" to the inputfield "estabContactDetails.primaryPhoneNumber"
         And I click on the element "estabContactDetails.button"
-        Then I expect that the path is not "/establishment-contact-details"
+        Then I expect the url to not contain "establishment-contact-details"
 
     @SDB-113_happy_path_all_fields
     Scenario: happy path with optional field
         Given I open the url "/cleansession"
-        And I open the url "/establishment-contact-details"
+        And I open the url "establishment-contact-details"
         When I set "valid@email.com" to the inputfield "estabContactDetails.emailAddress"
         And I set "01234567890" to the inputfield "estabContactDetails.primaryPhoneNumber"
         And I set "07788292121" to the inputfield "estabContactDetails.optionalPhoneNumber"
         And I click on the element "submitRegistration.button"
-        Then I expect that the path is not "/establishment-contact-details"
+        Then I expect the url to not contain "establishment-contact-details"
 
     @SDB-113_invalid_email
     Scenario: invalid email address
         Given I open the url "/cleansession"
-        And I open the url "/establishment-contact-details"
+        And I open the url "establishment-contact-details"
         When I set "invalidemail" to the inputfield "estabContactDetails.emailAddress"
         And I set "01234567890" to the inputfield "estabContactDetails.primaryPhoneNumber"
         And I click on the element "estabContactDetails.button"
@@ -36,7 +36,7 @@ Establishment address simple contact details section validation
     @SDB-113_invalid_phone_number
     Scenario: invalid phone number
         Given I open the url "/cleansession"
-        Given I open the url "/establishment-contact-details"
+        Given I open the url "establishment-contact-details"
         When I set "invalidnumber" to the inputfield "estabContactDetails.primaryPhoneNumber"
         And I set "valid@email.com" to the inputfield "estabContactDetails.emailAddress"
         And I click on the element "estabContactDetails.button"
@@ -47,7 +47,7 @@ Establishment address simple contact details section validation
     @SDB-113_no_email_address
     Scenario: no email address
         Given I open the url "/cleansession"
-        And I open the url "/establishment-contact-details"
+        And I open the url "establishment-contact-details"
         When I set "01234567890" to the inputfield "estabContactDetails.primaryPhoneNumber"
         And I click on the element "estabContactDetails.button"
         Then I expect that element "estabContactDetails.error" contains the text "Not a valid email address"
@@ -56,7 +56,7 @@ Establishment address simple contact details section validation
     @SDB-113_no_phone_number
     Scenario: no phone number
         Given I open the url "/cleansession"
-        And I open the url "/establishment-contact-details"
+        And I open the url "establishment-contact-details"
         When I set "valid@email.com" to the inputfield "estabContactDetails.emailAddress"
         And I click on the element "estabContactDetails.button"
         Then I expect that element "estabContactDetails.error" contains the text "Not a valid phone number"
@@ -65,7 +65,7 @@ Establishment address simple contact details section validation
     @SDB-113_invalid_optional_phone_number
     Scenario: invalid secondary phone number
         Given I open the url "/cleansession"
-        And I open the url "/establishment-contact-details"
+        And I open the url "establishment-contact-details"
         When I set "valid@email.com" to the inputfield "estabContactDetails.emailAddress"
         And I set "01234567890" to the inputfield "estabContactDetails.primaryPhoneNumber"
         And I set "§§§§" to the inputfield "estabContactDetails.optionalPhoneNumber"
@@ -83,7 +83,7 @@ Establishment address simple contact details section validation
         Then I expect that element "estabContactDetails.emailAddress" contains the text "email@email.com"
         And I expect that element "estabContactDetails.primaryPhoneNumber" contains the text "01234567890"
         When I click on the element "submitRegistration.button"
-        Then I expect that the path is not "/establishment-contact-details"
+        Then I expect the url to not contain "establishment-contact-details"
 
     @SDB-113_happy_path_same_as_operator_overwrite
     Scenario: happy path using operator details overwriting
@@ -95,13 +95,13 @@ Establishment address simple contact details section validation
         Then I expect that element "estabContactDetails.emailAddress" contains the text "email@email.com"
         And I expect that element "estabContactDetails.primaryPhoneNumber" contains the text "01234567890"
         When I click on the element "submitRegistration.button"
-        Then I expect that the path is not "/establishment-contact-details"
+        Then I expect the url to not contain "establishment-contact-details"
 
     @SDB-113_happy_path_same_as_operator_edit
     Scenario: happy path using operator details
         Given I open the url "/cleansession"
         And I go to a special QA page at url "/qa/establishment-contact-details" with injected "declaration" data
-        And I open the url "/establishment-contact-details"
+        And I open the url "establishment-contact-details"
         When I click on the element "estabContactDetails.checkbox"
         Then I expect that element "estabContactDetails.emailAddress" contains the text "email@email.com"
         And I expect that element "estabContactDetails.primaryPhoneNumber" contains the text "01234567890"
@@ -116,7 +116,7 @@ Establishment address simple contact details section validation
     Scenario: happy path using operator details deselect
         Given I open the url "/cleansession"
         And I go to a special QA page at url "/qa/establishment-contact-details" with injected "declaration" data
-        And I open the url "/establishment-contact-details"
+        And I open the url "establishment-contact-details"
         And I click on the element "estabContactDetails.checkbox"
         Then I expect that element "estabContactDetails.emailAddress" contains the text "email@email.com"
         And I expect that element "estabContactDetails.primaryPhoneNumber" contains the text "01234567890"

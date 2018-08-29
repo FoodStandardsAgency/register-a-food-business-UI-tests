@@ -20,6 +20,8 @@ exports.config = {
     // "./src/features/**/charityDetails.feature",
     // "./src/features/**/customerType.feature",
     // "./src/features/**/editSummary.feature",
+    // "./src/features/**/e2eTestingCatelyn.feature",
+    // "./src/features/**/e2eTestingJamie.feature",
     // "./src/features/**/establishmentAddress.feature"
     // "./src/features/**/establishmentAddressType.feature",
     // "./src/features/**/establishmentContactDetails.feature",
@@ -84,7 +86,10 @@ exports.config = {
             "./src/features/**/betaBanner.feature",
             "./src/features/**/errorSummary.feature"
         ],
-        end2end: ["./src/features/**/e2eTestingCatelyn.feature"]
+        end2end: [
+            "./src/features/**/e2eTestingCatelyn.feature",
+            "./src/features/**/e2eTestingJamie.feature"
+        ]
     },
     //
     // ============

@@ -1,6 +1,6 @@
 const estabTradingName = {
     tradingNameInput: '[name="establishment_trading_name"]',
-    button: ".css-nyvlzd",
+    button: "#continue-button",
     error: ".css-jdwgdl"
 };
 

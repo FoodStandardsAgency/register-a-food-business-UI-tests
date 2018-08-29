@@ -20,6 +20,8 @@ exports.config = {
     // "./src/features/**/charityDetails.feature",
     // "./src/features/**/customerType.feature",
     // "./src/features/**/editSummary.feature",
+    // "./src/features/**/e2eTestingCatelyn.feature",
+    // "./src/features/**/e2eTestingJamie.feature",
     // "./src/features/**/establishmentAddress.feature"
     // "./src/features/**/establishmentAddressType.feature",
     // "./src/features/**/establishmentContactDetails.feature",
@@ -84,7 +86,10 @@ exports.config = {
             "./src/features/**/betaBanner.feature",
             "./src/features/**/errorSummary.feature"
         ],
-        end2end: ["./src/features/**/e2eTestingCatelyn.feature"]
+        end2end: [
+            "./src/features/**/e2eTestingCatelyn.feature",
+            "./src/features/**/e2eTestingJamie.feature"
+        ]
     },
     //
     // ============
@@ -139,8 +144,11 @@ exports.config = {
         //     os_version: "10",
         //     browserName: "IE",
         //     browser_version: "11.0",
-        //     maxInstances: 2
-        // },
+        //     maxInstances: 2,
+        //     "browserstack.selenium_version": "2.53.1",
+        //     "browserstack.ie.arch": "x32",
+        //     "browserstack.ie.driver": "2.53.1"
+        // }
         // {
         //     os: "Windows",
         //     os_version: "10",
@@ -193,7 +201,8 @@ exports.config = {
     //
     // Set a base URL in order to shorten url command calls. If your url
     // parameter starts with "/", then the base url gets prepended.
-    baseUrl: "https://dev-register-a-food-business.azurewebsites.net/",
+    baseUrl:
+        "https://dev-register-a-food-business.azurewebsites.net/new/cardiff/",
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,

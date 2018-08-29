@@ -7,7 +7,7 @@ const submissionPage = {
     districtCouncil: "#districtCouncil",
     countyCouncil: "#countyCouncil",
     table: ".css-arcg3r",
-    button: ".css-nyvlzd",
+    button: "#continue-button",
     error: ".css-jdwgdl"
 };
 

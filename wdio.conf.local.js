@@ -35,7 +35,8 @@ exports.config = {
         "./src/features/**/errorSummary.feature",
         "./src/features/**/businessTypeIn.feature",
         "./src/features/**/importExportActivities.feature",
-        "./src/features/**/e2eTestingCatelyn.feature"
+        "./src/features/**/e2eTestingCatelyn.feature",
+        "./src/features/**/e2eTestingJamie.feature"
     ],
     // Patterns to exclude.
     exclude: [
@@ -98,7 +99,8 @@ exports.config = {
     //
     // Set a base URL in order to shorten url command calls. If your url
     // parameter starts with "/", then the base url gets prepended.
-    baseUrl: "https://dev-register-a-food-business.azurewebsites.net/",
+    baseUrl:
+        "https://dev-register-a-food-business.azurewebsites.net/new/cardiff/",
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,

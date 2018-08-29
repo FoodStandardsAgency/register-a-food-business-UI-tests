@@ -4,6 +4,8 @@ const submissionPage = {
     fhrsScoreLink: "#fhrsScoreLink",
     primaryAuthorityLink: "#primaryAuthorityLink",
     establishmentAddress: "#establishmentAddressRow",
+    districtCouncil: "#districtCouncil",
+    countyCouncil: "#countyCouncil",
     table: ".css-arcg3r",
     button: "#continue-button",
     error: ".css-jdwgdl"

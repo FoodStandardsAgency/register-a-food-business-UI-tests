@@ -100,7 +100,7 @@ exports.config = {
     // Set a base URL in order to shorten url command calls. If your url
     // parameter starts with "/", then the base url gets prepended.
     baseUrl:
-        "https://dev-register-a-food-business.azurewebsites.net/new/cardiff/",
+        "https://dev-register-a-food-business.azurewebsites.net/new/",
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,

@@ -5,7 +5,7 @@ Testing whole flow for current pages for Jamie
 
     @happy_path_
     Scenario: happy path
-        Given I open the url "index"
+        Given I open the url "cardiff/index"
         When I click on the element "firstpage.button"
         Then I expect the url to contain "registration-role"
         When I click on the element "regRole.representative"

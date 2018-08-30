@@ -44,9 +44,11 @@ const datasets = {
         supply_directly: "true",
         supply_other: "true",
         business_type: "Livestock farm",
+        customer_type: "End Consumer",
         day: "01",
         month: "01",
-        year: "2001"
+        year: "2001",
+        directly_import: "Directly import"
     }
 };
 

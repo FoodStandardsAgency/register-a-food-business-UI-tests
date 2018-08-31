@@ -6,7 +6,7 @@ Back button functionality with multiple paths
   @select_sole_trader_direct_route_SDB-232
   Scenario: go directly to operator name then return to registration role
     Given I open the url "/cleansession"
-    And I open the url "registration-role"
+    And I open the url "cardiff/registration-role"
     When I click on the element "regRole.soleTrader"
     And I click on the element "regRole.button"
     Then I expect the url to contain "operator-name"
@@ -17,7 +17,7 @@ Back button functionality with multiple paths
   @select_representative_indirect_route_SDB-232
   Scenario: go directly to operator name then return to registration role
     Given I open the url "/cleansession"
-    And I open the url "registration-role"
+    And I open the url "cardiff/registration-role"
     When I click on the element "regRole.representative"
     And I click on the element "regRole.button"
     Then I expect the url to contain "operator-type"
@@ -35,7 +35,7 @@ Back button functionality with multiple paths
   @same_page_via_different_routes_SDB-232
   Scenario: go directly to operator name then return to registration role
     Given I open the url "/cleansession"
-    And I open the url "registration-role"
+    And I open the url "cardiff/registration-role"
     When I click on the element "regRole.soleTrader"
     And I click on the element "regRole.button"
     Then I expect the url to contain "operator-name"
@@ -67,7 +67,7 @@ Back button functionality with multiple paths
   @different_page_via_different_routes_SDB-232
   Scenario: go directly to operator name then return to registration role
     Given I open the url "/cleansession"
-    And I open the url "registration-role"
+    And I open the url "cardiff/registration-role"
     When I click on the element "regRole.soleTrader"
     And I click on the element "regRole.button"
     Then I expect the url to contain "operator-name"
@@ -82,11 +82,11 @@ Back button functionality with multiple paths
     And I expect that element "opContactName.firstName" contains the text "Bob"
     And I expect that element "opContactName.lastName" contains the text "Smith"
 
-    Given I open the url "registration-summary"
+    Given I open the url "cardiff/registration-summary"
     Then I expect that element "registrationSummary.operatorFirstName" contains the text "Bob"
     And I expect that element "registrationSummary.operatorLastName" contains the text "Smith"
 
-    Given I open the url "registration-role"
+    Given I open the url "cardiff/registration-role"
     Then I expect that checkbox "regRole.soleTrader" is checked
 
     Given I click on the element "regRole.representative"
@@ -97,6 +97,6 @@ Back button functionality with multiple paths
     And I click on the element "opType.button"
     Then I expect the url to contain "operator-company-details"
 
-    Given I open the url "registration-summary"
+    Given I open the url "cardiff/registration-summary"
     Then I expect that element "registrationSummary.operatorFirstName" does not exist
     And I expect that element "registrationSummary.operatorLastName" does not exist

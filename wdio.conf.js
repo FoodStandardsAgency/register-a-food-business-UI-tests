@@ -21,6 +21,8 @@ exports.config = {
     // "./src/features/**/charityDetails.feature",
     // "./src/features/**/customerType.feature",
     // "./src/features/**/editSummary.feature",
+    // "./src/features/**/e2eTestingCatelyn.feature",
+    // "./src/features/**/e2eTestingJamie.feature",
     // "./src/features/**/establishmentAddress.feature"
     // "./src/features/**/establishmentAddressType.feature",
     // "./src/features/**/establishmentContactDetails.feature",
@@ -84,9 +86,13 @@ exports.config = {
             "./src/features/**/backButton.feature",
             "./src/features/**/betaBanner.feature",
             "./src/features/**/errorSummary.feature",
-            "./src/features/**/cookieBanner.feature"
+            "./src/features/**/cookieBanner.feature",
+            "./src/features/**/lcLookup.feature"
         ],
-        end2end: ["./src/features/**/e2eTestingCatelyn.feature"]
+        end2end: [
+            "./src/features/**/e2eTestingCatelyn.feature",
+            "./src/features/**/e2eTestingJamie.feature"
+        ]
     },
     //
     // ============
@@ -198,8 +204,7 @@ exports.config = {
     //
     // Set a base URL in order to shorten url command calls. If your url
     // parameter starts with "/", then the base url gets prepended.
-    baseUrl:
-        "https://dev-register-a-food-business.azurewebsites.net/new/cardiff/",
+    baseUrl: "https://dev-register-a-food-business.azurewebsites.net/new/",
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,

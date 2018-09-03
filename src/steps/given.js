@@ -22,6 +22,7 @@ import openWebsite from "../support/action/openWebsite";
 import resizeScreenSize from "../support/action/resizeScreenSize";
 import injectDataIntoRegSummary from "../support/action/injectDataIntoRegSummary";
 import switchTab from "../support/action/switchTab";
+import deleteAllCookies from "../support/action/deleteAllCookies";
 
 const { Given } = require("cucumber");
 
@@ -29,6 +30,8 @@ Given(
     /^I go to a special QA page at url "([^"]*)?" with injected "([^"]*)?" data$/,
     injectDataIntoRegSummary
 );
+
+Given(/^I delete all my cookies$/, deleteAllCookies);
 
 Given(/^I switch to the second tab$/, switchTab);
 

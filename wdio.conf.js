@@ -17,6 +17,7 @@ exports.config = {
     // specs: [
     // "./src/features/**/backButton.feature",
     // "./src/features/**/betaBanner.feature",
+    // "./src/features/**/cookieBanner.feature",
     // "./src/features/**/charityDetails.feature",
     // "./src/features/**/customerType.feature",
     // "./src/features/**/editSummary.feature",
@@ -85,6 +86,7 @@ exports.config = {
             "./src/features/**/backButton.feature",
             "./src/features/**/betaBanner.feature",
             "./src/features/**/errorSummary.feature",
+            "./src/features/**/cookieBanner.feature",
             "./src/features/**/lcLookup.feature"
         ],
         end2end: [

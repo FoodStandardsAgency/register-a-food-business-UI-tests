@@ -83,11 +83,11 @@ exports.config = {
             "./src/features/**/businessTypeIn.feature"
         ],
         websitefeatures: [
-            "./src/features/**/backButton.feature",
-            "./src/features/**/betaBanner.feature",
-            "./src/features/**/errorSummary.feature",
+            // "./src/features/**/backButton.feature",
+            // "./src/features/**/betaBanner.feature",
+            // "./src/features/**/errorSummary.feature",
             "./src/features/**/cookieBanner.feature",
-            "./src/features/**/lcLookup.feature"
+            // "./src/features/**/lcLookup.feature"
         ],
         end2end: [
             "./src/features/**/e2eTestingCatelyn.feature",

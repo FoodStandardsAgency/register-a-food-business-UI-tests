@@ -46,7 +46,12 @@ Beta Banner validation
     @beta_banner_SDB-373_summary_confirmation
     Scenario: I want to fill in the feedback form
         Given I go to a special QA page at url "/qa/cardiff/summary-confirmation" with injected "registration-summary" data
-        When I open the url "cardiff/summary-confirmation"
+        And I go to a special QA page at url "/qa/cardiff/declaration" with injected "declaration" data
+        And I click on the element "submitRegistration.firstCheckbox"
+        And I click on the element "submitRegistration.secondCheckbox"
+        And I click on the element "submitRegistration.thirdCheckbox"
+        When I click on the element "submitRegistration.button"
+        Then I expect the url to contain "summary-confirmation"
         Then I expect that the attribute "href" from element "commonElements.betaLink" is "https://goo.gl/forms/WB5adxvWQdDIfVvs2"
         Given I click on the element "commonElements.betaLink"
         And I pause for 1000ms

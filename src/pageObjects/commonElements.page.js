@@ -8,7 +8,10 @@ const commonElements = {
     cookiePolicy: "#cookiePolicy",
     cookieAccept: "#cookieAccept",
     cookieReject: "#cookieReject",
-    cookieClose: "#cookieClose"
+    cookieClose: "#cookieClose",
+    fsaFooter: "#fsaFooter",
+    cookiePolicyFooter: "#cookiePolicyFooter",
+    privacyPolicyFooter: "#privacyPolicyFooter"
 };
 
 module.exports = commonElements;

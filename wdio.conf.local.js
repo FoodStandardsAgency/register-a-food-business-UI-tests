@@ -38,7 +38,8 @@ exports.config = {
         "./src/features/**/importExportActivities.feature",
         "./src/features/**/e2eTestingCatelyn.feature",
         "./src/features/**/e2eTestingJamie.feature",
-        "./src/features/**/lcLookup.feature"
+        "./src/features/**/lcLookup.feature",
+        "./src/features/**/fsaFooter.feature"
     ],
     // Patterns to exclude.
     exclude: [

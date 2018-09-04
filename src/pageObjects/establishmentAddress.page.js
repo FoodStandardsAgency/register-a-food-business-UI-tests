@@ -10,8 +10,7 @@ const estabAddress = {
     town: '[name="establishment_town"]',
     button: "#continue-button",
     error: ".css-jdwgdl",
-    hiddenText: "#hiddenTextCantFindAddress summary",
-    cantFindAddress: "#hiddenTextCantFindAddress a"
+    cantFindAddressLink: "#cantFindAddressLink"
 };
 
 module.exports = estabAddress;

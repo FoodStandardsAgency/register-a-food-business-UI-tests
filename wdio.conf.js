@@ -87,7 +87,8 @@ exports.config = {
             "./src/features/**/betaBanner.feature",
             "./src/features/**/errorSummary.feature",
             "./src/features/**/cookieBanner.feature",
-            "./src/features/**/lcLookup.feature"
+            "./src/features/**/lcLookup.feature",
+            "./src/features/**/fsaFooter.feature"
         ],
         end2end: [
             "./src/features/**/e2eTestingCatelyn.feature",

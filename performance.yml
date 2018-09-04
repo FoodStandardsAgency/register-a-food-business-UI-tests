@@ -1,16 +1,18 @@
 config:
-  target: 'https://staging-register-a-food-business.azurewebsites.net/'
-  phases:
-    - duration: 60
-      arrivalRate: 1
-      rampTo: 40
-  defaults:
-    headers:
-      x-my-service-auth: '987401838271002188298567'
+    target: "https://staging-register-a-food-business.azurewebsites.net/"
+    phases:
+        - duration: 120
+          arrivalRate: 5
+          rampTo: 30
+        - duration: 500
+          arrivalRate: 30
+
+    defaults:
+        headers:
+            x-my-service-auth: "987401838271002188298567"
 scenarios:
-  - flow:
-    - get:
-        url: "/"
-    - get:
-        url: "/registration-role"
-       
+    - flow:
+          - get:
+                url: "/"
+          - get:
+                url: "/registration-role"

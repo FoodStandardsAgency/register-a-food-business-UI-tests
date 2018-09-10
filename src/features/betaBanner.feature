@@ -51,6 +51,7 @@ Beta Banner validation
         And I click on the element "submitRegistration.secondCheckbox"
         And I click on the element "submitRegistration.thirdCheckbox"
         When I click on the element "submitRegistration.button"
+        And I pause for 1000ms
         Then I expect the url to contain "summary-confirmation"
         Then I expect that the attribute "href" from element "commonElements.betaLink" is "https://goo.gl/forms/WB5adxvWQdDIfVvs2"
         Given I click on the element "commonElements.betaLink"

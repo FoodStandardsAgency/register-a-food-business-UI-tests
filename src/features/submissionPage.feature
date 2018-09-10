@@ -6,6 +6,7 @@ Submission Page with next steps and links
     @SDB-121_food_safety
     Scenario: I want to find out about food safety and how to run a food business
         Given I open the url "/cleansession"
+        And I change my viewport
         And I go to a special QA page at url "/qa/cardiff/declaration" with injected "declaration" data
         And I click on the element "submitRegistration.firstCheckbox"
         And I click on the element "submitRegistration.secondCheckbox"
@@ -21,10 +22,12 @@ Submission Page with next steps and links
     Scenario: I want to find out about standards guidance
         Given I open the url "/cleansession"
         And I go to a special QA page at url "/qa/cardiff/declaration" with injected "declaration" data
+        And I click on the element "commonElements.cookieAccept"
         And I click on the element "submitRegistration.firstCheckbox"
         And I click on the element "submitRegistration.secondCheckbox"
         And I click on the element "submitRegistration.thirdCheckbox"
         When I click on the element "submitRegistration.button"
+        And I pause for 1000ms
         Then I expect the url to contain "summary-confirmation"
         And I expect that the attribute "href" from element "submissionPage.standardGuidanceLink" is "https://www.businesscompanion.info/en/in-depth-guides"
         Given I click on the element "submissionPage.standardGuidanceLink"
@@ -39,6 +42,7 @@ Submission Page with next steps and links
         And I click on the element "submitRegistration.secondCheckbox"
         And I click on the element "submitRegistration.thirdCheckbox"
         When I click on the element "submitRegistration.button"
+        And I pause for 1000ms
         Then I expect the url to contain "summary-confirmation"
         And I expect that the attribute "href" from element "submissionPage.fhrsScoreLink" is "https://www.food.gov.uk/business-guidance/food-hygiene-ratings-for-businesses"
         Given I click on the element "submissionPage.fhrsScoreLink"
@@ -54,6 +58,7 @@ Submission Page with next steps and links
         And I click on the element "submitRegistration.secondCheckbox"
         And I click on the element "submitRegistration.thirdCheckbox"
         When I click on the element "submitRegistration.button"
+        And I pause for 1000ms
         Then I expect the url to contain "summary-confirmation"
         And I expect that the attribute "href" from element "submissionPage.primaryAuthorityLink" is "https://www.gov.uk/guidance/local-regulation-primary-authority"
         Given I click on the element "submissionPage.primaryAuthorityLink"
@@ -69,6 +74,7 @@ Submission Page with next steps and links
         And I click on the element "submitRegistration.secondCheckbox"
         And I click on the element "submitRegistration.thirdCheckbox"
         When I click on the element "submitRegistration.button"
+        And I pause for 1000ms
         Then I expect the url to contain "summary-confirmation"
         Then I expect that element "submissionPage.table" is visible
         And I expect that element "submissionPage.establishmentAddress" is visible

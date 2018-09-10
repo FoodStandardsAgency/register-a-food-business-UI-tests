@@ -122,13 +122,13 @@ exports.config = {
 
     capabilities: [
         //
-        // {
-        //     os: "OS X",
-        //     os_version: "High Sierra",
-        //     browserName: "Chrome",
-        //     browser_version: "67.0",
-        //     maxInstances: 2
-        // }
+        {
+            os: "OS X",
+            os_version: "High Sierra",
+            browserName: "Chrome",
+            browser_version: "67.0",
+            maxInstances: 2
+        }
         // {
         //     os: "OS X",
         //     os_version: "High Sierra",
@@ -153,14 +153,14 @@ exports.config = {
         //     "browserstack.ie.arch": "x32",
         //     "browserstack.ie.driver": "2.53.1"
         // }
-        {
-            os: "Windows",
-            os_version: "10",
-            browserName: "Edge",
-            browser_version: "17.0",
-            maxInstances: 2,
-            resolution: "2048x1536"
-        }
+        // {
+        //     os: "Windows",
+        //     os_version: "10",
+        //     browserName: "Edge",
+        //     browser_version: "17.0",
+        //     maxInstances: 2,
+        //     resolution: "2048x1536"
+        // }
         // {
         //     os: "OS X",
         //     os_version: "High Sierra",

@@ -1,396 +1,154 @@
 require("dotenv").config();
 
-exports.config = {
-    user: process.env.BROWSERSTACK_USERNAME,
-    key: process.env.BROWSERSTACK_ACCESS_KEY,
-
-    // ==================
-    // Specify Test Files
-    // ==================
-    // Define which test specs should run. The pattern is relative to the
-    // directory from which `wdio` was called. Notice that, if you are calling
-    // `wdio` from an NPM script (see https://docs.npmjs.com/cli/run-script)
-    // then the current working directory is where your package.json resides, so
-    // `wdio` will be called from there.
-    //
-    // specs: ["./src/features/**/*.feature"],
-    // specs: [
-    // "./src/features/**/backButton.feature",
-    // "./src/features/**/betaBanner.feature",
-    // "./src/features/**/cookieBanner.feature",
-    // "./src/features/**/charityDetails.feature",
-    // "./src/features/**/customerType.feature",
-    // "./src/features/**/editSummary.feature",
-    // "./src/features/**/e2eTestingCatelyn.feature",
-    // "./src/features/**/e2eTestingJamie.feature",
-    // "./src/features/**/establishmentAddress.feature"
-    // "./src/features/**/establishmentAddressType.feature",
-    // "./src/features/**/establishmentContactDetails.feature",
-    // "./src/features/**/establishmentOpeningDate.feature",
-    // "./src/features/**/establishmentTradingName.feature",
-    // "./src/features/**/landingPage.feature",
-    // "./src/features/**/limitedCompanyDetails.feature",
-    // "./src/features/**/operatorAddress.feature",
-    // "./src/features/**/operatorContactDetails.feature",
-    // "./src/features/**/operatorName.feature",
-    // "./src/features/**/operatorType.feature"
-    // "./src/features/**/registrationRole.feature"
-    // "./src/features/**/receiveConfirmationNumber.feature"
-    // "./src/features/**/representativeOperatorContactDetails.feature",
-    // "./src/features/**/submitRegistration.feature",
-    // "./src/features/**/registrationSummary.feature",
-    // "./src/features/**/submissionPage.feature",
-    // "./src/features/**/errorSummary.feature",
-    // "./src/features/**/businessTypeIn.feature",
-    // ],
-    // Patterns to exclude.
-    exclude: [
-        // 'path/to/excluded/files'
-    ],
-    //defining specific suites
-    suites: {
-        landingpage: ["./src/features/**/landingPage.feature"],
-        establishment: [
-            "./src/features/**/establishmentContactDetails.feature",
-            "./src/features/**/establishmentOpeningDate.feature",
-            "./src/features/**/establishmentTradingName.feature",
-            "./src/features/**/establishmentAddress.feature",
-            "./src/features/**/establishmentAddressType.feature"
-        ],
-
-        operator: [
-            "./src/features/**/operatorAddress.feature",
-            "./src/features/**/operatorName.feature",
-            "./src/features/**/operatorType.feature",
-            "./src/features/**/operatorContactDetails.feature",
-            "./src/features/**/representativeOperatorContactDetails.feature",
-            "./src/features/**/registrationRole.feature"
-        ],
-
-        registrationSubmission: [
-            "./src/features/**/submitRegistration.feature",
-            "./src/features/**/registrationSummary.feature",
-            "./src/features/**/editSummary.feature",
-            "./src/features/**/submissionPage.feature",
-            "./src/features/**/receiveConfirmationNumber.feature"
-        ],
-
-        operatorextra: [
-            "./src/features/**/charityDetails.feature",
-            "./src/features/**/customerType.feature",
-            "./src/features/**/limitedCompanyDetails.feature",
-            "./src/features/**/importExportActivities.feature",
-            "./src/features/**/businessTypeIn.feature"
-        ],
-        websitefeatures: [
-            "./src/features/**/backButton.feature",
-            "./src/features/**/betaBanner.feature",
-            "./src/features/**/errorSummary.feature",
-            "./src/features/**/cookieBanner.feature",
-            "./src/features/**/lcLookup.feature",
-            "./src/features/**/fsaFooter.feature"
-        ],
-        end2end: [
-            "./src/features/**/e2eTestingCatelyn.feature",
-            "./src/features/**/e2eTestingJamie.feature"
-        ]
+let browserOptions;
+if (process.env.TEST_LOCALLY) {
+  browserOptions = [{ browserName: "chrome" }];
+} else {
+  browserOptions = [
+    {
+      os: "OS X",
+      os_version: "High Sierra",
+      browserName: "Chrome",
+      browser_version: "67.0",
+      maxInstances: 2
     },
-    //
-    // ============
-    // Capabilities
-    // ============
-    // Define your capabilities here. WebdriverIO can run multiple capabilities
-    // at the same time. Depending on the number of capabilities, WebdriverIO
-    // launches several test sessions. Within your capabilities you can
-    // overwrite the spec and exclude options in order to group specific specs
-    // to a specific capability.
-    //
-    // First, you can define how many instances should be started at the same
-    // time. Let's say you have 3 different capabilities (Chrome, Firefox, and
-    // Safari) and you have set maxInstances to 1; wdio will spawn 3 processes.
-    // Therefore, if you have 10 spec files and you set maxInstances to 10, all
-    // spec files will get tested at the same time and 30 processes will get
-    // spawned. The property handles how many capabilities from the same test
-    // should run tests.
-    //
-    maxInstances: 10,
-    //
-    // If you have trouble getting all important capabilities together, check
-    // out the Sauce Labs platform configurator - a great tool to configure your
-    // capabilities: https://docs.saucelabs.com/reference/platforms-configurator
-    //
-
-    capabilities: [
-        //
-        {
-            os: "OS X",
-            os_version: "High Sierra",
-            browserName: "Chrome",
-            browser_version: "67.0",
-            maxInstances: 2
-        }
-        // {
-        //     os: "OS X",
-        //     os_version: "High Sierra",
-        //     browserName: "Firefox",
-        //     browser_version: "61.0",
-        //     maxInstances: 2
-        // },
-        // {
-        //     os: "OS X",
-        //     os_version: "High Sierra",
-        //     browserName: "Safari",
-        //     browser_version: "11.1",
-        //     maxInstances: 2
-        // },
-        // {
-        //     os: "Windows",
-        //     os_version: "10",
-        //     browserName: "IE",
-        //     browser_version: "11.0",
-        //     maxInstances: 2,
-        //     "browserstack.selenium_version": "2.53.1",
-        //     "browserstack.ie.arch": "x32",
-        //     "browserstack.ie.driver": "2.53.1"
-        // }
-        // {
-        //     os: "Windows",
-        //     os_version: "10",
-        //     browserName: "Edge",
-        //     browser_version: "17.0",
-        //     maxInstances: 2,
-        //     resolution: "2048x1536"
-        // }
-        // {
-        //     os: "OS X",
-        //     os_version: "High Sierra",
-        //     browserName: "Firefox",
-        //     browser_version: "61.0"
-        //browserName: "Safari",
-        //browser_version: "11.1",
-        /////////////
-        // os: "Windows",
-        // os_version: "10",
-        //browserName: "IE",
-        //browser_version: "11.0",
-        // browserName: "Edge",
-        // browser_version: "17.0",
-        // project: "test_project"
-        // }
-    ],
-    // maxInstances can get overwritten per capability. So if you have an
-    // in-house Selenium grid with only 5 firefox instance available you can
-    // make sure that not more than 5 instance gets started at a time.
-    // maxInstances: 5,
-
-    //
-    // ===================
-    // Test Configurations
-    // ===================
-    // Define all options that are relevant for the WebdriverIO instance here
-    //
-    // By default WebdriverIO commands are executed in a synchronous way using
-    // the wdio-sync package. If you still want to run your tests in an async
-    // way e.g. using promises you can set the sync option to false.
-    sync: true,
-    //
-    // Level of logging verbosity: silent | verbose | command | data | result |
-    // error
-    logLevel: "error",
-    //
-    // Enables colors for log output.
-    coloredLogs: true,
-    //
-    // Saves a screenshot to a given path if a command fails.
-    screenshotPath: "./errorShots/",
-    //
-    // Set a base URL in order to shorten url command calls. If your url
-    // parameter starts with "/", then the base url gets prepended.
-    baseUrl: "https://dev-register-a-food-business.azurewebsites.net/new/",
-    //
-    // Default timeout for all waitFor* commands.
-    waitforTimeout: 10000,
-    //
-    // Default timeout in milliseconds for request
-    // if Selenium Grid doesn't send response
-    connectionRetryTimeout: 90000,
-    //
-    // Default request retries count
-    connectionRetryCount: 3,
-    //
-    // Initialize the browser instance with a WebdriverIO plugin. The object
-    // should have the plugin name as key and the desired plugin options as
-    // properties. Make sure you have the plugin installed before running any
-    // tests. The following plugins are currently available:
-    // WebdriverCSS: https://github.com/webdriverio/webdrivercss
-    // WebdriverRTC: https://github.com/webdriverio/webdriverrtc
-    // Browserevent: https://github.com/webdriverio/browserevent
-    // plugins: {
-    //     webdrivercss: {
-    //         screenshotRoot: 'my-shots',
-    //         failedComparisonsRoot: 'diffs',
-    //         misMatchTolerance: 0.05,
-    //         screenWidth: [320,480,640,1024]
-    //     },
-    //     webdriverrtc: {},
-    //     browserevent: {}
-    // },
-    //
-    // Test runner services
-    // Services take over a specific job you don't want to take care of. They
-    // enhance your test setup with almost no effort. Unlike plugins, they don't
-    // add new commands. Instead, they hook themselves up into the test process.
-    services: ["selenium-standalone"],
-    //
-    // Framework you want to run your specs with.
-    // The following are supported: Mocha, Jasmine, and Cucumber
-    // see also: http://webdriver.io/guide/testrunner/frameworks.html
-    //
-    // Make sure you have the wdio adapter package for the specific framework
-    // installed before running any tests.
-    framework: "cucumber",
-    //
-    // Test reporter for stdout.
-    // The only one supported by default is 'dot'
-    // see also: http://webdriver.io/guide/testrunner/reporters.html
-    reporters: ["spec"],
-    // reporters: ["allure"],
-    // reporterOptions: {
-    //     allure: {
-    //         outputDir: "allure-results",
-    //         disableWebdriverStepsReporting: true,
-    //         disableWebdriverScreenshotsReporting: true,
-    //         useCucumberStepReporter: true
-    //     }
-    // },
-    //
-    // If you are using Cucumber you need to specify the location of your step
-    // definitions.
-    cucumberOpts: {
-        // <boolean> show full backtrace for errors
-        backtrace: false,
-        // <string[]> filetype:compiler used for processing required features
-        compiler: ["js:babel-register"],
-        // <boolean< Treat ambiguous definitions as errors
-        failAmbiguousDefinitions: true,
-        // <boolean> invoke formatters without executing steps
-        // dryRun: false,
-        // <boolean> abort the run on first failure
-        failFast: false,
-        // <boolean> Enable this config to treat undefined definitions as
-        // warnings
-        ignoreUndefinedDefinitions: false,
-        // <string[]> ("extension:module") require files with the given
-        // EXTENSION after requiring MODULE (repeatable)
-        name: [],
-        // <boolean> hide step definition snippets for pending steps
-        snippets: true,
-        // <boolean> hide source uris
-        source: true,
-        // <string[]> (name) specify the profile to use
-        profile: [],
-        // <string[]> (file/dir) require files before executing features
-        require: [
-            "./src/steps/given.js",
-            "./src/steps/then.js",
-            "./src/steps/when.js",
-            "./src/steps/setupAndTeardown.js"
-            // Or search a (sub)folder for JS files with a wildcard
-            // works since version 1.1 of the wdio-cucumber-framework
-            //'./src/**/*.js',
-        ],
-        // <string> specify a custom snippet syntax
-        snippetSyntax: undefined,
-        // <boolean> fail if there are any undefined or pending steps
-        strict: true,
-        // <string> (expression) only execute the features or scenarios with
-        // tags matching the expression, see
-        // https://docs.cucumber.io/tag-expressions/
-        tagExpression: "not @Pending",
-        // <boolean> add cucumber tags to feature or scenario name
-        tagsInTitle: true,
-        // <number> timeout for step definitions
-        timeout: 20000
+    {
+      os: "OS X",
+      os_version: "High Sierra",
+      browserName: "Firefox",
+      browser_version: "61.0",
+      maxInstances: 2
     },
-
-    //
-    // =====
-    // Hooks
-    // =====
-    // WebdriverIO provides several hooks you can use to interfere with the test
-    // process in order to enhance it and to build services around it. You can
-    // either apply a single function or an array of methods to it. If one of
-    // them returns with a promise, WebdriverIO will wait until that promise got
-    // resolved to continue.
-    //
-    // Gets executed once before all workers get launched.
-    // onPrepare: function onPrepare(config, capabilities) {
-    // },
-    //
-    // Gets executed before test execution begins. At this point you can access
-    // all global variables, such as `browser`. It is the perfect place to
-    // define custom commands.
-    before: function before() {
-        /**
-         * Setup the Chai assertion framework
-         */
-        const chai = require("chai");
-
-        global.expect = chai.expect;
-        global.assert = chai.assert;
-        global.should = chai.should();
-        // browser.reload();
+    {
+      os: "OS X",
+      os_version: "High Sierra",
+      browserName: "Safari",
+      browser_version: "11.1",
+      maxInstances: 2
+    },
+    {
+      os: "Windows",
+      os_version: "10",
+      browserName: "IE",
+      browser_version: "11.0",
+      maxInstances: 2,
+      "browserstack.selenium_version": "2.53.1",
+      "browserstack.ie.arch": "x32",
+      "browserstack.ie.driver": "2.53.1"
+    },
+    {
+      os: "Windows",
+      os_version: "10",
+      browserName: "Edge",
+      browser_version: "17.0",
+      maxInstances: 2,
+      resolution: "2048x1536"
     }
-    //
-    // Hook that gets executed before the suite starts
-    // beforeSuite: function beforeSuite(suite) {
-    // },
-    //
-    // Hook that gets executed _before_ a hook within the suite starts (e.g.
-    // runs before calling beforeEach in Mocha)
-    // beforeHook: function beforeHook() {
-    // },
-    //
-    // Hook that gets executed _after_ a hook within the suite starts (e.g. runs
-    // after calling afterEach in Mocha)
-    // afterHook: function afterHook() {
-    // },
-    //
-    // Function to be executed before a test (in Mocha/Jasmine) or a step (in
-    // Cucumber) starts.
-    // beforeTest: function beforeTest(test) {
-    // }
+  ];
+}
 
-    // Runs before a WebdriverIO command gets executed.
-    // beforeCommand: function beforeCommand(commandName, args) {
-    // },
-    //
-    // Runs after a WebdriverIO command gets executed
-    // afterCommand: function afterCommand(commandName, args, result, error) {
-    // },
-    //
-    // Function to be executed after a test (in Mocha/Jasmine) or a step (in
-    // Cucumber) starts.
-    // afterTest: function afterTest(test) {
+let browserstackAuth;
+if (process.env.TEST_LOCALLY) {
+  browserstackAuth = {};
+} else {
+  browserstackAuth = {
+    user: process.env.BROWSERSTACK_USERNAME,
+    key: process.env.BROWSERSTACK_ACCESS_KEY
+  };
+}
 
-    //
-    // }
-    //
-    // Hook that gets executed after the suite has ended
-    // afterSuite: function afterSuite(suite) {
-    // },
-    //
-    // Gets executed after all tests are done. You still have access to all
-    // global variables from the test.
-    // after: function after(result, capabilities, specs) {
-    // },
-    //
-    // Gets executed after all workers got shut down and the process is about to
-    // exit. It is not possible to defer the end of the process using a promise.
-    // onComplete: function onComplete(exitCode) {
-    // }
-    // beforeScenario: function(scenario) {
-    //     browser.url("/cleansession");
-    //     console.log("HI", scenario);
-    // }
+exports.config = {
+  ...browserstackAuth,
+  suites: {
+    landingpage: ["./src/features/**/landingPage.feature"],
+    establishment: [
+      "./src/features/**/establishmentContactDetails.feature",
+      "./src/features/**/establishmentOpeningDate.feature",
+      "./src/features/**/establishmentTradingName.feature",
+      "./src/features/**/establishmentAddress.feature",
+      "./src/features/**/establishmentAddressType.feature"
+    ],
+    operator: [
+      "./src/features/**/operatorAddress.feature",
+      "./src/features/**/operatorName.feature",
+      "./src/features/**/operatorType.feature",
+      "./src/features/**/operatorContactDetails.feature",
+      "./src/features/**/representativeOperatorContactDetails.feature",
+      "./src/features/**/registrationRole.feature"
+    ],
+    registrationSubmission: [
+      "./src/features/**/submitRegistration.feature",
+      "./src/features/**/registrationSummary.feature",
+      "./src/features/**/editSummary.feature",
+      "./src/features/**/submissionPage.feature",
+      "./src/features/**/receiveConfirmationNumber.feature"
+    ],
+    operatorextra: [
+      "./src/features/**/charityDetails.feature",
+      "./src/features/**/customerType.feature",
+      "./src/features/**/limitedCompanyDetails.feature",
+      "./src/features/**/importExportActivities.feature",
+      "./src/features/**/businessTypeIn.feature"
+    ],
+    websitefeatures: [
+      "./src/features/**/backButton.feature",
+      "./src/features/**/betaBanner.feature",
+      "./src/features/**/errorSummary.feature",
+      "./src/features/**/cookieBanner.feature",
+      "./src/features/**/lcLookup.feature",
+      "./src/features/**/fsaFooter.feature"
+    ],
+    end2end: [
+      "./src/features/**/e2eTestingCatelyn.feature",
+      "./src/features/**/e2eTestingJamie.feature"
+    ]
+  },
+  maxInstances: 10,
+  capabilities: browserOptions,
+  sync: true,
+  logLevel: "error",
+  coloredLogs: true,
+  screenshotPath: "./errorShots/",
+  waitforTimeout: 10000,
+  connectionRetryTimeout: 90000,
+  connectionRetryCount: 3,
+  services: ["selenium-standalone"],
+  framework: "cucumber",
+  reporters: ["spec", "allure"],
+  reporterOptions: {
+    allure: {
+      outputDir: "allure-results",
+      disableWebdriverStepsReporting: true,
+      disableWebdriverScreenshotsReporting: true,
+      useCucumberStepReporter: true
+    }
+  },
+  cucumberOpts: {
+    backtrace: false,
+    compiler: ["js:babel-register"],
+    failAmbiguousDefinitions: true,
+    failFast: false,
+    ignoreUndefinedDefinitions: false,
+    name: [],
+    snippets: true,
+    source: true,
+    profile: [],
+    require: [
+      "./src/steps/given.js",
+      "./src/steps/then.js",
+      "./src/steps/when.js",
+      "./src/steps/setupAndTeardown.js"
+    ],
+    snippetSyntax: undefined,
+    strict: true,
+    tagExpression: "not @Pending",
+    tagsInTitle: true,
+    timeout: 20000
+  },
+  before: function before() {
+    const chai = require("chai");
+    global.expect = chai.expect;
+    global.assert = chai.assert;
+    global.should = chai.should();
+  }
 };

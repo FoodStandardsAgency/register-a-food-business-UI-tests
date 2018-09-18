@@ -12,6 +12,7 @@ exports.config = {
     specs: [
         "./src/features/**/backButton.feature",
         "./src/features/**/betaBanner.feature",
+        "./src/features/**/otherDetails.feature",
         "./src/features/**/cookieBanner.feature",
         "./src/features/**/charityDetails.feature",
         "./src/features/**/customerType.feature",

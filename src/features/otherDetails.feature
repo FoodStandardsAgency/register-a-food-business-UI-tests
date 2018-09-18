@@ -1,5 +1,5 @@
 @business_other_details
-Feature: Other details
+Feature: As Catelyn I need to be able to give any extra information or describe my business with my own words so that Dani can know more about my business prior to an inspection.
 
     Other details section validation
 

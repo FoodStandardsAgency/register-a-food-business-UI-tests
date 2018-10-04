@@ -1,12 +1,12 @@
 @submission_page
 Feature: As Catelyn I need to be able to see the submission page and be able to find out more information about what happens next so that I can be successful in running my business.
 
-Submission Page with next steps and links
+    Submission Page with next steps and links
 
     @SDB-121_food_safety
     Scenario: I want to find out about food safety and how to run a food business
         Given I open the url "/cleansession"
-        And I go to a special QA page at url "/qa/cardiff/declaration" with injected "declaration" data
+        And I go to a special QA page at url "/qa/mid-and-east-antrim/declaration" with injected "declaration" data
         And I click on the element "submitRegistration.firstCheckbox"
         And I click on the element "submitRegistration.secondCheckbox"
         And I click on the element "submitRegistration.thirdCheckbox"
@@ -20,7 +20,7 @@ Submission Page with next steps and links
     @SDB-121_standard_guidance
     Scenario: I want to find out about standards guidance
         Given I open the url "/cleansession"
-        And I go to a special QA page at url "/qa/cardiff/declaration" with injected "declaration" data
+        And I go to a special QA page at url "/qa/mid-and-east-antrim/declaration" with injected "declaration" data
         And I click on the element "submitRegistration.firstCheckbox"
         And I click on the element "submitRegistration.secondCheckbox"
         And I click on the element "submitRegistration.thirdCheckbox"
@@ -34,7 +34,7 @@ Submission Page with next steps and links
     @SDB-121_fhrs_score
     Scenario: I want to find out about fhrs scores
         Given I open the url "/cleansession"
-        And I go to a special QA page at url "/qa/cardiff/declaration" with injected "declaration" data
+        And I go to a special QA page at url "/qa/mid-and-east-antrim/declaration" with injected "declaration" data
         And I click on the element "submitRegistration.firstCheckbox"
         And I click on the element "submitRegistration.secondCheckbox"
         And I click on the element "submitRegistration.thirdCheckbox"
@@ -49,7 +49,7 @@ Submission Page with next steps and links
     @SDB-121_primary_authority
     Scenario: I want to find out about if i qualify for a primary authority partnership
         Given I open the url "/cleansession"
-        And I go to a special QA page at url "/qa/cardiff/declaration" with injected "declaration" data
+        And I go to a special QA page at url "/qa/mid-and-east-antrim/declaration" with injected "declaration" data
         And I click on the element "submitRegistration.firstCheckbox"
         And I click on the element "submitRegistration.secondCheckbox"
         And I click on the element "submitRegistration.thirdCheckbox"
@@ -64,7 +64,7 @@ Submission Page with next steps and links
     @SDB-121_table_visible
     Scenario: I want to see my registration info
         Given I open the url "/cleansession"
-        And I go to a special QA page at url "/qa/cardiff/declaration" with injected "declaration" data
+        And I go to a special QA page at url "/qa/mid-and-east-antrim/declaration" with injected "declaration" data
         And I click on the element "submitRegistration.firstCheckbox"
         And I click on the element "submitRegistration.secondCheckbox"
         And I click on the element "submitRegistration.thirdCheckbox"

@@ -5,7 +5,7 @@ Feature: As Catelyn I need to be able to give any extra information or describe 
 
     @happy_path_SDB-111
     Scenario: Happy path
-        Given I open the url "cardiff/business-other-details"
+        Given I open the url "mid-and-east-antrim/business-other-details"
         When I set "Test Trading Name" to the inputfield "businessOtherDetails.otherDetailsInput"
         And I click on the element "businessOtherDetails.button"
         Then I expect the url to not contain "business-other-details"
@@ -13,7 +13,7 @@ Feature: As Catelyn I need to be able to give any extra information or describe 
     @invalid_other_details_SDB-111
     Scenario: Invalid other details
         Given I open the url "/cleansession"
-        And I open the url "cardiff/business-other-details"
+        And I open the url "mid-and-east-antrim/business-other-details"
         When I set "This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters." to the inputfield "businessOtherDetails.otherDetailsInput"
         When I click on the element "businessOtherDetails.button"
         Then I expect that element "businessOtherDetails.error" contains the text "Your message is too long. Please shorten it to less than 1500 characters"

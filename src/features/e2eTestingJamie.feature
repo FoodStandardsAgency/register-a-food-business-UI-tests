@@ -1,11 +1,11 @@
 @end_to_end_testing_Jamie_SDB-735
 Feature: Testing user journey for Jamie
 
-Testing whole flow for current pages for Jamie
+    Testing whole flow for current pages for Jamie
 
     @happy_path_
     Scenario: happy path
-        Given I open the url "cardiff/index"
+        Given I open the url "mid-and-east-antrim/index"
         When I click on the element "firstpage.button"
         Then I expect the url to contain "registration-role"
         When I click on the element "regRole.representative"
@@ -31,14 +31,14 @@ Testing whole flow for current pages for Jamie
         Then I expect the url to contain "establishment-trading-name"
         When I set "The Busy Bean Cornerhouse" to the inputfield "estabTradingName.tradingNameInput"
         And I click on the element "estabTradingName.button"
+        Then I expect the url to contain "establishment-address-type"
+        When I click on the element "estabAddressType.businessCommercial"
+        And I click on the element "estabAddressType.button"
         Then I expect the url to contain "establishment-address"
         And I set "LS12 1QW" to the inputfield "estabAddress.postcode"
         When I click on the element "estabAddress.findAddress"
         Then I expect the url to contain "establishment-address-select"
         When I click on the element "estabAddress.button"
-        Then I expect the url to contain "establishment-address-type"
-        When I click on the element "estabAddressType.businessCommercial"
-        And I click on the element "estabAddressType.button"
         Then I expect the url to contain "establishment-contact-details"
         When I set "0207685746" to the inputfield "estabContactDetails.primaryPhoneNumber"
         And I set "07500867690" to the inputfield "estabContactDetails.optionalPhoneNumber"

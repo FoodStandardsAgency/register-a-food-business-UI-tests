@@ -1,11 +1,11 @@
 @end_to_end_testing_Catelyn
 Feature: Testing user journey for Catelyn
 
-Testing whole flow for current pages for Catelyn
+    Testing whole flow for current pages for Catelyn
 
     @happy_path_
     Scenario: happy path
-        Given I open the url "cardiff/index"
+        Given I open the url "mid-and-east-antrim/index"
         When I click on the element "firstpage.button"
         Then I expect the url to contain "registration-role"
         When I click on the element "regRole.soleTrader"
@@ -27,14 +27,14 @@ Testing whole flow for current pages for Catelyn
         Then I expect the url to contain "establishment-trading-name"
         When I set "Old Lyme Cafe" to the inputfield "estabTradingName.tradingNameInput"
         And I click on the element "estabTradingName.button"
+        Then I expect the url to contain "establishment-address-type"
+        When I click on the element "estabAddressType.businessCommercial"
+        And I click on the element "estabAddressType.button"
         Then I expect the url to contain "establishment-address"
         And I set "EX19 7UU" to the inputfield "estabAddress.postcode"
         When I click on the element "estabAddress.findAddress"
         Then I expect the url to contain "establishment-address-select"
         When I click on the element "estabAddress.button"
-        Then I expect the url to contain "establishment-address-type"
-        When I click on the element "estabAddressType.businessCommercial"
-        And I click on the element "estabAddressType.button"
         Then I expect the url to contain "establishment-contact-details"
         When I click on the element "estabContactDetails.checkbox"
         Then I expect that element "estabContactDetails.optionalPhoneNumber" contains the text "07937 485112"

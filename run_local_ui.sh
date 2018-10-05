@@ -1,2 +1,2 @@
 echo "Running all UI test suites locally"
-./node_modules/.bin/wdio --suite landingpage,establishment,operator,registrationSubmission,operatorextra,websitefeatures --baseUrl https://dev-register-a-food-business-double.azurewebsites.net/new/ wdio.conf.js
+./node_modules/.bin/wdio --suite landingpage,establishment,establishmentAddress,operator,operatorContactDetails,registrationSubmission,operatorextra,businessActivities,bannerFooter,websitefeatures --baseUrl http://localhost:3000/new/ wdio.conf.js

@@ -60,11 +60,48 @@ if (process.env.TEST_LOCALLY) {
 exports.config = {
   ...browserstackAuth,
   suites: {
+    suite1: [
+      "./src/features/**/establishmentContactDetails.feature",
+      "./src/features/**/operatorAddress.feature",
+      "./src/features/**/charityDetails.feature",
+      "./src/features/**/betaBanner.feature"
+    ],
+    suite2: [
+      "./src/features/**/establishmentOpeningDate.feature",
+      "./src/features/**/customerType.feature",
+      "./src/features/**/operatorName.feature",
+      "./src/features/**/betaBanner.feature"
+    ],
+    suite3: [
+      "./src/features/**/establishmentTradingName.feature",
+      "./src/features/**/operatorType.feature",
+      "./src/features/**/otherDetails.feature",
+      "./src/features/**/betaBanner.feature"
+    ],
+    suite4: [
+      "./src/features/**/establishmentAddress.feature",
+      "./src/features/**/registrationRole.feature",
+      "./src/features/**/businessTypeIn.feature",
+      "./src/features/**/betaBanner.feature"
+    ],
+    suite5: [
+      "./src/features/**/establishmentAddressType.feature",
+      "./src/features/**/backButton.feature",
+      "./src/features/**/operatorContactDetails.feature",
+      "./src/features/**/betaBanner.feature"
+    ],
+    suite5: [
+      "./src/features/**/operatorAddress.feature",
+      "./src/features/**/representativeOperatorContactDetails.feature"
+    ],
+
     landingpage: ["./src/features/**/landingPage.feature"],
     establishment: [
       "./src/features/**/establishmentContactDetails.feature",
       "./src/features/**/establishmentOpeningDate.feature",
-      "./src/features/**/establishmentTradingName.feature",
+      "./src/features/**/establishmentTradingName.feature"
+    ],
+    establishmentAddress: [
       "./src/features/**/establishmentAddress.feature",
       "./src/features/**/establishmentAddressType.feature"
     ],
@@ -72,9 +109,12 @@ exports.config = {
       "./src/features/**/operatorAddress.feature",
       "./src/features/**/operatorName.feature",
       "./src/features/**/operatorType.feature",
+      "./src/features/**/registrationRole.feature"
+    ],
+    operatorContactDetails: [
       "./src/features/**/operatorContactDetails.feature",
       "./src/features/**/representativeOperatorContactDetails.feature",
-      "./src/features/**/registrationRole.feature"
+      "./src/features/**/limitedCompanyDetails.feature"
     ],
     registrationSubmission: [
       "./src/features/**/submitRegistration.feature",
@@ -86,17 +126,21 @@ exports.config = {
     operatorextra: [
       "./src/features/**/charityDetails.feature",
       "./src/features/**/customerType.feature",
-      "./src/features/**/limitedCompanyDetails.feature",
-      "./src/features/**/importExportActivities.feature",
-      "./src/features/**/businessTypeIn.feature",
+
       "./src/features/**/otherDetails.feature"
+    ],
+    businessActivities: [
+      "./src/features/**/importExportActivities.feature",
+      "./src/features/**/businessTypeIn.feature"
     ],
     websitefeatures: [
       "./src/features/**/backButton.feature",
-      "./src/features/**/betaBanner.feature",
       "./src/features/**/errorSummary.feature",
+      "./src/features/**/lcLookup.feature"
+    ],
+    bannerFooter: [
+      "./src/features/**/betaBanner.feature",
       "./src/features/**/cookieBanner.feature",
-      "./src/features/**/lcLookup.feature",
       "./src/features/**/fsaFooter.feature"
     ],
     end2end: [
@@ -104,7 +148,7 @@ exports.config = {
       "./src/features/**/e2eTestingJamie.feature"
     ]
   },
-  maxInstances: 10,
+  maxInstances: 5,
   capabilities: browserOptions,
   sync: true,
   logLevel: "error",
@@ -144,7 +188,7 @@ exports.config = {
     strict: true,
     tagExpression: "not @Pending",
     tagsInTitle: true,
-    timeout: 20000
+    timeout: 60000
   },
   before: function before() {
     const chai = require("chai");

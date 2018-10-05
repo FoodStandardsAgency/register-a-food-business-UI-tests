@@ -31,8 +31,8 @@ const summaryConfirmation = require("./summaryConfirmation.page.js");
 const businessOtherDetails = require("./businessOtherDetails.page.js");
 
 const openingDaysStart = require("./openingDaysStart.page.js");
-const openingDaysAll = require("./openingDaysSome.page.js");
-const openingDaysAll = require("./openingDaysIrregular.page.js");
+const openingDaysSome = require("./openingDaysSome.page.js");
+const openingDaysIrregular = require("./openingDaysIrregular.page.js");
 
 function getSelector(elem) {
     return eval(elem);

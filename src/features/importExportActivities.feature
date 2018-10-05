@@ -6,6 +6,7 @@ Feature: As Jamie I need to declare my import and export activities so that Ric 
     @import_export_activities_happy_path_SDB-124
     Scenario: able to select one statement and proceed
         Given I open the url "/cleansession"
+        And I change my viewport
         And I open the url "mid-and-east-antrim/business-import-export"
         When I click on the element "importExportActivities.directImport"
         And I click on the element "importExportActivities.button"

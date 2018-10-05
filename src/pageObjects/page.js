@@ -30,6 +30,10 @@ const registrationSummary = require("./registrationSummary.page.js");
 const summaryConfirmation = require("./summaryConfirmation.page.js");
 const businessOtherDetails = require("./businessOtherDetails.page.js");
 
+const openingDaysStart = require("./openingDaysStart.page.js");
+const openingDaysAll = require("./openingDaysSome.page.js");
+const openingDaysAll = require("./openingDaysIrregular.page.js");
+
 function getSelector(elem) {
     return eval(elem);
 }

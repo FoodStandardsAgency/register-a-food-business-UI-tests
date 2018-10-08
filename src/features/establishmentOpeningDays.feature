@@ -101,7 +101,7 @@ Feature: Establishment opening days SDB-52
         And I click on the element "openingDaysSome.button"
         Then I expect the url to not contain "opening-days-some"
         When I open the url "mid-and-east-antrim/registration-summary"
-        Then I expect that element "registrationSummary.foodActivities" contains the text "Every day"
+        Then I expect that element "registrationSummary.openingDays" contains the text "Every day"
 
     @happy_path_opening_days_irregular
     Scenario: Types in text in irregular field details

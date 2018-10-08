@@ -9,16 +9,6 @@
     "test:accessibility": "pa11y-ci"
   },
   "license": "MIT",
-  "devDependencies": {
-    "babel-core": "6.26.3",
-    "babel-polyfill": "6.26.0",
-    "cucumber": "4.2.1",
-    "eslint": "4.19.1",
-    "eslint-config-airbnb-base": "12.1.0",
-    "eslint-plugin-import": "2.12.0",
-    "http-server": "0.11.0",
-    "wdio-allure-reporter": "0.6.3"
-  },
   "dependencies": {
     "babel-preset-env": "1.7.0",
     "babel-register": "6.26.0",
@@ -28,9 +18,19 @@
     "pa11y": "5.0.4",
     "pa11y-ci": "2.1.1",
     "wdio": "2.0.2",
-    "wdio-cucumber-framework": "2.1.0",
-    "wdio-selenium-standalone-service": "0.0.9",
+    "wdio-cucumber-framework": "2.2.7",
+    "wdio-selenium-standalone-service": "0.0.10",
     "wdio-spec-reporter": "0.1.4",
-    "webdriverio": "4.13.1"
+    "webdriverio": "4.13.2"
+  },
+  "devDependencies": {
+    "babel-core": "6.26.3",
+    "babel-polyfill": "6.26.0",
+    "cucumber": "4.2.1",
+    "eslint": "4.19.1",
+    "eslint-config-airbnb-base": "12.1.0",
+    "eslint-plugin-import": "2.12.0",
+    "http-server": "0.11.0",
+    "wdio-allure-reporter": "0.6.3"
   }
 }

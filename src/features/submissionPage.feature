@@ -12,6 +12,7 @@ Feature: As Catelyn I need to be able to see the submission page and be able to 
         And I click on the element "submitRegistration.secondCheckbox"
         And I click on the element "submitRegistration.thirdCheckbox"
         When I click on the element "submitRegistration.button"
+        And I pause for 2000ms
         Then I expect the url to contain "summary-confirmation"
         Then I expect that the attribute "href" from element "submissionPage.foodSafetyLink" is "https://www.food.gov.uk/business-guidance"
         Given I click on the element "submissionPage.foodSafetyLink"
@@ -27,7 +28,7 @@ Feature: As Catelyn I need to be able to see the submission page and be able to 
         And I click on the element "submitRegistration.secondCheckbox"
         And I click on the element "submitRegistration.thirdCheckbox"
         When I click on the element "submitRegistration.button"
-        And I pause for 1000ms
+        And I pause for 2000ms
         Then I expect the url to contain "summary-confirmation"
         And I expect that the attribute "href" from element "submissionPage.standardGuidanceLink" is "https://www.businesscompanion.info/en/in-depth-guides"
         Given I click on the element "submissionPage.standardGuidanceLink"
@@ -42,7 +43,7 @@ Feature: As Catelyn I need to be able to see the submission page and be able to 
         And I click on the element "submitRegistration.secondCheckbox"
         And I click on the element "submitRegistration.thirdCheckbox"
         When I click on the element "submitRegistration.button"
-        And I pause for 1000ms
+        And I pause for 2000ms
         Then I expect the url to contain "summary-confirmation"
         And I expect that the attribute "href" from element "submissionPage.fhrsScoreLink" is "https://www.food.gov.uk/business-guidance/food-hygiene-ratings-for-businesses"
         Given I click on the element "submissionPage.fhrsScoreLink"
@@ -58,7 +59,7 @@ Feature: As Catelyn I need to be able to see the submission page and be able to 
         And I click on the element "submitRegistration.secondCheckbox"
         And I click on the element "submitRegistration.thirdCheckbox"
         When I click on the element "submitRegistration.button"
-        And I pause for 1000ms
+        And I pause for 2000ms
         Then I expect the url to contain "summary-confirmation"
         And I expect that the attribute "href" from element "submissionPage.primaryAuthorityLink" is "https://www.gov.uk/guidance/local-regulation-primary-authority"
         Given I click on the element "submissionPage.primaryAuthorityLink"
@@ -74,7 +75,7 @@ Feature: As Catelyn I need to be able to see the submission page and be able to 
         And I click on the element "submitRegistration.secondCheckbox"
         And I click on the element "submitRegistration.thirdCheckbox"
         When I click on the element "submitRegistration.button"
-        And I pause for 1000ms
+        And I pause for 2000ms
         Then I expect the url to contain "summary-confirmation"
         Then I expect that element "submissionPage.table" is visible
         And I expect that element "submissionPage.establishmentAddress" is visible

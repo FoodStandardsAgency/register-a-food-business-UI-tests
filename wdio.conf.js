@@ -110,7 +110,7 @@ exports.config = {
   logLevel: "error",
   coloredLogs: true,
   screenshotPath: "./errorShots/",
-  waitforTimeout: 10000,
+  waitforTimeout: 20000,
   connectionRetryTimeout: 90000,
   connectionRetryCount: 3,
   services: ["selenium-standalone"],

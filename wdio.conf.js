@@ -66,7 +66,8 @@ exports.config = {
       "./src/features/**/establishmentOpeningDate.feature",
       "./src/features/**/establishmentTradingName.feature",
       "./src/features/**/establishmentAddress.feature",
-      "./src/features/**/establishmentAddressType.feature"
+      "./src/features/**/establishmentAddressType.feature",
+      "./src/features/**/establishmentOpeningDays.feature"
     ],
     operator: [
       "./src/features/**/operatorAddress.feature",

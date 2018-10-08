@@ -1,11 +1,11 @@
 @end_to_end_testing_Jamie_SDB-735
 Feature: Testing user journey for Jamie
 
-Testing whole flow for current pages for Jamie
+    Testing whole flow for current pages for Jamie
 
     @happy_path_
     Scenario: happy path
-        Given I open the url "purbeck/index"
+        Given I open the url "mid-and-east-antrim/index"
         When I click on the element "firstpage.button"
         Then I expect the url to contain "registration-role"
         When I click on the element "regRole.representative"

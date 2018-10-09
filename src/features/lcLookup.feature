@@ -8,8 +8,11 @@ Feature: Local Council Lookup
         Given I open the url "/cleansession"
         And I go to a special QA page at url "/qa/mid-and-east-antrim/declaration" with injected "declaration" data
         And I click on the element "submitRegistration.firstCheckbox"
+        And I pause for 1000ms
         And I click on the element "submitRegistration.secondCheckbox"
+        And I pause for 1000ms
         And I click on the element "submitRegistration.thirdCheckbox"
+        And I pause for 1000ms
         When I click on the element "submitRegistration.button"
         And I pause for 5000ms
         Then I expect the url to contain "summary-confirmation"
@@ -20,8 +23,11 @@ Feature: Local Council Lookup
         Given I open the url "/cleansession"
         And I go to a special QA page at url "/qa/west-dorset/declaration" with injected "declaration" data
         And I click on the element "submitRegistration.firstCheckbox"
+        And I pause for 1000ms
         And I click on the element "submitRegistration.secondCheckbox"
+        And I pause for 1000ms
         And I click on the element "submitRegistration.thirdCheckbox"
+        And I pause for 1000ms
         When I click on the element "submitRegistration.button"
         And I pause for 5000ms
         Then I expect the url to contain "summary-confirmation"

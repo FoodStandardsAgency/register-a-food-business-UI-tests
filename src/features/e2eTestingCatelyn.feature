@@ -73,8 +73,11 @@ Feature: Testing user journey for Catelyn
         When I click on the element "registrationSummary.button"
         Then I expect the url to contain "declaration"
         When I click on the element "submitRegistration.firstCheckbox"
+        And I pause for 1000ms
         And I click on the element "submitRegistration.secondCheckbox"
+        And I pause for 1000ms
         And I click on the element "submitRegistration.thirdCheckbox"
+        And I pause for 1000ms
         And I click on the element "submitRegistration.button"
         And I pause for 5000ms
         Then I expect the url to contain "summary-confirmation"

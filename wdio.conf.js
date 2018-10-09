@@ -10,28 +10,28 @@ if (process.env.TEST_LOCALLY) {
     //   os_version: "High Sierra",
     //   browserName: "Chrome",
     //   browser_version: "67.0",
-    //   maxInstances: 2
+    //   maxInstances: 1
     // },
     // {
     //   os: "OS X",
     //   os_version: "High Sierra",
     //   browserName: "Firefox",
     //   browser_version: "61.0",
-    //   maxInstances: 2
+    //   maxInstances: 1
     // },
     // {
     //   os: "OS X",
     //   os_version: "High Sierra",
     //   browserName: "Safari",
     //   browser_version: "11.1",
-    //   maxInstances: 2
+    //   maxInstances: 1
     // },
     // {
     //   os: "Windows",
     //   os_version: "10",
     //   browserName: "IE",
     //   browser_version: "11.0",
-    //   maxInstances: 2,
+    //   maxInstances: 1,
     //   "browserstack.selenium_version": "2.53.1",
     //   "browserstack.ie.arch": "x32",
     //   "browserstack.ie.driver": "2.53.1"
@@ -107,7 +107,7 @@ exports.config = {
       "./src/features/**/e2eTestingJamie.feature"
     ]
   },
-  maxInstances: process.env.TEST_LOCALLY ? 1 : 10,
+  maxInstances: process.env.TEST_LOCALLY ? 1 : 5,
   capabilities: browserOptions,
   sync: true,
   logLevel: "error",

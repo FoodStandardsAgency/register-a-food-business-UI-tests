@@ -45,14 +45,8 @@ Feature: As Catelyn I need to see that the service is in beta phase so that I ca
 
     @beta_banner_SDB-373_summary_confirmation
     Scenario: I want to fill in the feedback form
-        Given I go to a special QA page at url "/qa/mid-and-east-antrim/summary-confirmation" with injected "registration-summary" data
-        And I go to a special QA page at url "/qa/mid-and-east-antrim/declaration" with injected "declaration" data
-        And I click on the element "submitRegistration.firstCheckbox"
-        And I click on the element "submitRegistration.secondCheckbox"
-        And I click on the element "submitRegistration.thirdCheckbox"
-        When I click on the element "submitRegistration.button"
-        And I pause for 5000ms
-        Then I expect the url to contain "summary-confirmation"
+        Given I open the url "/cleansession"
+        Given I open the url "mid-and-east-antrim/summary-confirmation"
         Then I expect that the attribute "href" from element "commonElements.betaLink" is "https://goo.gl/forms/WB5adxvWQdDIfVvs2"
         Given I click on the element "commonElements.betaLink"
         And I pause for 1000ms

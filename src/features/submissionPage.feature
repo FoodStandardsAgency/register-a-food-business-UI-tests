@@ -47,8 +47,11 @@ Feature: As Catelyn I need to be able to see the submission page and be able to 
         Given I open the url "/cleansession"
         And I go to a special QA page at url "/qa/mid-and-east-antrim/declaration" with injected "declaration" data
         And I click on the element "submitRegistration.firstCheckbox"
+        And I pause for 1000ms
         And I click on the element "submitRegistration.secondCheckbox"
+        And I pause for 1000ms
         And I click on the element "submitRegistration.thirdCheckbox"
+        And I pause for 1000ms
         When I click on the element "submitRegistration.button"
         And I pause for 5000ms
         Then I expect the url to contain "summary-confirmation"

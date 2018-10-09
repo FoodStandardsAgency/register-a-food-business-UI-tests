@@ -8,6 +8,6 @@ Feature: As Samantha I want to recieve a confirmation number when I submit my re
         And I click on the element "submitRegistration.secondCheckbox"
         And I click on the element "submitRegistration.thirdCheckbox"
         When I click on the element "submitRegistration.button"
-        And I pause for 1500ms
+        And I pause for 4000ms
         Then I expect the url to contain "summary-confirmation"
         And I expect that element "summaryConfirmation.fsaRn" is visible

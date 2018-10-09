@@ -5,44 +5,46 @@ if (process.env.TEST_LOCALLY) {
   browserOptions = [{ browserName: "chrome" }];
 } else {
   browserOptions = [
-    {
-      os: "OS X",
-      os_version: "High Sierra",
-      browserName: "Chrome",
-      browser_version: "67.0",
-      maxInstances: 2
-    },
-    {
-      os: "OS X",
-      os_version: "High Sierra",
-      browserName: "Firefox",
-      browser_version: "61.0",
-      maxInstances: 2
-    },
-    {
-      os: "OS X",
-      os_version: "High Sierra",
-      browserName: "Safari",
-      browser_version: "11.1",
-      maxInstances: 2
-    },
-    {
-      os: "Windows",
-      os_version: "10",
-      browserName: "IE",
-      browser_version: "11.0",
-      maxInstances: 2,
-      "browserstack.selenium_version": "2.53.1",
-      "browserstack.ie.arch": "x32",
-      "browserstack.ie.driver": "2.53.1"
-    },
+    // {
+    //   os: "OS X",
+    //   os_version: "High Sierra",
+    //   browserName: "Chrome",
+    //   browser_version: "67.0",
+    //   maxInstances: 2
+    // },
+    // {
+    //   os: "OS X",
+    //   os_version: "High Sierra",
+    //   browserName: "Firefox",
+    //   browser_version: "61.0",
+    //   maxInstances: 2
+    // },
+    // {
+    //   os: "OS X",
+    //   os_version: "High Sierra",
+    //   browserName: "Safari",
+    //   browser_version: "11.1",
+    //   maxInstances: 2
+    // },
+    // {
+    //   os: "Windows",
+    //   os_version: "10",
+    //   browserName: "IE",
+    //   browser_version: "11.0",
+    //   maxInstances: 2,
+    //   "browserstack.selenium_version": "2.53.1",
+    //   "browserstack.ie.arch": "x32",
+    //   "browserstack.ie.driver": "2.53.1"
+    // },
     {
       os: "Windows",
       os_version: "10",
       browserName: "Edge",
       browser_version: "17.0",
-      maxInstances: 2,
-      resolution: "2048x1536"
+      maxInstances: 5,
+      resolution: "2048x1536",
+      "browserstack.selenium_version": "2.53.1",
+      "browserstack.edge.enablePopups": "true"
     }
   ];
 }
@@ -104,7 +106,7 @@ exports.config = {
       "./src/features/**/e2eTestingJamie.feature"
     ]
   },
-  maxInstances: 1,
+  maxInstances: process.env.TEST_LOCALLY ? 1 : 10,
   capabilities: browserOptions,
   sync: true,
   logLevel: "error",

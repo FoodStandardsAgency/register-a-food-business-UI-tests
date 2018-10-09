@@ -71,7 +71,7 @@ Feature: Testing user journey for Jamie
         And I click on the element "submitRegistration.secondCheckbox"
         And I click on the element "submitRegistration.thirdCheckbox"
         And I click on the element "submitRegistration.button"
-        And I pause for 4000ms
+        And I pause for 5000ms
         Then I expect the url to contain "summary-confirmation"
 
 

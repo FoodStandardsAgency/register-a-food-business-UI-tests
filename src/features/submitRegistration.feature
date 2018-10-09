@@ -9,7 +9,7 @@ Feature: Declaration Page
         And I click on the element "submitRegistration.secondCheckbox"
         And I click on the element "submitRegistration.thirdCheckbox"
         When I click on the element "submitRegistration.button"
-        And I pause for 2000ms
+        And I pause for 5000ms
         Then I expect the url to not contain "declaration"
 
     @declaration_page_one_checked

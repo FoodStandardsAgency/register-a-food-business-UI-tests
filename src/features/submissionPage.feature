@@ -50,7 +50,7 @@ Feature: As Catelyn I need to be able to see the submission page and be able to 
         And I click on the element "submitRegistration.secondCheckbox"
         And I click on the element "submitRegistration.thirdCheckbox"
         When I click on the element "submitRegistration.button"
-        And I pause for 4000ms
+        And I pause for 5000ms
         Then I expect the url to contain "summary-confirmation"
         Then I expect that element "submissionPage.table" is visible
         And I expect that element "submissionPage.establishmentAddress" is visible

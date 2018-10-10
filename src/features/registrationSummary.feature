@@ -3,7 +3,8 @@ Feature: Summary Page
 
   @SDB-8_happy_path_navigation
   Scenario: navigate to declaration page
-    Given I go to a special QA page at url "/qa/mid-and-east-antrim/registration-summary" with injected "registration-summary" data
+    Given I open the url "/cleansession"
+    And I go to a special QA page at url "/qa/mid-and-east-antrim/registration-summary" with injected "registration-summary" data
     When I click on the element "registrationSummary.button"
     Then I expect the url to not contain "registration-summary"
 
@@ -18,6 +19,7 @@ Feature: Summary Page
 
   @SDB-8_full_data_injection
   Scenario: all possible data is displayed
-    Given I go to a special QA page at url "/qa/mid-and-east-antrim/registration-summary" with injected "registration-summary" data
+    Given I open the url "/cleansession"
+    And I go to a special QA page at url "/qa/mid-and-east-antrim/registration-summary" with injected "registration-summary" data
     Then I expect that element "registrationSummary.tradingName" contains the text "Trading name"
 

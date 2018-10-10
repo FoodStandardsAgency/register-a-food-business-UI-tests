@@ -64,11 +64,11 @@ exports.config = {
   suites: {
     landingpage: ["./src/features/**/landingPage.feature"],
     establishment: [
-      // "./src/features/**/establishmentContactDetails.feature",
-      // "./src/features/**/establishmentOpeningDate.feature",
-      // "./src/features/**/establishmentTradingName.feature",
-      // "./src/features/**/establishmentAddress.feature",
-      // "./src/features/**/establishmentAddressType.feature",
+      "./src/features/**/establishmentContactDetails.feature",
+      "./src/features/**/establishmentOpeningDate.feature",
+      "./src/features/**/establishmentTradingName.feature",
+      "./src/features/**/establishmentAddress.feature",
+      "./src/features/**/establishmentAddressType.feature",
       "./src/features/**/establishmentOpeningDays.feature"
     ],
     operator: [

@@ -20,14 +20,6 @@ Feature: As Jamie I need to declare my import and export activities so that Ric 
         Then I expect the url to contain "business-import-export"
         And I expect that element "importExportActivities.error" contains the text "You must select an option before continuing"
 
-    @import_export_activities_deselect_SDB-124
-    Scenario: selects one option and then deselects it
-        Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/business-import-export"
-        When I click on the element "importExportActivities.directImport"
-        And I click on the element "importExportActivities.directImport"
-        Then I expect that checkbox "importExportActivities.directImport" is not checked
-
     @import_export_activities_direct_import_and_none_forward_then_back_SDB-124
     Scenario: selects one option and then deselects it
         Given I open the url "/cleansession"

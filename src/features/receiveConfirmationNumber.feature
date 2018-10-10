@@ -5,9 +5,12 @@ Feature: As Samantha I want to recieve a confirmation number when I submit my re
     Scenario: Submit registration and shown reference number on the summary confirmation page
         Given I go to a special QA page at url "/qa/mid-and-east-antrim/declaration" with injected "declaration" data
         And I click on the element "submitRegistration.firstCheckbox"
+        And I pause for 1000ms
         And I click on the element "submitRegistration.secondCheckbox"
+        And I pause for 1000ms
         And I click on the element "submitRegistration.thirdCheckbox"
+        And I pause for 1000ms
         When I click on the element "submitRegistration.button"
-        And I pause for 4000ms
+        And I pause for 5000ms
         Then I expect the url to contain "summary-confirmation"
         And I expect that element "summaryConfirmation.fsaRn" is visible

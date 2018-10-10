@@ -11,41 +11,41 @@ if (process.env.TEST_LOCALLY) {
       browserName: "Chrome",
       browser_version: "67.0",
       maxInstances: 1
+    },
+    {
+      os: "OS X",
+      os_version: "High Sierra",
+      browserName: "Firefox",
+      browser_version: "61.0",
+      maxInstances: 1
+    },
+    {
+      os: "OS X",
+      os_version: "High Sierra",
+      browserName: "Safari",
+      browser_version: "11.1",
+      maxInstances: 1
+    },
+    {
+      os: "Windows",
+      os_version: "10",
+      browserName: "IE",
+      browser_version: "11.0",
+      maxInstances: 1,
+      "browserstack.selenium_version": "2.53.1",
+      "browserstack.ie.arch": "x32",
+      "browserstack.ie.driver": "2.53.1"
+    },
+    {
+      os: "Windows",
+      os_version: "10",
+      browserName: "Edge",
+      browser_version: "17.0",
+      maxInstances: 1,
+      resolution: "2048x1536",
+      "browserstack.selenium_version": "2.53.1",
+      "browserstack.edge.enablePopups": "true"
     }
-    // {
-    //   os: "OS X",
-    //   os_version: "High Sierra",
-    //   browserName: "Firefox",
-    //   browser_version: "61.0",
-    //   maxInstances: 5
-    // }
-    // {
-    //   os: "OS X",
-    //   os_version: "High Sierra",
-    //   browserName: "Safari",
-    //   browser_version: "11.1",
-    //   maxInstances: 1
-    // },
-    // {
-    //   os: "Windows",
-    //   os_version: "10",
-    //   browserName: "IE",
-    //   browser_version: "11.0",
-    //   maxInstances: 1,
-    //   "browserstack.selenium_version": "2.53.1",
-    //   "browserstack.ie.arch": "x32",
-    //   "browserstack.ie.driver": "2.53.1"
-    // },
-    // {
-    //   os: "Windows",
-    //   os_version: "10",
-    //   browserName: "Edge",
-    //   browser_version: "17.0",
-    //   maxInstances: 5,
-    //   resolution: "2048x1536",
-    //   "browserstack.selenium_version": "2.53.1",
-    //   "browserstack.edge.enablePopups": "true"
-    // }
   ];
 }
 
@@ -64,11 +64,11 @@ exports.config = {
   suites: {
     landingpage: ["./src/features/**/landingPage.feature"],
     establishment: [
-      "./src/features/**/establishmentContactDetails.feature",
-      "./src/features/**/establishmentOpeningDate.feature",
-      "./src/features/**/establishmentTradingName.feature",
-      "./src/features/**/establishmentAddress.feature",
-      "./src/features/**/establishmentAddressType.feature",
+      // "./src/features/**/establishmentContactDetails.feature",
+      // "./src/features/**/establishmentOpeningDate.feature",
+      // "./src/features/**/establishmentTradingName.feature",
+      // "./src/features/**/establishmentAddress.feature",
+      // "./src/features/**/establishmentAddressType.feature",
       "./src/features/**/establishmentOpeningDays.feature"
     ],
     operator: [

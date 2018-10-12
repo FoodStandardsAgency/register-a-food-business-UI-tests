@@ -10,7 +10,7 @@ if (process.env.TEST_LOCALLY) {
       os_version: "High Sierra",
       browserName: "Chrome",
       browser_version: "67.0",
-      maxInstances: 1
+      maxInstances: 5
     },
     {
       os: "OS X",
@@ -83,6 +83,7 @@ exports.config = {
       "./src/features/**/submitRegistration.feature",
       "./src/features/**/registrationSummary.feature",
       "./src/features/**/editSummary.feature",
+      "./src/features/**/editSummaryMultiPage.feature",
       "./src/features/**/submissionPage.feature",
       "./src/features/**/receiveConfirmationNumber.feature"
     ],

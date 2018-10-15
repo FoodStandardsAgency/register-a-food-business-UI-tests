@@ -129,13 +129,16 @@ exports.config = {
   connectionRetryCount: 3,
   services: ["selenium-standalone"],
   framework: "cucumber",
-  reporters: ["spec", "allure"],
+  reporters: ["spec", "allure", "junit"],
   reporterOptions: {
     allure: {
       outputDir: "allure-results",
       disableWebdriverStepsReporting: true,
       disableWebdriverScreenshotsReporting: true,
       useCucumberStepReporter: true
+    },
+    junit: {
+      outputDir: "./reports"
     }
   },
   cucumberOpts: {

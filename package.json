@@ -19,6 +19,7 @@
     "pa11y-ci": "2.1.1",
     "wdio": "2.0.2",
     "wdio-cucumber-framework": "2.2.7",
+    "wdio-junit-reporter": "0.4.4",
     "wdio-selenium-standalone-service": "0.0.10",
     "wdio-spec-reporter": "0.1.4",
     "webdriverio": "4.13.2"

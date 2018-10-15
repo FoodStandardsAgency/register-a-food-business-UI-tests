@@ -64,7 +64,7 @@ typings/
 # next.js build output
 .next
 
-
 errorShots
 coverage
 allure-results
+reports

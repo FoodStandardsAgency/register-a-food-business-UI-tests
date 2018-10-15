@@ -3,14 +3,14 @@ require("dotenv").config();
 let browserOptions;
 if (process.env.TEST_LOCALLY) {
   browserOptions = [{ browserName: "chrome" }];
-} else {
+} else if (process.env.TEST_ALL_BROWSERS) {
   browserOptions = [
     {
       os: "OS X",
       os_version: "High Sierra",
       browserName: "Chrome",
       browser_version: "67.0",
-      maxInstances: 1
+      maxInstances: 5
     },
     {
       os: "OS X",
@@ -45,6 +45,16 @@ if (process.env.TEST_LOCALLY) {
       resolution: "2048x1536",
       "browserstack.selenium_version": "2.53.1",
       "browserstack.edge.enablePopups": "true"
+    }
+  ];
+} else {
+  browserOptions = [
+    {
+      os: "OS X",
+      os_version: "High Sierra",
+      browserName: "Chrome",
+      browser_version: "67.0",
+      maxInstances: 5
     }
   ];
 }
@@ -83,6 +93,7 @@ exports.config = {
       "./src/features/**/submitRegistration.feature",
       "./src/features/**/registrationSummary.feature",
       "./src/features/**/editSummary.feature",
+      "./src/features/**/editSummaryMultiPage.feature",
       "./src/features/**/submissionPage.feature",
       "./src/features/**/receiveConfirmationNumber.feature"
     ],

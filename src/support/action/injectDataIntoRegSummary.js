@@ -21,6 +21,10 @@ const datasets = {
     establishment_postcode: "AA11 1AA",
     establishment_type: "domestic",
     business_type: "Livestock farm",
+    establishment_opening_status: "Establishment is already trading",
+    day: "01",
+    month: "01",
+    year: "2001",
     opening_days_irregular: "Every day"
   },
   declaration: {

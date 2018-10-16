@@ -93,7 +93,7 @@ exports.config = {
       "./src/features/**/submitRegistration.feature",
       "./src/features/**/registrationSummary.feature",
       "./src/features/**/editSummary.feature",
-      "./src/features/**/editSummaryMultiPage.feature",
+      // "./src/features/**/editSummaryMultiPage.feature",
       "./src/features/**/submissionPage.feature",
       "./src/features/**/receiveConfirmationNumber.feature"
     ],

@@ -102,7 +102,10 @@ exports.config = {
     end2end: [
       "./src/features/**/e2eTestingCatelyn.feature",
       "./src/features/**/e2eTestingJamie.feature"
-    ]
+    ],
+      secnariooutline: [
+          "./src/features/**/scenarioOutline.feature"
+      ]
   },
   maxInstances: 10,
   capabilities: browserOptions,

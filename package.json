@@ -6,8 +6,8 @@
     "test:locally:e2e": "TEST_LOCALLY=true sh run_local_e2e.sh",
     "test:browserstack:ui": "sh run_browserstack_ui.sh",
     "test:browserstack:e2e": "sh run_browserstack_e2e.sh",
-    "test:accessibility": "pa11y-ci",
-    "test:locally:outline": "TEST_LOCALLY=true sh run_local_outline.sh"
+    "test:locally:outline": "TEST_LOCALLY=true sh run_local_outline.sh",
+    "test:accessibility": "pa11y-ci"
   },
   "license": "MIT",
   "dependencies": {
@@ -20,6 +20,7 @@
     "pa11y-ci": "2.1.1",
     "wdio": "2.0.2",
     "wdio-cucumber-framework": "2.2.1",
+    "wdio-junit-reporter": "0.4.4",
     "wdio-selenium-standalone-service": "0.0.10",
     "wdio-spec-reporter": "0.1.4",
     "webdriverio": "4.13.2"

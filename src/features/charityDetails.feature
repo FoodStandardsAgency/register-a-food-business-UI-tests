@@ -20,8 +20,6 @@ Feature: Testing charity details page: As Jamie I want to declare the details of
         Then I click on the element "charityDetails.button"
         And I expect the url to not contain "operator-charity-details"
 
-
-
     @charity_details_not_filled_name_SDB-40
     Scenario: testing error message when not input charity name
         Given I open the url "/cleansession"

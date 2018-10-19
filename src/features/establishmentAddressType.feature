@@ -3,15 +3,6 @@ Feature: As Jamie I need to be able to fill in details about my establishments w
 
     Establishment address type section validation
 
-
-    @change_establishment_address_type_SDB-50
-    Scenario: able to change establishment address Type
-        Given I open the url "mid-and-east-antrim/establishment-address-type"
-        When I click on the element "estabAddressType.businessCommercial"
-        And I click on the element "estabAddressType.mobileMoveable"
-        Then I expect that element "estabAddressType.mobileMoveable" is selected
-        And I expect that checkbox "estabAddressType.businessCommercial" is not checked
-
     @happy_path_SDB-50
     Scenario: happy path for establishment address Type
         Given I open the url "/cleansession"

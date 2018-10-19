@@ -52,6 +52,12 @@ Feature: Testing user journey for Jamie
         And I set "08" to the inputfield "estabOpeningDate.month"
         And I set "2018" to the inputfield "estabOpeningDate.year"
         And I click on the element "estabOpeningDate.button"
+        Then I expect the url to contain "opening-days-start"
+        When I click on the element "openingDaysStart.irregularDays"
+        And I click on the element "openingDaysStart.button"
+        Then I expect the url to contain "opening-days-irregular"
+        When I set "Christmas Period" to the inputfield "openingDaysIrregular.otherDaysIrregular"
+        And I click on the element "openingDaysIrregular.button"
         Then I expect the url to contain "customer-type"
         When I click on the element "custType.supplyDirectly"
         And I click on the element "custType.button"
@@ -68,10 +74,13 @@ Feature: Testing user journey for Jamie
         When I click on the element "registrationSummary.button"
         Then I expect the url to contain "declaration"
         When I click on the element "submitRegistration.firstCheckbox"
-        And I click on the element "submitRegistration.secondCheckbox"
-        And I click on the element "submitRegistration.thirdCheckbox"
-        And I click on the element "submitRegistration.button"
         And I pause for 1000ms
+        And I click on the element "submitRegistration.secondCheckbox"
+        And I pause for 1000ms
+        And I click on the element "submitRegistration.thirdCheckbox"
+        And I pause for 1000ms
+        And I click on the element "submitRegistration.button"
+        And I pause for 5000ms
         Then I expect the url to contain "summary-confirmation"
 
 

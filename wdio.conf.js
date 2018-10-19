@@ -3,35 +3,35 @@ require("dotenv").config();
 let browserOptions;
 if (process.env.TEST_LOCALLY) {
   browserOptions = [{ browserName: "chrome" }];
-} else {
+} else if (process.env.TEST_ALL_BROWSERS) {
   browserOptions = [
     {
       os: "OS X",
       os_version: "High Sierra",
       browserName: "Chrome",
       browser_version: "67.0",
-      maxInstances: 2
+      maxInstances: 5
     },
     {
       os: "OS X",
       os_version: "High Sierra",
       browserName: "Firefox",
       browser_version: "61.0",
-      maxInstances: 2
+      maxInstances: 1
     },
     {
       os: "OS X",
       os_version: "High Sierra",
       browserName: "Safari",
       browser_version: "11.1",
-      maxInstances: 2
+      maxInstances: 1
     },
     {
       os: "Windows",
       os_version: "10",
       browserName: "IE",
       browser_version: "11.0",
-      maxInstances: 2,
+      maxInstances: 1,
       "browserstack.selenium_version": "2.53.1",
       "browserstack.ie.arch": "x32",
       "browserstack.ie.driver": "2.53.1"
@@ -41,8 +41,20 @@ if (process.env.TEST_LOCALLY) {
       os_version: "10",
       browserName: "Edge",
       browser_version: "17.0",
-      maxInstances: 2,
-      resolution: "2048x1536"
+      maxInstances: 1,
+      resolution: "2048x1536",
+      "browserstack.selenium_version": "2.53.1",
+      "browserstack.edge.enablePopups": "true"
+    }
+  ];
+} else {
+  browserOptions = [
+    {
+      os: "OS X",
+      os_version: "High Sierra",
+      browserName: "Chrome",
+      browser_version: "67.0",
+      maxInstances: 5
     }
   ];
 }
@@ -66,7 +78,8 @@ exports.config = {
       "./src/features/**/establishmentOpeningDate.feature",
       "./src/features/**/establishmentTradingName.feature",
       "./src/features/**/establishmentAddress.feature",
-      "./src/features/**/establishmentAddressType.feature"
+      "./src/features/**/establishmentAddressType.feature",
+      "./src/features/**/establishmentOpeningDays.feature"
     ],
     operator: [
       "./src/features/**/operatorAddress.feature",
@@ -80,6 +93,7 @@ exports.config = {
       "./src/features/**/submitRegistration.feature",
       "./src/features/**/registrationSummary.feature",
       "./src/features/**/editSummary.feature",
+      // "./src/features/**/editSummaryMultiPage.feature",
       "./src/features/**/submissionPage.feature",
       "./src/features/**/receiveConfirmationNumber.feature"
     ],
@@ -107,7 +121,7 @@ exports.config = {
           "./src/features/**/scenarioOutline.feature"
       ]
   },
-  maxInstances: 10,
+  maxInstances: process.env.TEST_LOCALLY ? 1 : 5,
   capabilities: browserOptions,
   sync: true,
   logLevel: "error",
@@ -118,13 +132,16 @@ exports.config = {
   connectionRetryCount: 3,
   services: ["selenium-standalone"],
   framework: "cucumber",
-  reporters: ["spec", "allure"],
+  reporters: ["spec", "allure", "junit"],
   reporterOptions: {
     allure: {
       outputDir: "allure-results",
       disableWebdriverStepsReporting: true,
       disableWebdriverScreenshotsReporting: true,
       useCucumberStepReporter: true
+    },
+    junit: {
+      outputDir: "./reports"
     }
   },
   cucumberOpts: {

@@ -9,10 +9,9 @@ Feature: As Catelyn I need to know that cookies are being used in this service, 
         And I open the url "mid-and-east-antrim/index"
         Then I expect that element "commonElements.cookieBanner" is visible
         When I click on the element "commonElements.cookieAccept"
+        And I pause for 2000ms
         Then I expect that cookie "acceptAllCookies" exists
         And I expect that cookie "connect.sid" exists
-        And I expect that cookie "_ga" exists
-        And I expect that cookie "_gid" exists
         Then I expect that element "commonElements.cookieBanner" is not visible
 
 
@@ -21,8 +20,7 @@ Feature: As Catelyn I need to know that cookies are being used in this service, 
         Given I open the url "/cleansession"
         And I delete all my cookies
         And I open the url "mid-and-east-antrim/index"
-        And the cookie "_ga" does exist
-        And the cookie "_gid" does exist
+        And I pause for 2000ms
         Then I expect that element "commonElements.cookieBanner" is visible
         When I click on the element "commonElements.cookieReject"
         Then I expect that element "commonElements.cookieBanner" is not visible

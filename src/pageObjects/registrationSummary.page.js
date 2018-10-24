@@ -26,7 +26,7 @@ const registrationSummary = {
   changeEstablishmentLocationType: "#changeEstablishmentLocationType",
   changeActivitiesBusinessImportExportRow:
     "#changeActivitiesBusinessImportExportRow",
-  changeTradingStartDate: "changeEstablishmentOpeningDateRow"
+  changeTradingStartDate: "#changeEstablishmentOpeningDateRow"
 };
 
 module.exports = registrationSummary;

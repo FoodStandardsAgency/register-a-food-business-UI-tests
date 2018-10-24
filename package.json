@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "test:locally:ui": "TEST_LOCALLY=true sh run_local_ui.sh",
+    "test:locally:outline": "TEST_LOCALLY=true sh run_local_outline.sh",
     "test:locally:e2e": "TEST_LOCALLY=true sh run_local_e2e.sh",
     "test:browserstack:ui": "sh run_browserstack_ui.sh",
     "test:browserstack:e2e": "sh run_browserstack_e2e.sh",

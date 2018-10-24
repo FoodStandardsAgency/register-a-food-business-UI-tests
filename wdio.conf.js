@@ -117,7 +117,7 @@ exports.config = {
       "./src/features/**/e2eTestingCatelyn.feature",
       "./src/features/**/e2eTestingJamie.feature"
     ],
-    scenariooutline: [
+    secnariooutline: [
       "./src/features/**/backButton.feature",
       "./src/features/**/businessTypeIn.feature",
       "./src/features/**/charityDetails.feature",

@@ -1,6 +1,9 @@
 /node_modules
 /.vs
 .DS_Store
+.xml
+.idea
+.iml
 
 # Logs
 logs

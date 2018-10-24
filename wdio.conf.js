@@ -116,6 +116,15 @@ exports.config = {
     end2end: [
       "./src/features/**/e2eTestingCatelyn.feature",
       "./src/features/**/e2eTestingJamie.feature"
+    ],
+    scenariooutline: [
+      "./src/features/**/backButton.feature",
+      "./src/features/**/businessTypeIn.feature",
+      "./src/features/**/charityDetails.feature",
+      "./src/features/**/cookieBanner.feature",
+      "./src/features/**/customerType.feature",
+      "./src/features/**/editSummary.feature",
+      "./src/features/**/editSummaryMultiPage.feature"
     ]
   },
   maxInstances: process.env.TEST_LOCALLY ? 1 : 5,

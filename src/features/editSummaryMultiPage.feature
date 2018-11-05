@@ -155,14 +155,19 @@ Feature: As Samantha I need to be able to change the trading date of my registra
     And I expect that element "registrationSummary.representativeNumber" contains the text "01234567891"
     And I expect that element "registrationSummary.representativeEmail" contains the text "companyrepresentative@email.com"
 
-
-
-
-
-
-
-
-
-
-
-
+  @SDB-1091_Change_Trading_Days_Every_Day_to_Some_Days
+  Scenario: Change trading days from every day to some days a week
+    Given I open the url "/cleansession"
+    And I go to a special QA page at url "/qa/mid-and-east-antrim/registration-summary" with injected "registration-summary-trading-every-day" data
+    When I click on the element "registrationSummary.changeOpeningDays"
+    Then I expect the url to contain "opening-days-start?edit=opening-days-start"
+    And I expect that element "openingDaysStart.everyday" is selected
+    When I click on the element "openingDaysStart.someDays"
+    And I click on the element "commonElements.continueButton"
+    Then I expect the url to contain "opening-days-some?edit=opening-days-start"
+    When I click on the element "openingDaysSome.monday"
+    And I click on the element "openingDaysSome.tuesday"
+    And I click on the element "commonElements.continueButton"
+    Then I expect the url to contain "registration-summary"
+    And I expect that element "registrationSummary.openingDays" contains the text "Monday"
+    And I expect that element "registrationSummary.openingDays" contains the text "Tuesday"

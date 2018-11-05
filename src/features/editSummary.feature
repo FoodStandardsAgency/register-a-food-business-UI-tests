@@ -14,7 +14,7 @@ Feature: As Samantha I need to be able to edit details in the summary of my regi
         Given I open the url "/cleansession"
         And I go to a special QA page at url "/qa/mid-and-east-antrim/registration-summary" with injected "registration-summary-representative" data
         When I click on the element "registrationSummary.changeOperatorEmail"
-        Then I expect the url to contain "operator-contact-details?edit=on"
+        Then I expect the url to contain "operator-contact-details?edit=operator-contact-details"
         And I expect that element "opContactDetails.emailAddress" contains the text "email@email.com"
         And I expect that element "commonElements.backButton" is not visible
         When I set "changed@email.com" to the inputfield "opContactDetails.emailAddress"
@@ -28,7 +28,7 @@ Feature: As Samantha I need to be able to edit details in the summary of my regi
         Given I open the url "/cleansession"
         And I go to a special QA page at url "/qa/mid-and-east-antrim/registration-summary" with injected "registration-summary" data
         When I click on the element "registrationSummary.changeTradingName"
-        Then I expect the url to contain "establishment-trading-name?edit=on"
+        Then I expect the url to contain "establishment-trading-name?edit=establishment-trading-name"
         And I expect that element "estabTradingName.tradingNameInput" contains the text "Trading name"
         When I set "Changed Trading Name" to the inputfield "estabTradingName.tradingNameInput"
         And I click on the element "estabTradingName.button"
@@ -41,7 +41,7 @@ Feature: As Samantha I need to be able to edit details in the summary of my regi
         Given I open the url "/cleansession"
         And I go to a special QA page at url "/qa/mid-and-east-antrim/registration-summary" with injected "registration-summary" data
         When I click on the element "registrationSummary.changeTradingName"
-        Then I expect the url to contain "establishment-trading-name?edit=on"
+        Then I expect the url to contain "establishment-trading-name?edit=establishment-trading-name"
         And I expect that element "commonElements.backButton" is not visible
 
 
@@ -50,7 +50,7 @@ Feature: As Samantha I need to be able to edit details in the summary of my regi
         Given I open the url "/cleansession"
         And I go to a special QA page at url "/qa/mid-and-east-antrim/registration-summary" with injected "registration-summary" data
         When I click on the element "registrationSummary.changeOperatorEmail"
-        Then I expect the url to contain "operator-contact-details?edit=on"
+        Then I expect the url to contain "operator-contact-details?edit=operator-contact-details"
         And I expect that element "opContactDetails.emailAddress" contains the text "email@email.com"
         And I expect that element "commonElements.backButton" is not visible
         When I set "±±±" to the inputfield "opContactDetails.emailAddress"

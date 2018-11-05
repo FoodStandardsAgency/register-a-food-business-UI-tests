@@ -94,7 +94,6 @@ exports.config = {
       "./src/features/**/registrationSummary.feature",
       "./src/features/**/editSummary.feature",
       "./src/features/**/editSummaryMultiPage.feature",
-      "./src/features/**/changeOperatorType.feature",
       "./src/features/**/submissionPage.feature",
       "./src/features/**/receiveConfirmationNumber.feature"
     ],

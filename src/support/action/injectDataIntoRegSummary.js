@@ -100,6 +100,9 @@ const datasets = {
     year: "2001",
     opening_days_irregular: "Every day"
   },
+  "registration-summary-trading-every-day": {
+    opening_days_start: "Every day"
+  },
   declaration: {
     operator_first_name: "Fred",
     operator_last_name: "Bloggs",

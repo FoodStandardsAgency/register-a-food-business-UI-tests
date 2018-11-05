@@ -19,7 +19,7 @@ const registrationSummary = {
   establishmentEmail: "#establishment_email",
   establishmentAddressStreet: "#establishment_street",
   foodActivities: "#import_export_activities",
-  openingDays: "#opening_days_irregular",
+  openingDays: "#establishmentOpeningDaysRow",
   tradingStartDate: "#establishment_opening_date",
   customertype: "#customer_type",
   businessType: "#business_type",
@@ -39,7 +39,8 @@ const registrationSummary = {
   changeEstablishmentLocationType: "#changeEstablishmentLocationType",
   changeActivitiesBusinessImportExportRow:
     "#changeActivitiesBusinessImportExportRow",
-  changeTradingStartDate: "#changeEstablishmentOpeningDateRow"
+  changeTradingStartDate: "#changeEstablishmentOpeningDateRow",
+  changeOpeningDays: "#changeEstablishmentOpeningDaysRow"
 };
 
 module.exports = registrationSummary;

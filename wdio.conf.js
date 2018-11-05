@@ -118,7 +118,7 @@ exports.config = {
       "./src/features/**/e2eTestingJamie.feature"
     ]
   },
-  maxInstances: process.env.TEST_LOCALLY ? 5 : 5,
+  maxInstances: process.env.TEST_LOCALLY ? 1 : 5,
   capabilities: browserOptions,
   sync: true,
   logLevel: "error",

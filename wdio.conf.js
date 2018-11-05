@@ -94,7 +94,6 @@ exports.config = {
       "./src/features/**/registrationSummary.feature",
       "./src/features/**/editSummary.feature",
       "./src/features/**/editSummaryMultiPage.feature",
-      "./src/features/**/changeOperatorType.feature",
       "./src/features/**/submissionPage.feature",
       "./src/features/**/receiveConfirmationNumber.feature"
     ],
@@ -119,7 +118,7 @@ exports.config = {
       "./src/features/**/e2eTestingJamie.feature"
     ]
   },
-  maxInstances: process.env.TEST_LOCALLY ? 1 : 5,
+  maxInstances: process.env.TEST_LOCALLY ? 5 : 5,
   capabilities: browserOptions,
   sync: true,
   logLevel: "error",

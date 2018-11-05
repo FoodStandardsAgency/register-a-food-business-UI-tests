@@ -12,7 +12,7 @@ Feature: As Samantha I need to be able to edit details in the summary of my regi
     @SDB-157_editing_operator_email
     Scenario: editing operator email
         Given I open the url "/cleansession"
-        And I go to a special QA page at url "/qa/mid-and-east-antrim/registration-summary" with injected "registration-summary" data
+        And I go to a special QA page at url "/qa/mid-and-east-antrim/registration-summary" with injected "registration-summary-representative" data
         When I click on the element "registrationSummary.changeOperatorEmail"
         Then I expect the url to contain "operator-contact-details?edit=on"
         And I expect that element "opContactDetails.emailAddress" contains the text "email@email.com"

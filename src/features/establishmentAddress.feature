@@ -53,11 +53,12 @@ Feature: As Catelyn I need the service to look up my address and I can select th
         Then I expect the url to contain "establishment-address-select"
         And I expect that element "estabAddress.postcodeDisplay" contains the text "BS249ST"
         When I click on the element "estabAddress.cantFindAddressLink"
-        Then I expect the url to contain "establishment-address-manual"
+        Then I expect the url to contain "mid-and-east-antrim/establishment-address-manual"
         When I set "test first line" to the inputfield "estabAddress.firstline"
         And I set "AA11 1AA" to the inputfield "estabAddress.manualPostcode"
         And I click on the element "estabAddress.button"
         Then I expect the url to not contain "establishment-address-manual"
+        Then I expect the url to contain "mid-and-east-antrim"
 
 
     @SDB-12_establishment_address_cant_find_address_error_firstline

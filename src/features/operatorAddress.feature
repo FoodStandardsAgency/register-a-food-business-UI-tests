@@ -47,7 +47,7 @@ Feature: As Catelyn I need the service to look up my address and I can select th
         And I expect that element "opAddress.postcode" contains the text "BS249ST"
 
 
-    @SDB-12_establishment_address_cant_find_address
+    @SDB-12_operator_address_cant_find_address
     Scenario: entering postcode, pressing Find Address and then not able to find address in dropdown
         Given I open the url "/cleansession"
         And I open the url "mid-and-east-antrim/operator-address"
@@ -56,11 +56,12 @@ Feature: As Catelyn I need the service to look up my address and I can select th
         Then I expect the url to contain "operator-address-select"
         And I expect that element "opAddress.postcodeDisplay" contains the text "BS249ST"
         When I click on the element "opAddress.cantFindAddressLink"
-        Then I expect the url to contain "operator-address-manual"
+        Then I expect the url to contain "mid-and-east-antrim/operator-address-manual"
         When I set "test first line" to the inputfield "opAddress.firstline"
         And I set "AA11 1AA" to the inputfield "opAddress.manualPostcode"
         And I click on the element "opAddress.button"
         Then I expect the url to not contain "operator-address-manual"
+        Then I expect the url to contain "mid-and-east-antrim"
 
 
     @SDB-12_operator_address_cant_find_address_error_firstline

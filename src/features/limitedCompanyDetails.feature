@@ -39,13 +39,3 @@ Feature: Limited Company SDB-36
         Then I expect that element "companyDetails.error" contains the text "Not a valid Companies House reference number"
         And I expect that element "companyDetails.name" contains the text "Diane's Diner"
         And I expect that element "companyDetails.companiesHouseNumber" contains the text "§§21"
-
-    @more_info_SDB-36
-    Scenario: I want to find my companies house reference
-        Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/operator-company-details"
-        When I click on the element "companyDetails.questions"
-        Then I expect that the attribute "href" from element "companyDetails.link" is "https://beta.companieshouse.gov.uk/"
-        Given I click on the element "companyDetails.link"
-        And I pause for 1000ms
-        Then I expect a new tab has been opened

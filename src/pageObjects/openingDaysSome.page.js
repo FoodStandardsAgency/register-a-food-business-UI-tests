@@ -7,7 +7,7 @@ const openingDaysSome = {
   saturday: "#opening_day_saturday",
   sunday: "#opening_day_sunday",
   button: "#continue-button",
-  error: ".css-jdwgdl"
+  error: "#errorSummary"
 };
 
 module.exports = openingDaysSome;

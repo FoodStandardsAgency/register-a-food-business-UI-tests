@@ -2,10 +2,10 @@
   "name": "register-a-food-business-ui-tests",
   "version": "1.0.0",
   "scripts": {
-    "test:locally:ui": "TEST_LOCALLY=true sh run_local_ui.sh",
-    "test:locally:e2e": "TEST_LOCALLY=true sh run_local_e2e.sh",
-    "test:browserstack:ui": "sh run_browserstack_ui.sh",
-    "test:browserstack:e2e": "sh run_browserstack_e2e.sh",
+    "test:locally:ui": "TEST_LOCALLY=true sh run_ui.sh",
+    "test:locally:e2e": "TEST_LOCALLY=true sh run_e2e.sh",
+    "test:browserstack:ui": "sh run_ui.sh",
+    "test:browserstack:e2e": "sh run_e2e.sh",
     "test:accessibility": "pa11y-ci"
   },
   "license": "MIT",

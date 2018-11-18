@@ -1,7 +1,7 @@
 const openingDaysIrregular = {
   otherDaysIrregular: "#opening_days_irregular",
   button: "#continue-button",
-  error: ".css-jdwgdl"
+  error: "#errorSummary"
 };
 
 module.exports = openingDaysIrregular;

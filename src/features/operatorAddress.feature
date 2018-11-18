@@ -13,7 +13,6 @@ Feature: As Catelyn I need the service to look up my address and I can select th
         When I click on the element "opAddress.button"
         Then I expect the url to not contain "operator-address-select"
 
-
     @SDB-12_happy_path_operator_address_select_2nd_option
     Scenario: able to find address using lookup service on the operator address page
         Given I open the url "/cleansession"
@@ -24,7 +23,6 @@ Feature: As Catelyn I need the service to look up my address and I can select th
         When I select the 2nd option for element "opAddress.postcodeDropdown"
         And I click on the element "opAddress.button"
         Then I expect the url to not contain "operator-address-select"
-
 
     @SDB-12_error_operator_address
     Scenario: entering postcode in invalid format and pressing Find Address
@@ -46,7 +44,6 @@ Feature: As Catelyn I need the service to look up my address and I can select th
         Then I expect the url to contain "operator-address"
         And I expect that element "opAddress.postcode" contains the text "BS249ST"
 
-
     @SDB-12_establishment_address_cant_find_address
     Scenario: entering postcode, pressing Find Address and then not able to find address in dropdown
         Given I open the url "/cleansession"
@@ -61,7 +58,6 @@ Feature: As Catelyn I need the service to look up my address and I can select th
         And I set "AA11 1AA" to the inputfield "opAddress.manualPostcode"
         And I click on the element "opAddress.button"
         Then I expect the url to not contain "operator-address-manual"
-
 
     @SDB-12_operator_address_cant_find_address_error_firstline
     Scenario: using manual input - error

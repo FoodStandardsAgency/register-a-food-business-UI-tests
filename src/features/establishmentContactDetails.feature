@@ -127,8 +127,3 @@ Feature: As Samantha I need to be able to fill in the establishment contact deta
         When I click on the element "estabContactDetails.checkbox"
         Then I expect that element "estabContactDetails.emailAddress" contains the text "email@email.comaddition"
         And I expect that element "estabContactDetails.primaryPhoneNumber" contains the text "01234567890addition"
-
-
-
-
-

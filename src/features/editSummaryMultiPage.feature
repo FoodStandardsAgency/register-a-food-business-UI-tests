@@ -10,10 +10,9 @@ Feature: As Samantha I need to be able to change the trading date of my registra
     And I expect that element "estabOpeningDate.alreadyTrading" is selected
     And I click on the element "estabOpeningDate.button"
     Then I expect the url to contain "establishment-opening-date-retroactive?edit=establishment-opening-status"
-    # TODO JMB: The below tests will not work until the date input fields can be set to a default value
-    # And I expect that element "estabOpeningDate.day" is not empty
-    # And I expect that element "estabOpeningDate.month" is not empty
-    # And I expect that element "estabOpeningDate.year" is not empty
+    And I expect that element "estabOpeningDate.day" is not empty
+    And I expect that element "estabOpeningDate.month" is not empty
+    And I expect that element "estabOpeningDate.year" is not empty
     When I set "05" to the inputfield "estabOpeningDate.day"
     And I set "02" to the inputfield "estabOpeningDate.month"
     And I set "1990" to the inputfield "estabOpeningDate.year"
@@ -31,9 +30,6 @@ Feature: As Samantha I need to be able to change the trading date of my registra
     When I click on the element "estabOpeningDate.notTrading"
     And I click on the element "estabOpeningDate.button"
     Then I expect the url to contain "establishment-opening-date-proactive?edit=establishment-opening-status"
-    And I expect that element "estabOpeningDate.day" is empty
-    And I expect that element "estabOpeningDate.month" is empty
-    And I expect that element "estabOpeningDate.year" is empty
     When I set "01" to the inputfield "estabOpeningDate.day"
     And I set "01" to the inputfield "estabOpeningDate.month"
     And I set "2050" to the inputfield "estabOpeningDate.year"
@@ -61,16 +57,12 @@ Feature: As Samantha I need to be able to change the trading date of my registra
     And I click on the element "estabOpeningDate.button"
     Then I expect the url to contain "establishment-opening-date-retroactive?edit=establishment-opening-status"
     And I expect that element "commonElements.backButton" is visible
-    And I expect that element "estabOpeningDate.day" is empty
-    And I expect that element "estabOpeningDate.month" is empty
-    And I expect that element "estabOpeningDate.year" is empty
     When I set "05" to the inputfield "estabOpeningDate.day"
     And I set "02" to the inputfield "estabOpeningDate.month"
     And I set "1990" to the inputfield "estabOpeningDate.year"
     And I click on the element "estabOpeningDate.button"
     Then I expect the url to contain "registration-summary"
     And I expect that element "registrationSummary.tradingStartDate" contains the text "05 Feb 1990"
-
 
   @SDB-130_Change_Operator_Type_Charity_Rep_to_Sole_Trader
   Scenario: Change from Representative Charity to Sole Trader
@@ -96,8 +88,6 @@ Feature: As Samantha I need to be able to change the trading date of my registra
     And I expect that element "registrationSummary.operatorEmail" contains the text "BobSmith@email.com"
     And I expect that element "registrationSummary.operatorPrimaryNumber" contains the text "01234567890"
 
-
-
   @SDB-130_Change_Operator_Type_Partnership_Change_details
   Scenario: Change details within Partnership path
     Given I open the url "/cleansession"
@@ -122,7 +112,6 @@ Feature: As Samantha I need to be able to change the trading date of my registra
     And I expect that element "registrationSummary.operatorLastName" contains the text "Smith"
     And I expect that element "registrationSummary.operatorPrimaryNumber" contains the text "01234567890"
     And I expect that element "registrationSummary.operatorEmail" contains the text "email@email.com"
-
 
   @SDB-130_Change_Operator_Type_Representative_Person_to_company
   Scenario: Change Representative details from person to Company

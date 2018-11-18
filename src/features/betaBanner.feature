@@ -7,32 +7,32 @@ Feature: As Catelyn I need to see that the service is in beta phase so that I ca
     Scenario: beta banner is visible
         Given I open the url "mid-and-east-antrim/index"
         When I open the url "mid-and-east-antrim/operator-charity-details"
-        Then I expect that element "commonElements.betaBeta" is visible
+        Then I expect that element "commonElements.betaLink" is visible
 
     @beta_banner_SDB-373
     Scenario: beta banner is visible
         Given I open the url "/cleansession"
         When I open the url "mid-and-east-antrim/customer-type"
-        Then I expect that element "commonElements.betaBeta" is visible
+        Then I expect that element "commonElements.betaLink" is visible
 
     @beta_banner_SDB-373
     Scenario: beta banner is visible
         Given I open the url "/cleansession"
         When I open the url "mid-and-east-antrim/establishment-address"
-        Then I expect that element "commonElements.betaBeta" is visible
+        Then I expect that element "commonElements.betaLink" is visible
 
     @beta_banner_SDB-373
     Scenario: beta banner is visible
         Given I open the url "/cleansession"
         When I open the url "mid-and-east-antrim/establishment-contact-details"
-        Then I expect that element "commonElements.betaBeta" is visible
+        Then I expect that element "commonElements.betaLink" is visible
 
 
     @beta_banner_SDB-373
     Scenario: beta banner is visible
         Given I open the url "/cleansession"
         When I open the url "mid-and-east-antrim/establishment-trading-name"
-        Then I expect that element "commonElements.betaBeta" is visible
+        Then I expect that element "commonElements.betaLink" is visible
 
     @beta_banner_SDB-373
     Scenario: I want to fill in the feedback form

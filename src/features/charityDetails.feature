@@ -40,14 +40,3 @@ Feature: Testing charity details page: As Jamie I want to declare the details of
         Then I expect that element "charityDetails.error" contains the text "Not a valid charity number"
         And I expect that element "charityDetails.charityName" contains the text "Charity Name example"
 
-    @charity_details_more_info_SDB-40
-    Scenario: testing more info for charity details
-        Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/operator-charity-details"
-        When I click on the element "charityDetails.questionsCharityReference"
-        Then I expect that the attribute "href" from element "charityDetails.link" is "https://beta.charitycommission.gov.uk/"
-        Given I click on the element "charityDetails.link"
-        And I pause for 1000ms
-        Then I expect a new tab has been opened
-
-

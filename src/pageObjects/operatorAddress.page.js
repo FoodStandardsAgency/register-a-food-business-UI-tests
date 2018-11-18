@@ -5,7 +5,7 @@ const opAddress = {
   postcode: '[name="operator_postcode_find"]',
   manualPostcode: '[name="operator_postcode"]',
   findAddress: "#find-address",
-  postcodeDisplay: "#operatorPostcodeDisplay",
+  postcodeDisplay: ".operatorPostcodeDisplay",
   changePostcode: "#changeOperatorPostcode",
   postcodeDropdown: "#operatorAddressDropdown",
   cantFindAddressLink: "#cantFindAddressLink",

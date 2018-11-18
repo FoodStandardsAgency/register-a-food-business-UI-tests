@@ -59,7 +59,6 @@ Feature: As Catelyn I need the service to look up my address and I can select th
         And I click on the element "estabAddress.button"
         Then I expect the url to not contain "establishment-address-manual"
 
-
     @SDB-12_establishment_address_cant_find_address_error_firstline
     Scenario: using manual input - error
         Given I open the url "/cleansession"
@@ -99,5 +98,3 @@ Feature: As Catelyn I need the service to look up my address and I can select th
         And I click on the element "estabAddress.button"
         Then I expect that element "estabAddress.error" contains the text "Not a valid postcode"
         And I expect that element "estabAddress.firstline" contains the text "test first line"
-
-

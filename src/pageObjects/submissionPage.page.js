@@ -4,7 +4,10 @@ const submissionPage = {
   fhrsScoreLink: "#fhrsScoreLink",
   primaryAuthorityLink: "#primaryAuthorityLink",
   establishmentAddress: "#establishmentAddressRow",
-  table: "table",
+  establishmentDetailsTable: "#establishmentDetailsTable",
+  operatorDetailsTable: "#operatorDetailsTable",
+  foodActivitiesTable: "#foodActivitiesTable",
+  declarationTable: "#declarationTable",
   button: "#continue-button",
   error: "#errorSummary"
 };

@@ -31,7 +31,6 @@ Feature: As Catelyn I need to be able to see the submission page and be able to 
         And I pause for 1000ms
         Then I expect a new tab has been opened
 
-
     @SDB-121_primary_authority
     Scenario: I want to find out about if i qualify for a primary authority partnership
         Given I open the url "/cleansession"
@@ -40,7 +39,6 @@ Feature: As Catelyn I need to be able to see the submission page and be able to 
         Given I click on the element "submissionPage.primaryAuthorityLink"
         And I pause for 1000ms
         Then I expect a new tab has been opened
-
 
     @SDB-121_table_visible
     Scenario: I want to see my registration info
@@ -55,14 +53,7 @@ Feature: As Catelyn I need to be able to see the submission page and be able to 
         When I click on the element "submitRegistration.button"
         And I pause for 5000ms
         Then I expect the url to contain "summary-confirmation"
-        Then I expect that element "submissionPage.table" is visible
-        And I expect that element "submissionPage.establishmentAddress" is visible
-
-
-
-
-
-
-
-
-
+        And I expect that element "submissionPage.establishmentDetailsTable" is visible
+        And I expect that element "submissionPage.operatorDetailsTable" is visible
+        And I expect that element "submissionPage.foodActivitiesTable" is visible
+        And I expect that element "submissionPage.declarationTable" is visible

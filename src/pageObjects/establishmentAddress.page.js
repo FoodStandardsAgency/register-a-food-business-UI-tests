@@ -3,7 +3,7 @@ const estabAddress = {
   postcode: '[name="establishment_postcode_find"]',
   manualPostcode: '[name="establishment_postcode"]',
   findAddress: "#find-address",
-  postcodeDisplay: "#establishmentPostcodeDisplay",
+  postcodeDisplay: ".establishmentPostcodeDisplay",
   changePostcode: "#changeEstablishmentPostcode",
   postcodeDropdown: "#establishmentAddressDropdown",
   street: '[name="establishment_street"]',

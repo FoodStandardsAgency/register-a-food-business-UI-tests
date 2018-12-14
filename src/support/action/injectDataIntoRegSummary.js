@@ -136,13 +136,7 @@ const datasets = {
 module.exports = (url, selectedDataset) => {
   const dataToInject = datasets[selectedDataset];
 
-  const encode = obj => {
-    var str = [];
-    for (var p in obj)
-      str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
-    return str.join("&");
-  };
-
+  // Add the QA key to the dataToInject object prior to encoding
   if (process.env.QA_KEY) {
     dataToInject.QA_KEY = process.env.QA_KEY;
   } else {
@@ -151,5 +145,15 @@ module.exports = (url, selectedDataset) => {
     );
   }
 
+  // function to create a URL-encoded query string from an object.
+  // e.g. {key: value, name: John Smith} is returned as "key=value&name=John%20Smith"
+  const encode = obj => {
+    var str = [];
+    for (var p in obj)
+      str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+    return str.join("&");
+  };
+
+  // go to the QA URL with the query appended
   browser.url(`${url}?${encode(dataToInject)}`);
 };

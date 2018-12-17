@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Injecting Data via the QA Route
 
 ## Summary
@@ -44,6 +43,3 @@ The QA route uses [`injectDataIntoRegSummary.js`](../../src/support/action/injec
 [`injectDataIntoRegSummary.js`](../../src/support/action/injectDataIntoRegSummary.js) works by injecting the data via inputting the data fields from the dataset into the url query string. It also inputs the QA key into the query. The QA key must be populated in your .env file. For example, if you wanted to inject the operator first name and last name field, the url with its queries would look like:
 
 `/qa/mid-and-east-antrim/declaration?operator_first_name=Fred&operator_last_name=Bloggs&QA_KEY=exampleqakey`
-=======
-## The QA route
->>>>>>> 6dccb7f4adc6b6cc1e15ada186d907253312c708

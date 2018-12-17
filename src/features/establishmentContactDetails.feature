@@ -79,7 +79,7 @@ Feature: As Samantha I need to be able to fill in the establishment contact deta
     Scenario: happy path using operator details
         Given I open the url "/cleansession"
         And I go to a special QA page at url "/qa/mid-and-east-antrim/establishment-contact-details" with injected "declaration" data
-        When I click on the element "estabContactDetails.checkbox"
+        When I click on the element "estabContactDetails.reuseButton"
         Then I expect that element "estabContactDetails.emailAddress" contains the text "email@email.com"
         And I expect that element "estabContactDetails.primaryPhoneNumber" contains the text "01234567890"
         When I click on the element "submitRegistration.button"
@@ -91,7 +91,7 @@ Feature: As Samantha I need to be able to fill in the establishment contact deta
         And I go to a special QA page at url "/qa/mid-and-east-antrim/establishment-contact-details" with injected "declaration" data
         When I set "valid2nd@email.com" to the inputfield "estabContactDetails.emailAddress"
         And I set "07766292321" to the inputfield "estabContactDetails.primaryPhoneNumber"
-        And I click on the element "estabContactDetails.checkbox"
+        And I click on the element "estabContactDetails.reuseButton"
         Then I expect that element "estabContactDetails.emailAddress" contains the text "email@email.com"
         And I expect that element "estabContactDetails.primaryPhoneNumber" contains the text "01234567890"
         When I click on the element "submitRegistration.button"
@@ -102,13 +102,13 @@ Feature: As Samantha I need to be able to fill in the establishment contact deta
         Given I open the url "/cleansession"
         And I go to a special QA page at url "/qa/mid-and-east-antrim/establishment-contact-details" with injected "declaration" data
         And I open the url "mid-and-east-antrim/establishment-contact-details"
-        When I click on the element "estabContactDetails.checkbox"
+        When I click on the element "estabContactDetails.reuseButton"
         Then I expect that element "estabContactDetails.emailAddress" contains the text "email@email.com"
         And I expect that element "estabContactDetails.primaryPhoneNumber" contains the text "01234567890"
         When I add "addition" to the inputfield "estabContactDetails.emailAddress"
         And I add "addition" to the inputfield "estabContactDetails.primaryPhoneNumber"
-        And I click on the element "estabContactDetails.checkbox"
-        And I click on the element "estabContactDetails.checkbox"
+        And I click on the element "estabContactDetails.reuseButton"
+        And I click on the element "estabContactDetails.reuseButton"
         Then I expect that element "estabContactDetails.emailAddress" not contains the text "addition"
         And I expect that element "estabContactDetails.primaryPhoneNumber" not contains the text "addition"
 
@@ -117,13 +117,13 @@ Feature: As Samantha I need to be able to fill in the establishment contact deta
         Given I open the url "/cleansession"
         And I go to a special QA page at url "/qa/mid-and-east-antrim/establishment-contact-details" with injected "declaration" data
         And I open the url "mid-and-east-antrim/establishment-contact-details"
-        And I click on the element "estabContactDetails.checkbox"
+        And I click on the element "estabContactDetails.reuseButton"
         Then I expect that element "estabContactDetails.emailAddress" contains the text "email@email.com"
         And I expect that element "estabContactDetails.primaryPhoneNumber" contains the text "01234567890"
         When I add "addition" to the inputfield "estabContactDetails.emailAddress"
         And I add "addition" to the inputfield "estabContactDetails.primaryPhoneNumber"
         Then I expect that element "estabContactDetails.emailAddress" contains the text "email@email.comaddition"
         And I expect that element "estabContactDetails.primaryPhoneNumber" contains the text "01234567890addition"
-        When I click on the element "estabContactDetails.checkbox"
+        When I click on the element "estabContactDetails.reuseButton"
         Then I expect that element "estabContactDetails.emailAddress" contains the text "email@email.comaddition"
         And I expect that element "estabContactDetails.primaryPhoneNumber" contains the text "01234567890addition"

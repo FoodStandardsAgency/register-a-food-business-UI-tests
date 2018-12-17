@@ -36,7 +36,7 @@ Feature: Testing user journey for Catelyn
         Then I expect the url to contain "establishment-address-select"
         When I click on the element "estabAddress.button"
         Then I expect the url to contain "establishment-contact-details"
-        When I click on the element "estabContactDetails.checkbox"
+        When I click on the element "estabContactDetails.reuseButton"
         Then I expect that element "estabContactDetails.optionalPhoneNumber" contains the text "07937 485112"
         And I set "023 475 2455" to the inputfield "estabContactDetails.primaryPhoneNumber"
         And I click on the element "estabContactDetails.button"

@@ -4,7 +4,7 @@ const estabContactDetails = {
   emailAddress: '[name="establishment_email"]',
   button: "#continue-button",
   error: "#errorSummary",
-  checkbox: ".e1iz4w6k1"
+  reuseButton: "#reuseButton"
 };
 
 module.exports = estabContactDetails;

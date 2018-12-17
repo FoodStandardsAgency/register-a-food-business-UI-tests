@@ -12,14 +12,15 @@ On localhost on chrome (if you want to run it on another browser then you will n
 
 1. Run the front-end and/or back-end applications - see here (link to front end and back end start app guides)
 2. Run `npm` (note about it installing chrome driver - if you want to run locally on firefox or other browser then ..)
-3. Replace the url in the .sh files with the localhost base url
+3. Replace the url in the .sh files with `http://localhost:3000/new`.
+   > IMPORTANT: The url in the `.sh` files must always begin with `http://` or `https://`. Certain tests will fail if `localhost:3000/new` is used without the `http://`, for example.
 4. Populate the .env file with the QA key. The contents of this file must be handed over from existing developers.
 5. Run `npm run test:locally:ui`
 
 On a url:
 
 1.  Run `npm` (note about it installing chrome driver - if you want to run locally on firefox or other browser then ..)
-2.  Replace the url in the .sh files with the url of the environment you want to run it in (default is test)
+2.  The default environment to run against is `test`. Optionally, you can add an environment variable to your terminal for another environment. For example, run `export URL_ENV=staging` at this point. See the `.sh` files in the root project directory.
 3.  Populate the .env file with the QA key. The contents of this file must be handed over from existing developers.
 4.  Run `npm run test:locally:ui`
 

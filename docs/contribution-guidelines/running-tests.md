@@ -4,33 +4,31 @@ If you want to test the front-end/back-end application running on localhost, the
 
 ## Prerequisites
 
-- [npm](https://www.npmjs.com/)
+- [Node.js and npm](https://nodejs.org)
+- Google Chrome (if you want to run it on another browser then you will need to install the necessary driver):
 
-## Running the tests locally
+### Steps to run locally on Chrome using Azure URLs:
 
-### Steps:
+1.  Run `npm install`
+2.  The default environment to run against is `test`. Optionally, you can add an environment variable to your terminal for another environment. For example, run `export URL_ENV=staging` at this point. See the `.sh` files in the root project directory.
+3.  Populate the .env file with the QA key. The contents of this file must be handed over from existing developers.
+4.  Run `npm run test:locally:ui`
 
-**On localhost on chrome:**
+### Steps to run locally on Chrome using `localhost`:
 
-1. Run the front-end and/or back-end applications - [see here for guidance](https://github.com/FoodStandardsAgency/register-a-food-business-front-end/blob/master/docs/contribution-guidelines/building-starting-testing-the-app.md)
+1. Run the front-end and/or back-end applications - see here (link to front end and back end start app guides)
 2. Run `npm install`
-3. Replace the url in the .sh files with the localhost base url
+3. Replace the URL in the .sh files with `http://localhost:3000/new`.
+   > IMPORTANT: The URL in the `.sh` files must always begin with `http://` or `https://`. Certain tests will fail if `localhost:3000/new` is used without the `http://`, for example.
 4. Populate the .env file with the QA key. The contents of this file must be handed over from existing developers.
 5. Run `npm run test:locally:ui` for the UI tests or `npm run test:locally:e2e` for the E2E tests.
 
-**On a url on chrome:**
+## Running the tests via Browserstack
 
-1.  Run `npm install`.
-2.  Replace the url in the .sh files with the url you want to run it on (default environment is test)
-3.  Populate the .env file with the QA key. The contents of this file must be handed over from existing developers.
-4.  Run `npm run test:locally:ui` for the UI tests or `npm run test:locally:e2e` for the E2E tests.
-
-## Running the tests via browserstack
-
-1. Run `npm`
+1. Run `npm install`
 2. Populate the .env file with the QA key, Browserstack username and Browserstack password. The contents of this file must be handed over from existing developers.
 3. Run `npm run test:browserstack:ui`
-4. Go into https://automate.browserstack.com to see details for the tests and playback results
+4. Go to https://automate.browserstack.com to see details for the tests and playback results
 
 ### Changing browser or browser version
 

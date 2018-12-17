@@ -1,4 +1,4 @@
-# The Config File
+# The config file
 
 ## Browseroptions
 

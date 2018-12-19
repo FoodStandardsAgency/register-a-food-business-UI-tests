@@ -4,7 +4,7 @@ This repository and configuration file are edited from the [webdriver.io cucumbe
 
 ## Browseroptions
 
-BrowserOptions is where you choose which browsers you want the tests to run. Here it is set up so that when running locally, it will run on chrome by default. The browserOptions array contains different browser configurations as objects. When running via Browserstack, these are the browsers that the tests are run on. You can find browserOptions [here](https://www.browserstack.com/automate/capabilities). It is important to note that many of the tests will not fail in Safari due to it not successfully clicking elements.
+BrowserOptions is where you choose which browsers you want the tests to run. Here, it is set up so that when running locally, it will run on chrome by default. The browserOptions array contains different browser configurations as objects. When running via Browserstack, these are the browsers that the tests are run on. You can find browserOptions [here](https://www.browserstack.com/automate/capabilities). It is important to note that many of the tests will fail in Safari due to it not successfully clicking elements.
 
 ## Browserstack Auth
 
@@ -29,6 +29,13 @@ If you are looking to change the number of maxInstances, just be aware that ther
 
 ## CucumberOpts
 
-[Cucumber documentation](https://docs.cucumber.io/)
+`cucumberOpts` is where you can change cucumber-related configuration. You can find more [Cucumber documentation here](https://docs.cucumber.io/).
+
+`cucumberOpts.require`: this is where you declare any step definition files that are required for the scenarios.
+
+`cucumberOpts.timeout`: here you can set the time that a step will run for before timing out. You may want to change the timeout depending on various factors such internet speed and page loading speed. If a step times out, then it will fail and the rest of the scenario steps will be skipped.
 
 ## Inconsistencies
+
+It is important to be aware of the inconsistencies that can arise when running the tests, as they can cause the tests to fail. If running tests locally then the internet speed and page loading speed can cause steps to fail. For example, if a scenario tries to do something to an element that hasn't loaded yet, then it can timeout and fail. The number of maxInstances can also cause failures. If you try running a test via Browserstack and set the number of maxInstances to be above the number of parallel tests the Browserstack plan allows you to run, then you will get the error `All parallel tests are currently in use, including the queued tests.`
+There are also potential browser differences to be aware of. For example webdriver not working in safari and failing due to inability to click elements, and elements being outside of the viewport when run on Edge and therefore not being immediately clickable. 

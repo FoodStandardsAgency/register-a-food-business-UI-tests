@@ -27,11 +27,11 @@
   This is the config file. More information can be found [here](.the-config-file.md).
 
 - `run_ui.sh`
-  This is the bash script to run the UI tests.
+  This is the bash script to run the UI tests. It runs the UI tests one test suite at a time and by default on the Azure test environment URL.
 
 - `run_e2e.sh`
 
-  This is the bash script to run the end to end tests.
+  This is the bash script to run the UI tests. It runs only the end2end test suite and by default on the Azure test environment URL.
 
 ## `/src`
 
@@ -43,10 +43,10 @@ All of the UI and E2E tests can be found in the [features](../../src/features) f
   Page objects are used to simplify feature files and make the elements referred to more human readable. Rather than referring to the element by its ID/class in a step, you can assign it to a page object name that can be used across multiple scenarios. This directory contains a page objects file for each page in the form, as well as one for common elements such as the footer links.
 
 - `src/steps`
-  This directory contains the Given, When and Then predefined steps. You can also see the steps [here](https://github.com/webdriverio/cucumber-boilerplate)
+  This directory contains the Given, When and Then predefined steps. You can also see the steps [here](https://github.com/webdriverio/cucumber-boilerplate).
 
 * `src/support`
-  This directory contains the functions that are used by the predefined steps.
+  This directory contains the functions that are used by the predefined steps. Note that those actions that required selecting an element have been edited to incorporate using page objects (for example [`clickElement.js`](../../src/support/action/clickElement.js)).
 
 ## `/errorShots`
 

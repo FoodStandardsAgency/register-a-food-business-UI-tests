@@ -59,3 +59,7 @@ The following directories are not committed to GitHub or are less important to t
 - `/node_modules`
 
   This repository depends on third-party packages and libraries from [NPM](https://www.npmjs.com/). These packages are stored in the `/node_modules` directory.
+
+## Related information
+
+- More information on [using PageObjects](https://martinfowler.com/bliki/PageObject.html)

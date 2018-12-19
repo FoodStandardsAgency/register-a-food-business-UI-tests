@@ -10,7 +10,7 @@ if (process.env.TEST_LOCALLY) {
       os_version: "High Sierra",
       browserName: "Chrome",
       browser_version: "67.0",
-      maxInstances: 5
+      maxInstances: 1
     },
     {
       os: "OS X",
@@ -142,15 +142,15 @@ exports.config = {
       outputDir: "./reports"
     }
   },
-    //
-    // If you are using Cucumber you need to specify where your step definitions are located.
-    // See also: https://github.com/webdriverio/wdio-cucumber-framework#cucumberopts-options
+  //
+  // If you are using Cucumber you need to specify where your step definitions are located.
+  // See also: https://github.com/webdriverio/wdio-cucumber-framework#cucumberopts-options
   cucumberOpts: {
     backtrace: false, // <boolean> show full backtrace for errors
     compiler: ["js:babel-register"], // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
     failAmbiguousDefinitions: true, // <boolean< Treat ambiguous definitions as errors
     failFast: false, // <boolean> abort the run on first failure
-    ignoreUndefinedDefinitions: false,  // <boolean> Enable this config to treat undefined definitions as warnings.
+    ignoreUndefinedDefinitions: false, // <boolean> Enable this config to treat undefined definitions as warnings.
     name: [],
     snippets: true, // <boolean> hide step definition snippets for pending steps
     source: true,

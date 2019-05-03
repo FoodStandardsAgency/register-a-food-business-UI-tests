@@ -34,6 +34,10 @@ const openingDaysStart = require("./openingDaysStart.page.js");
 const openingDaysSome = require("./openingDaysSome.page.js");
 const openingDaysIrregular = require("./openingDaysIrregular.page.js");
 
+const partnerName = require("./partnerName.page.js");
+const partnerDetails = require("./partnerDetails.page.js");
+const mainPartnershipContact = require("./mainPartnershipContact.page.js");
+
 function getSelector(elem) {
     return eval(elem);
 }

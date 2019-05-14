@@ -48,7 +48,6 @@ Feature: Testing user journey for partnership
         And I click on the element "commonElements.continueButton"
         
         Then I expect the url to contain "operator-address"
-        And I expect that element "mainPartnershipContact.operatorAddressHeader" contains the text "What is the partnership contact's address?"
         
     @happy_path_
     Scenario: happy path

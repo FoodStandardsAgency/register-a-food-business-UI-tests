@@ -87,7 +87,8 @@ exports.config = {
       "./src/features/**/operatorType.feature",
       "./src/features/**/operatorContactDetails.feature",
       "./src/features/**/representativeOperatorContactDetails.feature",
-      "./src/features/**/registrationRole.feature"
+      "./src/features/**/registrationRole.feature",
+      "./src/features/**/partnership.feature"
     ],
     registrationSubmission: [
       "./src/features/**/submitRegistration.feature",
@@ -115,7 +116,8 @@ exports.config = {
     ],
     end2end: [
       "./src/features/**/e2eTestingCatelyn.feature",
-      "./src/features/**/e2eTestingJamie.feature"
+      "./src/features/**/e2eTestingJamie.feature",
+      "./src/features/**/e2eTestingPartnership.feature"
     ]
   },
   maxInstances: process.env.TEST_LOCALLY ? 1 : 5,
@@ -125,7 +127,7 @@ exports.config = {
   coloredLogs: true,
   // Saves a screenshot to a given path if a command fails.
   screenshotPath: "./errorShots/",
-  waitforTimeout: 20000,
+  waitforTimeout: 30000,
   connectionRetryTimeout: 90000,
   connectionRetryCount: 3,
   services: ["selenium-standalone"],

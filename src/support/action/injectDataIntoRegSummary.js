@@ -74,7 +74,9 @@ const datasets = {
     day: "01",
     month: "01",
     year: "2001",
-    opening_days_irregular: "Every day"
+    opening_days_irregular: "Every day",
+    partners: ["One", "Two", "Three"],
+    main_partnership_contact: "One"
   },
   "registration-summary-representative": {
     registration_role: "Representative",
@@ -130,6 +132,13 @@ const datasets = {
     month: "01",
     year: "2001",
     directly_import: "Directly import"
+  },
+  "blank-partnership": {
+    registration_role: "Partnership",
+  },
+  "two-partnership": {
+    registration_role: "Partnership",
+    partners: ['one','two']
   }
 };
 
@@ -150,7 +159,13 @@ module.exports = (url, selectedDataset) => {
   const encode = obj => {
     var str = [];
     for (var p in obj)
-      str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+      if (p === "partners") {
+        for (var partner in obj[p]) {
+          str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p][partner]));
+        }        
+      } else {
+         str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+      }
     return str.join("&");
   };
 

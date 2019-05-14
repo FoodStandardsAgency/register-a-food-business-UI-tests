@@ -6,6 +6,7 @@ If you want to test the front-end/back-end application running on localhost, the
 
 - [Node.js and npm](https://nodejs.org)
 - Google Chrome (if you want to run it on another browser then you will need to install the necessary driver):
+- Java
 
 ### Steps to run locally on Chrome using Azure URLs:
 
@@ -16,12 +17,14 @@ If you want to test the front-end/back-end application running on localhost, the
 
 ### Steps to run locally on Chrome using `localhost`:
 
-1. Run the front-end and/or back-end applications - see here (link to front end and back end start app guides)
-2. Run `npm install`
-3. Replace the URL in the .sh files with `http://localhost:3000/new`.
+1. Enusre have the mid-and-east-antrim council is setup (id 6008)
+2. Run the front-end and/or back-end applications - see here (link to front end and back end start app guides)
+3. Increase Azured dev VM power
+3. Run `npm install`
+4. Replace the URL in the .sh files with `http://localhost:3000/new/`.
    > IMPORTANT: The URL in the `.sh` files must always begin with `http://` or `https://`. Certain tests will fail if `localhost:3000/new` is used without the `http://`, for example.
-4. Populate the .env file with the QA key. The contents of this file must be handed over from existing developers.
-5. Run `npm run test:locally:ui` for the UI tests or `npm run test:locally:e2e` for the E2E tests.
+5. Populate the .env file with the QA key. The contents of this file must be handed over from existing developers.
+6. Run `npm run test:locally:ui` for the UI tests or `npm run test:locally:e2e` for the E2E tests.
 
 ## Running the tests via Browserstack
 

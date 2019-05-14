@@ -26,7 +26,7 @@ Feature: Registration Role SDB-54
         And I open the url "mid-and-east-antrim/registration-role"
         When I click on the element "regRole.partnership"
         And I click on the element "regRole.button"
-        Then I expect the url to contain "operator-name"
+        Then I expect the url to contain "partner-name"
 
     @happy_path__representative_SDB-54
     Scenario: happy path for registration role representative

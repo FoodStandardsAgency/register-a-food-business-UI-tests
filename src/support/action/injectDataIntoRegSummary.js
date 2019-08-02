@@ -25,7 +25,8 @@ const datasets = {
     day: "01",
     month: "01",
     year: "2001",
-    opening_days_irregular: "Every day"
+    opening_days_irregular: "Every day",
+    water_supply: "Public"
   },
   "registration-summary-charity": {
     registration_role: "Representative",
@@ -51,7 +52,8 @@ const datasets = {
     day: "01",
     month: "01",
     year: "2001",
-    opening_days_irregular: "Every day"
+    opening_days_irregular: "Every day",
+    water_supply: "Public"
   },
   "registration-summary-partnership": {
     registration_role: "Partnership",
@@ -76,7 +78,8 @@ const datasets = {
     year: "2001",
     opening_days_irregular: "Every day",
     partners: ["One", "Two", "Three"],
-    main_partnership_contact: "One"
+    main_partnership_contact: "One",
+    water_supply: "Public"
   },
   "registration-summary-representative": {
     registration_role: "Representative",
@@ -100,7 +103,8 @@ const datasets = {
     day: "01",
     month: "01",
     year: "2001",
-    opening_days_irregular: "Every day"
+    opening_days_irregular: "Every day",
+    water_supply: "Public"
   },
   "registration-summary-trading-every-day": {
     opening_days_start: "Every day"
@@ -131,14 +135,15 @@ const datasets = {
     day: "01",
     month: "01",
     year: "2001",
-    directly_import: "Directly import"
+    directly_import: "Directly import",
+    water_supply: "Public"
   },
   "blank-partnership": {
-    registration_role: "Partnership",
+    registration_role: "Partnership"
   },
   "two-partnership": {
     registration_role: "Partnership",
-    partners: ['one','two']
+    partners: ["one", "two"]
   }
 };
 
@@ -161,10 +166,12 @@ module.exports = (url, selectedDataset) => {
     for (var p in obj)
       if (p === "partners") {
         for (var partner in obj[p]) {
-          str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p][partner]));
-        }        
+          str.push(
+            encodeURIComponent(p) + "=" + encodeURIComponent(obj[p][partner])
+          );
+        }
       } else {
-         str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
       }
     return str.join("&");
   };

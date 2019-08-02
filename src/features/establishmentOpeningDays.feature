@@ -116,8 +116,15 @@ Feature: Establishment opening days SDB-52
         When I click on the element "openingDaysSome.sunday"
         And I pause for 1000ms
         And I click on the element "openingDaysSome.button"
-        Then I expect the url to not contain "opening-days-some"
-        When I open the url "mid-and-east-antrim/registration-summary"
+        Then I expect the url to contain "opening-hours"
+        When I set "09:00 to 20:00" to the inputfield "openingHours.monday"
+        When I set "09:00 to 15:00" to the inputfield "openingHours.tuesday"
+        When I set "09:00 to 15:00" to the inputfield "openingHours.wednesday"
+        When I set "09:00 to 13:00" to the inputfield "openingHours.thursday"
+        When I set "09:00 to 15:00" to the inputfield "openingHours.friday"
+        When I set "09:00 to 15:00" to the inputfield "openingHours.saturday"
+        When I set "09:00 to 15:00" to the inputfield "openingHours.sunday"
+        And I click on the element "commonElements.continueButton"
         Then I expect that element "registrationSummary.openingDays" contains the text "Every day"
 
     @happy_path_opening_days_irregular

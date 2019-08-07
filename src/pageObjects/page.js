@@ -19,6 +19,7 @@ const repOpContactDetails = require("./representativeOperatorContactDetails.page
 const custType = require("./customerType.page.js");
 const importExportActivities = require("./importExportActivities.page.js");
 
+const businessWaterSupply = require("./businessWaterSupply.page.js");
 const businessTypeIn = require("./businessTypeIn.page.js");
 
 const companyDetails = require("./limitedCompanyDetails.page.js");
@@ -38,8 +39,10 @@ const partnerName = require("./partnerName.page.js");
 const partnerDetails = require("./partnerDetails.page.js");
 const mainPartnershipContact = require("./mainPartnershipContact.page.js");
 
+const openingHours = require("./openingHours.page.js");
+
 function getSelector(elem) {
-    return eval(elem);
+  return eval(elem);
 }
 
 module.exports = getSelector;

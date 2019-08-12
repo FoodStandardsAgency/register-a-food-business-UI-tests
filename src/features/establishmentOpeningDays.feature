@@ -125,6 +125,8 @@ Feature: Establishment opening days SDB-52
         When I set "09:00 to 15:00" to the inputfield "openingHours.saturday"
         When I set "09:00 to 15:00" to the inputfield "openingHours.sunday"
         And I click on the element "commonElements.continueButton"
+        Then I expect the url to not contain "opening-hours"
+        When I open the url "mid-and-east-antrim/registration-summary"
         Then I expect that element "registrationSummary.openingDays" contains the text "Every day"
 
     @happy_path_opening_days_irregular

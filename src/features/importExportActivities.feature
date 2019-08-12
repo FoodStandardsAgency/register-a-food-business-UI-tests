@@ -18,7 +18,7 @@ Feature: As Jamie I need to declare my import and export activities so that Ric 
         And I open the url "mid-and-east-antrim/business-import-export"
         When I click on the element "importExportActivities.button"
         Then I expect the url to contain "business-import-export"
-        And I expect that element "importExportActivities.error" contains the text "You must select an option before continuing"
+        And I expect that element "importExportActivities.error" contains the text "You must select valid option(s) before continuing"
 
     @import_export_activities_direct_import_forward_then_back_SDB-124
     Scenario: selects one option and then deselects it
@@ -29,7 +29,8 @@ Feature: As Jamie I need to declare my import and export activities so that Ric 
         Then I expect the url to not contain "business-import-export"
         When I click on the element "commonElements.backButton"
         Then I expect that checkbox "importExportActivities.directImport" is checked
-        And I expect that checkbox "importExportActivities.none" is checked
+        And I expect that checkbox "importExportActivities.directExport" is not checked
+        And I expect that checkbox "importExportActivities.none" is not checked
 
     @import_export_activities_none_registration_summary_SDB-124
     Scenario: selects one option and then deselects it
@@ -39,7 +40,7 @@ Feature: As Jamie I need to declare my import and export activities so that Ric 
         And I click on the element "importExportActivities.button"
         Then I expect the url to not contain "business-import-export"
         When I open the url "mid-and-east-antrim/registration-summary"
-        Then I expect that element "registrationSummary.foodActivities" contains the text "Directly import"
+        Then I expect that element "registrationSummary.foodActivities" contains the text "None"
 
 
 

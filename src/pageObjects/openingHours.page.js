@@ -5,7 +5,9 @@ const openingHours = {
   thursday: '[name="opening_hours_thursday"]',
   friday: '[name="opening_hours_friday"]',
   saturday: '[name="opening_hours_saturday"]',
-  sunday: '[name="opening_hours_sunday"]'
+  sunday: '[name="opening_hours_sunday"]',
+  button: "#continue-button",
+  error: "#errorSummary"
 };
 
 module.exports = openingHours;

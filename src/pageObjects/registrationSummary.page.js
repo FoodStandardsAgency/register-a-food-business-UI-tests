@@ -28,7 +28,6 @@ const registrationSummary = {
   customertype: "#customer_type",
   businessType: "#business_type",
   importExportActivities: "#import_export_activities",
-
   changeCompanyName: "#changeOperatorCompanyNameRow",
   changeOperatorType: "#changeOperatorTypeRow",
   changeCharityName: "#changeOperatorCharityNameRow",
@@ -44,7 +43,8 @@ const registrationSummary = {
   changeActivitiesBusinessImportExportRow:
     "#changeActivitiesBusinessImportExportRow",
   changeTradingStartDate: "#changeEstablishmentOpeningDateRow",
-  changeOpeningDays: "#changeEstablishmentOpeningDaysRow"
+  changeOpeningDays: "#changeEstablishmentOpeningDaysRow",
+  waterSupply: "#water_supply"
 };
 
 module.exports = registrationSummary;

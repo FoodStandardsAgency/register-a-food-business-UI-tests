@@ -105,7 +105,8 @@ exports.config = {
       "./src/features/**/limitedCompanyDetails.feature",
       "./src/features/**/importExportActivities.feature",
       "./src/features/**/businessTypeIn.feature",
-      "./src/features/**/otherDetails.feature"
+      "./src/features/**/otherDetails.feature",
+      "./src/features/**/waterSupply.feature"
     ],
     websitefeatures: [
       "./src/features/**/backButton.feature",

@@ -44,7 +44,7 @@ Feature: As Catelyn I need to be able to see the submission page and be able to 
     Scenario: I want to find out about general guidance on business growth and finance
         Given I open the url "/cleansession"
         And I open the url "mid-and-east-antrim/summary-confirmation"
-        And I expect that the attribute "href" from element "submissionPage.businessGuidanceLink" is "https://www.gov.uk/business-support-helpline"
+        And I expect that the attribute "href" from element "submissionPage.businessGuidanceLink" is "https://www.nibusinessinfo.co.uk/"
         Given I click on the element "submissionPage.businessGuidanceLink"
         And I pause for 1000ms
         Then I expect a new tab has been opened

@@ -98,3 +98,27 @@ Feature: As Catelyn I need the service to look up my address and I can select th
         And I click on the element "opAddress.button"
         Then I expect that element "opAddress.error" contains the text "Not a valid postcode"
         And I expect that element "opAddress.firstline" contains the text "test first line"
+
+
+    @operator_address_cant_find_address_error_locality
+    Scenario: using manual input - error
+        Given I open the url "/cleansession"
+        And I open the url "mid-and-east-antrim/operator-address-manual"
+        When I set "First Line" to the inputfield "opAddress.firstline"
+        And I set "BS249ST" to the inputfield "opAddress.manualPostcode"
+        And I set "±±±" to the inputfield "opAddress.locality"
+        And I click on the element "opAddress.button"
+        Then I expect that element "opAddress.error" contains the text "Not a valid locality"
+        And I expect that element "opAddress.manualPostcode" contains the text "BS249ST"
+        And I expect that element "opAddress.firstline" contains the text "First Line"
+        And I expect that element "opAddress.locality" contains the text "±±±"
+
+    @operator_address_cant_find_address_success_with_locality
+    Scenario: using manual input - success
+        Given I open the url "/cleansession"
+        And I open the url "mid-and-east-antrim/operator-address-manual"
+        When I set "First Line" to the inputfield "opAddress.firstline"
+        And I set "BS249ST" to the inputfield "opAddress.manualPostcode"
+        And I set "Locality" to the inputfield "opAddress.locality"
+        And I click on the element "opAddress.button"
+        Then I expect the url to not contain "operator-address-manual"

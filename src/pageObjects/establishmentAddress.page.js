@@ -10,7 +10,8 @@ const estabAddress = {
   town: '[name="establishment_town"]',
   button: "#continue-button",
   error: "#errorSummary",
-  cantFindAddressLink: "#cantFindAddressLink"
+  cantFindAddressLink: "#cantFindAddressLink",
+  locality: '[name="establishment_dependent_locality"'
 };
 
 module.exports = estabAddress;

@@ -98,3 +98,26 @@ Feature: As Catelyn I need the service to look up my address and I can select th
         And I click on the element "estabAddress.button"
         Then I expect that element "estabAddress.error" contains the text "Not a valid postcode"
         And I expect that element "estabAddress.firstline" contains the text "test first line"
+
+    @establishment_address_cant_find_address_error_locality
+    Scenario: using manual input - error
+        Given I open the url "/cleansession"
+        And I open the url "mid-and-east-antrim/establishment-address-manual"
+        When I set "First Line" to the inputfield "estabAddress.firstline"
+        And I set "BS249ST" to the inputfield "estabAddress.manualPostcode"
+        And I set "±±±" to the inputfield "estabAddress.locality"
+        And I click on the element "estabAddress.button"
+        Then I expect that element "estabAddress.error" contains the text "Not a valid locality"
+        And I expect that element "estabAddress.manualPostcode" contains the text "BS249ST"
+        And I expect that element "estabAddress.firstline" contains the text "First Line"
+        And I expect that element "estabAddress.locality" contains the text "±±±"
+
+    @establishment_address_cant_find_address_success_with_locality
+    Scenario: using manual input - success
+        Given I open the url "/cleansession"
+        And I open the url "mid-and-east-antrim/establishment-address-manual"
+        When I set "First Line" to the inputfield "estabAddress.firstline"
+        And I set "BS249ST" to the inputfield "estabAddress.manualPostcode"
+        And I set "Locality" to the inputfield "estabAddress.locality"
+        And I click on the element "estabAddress.button"
+        Then I expect the url to not contain "establishment-address-manual"

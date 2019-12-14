@@ -11,7 +11,7 @@ steps:
 - script: npm -v
   displayName: 'Npm version'
 
-- script: 'sudo apt-get install g++ build-essential'
+- script: 'rm -rf ~/.node-gyp'
   displayName: 'Install build essential'
 
 - script: npm install

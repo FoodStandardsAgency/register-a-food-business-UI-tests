@@ -11,6 +11,9 @@ steps:
 - script: npm -v
   displayName: 'Npm version'
 
+- script: 'sudo apt-get install g++ build-essential'
+  displayName: 'Install build essential'
+
 - script: npm install
   displayName: 'Install'
 

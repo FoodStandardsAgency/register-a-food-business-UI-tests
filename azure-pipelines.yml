@@ -8,9 +8,6 @@ pool:
 
 steps:
 
-- script: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
-  displayName: Create .npmrc
-
 - script: npm -v
   displayName: 'Npm version'
 

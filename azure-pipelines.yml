@@ -21,12 +21,6 @@ steps:
 - script: npm install
   displayName: 'Install'
 
-- script: npm run format:verify
-  displayName: 'Format'
-
-- script: npm run lint
-  displayName: 'Lint'
-
 - task: ArchiveFiles@2
   inputs:
     rootFolderOrFile: '$(System.DefaultWorkingDirectory)'

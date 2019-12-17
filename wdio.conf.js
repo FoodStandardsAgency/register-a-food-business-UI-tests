@@ -89,7 +89,8 @@ exports.config = {
       "./src/features/**/operatorContactDetails.feature",
       "./src/features/**/representativeOperatorContactDetails.feature",
       "./src/features/**/registrationRole.feature",
-      "./src/features/**/partnership.feature"
+      "./src/features/**/partnership.feature",
+      "./src/features/**/partnershipChange.feature"
     ],
     registrationSubmission: [
       "./src/features/**/submitRegistration.feature",

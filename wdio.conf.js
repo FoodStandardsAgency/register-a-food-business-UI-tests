@@ -1,4 +1,13 @@
 require("dotenv").config();
+const request = require('request');
+
+let buildName;
+
+if (process.env.RELEASE_RELEASENAME) {
+	buildName = "Azure " + process.env.RELEASE_RELEASENAME;
+} else {
+	buildName = process.env.BROWSERSTACK_USERNAME + " " + Date.now();
+}
 
 let browserOptions;
 if (process.env.TEST_LOCALLY) {
@@ -10,21 +19,24 @@ if (process.env.TEST_LOCALLY) {
       os_version: "High Sierra",
       browserName: "Chrome",
       browser_version: "67.0",
-      maxInstances: 1
+      maxInstances: 1,
+      build: buildName
     },
     {
       os: "OS X",
       os_version: "High Sierra",
       browserName: "Firefox",
       browser_version: "61.0",
-      maxInstances: 1
+      maxInstances: 1,
+      build: buildName
     },
     {
       os: "OS X",
       os_version: "High Sierra",
       browserName: "Safari",
       browser_version: "11.1",
-      maxInstances: 1
+      maxInstances: 1,
+      build: buildName
     },
     {
       os: "Windows",
@@ -34,7 +46,8 @@ if (process.env.TEST_LOCALLY) {
       maxInstances: 1,
       "browserstack.selenium_version": "2.53.1",
       "browserstack.ie.arch": "x32",
-      "browserstack.ie.driver": "2.53.1"
+      "browserstack.ie.driver": "2.53.1",
+      build: buildName
     },
     {
       os: "Windows",
@@ -44,7 +57,8 @@ if (process.env.TEST_LOCALLY) {
       maxInstances: 1,
       resolution: "2048x1536",
       "browserstack.selenium_version": "2.53.1",
-      "browserstack.edge.enablePopups": "true"
+      "browserstack.edge.enablePopups": "true",
+      build: buildName
     }
   ];
 } else {
@@ -54,7 +68,8 @@ if (process.env.TEST_LOCALLY) {
       os_version: "High Sierra",
       browserName: "Chrome",
       browser_version: "67.0",
-      maxInstances: 5
+      maxInstances: 5,
+      build: buildName
     }
   ];
 }
@@ -172,13 +187,26 @@ exports.config = {
     tagsInTitle: true,
     timeout: 20000 // <number> timeout for step definitions
   },
+  afterStep: function (step) {
+    // Mark tests as failed in browserstack
+    if (step.status == 'failed') {
+      request({
+        uri: `https://${process.env.BROWSERSTACK_USERNAME}:${process.env.BROWSERSTACK_ACCESS_KEY}@api.browserstack.com/automate/sessions/${browser.sessionId}.json`,
+        method:'PUT',
+        form:{ 'status':'error','reason': "step failed" },
+      });
+    }
+  },
   before: function before() {
     const chai = require("chai");
     global.expect = chai.expect;
     global.assert = chai.assert;
     global.should = chai.should();
+
+    browser.windowHandleSize({width: 1600, height: 768})
   },
   beforeSession: function (config, capabilities, specs) {
+    // Set test name
     capabilities.name = specs && specs[0].split('/').pop() || "undefined";
-  },
+  }
 };

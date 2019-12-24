@@ -177,5 +177,8 @@ exports.config = {
     global.expect = chai.expect;
     global.assert = chai.assert;
     global.should = chai.should();
-  }
+  },
+  beforeSession: function (config, capabilities, specs) {
+    capabilities.name = specs && specs[0].split('/').pop() || "undefined";
+  },
 };

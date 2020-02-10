@@ -21,7 +21,7 @@ const registrationSummary = {
   establishmentPrimaryNumber: "#establishment_primary_number",
   establishmentSecondaryNumber: "#establishment_secondary_number",
   establishmentEmail: "#establishment_email",
-  establishmentAddressStreet: "#establishment_street",
+  establishmentAddressStreet: "#establishment_address_line_2",
   foodActivities: "#import_export_activities",
   openingDays: "#establishmentOpeningDaysRow",
   tradingStartDate: "#establishment_opening_date",

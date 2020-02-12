@@ -121,6 +121,6 @@ Feature: As Catelyn I need the service to look up my address and I can select th
         When I set "First Line" to the inputfield "opAddress.firstline"
         And I set "BS249ST" to the inputfield "opAddress.manualPostcode"
         And I set "Locality" to the inputfield "opAddress.locality"
-        And I set "Town" to the inputfield "estabAddress.town"
+        And I set "Town" to the inputfield "opAddress.town"
         And I click on the element "opAddress.button"
         Then I expect the url to not contain "operator-address-manual"

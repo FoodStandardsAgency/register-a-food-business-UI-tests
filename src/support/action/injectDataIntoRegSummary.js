@@ -6,7 +6,7 @@ const datasets = {
     operator_address_line_2: "Street",
     operator_town: "Town",
     operator_postcode: "AA11 1AA",
-    operator_company_house_number: "AA123456",
+    operator_companies_house_number: "AA123456",
     operator_charity_name: "My charity",
     operator_charity_number: "123456",
     operator_first_name: "Joe",

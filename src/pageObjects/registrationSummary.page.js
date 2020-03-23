@@ -3,7 +3,7 @@ const registrationSummary = {
   error: "#errorSummary",
   operatorType: "#operator_type",
   companyName: "#operator_company_name",
-  companyNumber: "#operator_company_house_number",
+  companiesNumber: "#operator_companies_house_number",
   operatorFirstName: "#operator_first_name",
   operatorLastName: "#operator_last_name",
   operatorEmail: "#operator_email",

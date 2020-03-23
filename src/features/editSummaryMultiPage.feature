@@ -114,7 +114,7 @@ Feature: As Samantha I need to be able to change the trading date of my registra
     Then I expect the url to contain "registration-summary"
     And I expect that element "registrationSummary.operatorType" contains the text "A company (registered by a representative)"
     And I expect that element "registrationSummary.companyName" contains the text "Rebecca's Roulades"
-    And I expect that element "registrationSummary.companyNumber" contains the text "12345678"
+    And I expect that element "registrationSummary.companiesNumber" contains the text "12345678"
     And I expect that element "registrationSummary.representativeName" contains the text "Rachel"
     And I expect that element "registrationSummary.representativeRole" contains the text "Tester"
     And I expect that element "registrationSummary.representativeNumber" contains the text "01234567891"

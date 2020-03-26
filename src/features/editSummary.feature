@@ -55,4 +55,4 @@ Feature: As Samantha I need to be able to edit details in the summary of my regi
         And I expect that element "commonElements.backButton" is not visible
         When I set "±±±" to the inputfield "opContactDetails.emailAddress"
         And I click on the element "opContactDetails.button"
-        Then I expect that element "opContactDetails.error" contains the text "Not a valid email address"
+        Then I expect that element "opContactDetails.error" contains the text "Not a valid operator email address"

@@ -34,7 +34,7 @@ Feature: Customer Type
         Given I open the url "/cleansession"
         And I open the url "mid-and-east-antrim/customer-type"
         When I click on the element "custType.button"
-        Then I expect that element "custType.error" contains the text "You must select an option before continuing"
+        Then I expect that element "custType.error" contains the text "You must select a customer type before continuing"
 
 
     @customer_operator_type_SDB-117_complex
@@ -49,4 +49,4 @@ Feature: Customer Type
         When I click on the element "custType.supplyDirectly"
         Then I expect that checkbox "custType.supplyDirectly" is not checked
         When I click on the element "custType.button"
-        Then I expect that element "custType.error" contains the text "You must select an option before continuing"
+        Then I expect that element "custType.error" contains the text "You must select a customer type before continuing"

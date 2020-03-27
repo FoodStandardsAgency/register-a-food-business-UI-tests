@@ -18,7 +18,7 @@ Feature: As Jamie I need to declare my import and export activities so that Ric 
         And I open the url "mid-and-east-antrim/business-import-export"
         When I click on the element "importExportActivities.button"
         Then I expect the url to contain "business-import-export"
-        And I expect that element "importExportActivities.error" contains the text "You must select a valid import or export option(s) before continuing
+        And I expect that element "importExportActivities.error" contains the text "You must select a valid import or export option(s) before continuing"
 
     @import_export_activities_direct_import_forward_then_back_SDB-124
     Scenario: selects one option and then deselects it

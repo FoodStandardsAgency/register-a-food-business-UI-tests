@@ -58,7 +58,7 @@ Feature: Representative Operator Contact Details
         When I set "Test McTestface" to the inputfield "repOpContactDetails.contactName"
         And I set "07788292373" to the inputfield "repOpContactDetails.primaryPhoneNumber"
         And I click on the element "repOpContactDetails.button"
-        Then I expect that element "repOpContactDetails.error" contains the text "Not a valid representative mail address"
+        Then I expect that element "repOpContactDetails.error" contains the text "Not a valid representative email address"
         And I expect that element "repOpContactDetails.primaryPhoneNumber" contains the text "07788292373"
         And I expect that element "repOpContactDetails.contactName" contains the text "Test McTestface"
 

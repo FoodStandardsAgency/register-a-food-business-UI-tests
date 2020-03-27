@@ -50,7 +50,7 @@ Feature: As Samantha I need to be able to fill in the establishment contact deta
         And I open the url "mid-and-east-antrim/establishment-contact-details"
         When I set "01234567890" to the inputfield "estabContactDetails.primaryPhoneNumber"
         And I click on the element "estabContactDetails.button"
-        Then I expect that element "estabContactDetails.error" contains the text "Not a valid operator email address"
+        Then I expect that element "estabContactDetails.error" contains the text "Not a valid establishment email address"
         And I expect that element "estabContactDetails.primaryPhoneNumber" contains the text "01234567890"
 
     @SDB-113_no_phone_number

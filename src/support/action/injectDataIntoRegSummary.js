@@ -120,7 +120,7 @@ const datasets = {
     operator_town: "London",
     operator_primary_number: "01234567890",
     operator_email: "testemail@email.com",
-    registration_role: "Sole Trader",
+    registration_role: "Sole trader",
     establishment_trading_name: "Trading name",
     establishment_email: "establishment@email.com",
     establishment_primary_number: "01234567890",

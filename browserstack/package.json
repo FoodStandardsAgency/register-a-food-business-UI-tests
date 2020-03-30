@@ -1,6 +1,6 @@
 {
   "name": "webdriverio-browserstack",
-  "version": "0.1.0",
+  "version": "9.0.0",
   "readme": "WendriverIO Integration with [BrowserStack](https://www.browserstack.com)",
   "description": "Selenium examples for WebdriverIO and BrowserStack Automate",
   "scripts": {

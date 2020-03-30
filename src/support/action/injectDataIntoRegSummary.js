@@ -1,8 +1,9 @@
 const datasets = {
   "registration-summary": {
-    operator_type: "A company",
+    operator_type: "Sole trader",
     operator_address_line_1: "First line",
     operator_address_line_2: "Street",
+    operator_address_line_3: "Somewhere",
     operator_town: "Town",
     operator_postcode: "AA11 1AA",
     operator_postcode_find: "AA11 1AA",
@@ -14,6 +15,7 @@ const datasets = {
     establishment_trading_name: "Trading name",
     establishment_address_line_1: "First line",
     establishment_address_line_2: "Street",
+    establishment_address_line_3: "Somewhere",
     establishment_town: "Town",
     establishment_postcode: "AA11 1AA",
     establishment_postcode_find: "AA11 1AA",

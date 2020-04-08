@@ -30,7 +30,7 @@ Feature: Operator Contact Details
         When I set "invalidemail" to the inputfield "opContactDetails.emailAddress"
         And I set "07788292373" to the inputfield "opContactDetails.primaryPhoneNumber"
         And I click on the element "opContactDetails.button"
-        Then I expect that element "opContactDetails.error" contains the text "Not a valid email address"
+        Then I expect that element "opContactDetails.error" contains the text "Not a valid operator email address"
         And I expect that element "opContactDetails.emailAddress" contains the text "invalidemail"
         And I expect that element "opContactDetails.primaryPhoneNumber" contains the text "07788292373"
 
@@ -41,7 +41,7 @@ Feature: Operator Contact Details
         When I set "invalidnumber" to the inputfield "opContactDetails.primaryPhoneNumber"
         And I set "valid@email.com" to the inputfield "opContactDetails.emailAddress"
         And I click on the element "opContactDetails.button"
-        Then I expect that element "opContactDetails.error" contains the text "Not a valid phone number"
+        Then I expect that element "opContactDetails.error" contains the text "Not a valid operator phone number"
         And I expect that element "opContactDetails.emailAddress" contains the text "valid@email.com"
         And I expect that element "opContactDetails.primaryPhoneNumber" contains the text "invalidnumber"
 
@@ -51,7 +51,7 @@ Feature: Operator Contact Details
         And I open the url "mid-and-east-antrim/operator-contact-details"
         When I set "07788292373" to the inputfield "opContactDetails.primaryPhoneNumber"
         And I click on the element "opContactDetails.button"
-        Then I expect that element "opContactDetails.error" contains the text "Not a valid email address"
+        Then I expect that element "opContactDetails.error" contains the text "Not a valid operator email address"
         And I expect that element "opContactDetails.primaryPhoneNumber" contains the text "07788292373"
 
     @SDB-156_no_phone_number
@@ -60,7 +60,7 @@ Feature: Operator Contact Details
         And I open the url "mid-and-east-antrim/operator-contact-details"
         When I set "valid@email.com" to the inputfield "opContactDetails.emailAddress"
         And I click on the element "opContactDetails.button"
-        Then I expect that element "opContactDetails.error" contains the text "Not a valid phone number"
+        Then I expect that element "opContactDetails.error" contains the text "Not a valid operator phone number"
         And I expect that element "opContactDetails.emailAddress" contains the text "valid@email.com"
 
     @SDB-156_invalid_optional_phone_number
@@ -71,7 +71,7 @@ Feature: Operator Contact Details
         And I set "07788292373" to the inputfield "opContactDetails.primaryPhoneNumber"
         And I set "§§§§" to the inputfield "opContactDetails.optionalPhoneNumber"
         And I click on the element "opContactDetails.button"
-        Then I expect that element "opContactDetails.error" contains the text "Not a valid phone number"
+        Then I expect that element "opContactDetails.error" contains the text "Not a valid operator phone number"
         And I expect that element "opContactDetails.emailAddress" contains the text "valid@email.com"
         And I expect that element "opContactDetails.primaryPhoneNumber" contains the text "07788292373"
         And I expect that element "opContactDetails.optionalPhoneNumber" contains the text "§§§§"

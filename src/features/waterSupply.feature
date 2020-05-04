@@ -16,7 +16,7 @@ Feature: Water Supply
         And I open the url "mid-and-east-antrim/business-water-supply"
         When I click on the element "businessWaterSupply.button"
         Then I expect the url to contain "business-water-supply"
-        And I expect that element "businessWaterSupply.error" contains the text "You must select an option before continuing"
+        And I expect that element "businessWaterSupply.error" contains the text "You must select a water supply type before continuing"
 
     @water_supply_private_forward_then_back_SDB-1125
     Scenario: selects one option, clicks Continue and goes back

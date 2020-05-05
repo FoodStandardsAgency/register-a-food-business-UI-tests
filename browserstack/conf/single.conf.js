@@ -12,7 +12,7 @@ exports.config = {
     browser: 'chrome',
     name: 'single_test',
     build: 'webdriver-browserstack',
-    resolution, '1920x1080'
+    resolution: '1920x1080'
   }],
 
   logLevel: 'verbose',

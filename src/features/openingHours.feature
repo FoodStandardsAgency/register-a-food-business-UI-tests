@@ -31,6 +31,7 @@ Feature: Opening Hours
         And I click on the element "openingDaysSome.button"
         Then I expect the url to contain "opening-hours"
         When I click on the element "openingHours.button"
+        Then I expect that element "openingHours.error" becomes visible
         Then I expect that element "openingHours.error" contains the text "Invalid opening hours on Monday"
 
     @invalid_opening_hours_monday

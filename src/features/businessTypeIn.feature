@@ -21,7 +21,6 @@ Feature: As Catelyn I need to be able to choose my business activities so that m
         And I click on the element "commonElements.fsaFooter"
         And I click on the element "businessTypeIn.button"
         Then I expect the url to contain "business-type"
-        And I wait on element "businessTypeIn.error" to contain a text
         And I expect that element "businessTypeIn.error" contains the text "You must select a business type before continuing"
 
     @business_Type_In_error_SDB-5
@@ -31,7 +30,6 @@ Feature: As Catelyn I need to be able to choose my business activities so that m
         When I click on the element "businessTypeIn.button"
         And I click on the element "businessTypeIn.button"
         Then I expect the url to contain "business-type"
-        And I wait on element "businessTypeIn.error" to contain a text
         And I expect that element "businessTypeIn.error" contains the text "You must select a business type before continuing"
 
     @business_Type_In_invalid_SDB-5
@@ -42,7 +40,6 @@ Feature: As Catelyn I need to be able to choose my business activities so that m
         And I click on the element "businessTypeIn.button"
         And I click on the element "businessTypeIn.button"
         Then I expect the url to contain "business-type"
-        And I wait on element "businessTypeIn.error" to contain a text
         And I expect that element "businessTypeIn.error" contains the text "You must select a business type before continuing"
 
 

@@ -29,8 +29,7 @@ Feature: As Samantha I need to be able to fill in the establishment contact deta
         When I set "invalidemail" to the inputfield "estabContactDetails.emailAddress"
         And I set "01234567890" to the inputfield "estabContactDetails.primaryPhoneNumber"
         And I click on the element "estabContactDetails.button"
-        Then I wait on element "estabContactDetails.error" to contain a text
-        And I expect that element "estabContactDetails.error" contains the text "Not a valid establishment email address"
+        Then I expect that element "estabContactDetails.error" contains the text "Not a valid establishment email address"
         And I expect that element "estabContactDetails.emailAddress" contains the text "invalidemail"
         And I expect that element "estabContactDetails.primaryPhoneNumber" contains the text "01234567890"
 
@@ -41,8 +40,7 @@ Feature: As Samantha I need to be able to fill in the establishment contact deta
         When I set "invalidnumber" to the inputfield "estabContactDetails.primaryPhoneNumber"
         And I set "valid@email.com" to the inputfield "estabContactDetails.emailAddress"
         And I click on the element "estabContactDetails.button"
-        Then I wait on element "estabContactDetails.error" to contain a text
-        And I expect that element "estabContactDetails.error" contains the text "Not a valid establishment phone number"
+        Then I expect that element "estabContactDetails.error" contains the text "Not a valid establishment phone number"
         And I expect that element "estabContactDetails.emailAddress" contains the text "valid@email.com"
         And I expect that element "estabContactDetails.primaryPhoneNumber" contains the text "invalidnumber"
 
@@ -52,8 +50,7 @@ Feature: As Samantha I need to be able to fill in the establishment contact deta
         And I open the url "mid-and-east-antrim/establishment-contact-details"
         When I set "01234567890" to the inputfield "estabContactDetails.primaryPhoneNumber"
         And I click on the element "estabContactDetails.button"
-        Then I wait on element "estabContactDetails.error" to contain a text
-        And I expect that element "estabContactDetails.error" contains the text "Not a valid establishment email address"
+        Then I expect that element "estabContactDetails.error" contains the text "Not a valid establishment email address"
         And I expect that element "estabContactDetails.primaryPhoneNumber" contains the text "01234567890"
 
     @SDB-113_no_phone_number
@@ -62,8 +59,7 @@ Feature: As Samantha I need to be able to fill in the establishment contact deta
         And I open the url "mid-and-east-antrim/establishment-contact-details"
         When I set "valid@email.com" to the inputfield "estabContactDetails.emailAddress"
         And I click on the element "estabContactDetails.button"
-        Then I wait on element "estabContactDetails.error" to contain a text
-        And I expect that element "estabContactDetails.error" contains the text "Not a valid establishment phone number"
+        Then I expect that element "estabContactDetails.error" contains the text "Not a valid establishment phone number"
         And I expect that element "estabContactDetails.emailAddress" contains the text "valid@email.com"
 
     @SDB-113_invalid_optional_phone_number
@@ -74,8 +70,7 @@ Feature: As Samantha I need to be able to fill in the establishment contact deta
         And I set "01234567890" to the inputfield "estabContactDetails.primaryPhoneNumber"
         And I set "§§§§" to the inputfield "estabContactDetails.optionalPhoneNumber"
         And I click on the element "estabContactDetails.button"
-        Then I wait on element "estabContactDetails.error" to contain a text
-        And I expect that element "estabContactDetails.error" contains the text "Not a valid establishment phone number"
+        Then I expect that element "estabContactDetails.error" contains the text "Not a valid establishment phone number"
         And I expect that element "estabContactDetails.emailAddress" contains the text "valid@email.com"
         And I expect that element "estabContactDetails.primaryPhoneNumber" contains the text "01234567890"
         And I expect that element "estabContactDetails.optionalPhoneNumber" contains the text "§§§§"

@@ -1,13 +1,13 @@
-import checkContainsAnyText from "./checkContainsAnyText";
+import checkContainsAnyText from './checkContainsAnyText';
 import getSelector from "../../pageObjects/page";
 
-module.exports = (elementType, element, falseCase) => {
+export default (elementType, element, falseCase) => {
     element = getSelector(element);
     let newFalseCase = true;
 
-    if (typeof falseCase === "function") {
+    if (typeof falseCase === 'function') {
         newFalseCase = false;
-    } else if (falseCase === " not") {
+    } else if (falseCase === ' not') {
         newFalseCase = false;
     }
 

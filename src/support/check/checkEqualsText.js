@@ -3,24 +3,24 @@ import getSelector from "../../pageObjects/page";
 /**
  * Check if the given elements text is the same as the given text
  * @param  {String}   elementType   Element type (element or button)
- * @param  {String}   element       Element selector
+ * @param  {String}   selector       Element selector
  * @param  {String}   falseCase     Whether to check if the content equals the
  *                                  given text or not
  * @param  {String}   expectedText  The text to validate against
  */
-module.exports = (elementType, element, falseCase, expectedText) => {
-    element = getSelector(element);
+export default (elementType, selector, falseCase, expectedText) => {
+    selector = getSelector(selector);
     /**
      * The command to execute on the browser object
      * @type {String}
      */
-    let command = "getValue";
+    let command = 'getValue';
 
     if (
-        elementType === "button" ||
-        browser.getAttribute(element, "value") === null
+        elementType === 'button'
+        || $(selector).getAttribute('value') === null
     ) {
-        command = "getText";
+        command = 'getText';
     }
 
     /**
@@ -36,22 +36,22 @@ module.exports = (elementType, element, falseCase, expectedText) => {
     let boolFalseCase = !!falseCase;
 
     // Check for empty element
-    if (typeof parsedExpectedText === "function") {
-        parsedExpectedText = "";
+    if (typeof parsedExpectedText === 'function') {
+        parsedExpectedText = '';
 
         boolFalseCase = !boolFalseCase;
     }
 
     if (parsedExpectedText === undefined && falseCase === undefined) {
-        parsedExpectedText = "";
+        parsedExpectedText = '';
         boolFalseCase = true;
     }
 
-    const text = browser[command](element);
+    const text = browser[command](selector);
 
     if (boolFalseCase) {
-        parsedExpectedText.should.not.equal(text);
+        expect(parsedExpectedText).not.toBe(text);
     } else {
-        parsedExpectedText.should.equal(text);
+        expect(parsedExpectedText).toBe(text);
     }
 };

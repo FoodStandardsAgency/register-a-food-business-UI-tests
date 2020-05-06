@@ -11,7 +11,7 @@ export default (selector, ms, falseState, state) => {
      * Maximum number of milliseconds to wait, default 3000
      * @type {Int}
      */
-    const intMs = parseInt(ms, 10) || 3000;
+    const intMs = parseInt(ms, 10) || 20000;
 
     /**
      * Command to perform on the browser object

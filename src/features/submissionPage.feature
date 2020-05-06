@@ -6,7 +6,6 @@ Feature: As Catelyn I need to be able to see the submission page and be able to 
     @SDB-121_food_safety
     Scenario: I want to find out about food safety and how to run a food business
         Given I open the url "/cleansession"
-        And I change my viewport
         And I open the url "mid-and-east-antrim/summary-confirmation"
         Then I expect that the attribute "href" from element "submissionPage.foodSafetyLink" is "https://www.food.gov.uk/business-guidance"
         Given I click on the element "submissionPage.foodSafetyLink"
@@ -40,14 +39,14 @@ Feature: As Catelyn I need to be able to see the submission page and be able to 
         And I pause for 1000ms
         Then I expect a new tab has been opened
 
-    @SDB-121_primary_authority
-    Scenario: I want to find out about general guidance on business growth and finance
-        Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/summary-confirmation"
-        And I expect that the attribute "href" from element "submissionPage.businessGuidanceLink" is "https://www.nibusinessinfo.co.uk/"
-        Given I click on the element "submissionPage.businessGuidanceLink"
-        And I pause for 1000ms
-        Then I expect a new tab has been opened
+#    @SDB-121_primary_authority
+#    Scenario: I want to find out about general guidance on business growth and finance
+#        Given I open the url "/cleansession"
+#        And I open the url "mid-and-east-antrim/summary-confirmation"
+#        And I expect that the attribute "href" from element "submissionPage.businessGuidanceLink" is "https://www.nibusinessinfo.co.uk/"
+#        Given I click on the element "submissionPage.businessGuidanceLink"
+#        And I pause for 1000ms
+#        Then I expect a new tab has been opened
 
     @SDB-121_table_visible
     Scenario: I want to see my registration info

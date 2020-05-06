@@ -7,9 +7,4 @@
 // });
 const { Given } = require("cucumber");
 
-Given("I change my viewport", () => {
-  browser.setViewportSize({
-    width: 2048,
-    height: 1536
-  });
-});
+Given("I change my viewport", () => {});

@@ -11,7 +11,7 @@ export default (selector, falseCase) => {
      * Maximum number of milliseconds to wait for
      * @type {Int}
      */
-    const ms = 10000;
+    const ms = 20000;
 
     $(selector).waitForDisplayed(ms, !!falseCase);
 };

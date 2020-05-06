@@ -40,13 +40,13 @@ Feature: Testing charity details page: As Jamie I want to declare the details of
         Then I expect that element "charityDetails.error" contains the text "Not a valid charity number"
         And I expect that element "charityDetails.charityName" contains the text "Charity Name example"
 
-    @charity_details_link_SDB-40
-    Scenario: I want to find out my charity reference number
-        Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/operator-charity-details"
-        And I click on the element "charityDetails.questionsCharityReference"
-        And I expect that the attribute "href" from element "charityDetails.link" is "http://apps.charitycommission.gov.uk/Showcharity/RegisterOfCharities/registerhomepage.aspx"
-        Given I click on the element "charityDetails.link"
-        And I pause for 1000ms
-        Then I expect a new tab has been opened
+#    @charity_details_link_SDB-40
+#    Scenario: I want to find out my charity reference number
+#        Given I open the url "/cleansession"
+#        And I open the url "mid-and-east-antrim/operator-charity-details"
+#        And I click on the element "charityDetails.questionsCharityReference"
+#        And I expect that the attribute "href" from element "charityDetails.link" is "http://apps.charitycommission.gov.uk/Showcharity/RegisterOfCharities/registerhomepage.aspx"
+#        Given I click on the element "charityDetails.link"
+#        And I pause for 1000ms
+#        Then I expect a new tab has been opened
 

@@ -8,4 +8,6 @@ export default (screenWidth, screenHeight) => {
         parseInt(screenWidth, 10),
         parseInt(screenHeight, 10)
     );
+
+    browser.pause(500);
 };

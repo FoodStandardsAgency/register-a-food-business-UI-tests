@@ -14,6 +14,8 @@ export default (action, type, selector) => {
      */
     const selector2 = (type === 'link') ? `=${selector}` : getSelector(selector);
 
+    browser.pause(1000);
+
     /**
      * The method to call on the browser object
      * @type {String}

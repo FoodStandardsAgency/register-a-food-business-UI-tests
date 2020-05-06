@@ -23,4 +23,6 @@ export default (method, value, selector) => {
     }
 
     $(selector)[command](checkValue);
+
+    browser.waitForValue()
 };

@@ -106,7 +106,7 @@ exports.config = {
     // and 30 processes will get spawned. The property handles how many capabilities
     // from the same test should run tests.
     //
-    maxInstances: 5,
+    maxInstances: 1,
     //
     // If you have trouble getting all important capabilities together, check out the
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
@@ -138,7 +138,7 @@ exports.config = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'warn',
+    logLevel: 'error',
     //
     // Set specific log levels per logger
     // loggers:
@@ -165,14 +165,14 @@ exports.config = {
     baseUrl: 'http://front-end:3000/new/',
     //
     // Default timeout for all waitFor* commands.
-    waitforTimeout: 10000,
+    waitforTimeout: 60000,
     //
     // Default timeout in milliseconds for request
     // if browser driver or grid doesn't send response
     connectionRetryTimeout: 120000,
     //
     // Default request retries count
-    connectionRetryCount: 3,
+    connectionRetryCount: 10,
     //
     // Test runner services
     // Services take over a specific job you don't want to take care of. They enhance
@@ -189,25 +189,25 @@ exports.config = {
     framework: 'cucumber',
     //
     // The number of times to retry the entire specfile when it fails as a whole
-    // specFileRetries: 1,
+    specFileRetries: 1,
     //
     // Whether or not retried specfiles should be retried immediately or deferred to the end of the queue
-    // specFileRetriesDeferred: false,
+    specFileRetriesDeferred: true,
     //
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
-    reporters: ["spec", "allure", "junit"],
-    reporterOptions: {
-        allure: {
-            outputDir: "allure-results",
-            disableWebdriverStepsReporting: true,
-            disableWebdriverScreenshotsReporting: true,
-            useCucumberStepReporter: true
-        },
-        junit: {
-            outputDir: "./reports"
-        }
-    },
+    reporters: ["spec"],
+    // reporterOptions: {
+    //     allure: {
+    //         outputDir: "allure-results",
+    //         disableWebdriverStepsReporting: true,
+    //         disableWebdriverScreenshotsReporting: true,
+    //         useCucumberStepReporter: true
+    //     },
+    //     junit: {
+    //         outputDir: "./reports"
+    //     }
+    // },
  //
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
@@ -218,12 +218,10 @@ exports.config = {
         failFast: false,    // <boolean> abort the run on first failure
         format: ['pretty'], // <string[]> (type[:path]) specify the output format, optionally supply PATH to redirect formatter output (repeatable)
         snippets: true,     // <boolean> hide step definition snippets for pending steps
-        source: true,       // <boolean> hide source uris
+        source: false,       // <boolean> hide source uris
         profile: [],        // <string[]> (name) specify the profile to use
         strict: true,      // <boolean> fail if there are any undefined or pending steps
         tagExpression: '',  // <string> (expression) only execute the features or scenarios with tags matching the expression
-        timeout: 60000,     // <number> timeout for step definitions
-        ignoreUndefinedDefinitions: false, // <boolean> Enable this config to treat undefined definitions as warnings.
     },
 
     screenshotPath: "./errorShots/",
@@ -238,30 +236,34 @@ exports.config = {
     // resolved to continue.
     afterStep: function afterStep(stepResult, blah, result) {
         if (!result.passed) {
-            var path = browser.options.outputDir;
-            var featureName = stepResult.step.uri
-                .split("/")
-                .join("_")
-                .replace(".feature", "");
-            const pathModule = require('path');
-            const timestamp = new Date().toLocaleString('iso', {
-                year: 'numeric',
-                month: '2-digit',
-                day: '2-digit',
-                hour: '2-digit',
-                minute: '2-digit',
-                hour12: false
-            }).replace(/[ ]/g, '--').replace(':', '-');
+            try {
 
-            const filename = encodeURIComponent(
-                `${stepResult.step.feature.name.replace(/\s+/g, '-')}-${stepResult.step.scenario.name.replace(/\s+/g, '-')}-${browser.options.requestedCapabilities.jsonwpCaps.browserName}`.replace(/[/]/g, '__')
-            ).replace(/%../, '.');
+                var path = browser.options.outputDir;
+                var featureName = stepResult.step.uri
+                    .split("/")
+                    .join("_")
+                    .replace(".feature", "");
+                const pathModule = require('path');
+                const timestamp = new Date().toLocaleString('iso', {
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hour12: false
+                }).replace(/[ ]/g, '--').replace(':', '-');
 
-            const filePath = pathModule.resolve(path + "/" + this.screenshotPath, `${filename}:${stepResult.step.sourceLocation.line}.png`);
+                const filename = encodeURIComponent(
+                    `${stepResult.step.feature.name.replace(/\s+/g, '-')}-${stepResult.step.scenario.name.replace(/\s+/g, '-')}-${browser.options.requestedCapabilities.jsonwpCaps.browserName}`.replace(/[/]/g, '__')
+                ).replace(/%../, '.');
 
-            console.error(filePath);
+                const filePath = pathModule.resolve(path + "/" + this.screenshotPath, `${filename}:${stepResult.step.sourceLocation.line}.png`);
 
-            browser.saveScreenshot(filePath);
+                browser.saveScreenshot(filePath);
+            }
+            catch(e){
+                console.error('AfterStep failed with error', e);
+            }
         }
     }
 

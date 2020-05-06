@@ -11,6 +11,8 @@ export default (selectionType, selectionValue, selector) => {
      * The method to use for selecting the option
      * @type {String}
      */
+    browser.pause(500);
+
     selector = getSelector(selector);
 
     let command = '';

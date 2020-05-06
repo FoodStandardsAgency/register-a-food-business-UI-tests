@@ -10,7 +10,11 @@ import checkIfElementExists from '../lib/checkIfElementExists';
  */
 export default (method, value, selector) => {
 
+
+
     selector = getSelector(selector);
+
+
     /**
      * The command to perform on the browser object (addValue or setValue)
      * @type {String}
@@ -24,6 +28,7 @@ export default (method, value, selector) => {
     if (!value) {
         checkValue = '';
     }
-
+    $(selector).scrollIntoView();
+    browser.pause(500);
     $(selector)[command](checkValue);
 };

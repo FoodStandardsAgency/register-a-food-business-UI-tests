@@ -74,6 +74,12 @@ if (process.env.TEST_LOCALLY) {
   ];
 }
 
+let compatibleBrowserOptions = [
+  {
+    browserName: 'chrome'
+  }
+]
+
 let browserstackAuth;
 if (process.env.TEST_LOCALLY) {
   browserstackAuth = {};
@@ -138,18 +144,25 @@ exports.config = {
       "./src/features/**/e2eTestingPartnership.feature"
     ]
   },
-  maxInstances: process.env.TEST_LOCALLY ? 1 : 5,
-  capabilities: browserOptions,
+  // original setting
+  // maxInstances: process.env.TEST_LOCALLY ? 1 : 5,
+  maxInstances: 1,
+  capabilities: compatibleBrowserOptions,
   sync: true,
   logLevel: "error",
   coloredLogs: true,
   // Saves a screenshot to a given path if a command fails.
   screenshotPath: "./errorShots/",
-  waitforTimeout: 30000,
-  connectionRetryTimeout: 90000,
-  connectionRetryCount: 3,
+  waitforTimeout: 60000,
+  connectionRetryTimeout: 120000,
+  connectionRetryCount: 6,
   services: ["selenium-standalone"],
   framework: "cucumber",
+  // The number of times to retry the entire specfile when it fails as a whole
+  specFileRetries: 2,
+  //
+  // Whether or not retried specfiles should be retried immediately or deferred to the end of the queue
+  specFileRetriesDeferred: true,
   reporters: ["spec", "allure", "junit"],
   reporterOptions: {
     allure: {
@@ -185,7 +198,7 @@ exports.config = {
     strict: true,
     tagExpression: "not @Pending", // <boolean> add cucumber tags to feature or scenario name
     tagsInTitle: true,
-    timeout: 20000 // <number> timeout for step definitions
+    timeout: 60000 // <number> timeout for step definitions
   },
   afterStep: function (step) {
     // Mark tests as failed in browserstack

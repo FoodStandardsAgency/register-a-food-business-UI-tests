@@ -64,8 +64,8 @@ if (process.env.TEST_LOCALLY) {
 } else {
   browserOptions = [
     {
-      os: "OS X",
-      os_version: "High Sierra",
+      os: "Windows",
+      os_version: "10",
       browserName: "Chrome",
       browser_version: "80.0",
       maxInstances: 5,
@@ -76,17 +76,14 @@ if (process.env.TEST_LOCALLY) {
 
 let compatibleBrowserOptions = [
   {
-    build: `${buildName}-min`,
-    "os" : "Windows",
-    "os_version" : "10",
-    "browserName" : "Firefox",
-    "browser_version" : "77.0 beta",
-    "resolution" : "2048x1536",
-    "browserstack.local" : "false",
-    "browserstack.selenium_version": "2.53.1",
-    maxInstances: 1
+    os: "Windows",
+    os_version: "10",
+    browserName: "Firefox",
+    browser_version: "61.0",
+    maxInstances: 1,
+    build: `${buildName}-compat-ff`
   }
-]
+];
 
 let browserstackAuth;
 if (process.env.TEST_LOCALLY) {

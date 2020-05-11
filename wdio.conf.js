@@ -67,7 +67,7 @@ if (process.env.TEST_LOCALLY) {
       os: "OS X",
       os_version: "High Sierra",
       browserName: "Chrome",
-      browser_version: "67.0",
+      browser_version: "80.0",
       maxInstances: 5,
       build: buildName
     }

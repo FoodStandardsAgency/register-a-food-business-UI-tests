@@ -76,7 +76,15 @@ if (process.env.TEST_LOCALLY) {
 
 let compatibleBrowserOptions = [
   {
-    browserName: 'chrome'
+    build: `${buildName}-min`,
+    "os" : "Windows",
+    "os_version" : "10",
+    "browserName" : "Firefox",
+    "browser_version" : "77.0 beta",
+    "resolution" : "2048x1536",
+    "browserstack.local" : "false",
+    "browserstack.selenium_version": "2.53.1",
+    maxInstances: 1
   }
 ]
 

@@ -10,7 +10,6 @@ Feature: As Catelyn I need to be able to choose my business activities so that m
         When I set "Restaurant" to the inputfield "businessTypeIn.search"
         And I click on the element "businessTypeIn.option2"
         When I click on the element "businessTypeIn.button"
-        And I click on the element "businessTypeIn.button"
         Then I expect the url to not contain "business-type"
 
     @business_Type_In_no_selection_SDB-5

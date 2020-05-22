@@ -4,13 +4,13 @@
 # https://aka.ms/yaml
 
 pool:
-  vmImage: 'Ubuntu 16.04'
+  vmImage: 'Ubuntu 18.10'
 
 steps:
 
 - task: NodeTool@0
   inputs:
-    versionSpec: '8.9.4' 
+    versionSpec: '12'
 
 - script: npm -v
   displayName: 'Npm version'

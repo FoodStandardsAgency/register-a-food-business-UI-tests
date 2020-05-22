@@ -1,27 +1,27 @@
 import getSelector from "../../pageObjects/page";
 /**
  * Check if the given element is visible inside the current viewport
- * @param  {String}   element   Element selector
+ * @param  {String}   selector   Element selector
  * @param  {String}   falseCase Whether to check if the element is visible
  *                              within the current viewport or not
  */
-module.exports = (element, falseCase) => {
-    element = getSelector(element);
+export default (selector, falseCase) => {
+    selector = getSelector(selector);
     /**
      * The state of visibility of the given element inside the viewport
      * @type {Boolean}
      */
-    const isVisible = browser.isVisibleWithinViewport(element);
+    const isDisplayed = $(selector).isDisplayedInViewport();
 
     if (falseCase) {
-        expect(isVisible).to.not.equal(
+        expect(isDisplayed).not.toEqual(
             true,
-            `Expected element "${element}" to be outside the viewport`
+            `Expected element "${selector}" to be outside the viewport`
         );
     } else {
-        expect(isVisible).to.equal(
+        expect(isDisplayed).toEqual(
             true,
-            `Expected element "${element}" to be inside the viewport`
+            `Expected element "${selector}" to be inside the viewport`
         );
     }
 };

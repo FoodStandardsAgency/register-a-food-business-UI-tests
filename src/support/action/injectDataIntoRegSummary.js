@@ -173,7 +173,7 @@ const datasets = {
   }
 };
 
-module.exports = (url, selectedDataset) => {
+module.exports = async (url, selectedDataset) => {
   const dataToInject = datasets[selectedDataset];
 
   // Add the QA key to the dataToInject object prior to encoding
@@ -203,5 +203,8 @@ module.exports = (url, selectedDataset) => {
   };
 
   // go to the QA URL with the query appended
-  browser.url(`${url}?${encode(dataToInject)}`);
+  console.error(`${url}?${encode(dataToInject)}`);
+  await browser.url(`${url}?${encode(dataToInject)}`);
+
+  //browser.pause(3000);
 };

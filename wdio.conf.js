@@ -1,6 +1,6 @@
 require("dotenv").config();
 const video = require('wdio-video-reporter');
-
+const fs = require('fs-extra');
 const deepMergeArrays = (...arguments) => {
   let target = {};
   // Merge the object into the target object
@@ -35,9 +35,10 @@ const localiseCapability = (config, mode) => {
   switch(mode) {
     case MODE_BROWSERSTACK:
 
-      delete config['bstack:options']["os"];
-      delete config['bstack:options']["osVersion"];
-      config['bstack:options']["local"]="true";
+      config['browserstack.local'] ="true";
+      config['browserstack.user']=process.env.BROWSERSTACK_USER;
+      config['browserstack.key']=process.env.BROWSERSTACK_KEY;
+
       break;
     case MODE_SELENIUM:
       delete config['bstack:options'];
@@ -63,18 +64,10 @@ const defaultCapabilities = (mode, props = {}) => {
   } = props;
 
   return {
-    platformName:osFullName,
-    acceptInsecureCerts: true,
-    setWindowRect: true,
-    strictFileInteractability: true,
-    'bstack:options' : {
-      os,
-      osVersion,
-      resolution,
-      local,
-      debug,
-      "seleniumVersion" : "4.0.0-alpha-5"
-    }
+    // platformName:"WINDOWS",
+    // acceptInsecureCerts: true,
+    // setWindowRect: true,
+    // strictFileInteractability: true
   };
 }
 
@@ -86,11 +79,6 @@ const capabilityIE = (osConfig = {}) => {
 
   return deepMergeArrays(
       {
-        'bstack:options' : {
-          'ie' : {
-            "enablePopups" : "true",
-          }
-        },
         "browserName" : "ie",
         "browserVersion" : "11.0"
       },
@@ -100,7 +88,7 @@ const capabilityIE = (osConfig = {}) => {
 
 const capabilityFirefox = (osConfig = {}) => {
   let {
-    os="Windows",
+    os="WINDOWS",
     osVersion = "10"
   } = osConfig;
 
@@ -135,11 +123,6 @@ const capabilityEdge = (osConfig = {}) => {
 
   return deepMergeArrays(
       {
-        'bstack:options' : {
-          'edge' : {
-            "enablePopups" : "true",
-          }
-        },
         "browserName" : "edge",
         "browserVersion" : "81.0",
       },
@@ -155,12 +138,6 @@ const capabilitySafari = (osConfig = {}) => {
 
   return deepMergeArrays(
       {
-        'bstack:options' : {
-          'safari' : {
-            "enablePopups" : "true",
-            "allowAllCookies" : "true",
-          }
-        },
         "browserName" : "safari",
         "browserVersion" : "13.1",
       },
@@ -188,6 +165,8 @@ const initSeleniumConfig = (isLocal, config = {}) => {
     capabilityFirefox(),
   ];
 
+  config.maxInstances = 3;
+
   if(isLocal){
     let capabilities = config.capabilities;
     let localCapabilities = [];
@@ -203,30 +182,35 @@ const initSeleniumConfig = (isLocal, config = {}) => {
 
 const initBrowserStackConfig = (isLocal, config = {}) => {
   let mode = MODE_BROWSERSTACK;
-  config.user = process.env.BROWSERSTACK_USERNAME;
-  config.key = process.env.BROWSERSTACK_ACCESS_KEY;
+  config.user = process.env.BROWSERSTACK_USER;
+  config.key = process.env.BROWSERSTACK_KEY;
   config.services = [
       ['browserstack', {
-        browserstackLocal: (process.env.IS_LOCAL === LOCALITY_LOCAL)
+        browserstackLocal: isLocal
       }]
   ];
 
+  config.maxInstances = 2;
+
   config.capabilities = [
+      capabilityFirefox(),
       capabilityChrome(),
-      capabilityIE(),
-      capabilityEdge(),
-      capabilitySafari(),
+      // capabilityIE(),
+      // capabilityEdge(),
+      // capabilityFirefox({os: 'OS X'}),
+      // capabilityChrome({os: 'OS X'}),
+      // capabilitySafari(),
   ];
-
-  if(isLocal){
-    let capabilities = config.capabilities;
-    let localCapabilities = [];
-    capabilities.forEach((item, index)=>{
-      localCapabilities.push(localiseCapability(item, mode));
-    })
-
-    config.capabilities = localCapabilities;
-  }
+  //
+  // if(isLocal){
+  //   let capabilities = config.capabilities;
+  //   let localCapabilities = [];
+  //   capabilities.forEach((item, index)=>{
+  //     localCapabilities.push(localiseCapability(item, mode));
+  //   })
+  //
+  //   config.capabilities = localCapabilities;
+  // }
 
 
   return config;
@@ -311,7 +295,7 @@ let config = {
   // and 30 processes will get spawned. The property handles how many capabilities
   // from the same test should run tests.
   //
-  maxInstances: 2,
+
 
   // ===================
   // Test Configurations
@@ -383,7 +367,7 @@ let config = {
   //
   // If you are using Cucumber you need to specify the location of your step definitions.
   cucumberOpts: {
-    timeout: 240000,
+    timeout: 340000,
     require: ['./src/steps/*'],        // <string[]> (file/dir) require files before executing features
     backtrace: true,   // <boolean> show full backtrace for errors
     requireModule: ['@babel/register'],  // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
@@ -412,8 +396,10 @@ let config = {
    * @param {Object} config wdio configuration object
    * @param {Array.<Object>} capabilities list of capabilities details
    */
-  // onPrepare: function (config, capabilities) {
-  // },
+  onPrepare: () => {
+    // Remove the `tmp/` folder that holds the json report files
+    fs.removeSync(parallelExecutionReportDirectory);
+  },
   /**
    * Gets executed before a worker process is spawned and can be used to initialise specific service
    * for that worker as well as modify runtime environments in an async fashion.
@@ -524,8 +510,33 @@ let config = {
    * @param {Array.<Object>} capabilities list of capabilities details
    * @param {<Object>} results object containing test results
    */
-  // onComplete: function(exitCode, config, capabilities, results) {
-  // },
+  onComplete: () => {
+
+    try{
+      let consolidatedJsonArray = wdioParallel.getConsolidatedData({
+        parallelExecutionReportDirectory: parallelExecutionReportDirectory
+      });
+
+      let jsonFile = `${parallelExecutionReportDirectory}report.json`;
+      fs.writeFileSync(jsonFile, JSON.stringify(consolidatedJsonArray));
+
+      // The below code is not part of wdio-cucumber-parallel-execution module
+      // but is mentioned to show, how it can be used with other reporting modules
+      var options = {
+        theme: 'bootstrap',
+        jsonFile: jsonFile,
+        output: `tests/reports/html/report-${currentTime}.html`,
+        reportSuiteAsScenarios: true,
+        scenarioTimestamp: true,
+        launchReport: true,
+        ignoreBadJsonFile: true
+      };
+
+      reporter.generate(options);
+    } catch(err){
+      console.log('err', err);
+    }
+  },
   /**
    * Gets executed when a refresh happens.
    * @param {String} oldSessionId session ID of the old session
@@ -535,6 +546,29 @@ let config = {
     console.log(`session refresh ${oldSessionId}->${newSessionId}`);
   }
 };
+
+const argv = require("yargs").argv;
+const wdioParallel = require('wdio-cucumber-parallel-execution');
+// The below module is used for cucumber html report generation
+const reporter = require('cucumber-html-reporter');
+const currentTime = new Date().toJSON().replace(/:/g, "-");
+
+const sourceSpecDirectory = `path/to/featureFilesDirectory`;
+const parallelExecutionReportDirectory = `path/to/parallelExecutionReportDirectory`;
+
+let featureFilePath = `${sourceSpecDirectory}/*.feature`;
+
+// If parallel execution is set to true, then create the Split the feature files
+// And store then in a tmp spec directory (created inside `the source spec directory)
+if (argv.parallel === 'true') {
+  tmpSpecDirectory = `${sourceSpecDirectory}/tmp`;
+  wdioParallel.performSetup({
+    sourceSpecDirectory: sourceSpecDirectory,
+    tmpSpecDirectory: tmpSpecDirectory,
+    cleanTmpSpecDirectory: true
+  });
+  featureFilePath = `${tmpSpecDirectory}/*.feature`
+}
 
 let isLocal = process.env.IS_LOCAL !== "";
 switch(process.env.MODE){

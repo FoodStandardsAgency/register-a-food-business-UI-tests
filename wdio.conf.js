@@ -560,8 +560,8 @@ const wdioParallel = require('wdio-cucumber-parallel-execution');
 const reporter = require('cucumber-html-reporter');
 const currentTime = new Date().toJSON().replace(/:/g, "-");
 
-const sourceSpecDirectory = `path/to/featureFilesDirectory`;
-const parallelExecutionReportDirectory = `path/to/parallelExecutionReportDirectory`;
+const sourceSpecDirectory = `./src/features`;
+const parallelExecutionReportDirectory = `./parallel/`;
 
 let featureFilePath = `${sourceSpecDirectory}/*.feature`;
 
@@ -574,7 +574,7 @@ if (argv.parallel === 'true') {
     tmpSpecDirectory: tmpSpecDirectory,
     cleanTmpSpecDirectory: true
   });
-  featureFilePath = `${tmpSpecDirectory}/*.feature`
+  featureFilePath = `${tmpSpecDirectory}/**/*.feature`
 }
 
 let isLocal = process.env.IS_LOCAL !== "";

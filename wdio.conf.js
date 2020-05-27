@@ -34,41 +34,51 @@ const LOCALITY_REMOTE = "REMOTE";
 const localiseCapability = (config, mode) => {
   switch(mode) {
     case MODE_BROWSERSTACK:
-
-      config['browserstack.local'] ="true";
-      config['browserstack.user']=process.env.BROWSERSTACK_USER;
-      config['browserstack.key']=process.env.BROWSERSTACK_KEY;
+      if(!config['bstack:options']) {
+        config['bstack:options'] = {};
+      }
+      config['bstack:options']['local'] ="true";
 
       break;
     case MODE_SELENIUM:
       delete config['bstack:options'];
       delete config['browserVersion'];
-      delete config['platformName'];
-      delete config['setWindowRect'];
-      delete config['strictFileInteractability'];
       config['maxInstances'] = 5;
       break;
   }
-
 
   return config;
 }
 const defaultCapabilities = (mode, props = {}) => {
   let {
-    osFullName = "Windows 10",
-    os="Windows 10",
+    os="WINDOWS",
     osVersion = '10',
     resolution="1920x1080",
-    local=true,
     debug=false
   } = props;
 
-  return {
-    // platformName:"WINDOWS",
-    // acceptInsecureCerts: true,
-    // setWindowRect: true,
-    // strictFileInteractability: true
-  };
+  switch(mode){
+    case MODE_BROWSERSTACK:
+
+      return {
+        "bstack:options":{
+          // seleniumVersion: "4",
+          projectName: "RAFB",
+          os,
+          osVersion,
+          buildName: generateBuildName(),
+          acceptInsecureCerts: true,
+          setWindowRect: resolution,
+          strictFileInteractability: true,
+          accessKey: process.env.BROWSERSTACK_KEY,
+          user: process.env.BROWSERSTACK_USER
+        }
+      };
+
+    default:
+      return {};
+  }
+
 }
 
 const capabilityIE = (osConfig = {}) => {
@@ -138,8 +148,7 @@ const capabilitySafari = (osConfig = {}) => {
 
   return deepMergeArrays(
       {
-        "browserName" : "safari",
-        "browserVersion" : "13.1",
+        "browserName" : "safari"
       },
       defaultCapabilities({os, osVersion})
   );
@@ -158,14 +167,15 @@ const initSeleniumConfig = (isLocal, config = {}) => {
 
   config.hostname='selenium-hub';
   config.port=4444;
-  config.path='/wd/hub';
+  config.path='/wd/hub'; //for selenium 3.*
+  // config.path='/'; //For selenium * 4.* *
 
   config.capabilities = [
     capabilityChrome(),
     capabilityFirefox(),
   ];
 
-  config.maxInstances = 3;
+  config.maxInstances = 2;
 
   if(isLocal){
     let capabilities = config.capabilities;
@@ -182,8 +192,10 @@ const initSeleniumConfig = (isLocal, config = {}) => {
 
 const initBrowserStackConfig = (isLocal, config = {}) => {
   let mode = MODE_BROWSERSTACK;
+
   config.user = process.env.BROWSERSTACK_USER;
   config.key = process.env.BROWSERSTACK_KEY;
+
   config.services = [
       ['browserstack', {
         browserstackLocal: isLocal
@@ -193,32 +205,27 @@ const initBrowserStackConfig = (isLocal, config = {}) => {
   config.maxInstances = 2;
 
   config.capabilities = [
-      capabilityFirefox(),
-      capabilityChrome(),
-      // capabilityIE(),
-      // capabilityEdge(),
-      // capabilityFirefox({os: 'OS X'}),
-      // capabilityChrome({os: 'OS X'}),
-      // capabilitySafari(),
+    capabilityFirefox(),
+    capabilityChrome(),
+    // capabilitySafari(),
   ];
   //
-  // if(isLocal){
-  //   let capabilities = config.capabilities;
-  //   let localCapabilities = [];
-  //   capabilities.forEach((item, index)=>{
-  //     localCapabilities.push(localiseCapability(item, mode));
-  //   })
-  //
-  //   config.capabilities = localCapabilities;
-  // }
+  if(isLocal){
+    let capabilities = config.capabilities;
+    let localCapabilities = [];
+    capabilities.forEach((item, index)=>{
+      localCapabilities.push(localiseCapability(item, mode));
+    })
 
+    config.capabilities = localCapabilities;
+  }
 
   return config;
 };
 
 let config = {
   automationProtocol: "webdriver",
-  baseUrl: 'http://front-end:3000/new/',
+  baseUrl: process.env.BASE_URL,
   buildName: generateBuildName(),
   //
   // ====================
@@ -378,7 +385,7 @@ let config = {
     source: false,       // <boolean> hide source uris
     profile: [],        // <string[]> (name) specify the profile to use
     strict: true,      // <boolean> fail if there are any undefined or pending steps
-    tagExpression: ''  // <string> (expression) only execute the features or scenarios with tags matching the expression
+    tagExpression: "not @Pending"  // <string> (expression) only execute the features or scenarios with tags matching the expression
   },
   //
   // =====

@@ -7,8 +7,8 @@
     "selenium:e2e": "rm -Rf ./allure-results/ _results_/ && IS_LOCAL=true MODE=SELENIUM wdio run wdio.conf.js --suite end2end",
     "browserstack:ui": "IS_LOCAL=true MODE=BROWSERSTACK wdio run wdio.conf.js --parallel=true --suite landingpage establishment operator registrationSubmission operatorextra websitefeatures",
     "browserstack:e2e": "IS_LOCAL=true MODE=BROWSERSTACK wdio run wdio.conf.js --suite end2end",
-    "remote:browserstack:ui": "IS_LOCAL= MODE=MODE_BROWSERSTACK wdio run wdio.conf.js --suite landingpage establishment operator registrationSubmission operatorextra websitefeatures",
-    "remote:browserstack:e2e": "IS_LOCAL= MODE=MODE_BROWSERSTACK wdio run wdio.conf.js --suite end2end"
+    "remote:browserstack:ui": "IS_LOCAL= MODE=BROWSERSTACK wdio run wdio.conf.js --suite landingpage establishment operator registrationSubmission operatorextra websitefeatures",
+    "remote:browserstack:e2e": "IS_LOCAL= MODE=BROWSERSTACK wdio run wdio.conf.js --suite end2end"
   },
   "license": "MIT",
   "dependencies": {

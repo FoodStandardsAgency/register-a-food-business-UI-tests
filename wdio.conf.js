@@ -232,7 +232,7 @@ const reporter = require('cucumber-html-reporter');
 const currentTime = new Date().toJSON().replace(/:/g, "-");
 
 const sourceSpecDirectory = `./src/features`;
-const parallelExecutionReportDirectory = `./parallel/`;
+const parallelExecutionReportDirectory = `./parallel/tmp`;
 
 let featureFilePath = `${sourceSpecDirectory}/*.feature`;
 
@@ -549,7 +549,7 @@ let config = {
         parallelExecutionReportDirectory: parallelExecutionReportDirectory
       });
 
-      let jsonFile = `${parallelExecutionReportDirectory}report.json`;
+      let jsonFile = `./parallel-report.json`;
       fs.writeFileSync(jsonFile, JSON.stringify(consolidatedJsonArray));
 
       // The below code is not part of wdio-cucumber-parallel-execution module

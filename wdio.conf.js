@@ -223,6 +223,31 @@ const initBrowserStackConfig = (isLocal, config = {}) => {
   return config;
 };
 
+
+
+const argv = require("yargs").argv;
+const wdioParallel = require('wdio-cucumber-parallel-execution');
+// The below module is used for cucumber html report generation
+const reporter = require('cucumber-html-reporter');
+const currentTime = new Date().toJSON().replace(/:/g, "-");
+
+const sourceSpecDirectory = `./src/features`;
+const parallelExecutionReportDirectory = `./parallel/`;
+
+let featureFilePath = `${sourceSpecDirectory}/*.feature`;
+
+// If parallel execution is set to true, then create the Split the feature files
+// And store then in a tmp spec directory (created inside `the source spec directory)
+if (argv.parallel === 'true') {
+  tmpSpecDirectory = `${sourceSpecDirectory}/tmp`;
+  wdioParallel.performSetup({
+    sourceSpecDirectory: sourceSpecDirectory,
+    tmpSpecDirectory: tmpSpecDirectory,
+    cleanTmpSpecDirectory: true
+  });
+  featureFilePath = `${tmpSpecDirectory}/**/*.feature`
+}
+
 let config = {
   automationProtocol: "webdriver",
   baseUrl: process.env.BASE_URL,
@@ -348,28 +373,28 @@ let config = {
   // Test reporter for stdout.
   // The only one supported by default is 'dot'
   reporters: [
-      "dot",
-      // "allure",
-      // "junit",
-      // [
-      //   video,
-      //   {
-      //     saveAllVideos: false,       // If true, also saves videos for successful test cases
-      //     videoSlowdownMultiplier: 3, // Higher to get slower videos, lower for faster videos [Value 1-100]
-      //     videoRenderTimeout: 30
-      //   }
-      // ]
+    "dot",
+    // "allure",
+    // "junit",
+    // [
+    //   video,
+    //   {
+    //     saveAllVideos: false,       // If true, also saves videos for successful test cases
+    //     videoSlowdownMultiplier: 3, // Higher to get slower videos, lower for faster videos [Value 1-100]
+    //     videoRenderTimeout: 30
+    //   }
+    // ]
   ],
   reporterOptions: {
-      // allure: {
-      //     outputDir: "allure-results",
-      //     disableWebdriverStepsReporting: true,
-      //     disableWebdriverScreenshotsReporting: true,
-      //     useCucumberStepReporter: true
-      // },
-      // junit: {
-      //     outputDir: "./reports"
-      // }
+    // allure: {
+    //     outputDir: "allure-results",
+    //     disableWebdriverStepsReporting: true,
+    //     disableWebdriverScreenshotsReporting: true,
+    //     useCucumberStepReporter: true
+    // },
+    // junit: {
+    //     outputDir: "./reports"
+    // }
   },
   //
   // If you are using Cucumber you need to specify the location of your step definitions.
@@ -443,7 +468,7 @@ let config = {
 
     });
 
-    },
+  },
   /**
    * Runs before a WebdriverIO command gets executed.
    * @param {String} commandName hook command name
@@ -553,29 +578,6 @@ let config = {
     console.log(`session refresh ${oldSessionId}->${newSessionId}`);
   }
 };
-
-const argv = require("yargs").argv;
-const wdioParallel = require('wdio-cucumber-parallel-execution');
-// The below module is used for cucumber html report generation
-const reporter = require('cucumber-html-reporter');
-const currentTime = new Date().toJSON().replace(/:/g, "-");
-
-const sourceSpecDirectory = `./src/features`;
-const parallelExecutionReportDirectory = `./parallel/`;
-
-let featureFilePath = `${sourceSpecDirectory}/*.feature`;
-
-// If parallel execution is set to true, then create the Split the feature files
-// And store then in a tmp spec directory (created inside `the source spec directory)
-if (argv.parallel === 'true') {
-  tmpSpecDirectory = `${sourceSpecDirectory}/tmp`;
-  wdioParallel.performSetup({
-    sourceSpecDirectory: sourceSpecDirectory,
-    tmpSpecDirectory: tmpSpecDirectory,
-    cleanTmpSpecDirectory: true
-  });
-  featureFilePath = `${tmpSpecDirectory}/**/*.feature`
-}
 
 let isLocal = process.env.IS_LOCAL !== "";
 switch(process.env.MODE){

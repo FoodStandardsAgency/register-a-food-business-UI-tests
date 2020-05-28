@@ -8,10 +8,6 @@ npm config set -g registry https://registry.npmjs.org/ && \
 npm config set -g '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}" && \
 npm config ls --long
 
-DOCKER_HOST=$(ip -4 addr show docker0 | grep -Po 'inet \K[\d.]+')
-
-export DOCKER_HOST;
-
 yarn install
 
 tail -f /dev/null

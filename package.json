@@ -8,7 +8,11 @@
     "browserstack:ui": "IS_LOCAL=true MODE=BROWSERSTACK wdio run wdio.conf.js --parallel=true --suite landingpage establishment operator registrationSubmission operatorextra websitefeatures",
     "browserstack:e2e": "IS_LOCAL=true MODE=BROWSERSTACK wdio run wdio.conf.js --suite end2end",
     "remote:browserstack:ui": "IS_LOCAL= MODE=BROWSERSTACK wdio run wdio.conf.js --suite landingpage establishment operator registrationSubmission operatorextra websitefeatures",
-    "remote:browserstack:e2e": "IS_LOCAL= MODE=BROWSERSTACK wdio run wdio.conf.js --suite end2end"
+    "remote:browserstack:e2e": "IS_LOCAL= MODE=BROWSERSTACK wdio run wdio.conf.js --suite end2end",
+    "test:locally:ui": "yarn selenium:ui",
+    "test:locally:e2e": "yarn selenium:e2e",
+    "test:browserstack:ui": "yarn remote:browserstack:ui",
+    "test:browserstack:e2e": "yarn remote:browserstack:e2e"
   },
   "license": "MIT",
   "dependencies": {

@@ -591,7 +591,7 @@ switch(process.env.MODE){
 
 //helpful debug enable as necessary
 console.log('Running browserstack using the following config:');
-console.log(config);
+// console.log(config);
 console.log(`Mode=${process.env.MODE}`);
 console.log(`IsLocal=${isLocal}(${process.env.IS_LOCAL})`);
 console.log('Config prepared.')

@@ -11,6 +11,7 @@
     "remote:browserstack:e2e": "IS_LOCAL= MODE=BROWSERSTACK wdio run wdio.conf.js --suite end2end",
     "test:locally:ui": "yarn selenium:ui",
     "test:locally:e2e": "yarn selenium:e2e",
+    "test:browserstack:ui:spec": "yarn remote:browserstack:ui --spec ./src/features/landingPage.feature",
     "test:browserstack:ui": "yarn remote:browserstack:ui",
     "test:browserstack:e2e": "yarn remote:browserstack:e2e"
   },

@@ -158,7 +158,7 @@ const generateBuildName  = () => {
   if (process.env.RELEASE_RELEASENAME) {
     return "Azure " + process.env.RELEASE_RELEASENAME;
   } else {
-    return process.env.BROWSERSTACK_USERNAME + " " + Date.now();
+    return process.env.BROWSERSTACK_USER + " " + Date.now();
   }
 }
 
@@ -196,10 +196,11 @@ const initBrowserStackConfig = (isLocal, config = {}) => {
   config.user = process.env.BROWSERSTACK_USER;
   config.key = process.env.BROWSERSTACK_KEY;
 
+  let bsOptions = isLocal ? {
+    browserstackLocal: isLocal
+  } : {};
   config.services = [
-      ['browserstack', {
-        browserstackLocal: isLocal
-      }]
+      ['browserstack', bsOptions]
   ];
 
   config.maxInstances = 2;
@@ -590,5 +591,12 @@ switch(process.env.MODE){
   default:
     throw new Error(`Specify a MODE env`);
 }
+
+console.log('Running browserstack using the following config:');
+console.log(config);
+console.log(`Mode=${process.env.MODE}`);
+console.log(`IsLocal=${isLocal}(${process.env.IS_LOCAL})`);
+
+console.log('Config prepared.')
 
 exports.config = config;

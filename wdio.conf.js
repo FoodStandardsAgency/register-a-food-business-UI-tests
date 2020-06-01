@@ -38,6 +38,7 @@ const localiseCapability = (config, mode) => {
         config['bstack:options'] = {};
       }
       config['bstack:options']['local'] ="true";
+      config['maxInstances'] = 2;
 
       break;
     case MODE_SELENIUM:
@@ -51,7 +52,7 @@ const localiseCapability = (config, mode) => {
 }
 const defaultCapabilities = (mode, props = {}) => {
   let {
-    os="WINDOWS",
+    os="Windows",
     osVersion = '10',
     resolution="1920x1080",
     debug=false
@@ -62,16 +63,14 @@ const defaultCapabilities = (mode, props = {}) => {
 
       return {
         "bstack:options":{
-          // seleniumVersion: "4",
+          os:os,
+          osVersion: osVersion,
           projectName: "RAFB",
-          os,
-          osVersion,
           buildName: generateBuildName(),
-          acceptInsecureCerts: true,
-          setWindowRect: resolution,
-          strictFileInteractability: true,
+          // seleniumVersion: "4",
+          seleniumVersion : "3.141.59",
           accessKey: process.env.BROWSERSTACK_KEY,
-          user: process.env.BROWSERSTACK_USER
+          userName: process.env.BROWSERSTACK_USER
         }
       };
 
@@ -81,7 +80,7 @@ const defaultCapabilities = (mode, props = {}) => {
 
 }
 
-const capabilityIE = (osConfig = {}) => {
+const capabilityIE = (mode, osConfig = {}) => {
   let {
     os="Windows",
     osVersion = "10"
@@ -90,13 +89,13 @@ const capabilityIE = (osConfig = {}) => {
   return deepMergeArrays(
       {
         "browserName" : "ie",
-        "browserVersion" : "11.0"
+        "browser_version" : "11.0"
       },
-      defaultCapabilities({os, osVersion})
+      defaultCapabilities(mode, {os, osVersion})
   );
 };
 
-const capabilityFirefox = (osConfig = {}) => {
+const capabilityFirefox = (mode, osConfig = {}) => {
   let {
     os="WINDOWS",
     osVersion = "10"
@@ -106,11 +105,11 @@ const capabilityFirefox = (osConfig = {}) => {
       {
         "browserName" : "firefox"
       },
-      defaultCapabilities({os, osVersion})
+      defaultCapabilities(mode, {os, osVersion})
   );
 };
 
-const capabilityChrome = (osConfig = {}) => {
+const capabilityChrome = (mode, osConfig = {}) => {
   let {
     os="Windows",
     osVersion = "10"
@@ -121,11 +120,11 @@ const capabilityChrome = (osConfig = {}) => {
         "browserName" : "chrome",
         "browserVersion" : "81.0",
       },
-      defaultCapabilities({os, osVersion})
+      defaultCapabilities(mode, {os, osVersion})
   );
 };
 
-const capabilityEdge = (osConfig = {}) => {
+const capabilityEdge = (mode, osConfig = {}) => {
   let {
     os="Windows",
     osVersion = "10"
@@ -133,14 +132,14 @@ const capabilityEdge = (osConfig = {}) => {
 
   return deepMergeArrays(
       {
-        "browserName" : "edge",
-        "browserVersion" : "81.0",
+        "browserName" : "Edge",
+        "browser_version" : "83.0",
       },
-      defaultCapabilities({os, osVersion})
+      defaultCapabilities(mode, {os, osVersion})
   );
 }
 
-const capabilitySafari = (osConfig = {}) => {
+const capabilitySafari = (mode, osConfig = {}) => {
   let {
     os="OS X",
     osVersion="Catalina"
@@ -150,15 +149,15 @@ const capabilitySafari = (osConfig = {}) => {
       {
         "browserName" : "safari"
       },
-      defaultCapabilities({os, osVersion})
+      defaultCapabilities(mode, {os, osVersion})
   );
 };
 
 const generateBuildName  = () => {
   if (process.env.RELEASE_RELEASENAME) {
-    return "Azure " + process.env.RELEASE_RELEASENAME;
+    return `azure-${process.env.RELEASE_RELEASENAME}`;
   } else {
-    return process.env.BROWSERSTACK_USER + " " + Date.now();
+    return `${process.env.BROWSERSTACK_USER}-${Date.now()}`;
   }
 }
 
@@ -171,8 +170,8 @@ const initSeleniumConfig = (isLocal, config = {}) => {
   // config.path='/'; //For selenium * 4.* *
 
   config.capabilities = [
-    capabilityChrome(),
-    capabilityFirefox(),
+    capabilityChrome(mode),
+    capabilityFirefox(mode),
   ];
 
   config.maxInstances = 2;
@@ -203,12 +202,14 @@ const initBrowserStackConfig = (isLocal, config = {}) => {
       ['browserstack', bsOptions]
   ];
 
-  config.maxInstances = 2;
+  config.maxInstances = 10;
 
   config.capabilities = [
-    capabilityFirefox(),
-    capabilityChrome(),
-    // capabilitySafari(),
+    capabilityFirefox(mode),
+    capabilityChrome(mode),
+    capabilitySafari(mode),
+    capabilityEdge(mode),
+    capabilityIE(mode)
   ];
   //
   if(isLocal){
@@ -375,8 +376,15 @@ let config = {
   // The only one supported by default is 'dot'
   reporters: [
     "dot",
-    // "allure",
-    // "junit",
+    ["allure", {
+      outputDir: "allure-results",
+      disableWebdriverStepsReporting: true,
+      disableWebdriverScreenshotsReporting: true,
+      useCucumberStepReporter: true
+    }],
+    ["junit", {
+      outputDir: "./reports"
+    }],
     // [
     //   video,
     //   {
@@ -386,17 +394,6 @@ let config = {
     //   }
     // ]
   ],
-  reporterOptions: {
-    // allure: {
-    //     outputDir: "allure-results",
-    //     disableWebdriverStepsReporting: true,
-    //     disableWebdriverScreenshotsReporting: true,
-    //     useCucumberStepReporter: true
-    // },
-    // junit: {
-    //     outputDir: "./reports"
-    // }
-  },
   //
   // If you are using Cucumber you need to specify the location of your step definitions.
   cucumberOpts: {
@@ -592,11 +589,11 @@ switch(process.env.MODE){
     throw new Error(`Specify a MODE env`);
 }
 
+//helpful debug enable as necessary
 console.log('Running browserstack using the following config:');
 console.log(config);
 console.log(`Mode=${process.env.MODE}`);
 console.log(`IsLocal=${isLocal}(${process.env.IS_LOCAL})`);
-
 console.log('Config prepared.')
 
 exports.config = config;

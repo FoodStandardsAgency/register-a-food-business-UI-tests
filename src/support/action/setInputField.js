@@ -29,7 +29,7 @@ export default (method, value, selector) => {
         checkValue = '';
     }
     const elements = $(selector);
-    elements.waitForExist({reverse:falseCase});
+    elements.waitForExist({reverse:false});
 
     elements.scrollIntoView();
     elements[command](checkValue);

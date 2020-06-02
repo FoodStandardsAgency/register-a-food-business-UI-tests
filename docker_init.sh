@@ -8,6 +8,6 @@ npm config set -g registry https://registry.npmjs.org/ && \
 npm config set -g '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}" && \
 npm config ls --long
 
-yarn install
+yarn install --force
 
 tail -f /dev/null

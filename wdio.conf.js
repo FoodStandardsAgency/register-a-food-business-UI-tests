@@ -384,7 +384,9 @@ let config = {
     }],
     ["junit", {
       outputDir: "./reports",
-      outputFileFormat: function(opts){return `WDIO-${this.cid}-${name}.xml`}
+      outputFileFormat: function(opts){
+        // console.log(opts);
+        return `WDIO-${opts.buildName}-${opts.cid}-${opts.name}.xml`}
     }],
     // [
     //   video,

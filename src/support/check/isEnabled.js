@@ -11,7 +11,11 @@ export default (selector, falseCase) => {
      * The enabled state of the given selector
      * @type {Boolean}
      */
-    const isEnabled = $(selector).isEnabled();
+
+    const elements = $(selector);
+    elements.waitForExist({reverse:falseCase});
+
+    const isEnabled = elements.isEnabled();
 
     if (falseCase) {
         expect(isEnabled).not.toEqual(

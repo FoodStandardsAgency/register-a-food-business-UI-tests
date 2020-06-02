@@ -170,7 +170,7 @@ const initSeleniumConfig = (isLocal, config = {}) => {
   // config.path='/'; //For selenium * 4.* *
 
   config.capabilities = [
-    capabilityChrome(mode),
+    // capabilityChrome(mode),
     capabilityFirefox(mode),
   ];
 
@@ -207,9 +207,9 @@ const initBrowserStackConfig = (isLocal, config = {}) => {
   config.capabilities = [
     capabilityFirefox(mode),
     capabilityChrome(mode),
-    capabilitySafari(mode),
-    capabilityEdge(mode),
-    capabilityIE(mode)
+    // capabilitySafari(mode),
+    // capabilityEdge(mode),
+    // capabilityIE(mode)
   ];
   //
   if(isLocal){
@@ -383,7 +383,8 @@ let config = {
       useCucumberStepReporter: true
     }],
     ["junit", {
-      outputDir: "./reports"
+      outputDir: "./reports",
+      outputFileFormat: function(opts){return `WDIO-${this.cid}-${name}.xml`}
     }],
     // [
     //   video,
@@ -592,6 +593,8 @@ switch(process.env.MODE){
 //helpful debug enable as necessary
 console.log('Running browserstack using the following config:');
 // console.log(config);
+console.log(`Capabilities:`);
+console.log(config.capabilities);
 console.log(`Mode=${process.env.MODE}`);
 console.log(`IsLocal=${isLocal}(${process.env.IS_LOCAL})`);
 console.log('Config prepared.')

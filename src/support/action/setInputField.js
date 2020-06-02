@@ -1,5 +1,5 @@
 import getSelector from "../../pageObjects/page";
-import checkIfElementExists from '../lib/checkIfElementExists';
+import checkIfElementExists from '../check/isExisting';
 
 /**
  * Set the value of the given input field to a new value or add a value to the
@@ -23,11 +23,14 @@ export default (method, value, selector) => {
 
     let checkValue = value;
 
-    checkIfElementExists(selector, false, 1);
+    checkIfElementExists(selector, false);
 
     if (!value) {
         checkValue = '';
     }
-    $(selector).scrollIntoView();
-    $(selector)[command](checkValue);
+    const elements = $(selector);
+    elements.waitForExist({reverse:falseCase});
+
+    elements.scrollIntoView();
+    elements[command](checkValue);
 };

@@ -10,7 +10,6 @@ Feature: Testing user journey for partnership
         When I set "partner one" to the inputfield "partnerDetails.partner_name"
         And I click on the element "commonElements.continueButton"
         Then I expect the url to contain "partner-name"
-        And I expect that element "commonElements.continueButton" does not exist
 
         When I click on the element "partnerName.addPartnerButton"
         Then I expect the url to contain "partnership/partner-details"
@@ -52,7 +51,8 @@ Feature: Testing user journey for partnership
         
     @happy_path_
     Scenario: happy path
-        Given I open the url "mid-and-east-antrim/index"
+        Given I open the url "/cleansession"
+        And I open the url "mid-and-east-antrim/index"
         When I click on the element "firstpage.button"
         Then I expect the url to contain "registration-role"
         When I click on the element "regRole.partnership"

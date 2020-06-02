@@ -117,8 +117,7 @@ const capabilityChrome = (mode, osConfig = {}) => {
 
   return deepMergeArrays(
       {
-        "browserName" : "chrome",
-        "browserVersion" : "81.0",
+        "browserName" : "chrome"
       },
       defaultCapabilities(mode, {os, osVersion})
   );
@@ -132,8 +131,7 @@ const capabilityEdge = (mode, osConfig = {}) => {
 
   return deepMergeArrays(
       {
-        "browserName" : "Edge",
-        "browser_version" : "83.0",
+        "browserName" : "Edge"
       },
       defaultCapabilities(mode, {os, osVersion})
   );
@@ -170,7 +168,7 @@ const initSeleniumConfig = (isLocal, config = {}) => {
   // config.path='/'; //For selenium * 4.* *
 
   config.capabilities = [
-    // capabilityChrome(mode),
+    capabilityChrome(mode),
     capabilityFirefox(mode),
   ];
 
@@ -202,8 +200,8 @@ const initBrowserStackConfig = (isLocal, config = {}) => {
       ['browserstack', bsOptions]
   ];
 
-  config.maxInstances = 10;
-
+  config.maxInstances = 1;
+  config.specFileRetries = 3;
   config.capabilities = [
     capabilityFirefox(mode),
     capabilityChrome(mode),
@@ -506,7 +504,8 @@ let config = {
    * Runs after a Cucumber feature
    */
   afterFeature: function (uri, feature, scenarios) {
-    browser.reloadSession();
+    //this helped with selenium 4 alpha
+    // browser.reloadSession();
   },
 
   /**

@@ -200,7 +200,7 @@ const initBrowserStackConfig = (isLocal, config = {}) => {
       ['browserstack', bsOptions]
   ];
 
-  config.maxInstances = 1;
+  config.maxInstances = 2;
   config.specFileRetries = 3;
   config.capabilities = [
     capabilityFirefox(mode),

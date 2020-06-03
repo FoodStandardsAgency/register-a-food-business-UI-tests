@@ -254,6 +254,7 @@ const initSeleniumConfig = (isLocal, config = {}) => {
 
 const initBrowserStackConfig = (isLocal, config = {}) => {
   let mode = MODE_BROWSERSTACK;
+  let isCi = process.env.IS_CI !== "";
 
   config.user = process.env.BROWSERSTACK_USER;
   config.key = process.env.BROWSERSTACK_KEY;
@@ -267,6 +268,31 @@ const initBrowserStackConfig = (isLocal, config = {}) => {
 
   config.maxInstances = 2;
   config.specFileRetries = 10;
+
+  //if we are on local
+  if(isCi && !isLocal){
+    config.capabilities = [
+      capabilityFirefox(mode),
+      capabilityChrome(mode),
+      capabilitySafari(mode),
+      capabilityEdge(mode),
+      capabilityIE(mode),
+      capabilityiOS(mode),
+      capabilityAndroid(mode),
+    ];
+  }
+  else{
+    config.capabilities = [
+      capabilityFirefox(mode),
+      capabilityChrome(mode),
+      // capabilitySafari(mode),
+      // capabilityEdge(mode),
+      // capabilityIE(mode)
+      // capabilityiOS(mode),
+      // capabilityAndroid(mode),
+    ];
+  }
+
   config.capabilities = [
     capabilityFirefox(mode),
     capabilityChrome(mode),
@@ -645,6 +671,7 @@ let config = {
     console.log(`session refresh ${oldSessionId}->${newSessionId}`);
   }
 };
+
 
 let isLocal = process.env.IS_LOCAL !== "";
 switch(process.env.MODE){

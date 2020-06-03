@@ -50,6 +50,33 @@ const localiseCapability = (config, mode) => {
 
   return config;
 }
+
+const defaultCapabilitiesMobile = (mode, props = {}) => {
+  let {
+    osVersion = '10'
+  } = props;
+
+  switch(mode){
+    case MODE_BROWSERSTACK:
+
+      return {
+        "bstack:options":{
+          osVersion: osVersion,
+          projectName: "RAFB",
+          buildName: generateBuildName(),
+          realMobile : "true",
+          appiumVersion : "1.17.0",
+          accessKey: process.env.BROWSERSTACK_KEY,
+          userName: process.env.BROWSERSTACK_USER
+        }
+      };
+
+    default:
+      return {};
+  }
+
+}
+
 const defaultCapabilities = (mode, props = {}) => {
   let {
     os="Windows",
@@ -79,6 +106,40 @@ const defaultCapabilities = (mode, props = {}) => {
   }
 
 }
+
+const capabilityAndroid = (mode, osConfig = {}) => {
+  let {
+    osVersion = "13"
+  } = osConfig;
+
+  return deepMergeArrays(
+      {
+        "browserName" : "Android",
+        "bstack:options" : {
+          "osVersion" : "10.0",
+          "deviceName" : "Google Pixel 4 XL",
+        }
+      },
+      defaultCapabilitiesMobile(mode, {osVersion})
+  );
+};
+
+const capabilityiOS = (mode, osConfig = {}) => {
+  let {
+    osVersion = "13"
+  } = osConfig;
+
+  return deepMergeArrays(
+      {
+        "browserName" : "iPhone",
+        "bstack:options" : {
+          "osVersion" : "13",
+          "deviceName" : "iPhone XS",
+        }
+      },
+      defaultCapabilitiesMobile(mode, {osVersion})
+  );
+};
 
 const capabilityIE = (mode, osConfig = {}) => {
   let {
@@ -212,6 +273,8 @@ const initBrowserStackConfig = (isLocal, config = {}) => {
     // capabilitySafari(mode),
     // capabilityEdge(mode),
     // capabilityIE(mode)
+    //  capabilityiOS(mode),
+    //  capabilityAndroid(mode),
   ];
   //
   if(isLocal){

@@ -44,7 +44,7 @@ const localiseCapability = (config, mode) => {
     case MODE_SELENIUM:
       delete config['bstack:options'];
       delete config['browserVersion'];
-      config['maxInstances'] = 5;
+      config['maxInstances'] = 2;
       break;
   }
 
@@ -103,7 +103,8 @@ const capabilityFirefox = (mode, osConfig = {}) => {
 
   return deepMergeArrays(
       {
-        "browserName" : "firefox"
+        "browserName" : "firefox",
+        "browserVersion": "76"
       },
       defaultCapabilities(mode, {os, osVersion})
   );
@@ -117,7 +118,8 @@ const capabilityChrome = (mode, osConfig = {}) => {
 
   return deepMergeArrays(
       {
-        "browserName" : "chrome"
+        "browserName" : "chrome",
+        "browserVersion": "83.0"
       },
       defaultCapabilities(mode, {os, osVersion})
   );
@@ -131,7 +133,8 @@ const capabilityEdge = (mode, osConfig = {}) => {
 
   return deepMergeArrays(
       {
-        "browserName" : "Edge"
+        "browserName" : "Edge",
+        "browserVersion": "83.0"
       },
       defaultCapabilities(mode, {os, osVersion})
   );
@@ -145,7 +148,8 @@ const capabilitySafari = (mode, osConfig = {}) => {
 
   return deepMergeArrays(
       {
-        "browserName" : "safari"
+        "browserName" : "safari",
+        "browserVersion": "13.0"
       },
       defaultCapabilities(mode, {os, osVersion})
   );
@@ -201,7 +205,7 @@ const initBrowserStackConfig = (isLocal, config = {}) => {
   ];
 
   config.maxInstances = 2;
-  config.specFileRetries = 3;
+  config.specFileRetries = 10;
   config.capabilities = [
     capabilityFirefox(mode),
     capabilityChrome(mode),
@@ -351,10 +355,10 @@ let config = {
   //
   // Default timeout in milliseconds for request
   // if browser driver or grid doesn't send response
-  // connectionRetryTimeout: 1000,
+  connectionRetryTimeout: 5000,
   //
   // Default request retries count
-  connectionRetryCount: 1,
+  connectionRetryCount: 3,
 
   // Framework you want to run your specs with.
   // The following are supported: Mocha, Jasmine, and Cucumber

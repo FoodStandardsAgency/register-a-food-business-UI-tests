@@ -176,7 +176,7 @@ const initSeleniumConfig = (isLocal, config = {}) => {
     capabilityFirefox(mode),
   ];
 
-  config.maxInstances = 2;
+  config.maxInstances = 4;
 
   if(isLocal){
     let capabilities = config.capabilities;
@@ -355,7 +355,7 @@ let config = {
   //
   // Default timeout in milliseconds for request
   // if browser driver or grid doesn't send response
-  connectionRetryTimeout: 5000,
+  // connectionRetryTimeout: 5000,
   //
   // Default request retries count
   connectionRetryCount: 3,
@@ -594,14 +594,5 @@ switch(process.env.MODE){
   default:
     throw new Error(`Specify a MODE env`);
 }
-
-//helpful debug enable as necessary
-console.log('Running browserstack using the following config:');
-// console.log(config);
-console.log(`Capabilities:`);
-console.log(config.capabilities);
-console.log(`Mode=${process.env.MODE}`);
-console.log(`IsLocal=${isLocal}(${process.env.IS_LOCAL})`);
-console.log('Config prepared.')
 
 exports.config = config;

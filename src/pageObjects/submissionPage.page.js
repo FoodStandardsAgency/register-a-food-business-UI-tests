@@ -3,6 +3,7 @@ const submissionPage = {
   safetyManagementLink: "#safetyManagementLink",
   fhrsScoreLink: "#fhrsScoreLink",
   foodLabellingLink: "#foodLabellingLink",
+  businessGuidanceLink: "#businessGuidanceLink",
   businessSupportHelplineEnglishLink: "#businessSupportHelplineEnglishLink",
   establishmentAddress: "#establishmentAddressRow",
   establishmentDetailsTable: "#establishmentDetailsTable",

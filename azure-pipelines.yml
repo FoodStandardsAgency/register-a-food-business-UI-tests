@@ -4,13 +4,13 @@
 # https://aka.ms/yaml
 
 pool:
-  vmImage: 'Ubuntu 16.04'
+  vmImage: 'Ubuntu 18.04'
 
 steps:
 
 - task: NodeTool@0
   inputs:
-    versionSpec: '8.9.4' 
+    versionSpec: '12.14'
 
 - script: npm -v
   displayName: 'Npm version'
@@ -18,7 +18,7 @@ steps:
 - script: 'rm -rf ~/.node-gyp'
   displayName: 'Install build essential'
 
-- script: npm install
+- script: yarn install
   displayName: 'Install'
 
 - task: ArchiveFiles@2

@@ -3,13 +3,5 @@
 // });
 
 // After(async () => {
-//     return driver.quit();
+//     browser.reloadSession()
 // });
-const { Given } = require("cucumber");
-
-Given("I change my viewport", () => {
-  browser.setViewportSize({
-    width: 2048,
-    height: 1536
-  });
-});

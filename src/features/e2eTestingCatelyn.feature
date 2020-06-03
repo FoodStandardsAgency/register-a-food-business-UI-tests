@@ -5,7 +5,8 @@ Feature: Testing user journey for Catelyn
 
     @happy_path_
     Scenario: happy path
-        Given I open the url "mid-and-east-antrim/index"
+        Given I open the url "/cleansession"
+        And I open the url "mid-and-east-antrim/index"
         When I click on the element "firstpage.button"
         Then I expect the url to contain "registration-role"
         When I click on the element "regRole.soleTrader"

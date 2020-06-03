@@ -1,29 +1,36 @@
-import checkIfElementExists from "../lib/checkIfElementExists";
 import getSelector from "../../pageObjects/page";
+import checkIfElementExists from '../check/isExisting';
 
 /**
  * Set the value of the given input field to a new value or add a value to the
- * current element value
+ * current selector value
  * @param  {String}   method  The method to use (add or set)
- * @param  {String}   value   The value to set the element to
- * @param  {String}   element Element selector
+ * @param  {String}   value   The value to set the selector to
+ * @param  {String}   selector Element selector
  */
+export default (method, value, selector) => {
 
-export default function(method, value, element) {
+
+
+    selector = getSelector(selector);
+
+
     /**
      * The command to perform on the browser object (addValue or setValue)
      * @type {String}
      */
-    const command = method === "add" ? "addValue" : "setValue";
+    const command = (method === 'add') ? 'addValue' : 'setValue';
+
     let checkValue = value;
 
-    const elem = getSelector(element);
-
-    checkIfElementExists(elem, false, 1);
+    checkIfElementExists(selector, false);
 
     if (!value) {
-        checkValue = "";
+        checkValue = '';
     }
+    const elements = $(selector);
+    elements.waitForExist({reverse:false});
 
-    browser[command](elem, checkValue);
-}
+    elements.scrollIntoView();
+    elements[command](checkValue);
+};

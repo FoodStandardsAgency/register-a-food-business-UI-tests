@@ -1,6 +1,6 @@
 {
   "name": "register-a-food-business-ui-tests",
-  "version": "9.0.0",
+  "version": "9.2.0",
   "scripts": {
     "test:accessibility": "pa11y-ci",
     "selenium:ui": "IS_LOCAL=true MODE=SELENIUM wdio run wdio.conf.js --parallel=true --suite landingpage establishment operator registrationSubmission operatorextra websitefeatures",

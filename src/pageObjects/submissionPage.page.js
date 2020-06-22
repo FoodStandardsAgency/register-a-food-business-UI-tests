@@ -4,6 +4,7 @@ const submissionPage = {
   fhrsScoreLink: "#fhrsScoreLink",
   foodLabellingLink: "#foodLabellingLink",
   businessGuidanceLink: "#businessGuidanceLink",
+  businessSupportHelplineEnglishLink: "#businessSupportHelplineEnglishLink",
   establishmentAddress: "#establishmentAddressRow",
   establishmentDetailsTable: "#establishmentDetailsTable",
   operatorDetailsTable: "#operatorDetailsTable",

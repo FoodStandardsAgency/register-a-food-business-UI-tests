@@ -1,61 +1,55 @@
-import getSelector from "../../pageObjects/page";
 /**
  * Check the given property of the given element
  * @param  {String}   isCSS         Whether to check for a CSS property or an
  *                                  attribute
  * @param  {String}   attrName      The name of the attribute to check
- * @param  {String}   selector          Element selector
+ * @param  {String}   elemIn          Element selector
  * @param  {String}   falseCase     Whether to check if the value of the
  *                                  attribute matches or not
  * @param  {String}   expectedValue The value to match against
  */
-export default (isCSS, attrName, selector, falseCase, expectedValue) => {
-    selector = getSelector(selector);
+export default (isCSS, attrName, elemIn, falseCase, expectedValue) => {
     /**
      * The command to use for fetching the expected value
      * @type {String}
      */
-    const command = isCSS ? 'getCSSProperty' : 'getAttribute';
+    let command = isCSS ? 'getCssProperty' : 'getAttribute';
 
     /**
      * Te label to identify the attribute by
      * @type {String}
      */
-    const attrType = (isCSS ? 'CSS attribute' : 'Attribute');
+    let attrType = (isCSS ? 'CSS attribute' : 'Attribute');
 
     /**
      * The actual attribute value
      * @type {Mixed}
      */
 
-    let elem = $(selector);
+    let elem = $(elemIn);
     elem.waitForExist();
 
-    let attributeValue = elem[command](attrName);
-
-    // eslint-disable-next-line
-    expectedValue = isFinite(expectedValue) ?
-        parseFloat(expectedValue)
-        : expectedValue;
+    let attributeValue = elem[command](elem, attrName);
 
     /**
      * when getting something with a color or font-weight WebdriverIO returns a
      * object but we want to assert against a string
      */
-    if (attrName.match(/(color|font-weight)/)) {
+    if (attrName.match(/(font-size|line-height|display|font-weight)/)) {
         attributeValue = attributeValue.value;
     }
+
     if (falseCase) {
-        expect(attributeValue).not.toEqual(
+        expect(attributeValue).not.toBe(
             expectedValue,
-            `${attrType}: ${attrName} of element "${selector}" should `
-            + `not contain "${attributeValue}"`
+            `${attrType}: ${attrName} of element "${elem}" should not `
+            + `contain "${attributeValue}"`
         );
     } else {
-        expect(attributeValue).toEqual(
+        expect(attributeValue).toBe(
             expectedValue,
-            `${attrType}: ${attrName} of element "${selector}" should `
-            + `contain "${attributeValue}", but "${expectedValue}"`
+            `${attrType}: ${attrName} of element "${elem}" should contain `
+            + `"${attributeValue}", but "${expectedValue}"`
         );
     }
 };

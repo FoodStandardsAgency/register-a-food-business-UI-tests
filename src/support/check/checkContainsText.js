@@ -2,24 +2,31 @@ import getSelector from "../../pageObjects/page";
 /**
  * Check if the given elements contains text
  * @param  {String}   elementType   Element type (element or button)
- * @param  {String}   element       Element selector
+ * @param  {String}   selector       Element selector
  * @param  {String}   falseCase     Whether to check if the content contains
  *                                  the given text or not
  * @param  {String}   expectedText  The text to check against
  */
-module.exports = (elementType, element, falseCase, expectedText) => {
-    element = getSelector(element);
+export default (elementType, selector, falseCase, expectedText) => {
+    selector = getSelector(selector);
     /**
      * The command to perform on the browser object
      * @type {String}
      */
-    let command = "getValue";
+    let command = 'getValue';
+
+    /**
+     * The text of the element
+     * @type {String}
+     */
+    const elem = $(selector);
+    elem.waitForExist();
 
     if (
-        elementType === "button" ||
-        browser.getAttribute(element, "value") === null
+        ['button', 'container'].includes(elementType)
+        || elem.getAttribute('value') === null
     ) {
-        command = "getText";
+        command = 'getText';
     }
 
     /**
@@ -34,22 +41,19 @@ module.exports = (elementType, element, falseCase, expectedText) => {
      */
     let stringExpectedText = expectedText;
 
-    /**
-     * The text of the element
-     * @type {String}
-     */
-    const text = browser[command](element);
 
-    if (typeof expectedText === "undefined") {
+    const text = elem[command]();
+
+    if (typeof expectedText === 'undefined') {
         stringExpectedText = falseCase;
         boolFalseCase = false;
     } else {
-        boolFalseCase = falseCase === " not";
+        boolFalseCase = (falseCase === ' not');
     }
 
     if (boolFalseCase) {
-        expect(text).to.not.contain(stringExpectedText);
+        expect(text).not.toContain(stringExpectedText);
     } else {
-        expect(text).to.contain(stringExpectedText);
+        expect(text).toContain(stringExpectedText);
     }
 };

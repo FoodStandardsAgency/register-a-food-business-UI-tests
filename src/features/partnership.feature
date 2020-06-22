@@ -8,9 +8,9 @@ Feature: partnership
         And I go to a special QA page at url "/qa/mid-and-east-antrim/partner-name" with injected "two-partnership" data
         Then I expect that element "partnerName.partnerOne" contains the text "one"
         And I expect that element "partnerName.partnerTwo" contains the text "two"
-        And I expect that element "#continue-button" does appear exactly "1" times
+        And I expect that element "#continue-button" does exist
         When I click on the element "partnerName.deletePartnerButton0"
-        Then I expect that element "#continue-button" does appear exactly "0" times
+        Then I expect that element "#continue-button" does not exist
         And I expect that element "partnerName.partnerOne" contains the text "two"
 
     

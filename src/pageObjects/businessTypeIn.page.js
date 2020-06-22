@@ -1,5 +1,5 @@
 const businessTypeIn = {
-  search: '[name="business_type"]',
+  search: 'input[name="business_type"]',
   autocomplete: ".autocomplete__wrapper",
   option1: "#undefined__option--0",
   option2: "#undefined__option--1",

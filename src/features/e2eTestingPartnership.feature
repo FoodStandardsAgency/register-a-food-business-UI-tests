@@ -4,19 +4,19 @@ Feature: Testing user journey for partnership
     Scenario: Happy path
         Given I open the url "/cleansession"
         And I go to a special QA page at url "/qa/mid-and-east-antrim/partner-name" with injected "blank-partnership" data
-        Then I expect that element "commonElements.continueButton" does not appear exactly "0" times
+        Then I expect that element "partnerName.addPartnerButton" is enabled
         When I click on the element "partnerName.addPartnerButton"
         Then I expect the url to contain "partnership/partner-details"
         When I set "partner one" to the inputfield "partnerDetails.partner_name"
         And I click on the element "commonElements.continueButton"
         Then I expect the url to contain "partner-name"
-        And I expect that element "commonElements.continueButton" does not appear exactly "0" times
 
         When I click on the element "partnerName.addPartnerButton"
         Then I expect the url to contain "partnership/partner-details"
         When I set "partner two" to the inputfield "partnerDetails.partner_name"
         And I click on the element "commonElements.continueButton"
         Then I expect the url to contain "partner-name"
+        And I expect that element "commonElements.continueButton" does exist
 
         When I click on the element "partnerName.addPartnerButton"
         Then I expect the url to contain "partnership/partner-details"
@@ -35,7 +35,7 @@ Feature: Testing user journey for partnership
         When I set "partner five" to the inputfield "partnerDetails.partner_name"
         And I click on the element "commonElements.continueButton"
         Then I expect the url to contain "partner-name"
-        And I expect that element "partnerName.addPartnerButton" does not appear exactly "0" times
+        And I expect that element "partnerName.addPartnerButton" does not exist
 
         When I click on the element "commonElements.continueButton"
         Then I expect the url to contain "main-partnership-contact"
@@ -51,7 +51,8 @@ Feature: Testing user journey for partnership
         
     @happy_path_
     Scenario: happy path
-        Given I open the url "mid-and-east-antrim/index"
+        Given I open the url "/cleansession"
+        And I open the url "mid-and-east-antrim/index"
         When I click on the element "firstpage.button"
         Then I expect the url to contain "registration-role"
         When I click on the element "regRole.partnership"
@@ -61,9 +62,9 @@ Feature: Testing user journey for partnership
         Then I expect the url to contain "partnership/partner-details"
         When I set "partner one" to the inputfield "partnerDetails.partner_name"
         And I click on the element "commonElements.continueButton"
-        Then I expect the url to contain "partner-name"
-        And I expect that element "#continue-button" does appear exactly "0" times
 
+        Then I expect the url to contain "partner-name"
+        And I expect that element "commonElements.continue-button" does not exist
         When I click on the element "partnerName.addPartnerButton"
         Then I expect the url to contain "partnership/partner-details"
         When I set "partner two" to the inputfield "partnerDetails.partner_name"

@@ -50,6 +50,33 @@ const localiseCapability = (config, mode) => {
 
   return config;
 }
+
+const defaultCapabilitiesMobile = (mode, props = {}) => {
+  let {
+    osVersion = '10'
+  } = props;
+
+  switch(mode){
+    case MODE_BROWSERSTACK:
+
+      return {
+        "bstack:options":{
+          osVersion: osVersion,
+          projectName: "RAFB",
+          buildName: generateBuildName(),
+          realMobile : "true",
+          appiumVersion : "1.17.0",
+          accessKey: process.env.BROWSERSTACK_KEY,
+          userName: process.env.BROWSERSTACK_USER
+        }
+      };
+
+    default:
+      return {};
+  }
+
+}
+
 const defaultCapabilities = (mode, props = {}) => {
   let {
     os="Windows",
@@ -79,6 +106,40 @@ const defaultCapabilities = (mode, props = {}) => {
   }
 
 }
+
+const capabilityAndroid = (mode, osConfig = {}) => {
+  let {
+    osVersion = "13"
+  } = osConfig;
+
+  return deepMergeArrays(
+      {
+        "browserName" : "Android",
+        "bstack:options" : {
+          "osVersion" : "10.0",
+          "deviceName" : "Google Pixel 4 XL",
+        }
+      },
+      defaultCapabilitiesMobile(mode, {osVersion})
+  );
+};
+
+const capabilityiOS = (mode, osConfig = {}) => {
+  let {
+    osVersion = "13"
+  } = osConfig;
+
+  return deepMergeArrays(
+      {
+        "browserName" : "iPhone",
+        "bstack:options" : {
+          "osVersion" : "13",
+          "deviceName" : "iPhone XS",
+        }
+      },
+      defaultCapabilitiesMobile(mode, {osVersion})
+  );
+};
 
 const capabilityIE = (mode, osConfig = {}) => {
   let {
@@ -193,6 +254,7 @@ const initSeleniumConfig = (isLocal, config = {}) => {
 
 const initBrowserStackConfig = (isLocal, config = {}) => {
   let mode = MODE_BROWSERSTACK;
+  let isCi = process.env.IS_CI !== "";
 
   config.user = process.env.BROWSERSTACK_USER;
   config.key = process.env.BROWSERSTACK_KEY;
@@ -206,12 +268,39 @@ const initBrowserStackConfig = (isLocal, config = {}) => {
 
   config.maxInstances = 2;
   config.specFileRetries = 10;
+
+  //if we are on local
+  if(isCi && !isLocal){
+    config.capabilities = [
+      capabilityFirefox(mode),
+      capabilityChrome(mode),
+      capabilitySafari(mode),
+      capabilityEdge(mode),
+      capabilityIE(mode),
+      capabilityiOS(mode),
+      capabilityAndroid(mode),
+    ];
+  }
+  else{
+    config.capabilities = [
+      capabilityFirefox(mode),
+      capabilityChrome(mode),
+      // capabilitySafari(mode),
+      // capabilityEdge(mode),
+      // capabilityIE(mode)
+      // capabilityiOS(mode),
+      // capabilityAndroid(mode),
+    ];
+  }
+
   config.capabilities = [
     capabilityFirefox(mode),
     capabilityChrome(mode),
     // capabilitySafari(mode),
     // capabilityEdge(mode),
     // capabilityIE(mode)
+    //  capabilityiOS(mode),
+    //  capabilityAndroid(mode),
   ];
   //
   if(isLocal){
@@ -582,6 +671,7 @@ let config = {
     console.log(`session refresh ${oldSessionId}->${newSessionId}`);
   }
 };
+
 
 let isLocal = process.env.IS_LOCAL !== "";
 switch(process.env.MODE){

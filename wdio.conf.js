@@ -204,13 +204,13 @@ const capabilityEdge = (mode, osConfig = {}) => {
 const capabilitySafari = (mode, osConfig = {}) => {
   let {
     os="OS X",
-    osVersion="Catalina"
+    osVersion="Mojave"
   } = osConfig;
 
   return deepMergeArrays(
       {
         "browserName" : "safari",
-        "browserVersion": "13.0"
+        "browserVersion": "12.0"
       },
       defaultCapabilities(mode, {os, osVersion})
   );

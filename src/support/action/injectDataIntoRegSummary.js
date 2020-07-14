@@ -127,7 +127,7 @@ const datasets = {
   "registration-summary-trading-every-day": {
     opening_days_start: "Every day"
   },
-  declaration: {
+  "declaration": {
     operator_first_name: "Fred",
     operator_last_name: "Bloggs",
     operator_postcode: "AA11 1AA",

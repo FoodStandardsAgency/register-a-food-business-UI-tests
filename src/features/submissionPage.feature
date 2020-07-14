@@ -6,12 +6,12 @@ Feature: As Catelyn I need to be able to see the submission page and be able to 
     @SDB-121_food_safety
     Scenario: I want to find out about food safety and how to run a food business
         Given I open the url "/cleansession"
-        And I change my viewport
         And I open the url "mid-and-east-antrim/summary-confirmation"
         Then I expect that the attribute "href" from element "submissionPage.foodSafetyLink" is "https://www.food.gov.uk/business-guidance"
         Given I click on the element "submissionPage.foodSafetyLink"
         And I pause for 1000ms
         Then I expect a new tab has been opened
+        And I switch to the first tab
 
     @SDB-121_fhrs_score
     Scenario: I want to find out about fhrs scores
@@ -21,6 +21,7 @@ Feature: As Catelyn I need to be able to see the submission page and be able to 
         Given I click on the element "submissionPage.fhrsScoreLink"
         And I pause for 1000ms
         Then I expect a new tab has been opened
+        And I switch to the first tab
 
     @SDB-121_standard_guidance
     Scenario: I want to find out about information on the food safety management system
@@ -30,6 +31,7 @@ Feature: As Catelyn I need to be able to see the submission page and be able to 
         Given I click on the element "submissionPage.safetyManagementLink"
         And I pause for 1000ms
         Then I expect a new tab has been opened
+        And I switch to the first tab
 
     @SDB-121_fhrs_score
     Scenario: I want to find out about food labelling and allergens
@@ -39,6 +41,7 @@ Feature: As Catelyn I need to be able to see the submission page and be able to 
         Given I click on the element "submissionPage.foodLabellingLink"
         And I pause for 1000ms
         Then I expect a new tab has been opened
+        And I switch to the first tab
 
     @SDB-121_primary_authority
     Scenario: I want to find out about general guidance on business growth and finance
@@ -48,6 +51,7 @@ Feature: As Catelyn I need to be able to see the submission page and be able to 
         Given I click on the element "submissionPage.businessGuidanceLink"
         And I pause for 1000ms
         Then I expect a new tab has been opened
+        And I switch to the first tab
 
     @SDB-121_table_visible
     Scenario: I want to see my registration info

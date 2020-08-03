@@ -28,7 +28,7 @@ Feature: As Samantha, I can see the gov.uk footer and link to the privacy policy
         Given I open the url "/cleansession"
         When I open the url "mid-and-east-antrim/index"
         Then I expect that element "commonElements.fsaFooter" is visible
-        And I expect that the attribute "href" from element "commonElements.privacyPolicyFooter" is "https://www.food.gov.uk/privacy-policy"
+        And I expect that the attribute "href" from element "commonElements.privacyPolicyFooter" is "https://www.food.gov.uk/about-us/register-a-food-business-privacy-notice"
         Given I click on the element "commonElements.cookiePolicyFooter"
         And I pause for 1000ms
         Then I expect a new tab has been opened

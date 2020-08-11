@@ -65,7 +65,7 @@ const defaultCapabilitiesMobile = (mode, props = {}) => {
           projectName: "RAFB",
           buildName: generateBuildName(),
           realMobile : "true",
-          appiumVersion : "1.17.0",
+          appiumVersion : "1.14.0",
           accessKey: process.env.BROWSERSTACK_KEY,
           userName: process.env.BROWSERSTACK_USER
         }
@@ -109,7 +109,7 @@ const defaultCapabilities = (mode, props = {}) => {
 
 const capabilityAndroid = (mode, osConfig = {}) => {
   let {
-    osVersion = "13"
+    osVersion = "10.0"
   } = osConfig;
 
   return deepMergeArrays(

@@ -254,7 +254,6 @@ const initSeleniumConfig = (isLocal, config = {}) => {
 
 const initBrowserStackConfig = (isLocal, config = {}) => {
   let mode = MODE_BROWSERSTACK;
-  //let isCi = process.env.IS_CI !== "";
   let runAll = process.env.RUNALL !== undefined;
 
   config.user = process.env.BROWSERSTACK_USER;
@@ -294,39 +293,6 @@ const initBrowserStackConfig = (isLocal, config = {}) => {
   }
 
   // //if we are on local
-  // if(isCi && !isLocal){
-  //   config.capabilities = [
-  //     capabilityFirefox(mode),
-  //     capabilityChrome(mode),
-  //     capabilitySafari(mode),
-  //     capabilityEdge(mode),
-  //     capabilityIE(mode),
-  //     capabilityiOS(mode),
-  //     capabilityAndroid(mode),
-  //   ];
-  // }
-  // else{
-  //   config.capabilities = [
-  //     //capabilityFirefox(mode),
-  //     capabilityChrome(mode),
-  //     // capabilitySafari(mode),
-  //     // capabilityEdge(mode),
-  //     // capabilityIE(mode)
-  //     // capabilityiOS(mode),
-  //     // capabilityAndroid(mode),
-  //   ];
-  // }
-
-  // config.capabilities = [
-  //   //capabilityFirefox(mode),
-  //   capabilityChrome(mode),
-  //   // capabilitySafari(mode),
-  //   // capabilityEdge(mode),
-  //   // capabilityIE(mode)
-  //   //  capabilityiOS(mode),
-  //   //  capabilityAndroid(mode),
-  // ];
-  // //
   if(isLocal){
     let capabilities = config.capabilities;
     let localCapabilities = [];

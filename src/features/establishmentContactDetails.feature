@@ -109,7 +109,7 @@ Feature: As Samantha I need to be able to fill in the establishment contact deta
         And I set "09876543210" to the inputfield "estabContactDetails.primaryPhoneNumber"
         And I click on the element "estabContactDetails.reuseButton"
         And I click on the element "estabContactDetails.reuseButton"
-        Then I expect that element "estabContactDetails.emailAddress" not contains the text "different"
+        Then I expect that element "estabContactDetails.emailAddress" not contains the text "different@email.com"
         And I expect that element "estabContactDetails.primaryPhoneNumber" not contains the text "09876543210"
 
     @SDB-113_same_as_operator_try_deselect

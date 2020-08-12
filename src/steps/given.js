@@ -41,7 +41,7 @@ Given(
 
 Given("I change my viewport", () => (setWindowSize(2048,1536)));
 
-Given(/^I switch to the second tab$/,
+Given(/^I switch to the first tab$/,
     { wrapperOptions: { retry: 2 } },
     switchTab);
 

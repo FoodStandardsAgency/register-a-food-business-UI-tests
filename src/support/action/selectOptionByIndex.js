@@ -16,5 +16,6 @@ export default (index, obsolete, selector) => {
      */
     const optionIndex = parseInt(index, 10);
 
+    $(selector).scrollIntoView();
     $(selector).selectByIndex(optionIndex);
 };

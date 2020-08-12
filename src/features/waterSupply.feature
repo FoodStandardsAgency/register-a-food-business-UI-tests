@@ -4,7 +4,6 @@ Feature: Water Supply
     @water_supply_happy_path_SDB-1125
     Scenario: able to select one statement and proceed
         Given I open the url "/cleansession"
-        And I change my viewport
         And I open the url "mid-and-east-antrim/business-water-supply"
         When I click on the element "businessWaterSupply.private"
         And I click on the element "businessWaterSupply.button"

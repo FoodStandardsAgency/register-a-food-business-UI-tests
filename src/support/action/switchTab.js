@@ -1,5 +1,7 @@
+/**
+ * Switch to the first tab
+ */
 module.exports = () => {
-    const tabs = browser.windowHandles().value;
-
-    browser.switchTab(tabs[1]);
+    const tabs = browser.getWindowHandles();
+    browser.switchToWindow(tabs[0]);
 };

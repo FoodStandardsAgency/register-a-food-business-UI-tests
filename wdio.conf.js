@@ -283,7 +283,7 @@ const initBrowserStackConfig = (isLocal, config = {}) => {
   }
   else{
     config.capabilities = [
-      capabilityFirefox(mode),
+      //capabilityFirefox(mode),
       capabilityChrome(mode),
       // capabilitySafari(mode),
       // capabilityEdge(mode),
@@ -294,7 +294,7 @@ const initBrowserStackConfig = (isLocal, config = {}) => {
   }
 
   config.capabilities = [
-    capabilityFirefox(mode),
+    //capabilityFirefox(mode),
     capabilityChrome(mode),
     // capabilitySafari(mode),
     // capabilityEdge(mode),

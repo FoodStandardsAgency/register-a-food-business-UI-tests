@@ -254,8 +254,8 @@ const initSeleniumConfig = (isLocal, config = {}) => {
 
 const initBrowserStackConfig = (isLocal, config = {}) => {
   let mode = MODE_BROWSERSTACK;
-  let isCi = process.env.IS_CI !== "";
-  let runAll = process.env.RUNALL !== "";
+  //let isCi = process.env.IS_CI !== "";
+  let runAll = process.env.RUNALL !== undefined;
 
   config.user = process.env.BROWSERSTACK_USER;
   config.key = process.env.BROWSERSTACK_KEY;

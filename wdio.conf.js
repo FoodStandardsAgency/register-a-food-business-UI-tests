@@ -255,6 +255,7 @@ const initSeleniumConfig = (isLocal, config = {}) => {
 const initBrowserStackConfig = (isLocal, config = {}) => {
   let mode = MODE_BROWSERSTACK;
   let isCi = process.env.IS_CI !== "";
+  let runAll = process.env.RUNALL !== "";
 
   config.user = process.env.BROWSERSTACK_USER;
   config.key = process.env.BROWSERSTACK_KEY;
@@ -269,40 +270,63 @@ const initBrowserStackConfig = (isLocal, config = {}) => {
   config.maxInstances = 2;
   config.specFileRetries = 10;
 
-  //if we are on local
-  if(isCi && !isLocal){
+  if(runAll){
     config.capabilities = [
       capabilityFirefox(mode),
       capabilityChrome(mode),
       capabilitySafari(mode),
       capabilityEdge(mode),
-      capabilityIE(mode),
-      capabilityiOS(mode),
-      capabilityAndroid(mode),
+      //capabilityIE(mode),
+      //capabilityiOS(mode),
+      capabilityAndroid(mode)
     ];
   }
-  else{
-    config.capabilities = [
+  else {
+    config.capabilities = [ 
       //capabilityFirefox(mode),
       capabilityChrome(mode),
-      // capabilitySafari(mode),
-      // capabilityEdge(mode),
-      // capabilityIE(mode)
-      // capabilityiOS(mode),
-      // capabilityAndroid(mode),
-    ];
+      //capabilitySafari(mode),
+      //capabilityEdge(mode),
+      //capabilityIE(mode),
+      //capabilityiOS(mode),
+      //capabilityAndroid(mode)
+    ]
   }
 
-  config.capabilities = [
-    //capabilityFirefox(mode),
-    capabilityChrome(mode),
-    // capabilitySafari(mode),
-    // capabilityEdge(mode),
-    // capabilityIE(mode)
-    //  capabilityiOS(mode),
-    //  capabilityAndroid(mode),
-  ];
-  //
+  // //if we are on local
+  // if(isCi && !isLocal){
+  //   config.capabilities = [
+  //     capabilityFirefox(mode),
+  //     capabilityChrome(mode),
+  //     capabilitySafari(mode),
+  //     capabilityEdge(mode),
+  //     capabilityIE(mode),
+  //     capabilityiOS(mode),
+  //     capabilityAndroid(mode),
+  //   ];
+  // }
+  // else{
+  //   config.capabilities = [
+  //     //capabilityFirefox(mode),
+  //     capabilityChrome(mode),
+  //     // capabilitySafari(mode),
+  //     // capabilityEdge(mode),
+  //     // capabilityIE(mode)
+  //     // capabilityiOS(mode),
+  //     // capabilityAndroid(mode),
+  //   ];
+  // }
+
+  // config.capabilities = [
+  //   //capabilityFirefox(mode),
+  //   capabilityChrome(mode),
+  //   // capabilitySafari(mode),
+  //   // capabilityEdge(mode),
+  //   // capabilityIE(mode)
+  //   //  capabilityiOS(mode),
+  //   //  capabilityAndroid(mode),
+  // ];
+  // //
   if(isLocal){
     let capabilities = config.capabilities;
     let localCapabilities = [];

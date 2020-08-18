@@ -34,6 +34,6 @@ Feature: partnership
     Scenario: Very long name on partner details
         Given I open the url "/cleansession"
         And I go to a special QA page at url "/qa/mid-and-east-antrim/partner-details" with injected "two-partnership" data
-        When I set "very long name very long name very long name very long na" to the inputfield "partnerDetails.partner_name"
+        When I set "This is text containing more than 255 characters. This is text containing more than 255 characters. This is text containing more than 255 characters. This is text containing more than 255 characters. This is text containing more than 255 characters. 012345" to the inputfield "partnerDetails.partner_name"
         And I click on the element "commonElements.continueButton"
         Then I expect that element "commonElements.error" contains the text "Not a valid name"

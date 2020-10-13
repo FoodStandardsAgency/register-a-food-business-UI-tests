@@ -22,7 +22,7 @@ export default (action, type, selector) => {
 
     checkIfElementExists(selector2);
 
+    $(selector2).scrollIntoView();
     $(selector2)[method]();
-
-    // browser.pause(5000);
+    browser.pause(1000);
 };

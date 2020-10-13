@@ -65,7 +65,7 @@ const defaultCapabilitiesMobile = (mode, props = {}) => {
           projectName: "RAFB",
           buildName: generateBuildName(),
           realMobile : "true",
-          appiumVersion : "1.17.0",
+          appiumVersion : "1.14.0",
           accessKey: process.env.BROWSERSTACK_KEY,
           userName: process.env.BROWSERSTACK_USER
         }
@@ -109,7 +109,7 @@ const defaultCapabilities = (mode, props = {}) => {
 
 const capabilityAndroid = (mode, osConfig = {}) => {
   let {
-    osVersion = "13"
+    osVersion = "10.0"
   } = osConfig;
 
   return deepMergeArrays(
@@ -204,13 +204,13 @@ const capabilityEdge = (mode, osConfig = {}) => {
 const capabilitySafari = (mode, osConfig = {}) => {
   let {
     os="OS X",
-    osVersion="Catalina"
+    osVersion="Mojave"
   } = osConfig;
 
   return deepMergeArrays(
       {
         "browserName" : "safari",
-        "browserVersion": "13.0"
+        "browserVersion": "12.0"
       },
       defaultCapabilities(mode, {os, osVersion})
   );
@@ -254,7 +254,7 @@ const initSeleniumConfig = (isLocal, config = {}) => {
 
 const initBrowserStackConfig = (isLocal, config = {}) => {
   let mode = MODE_BROWSERSTACK;
-  let isCi = process.env.IS_CI !== "";
+  let runAll = process.env.RUNALL !== undefined;
 
   config.user = process.env.BROWSERSTACK_USER;
   config.key = process.env.BROWSERSTACK_KEY;
@@ -269,40 +269,30 @@ const initBrowserStackConfig = (isLocal, config = {}) => {
   config.maxInstances = 2;
   config.specFileRetries = 10;
 
-  //if we are on local
-  if(isCi && !isLocal){
+  if(runAll){
     config.capabilities = [
       capabilityFirefox(mode),
       capabilityChrome(mode),
       capabilitySafari(mode),
       capabilityEdge(mode),
-      capabilityIE(mode),
-      capabilityiOS(mode),
-      capabilityAndroid(mode),
+      //capabilityIE(mode),
+      //capabilityiOS(mode),
+      capabilityAndroid(mode)
     ];
   }
-  else{
-    config.capabilities = [
-      capabilityFirefox(mode),
+  else {
+    config.capabilities = [ 
+      //capabilityFirefox(mode),
       capabilityChrome(mode),
-      // capabilitySafari(mode),
-      // capabilityEdge(mode),
-      // capabilityIE(mode)
-      // capabilityiOS(mode),
-      // capabilityAndroid(mode),
-    ];
+      //capabilitySafari(mode),
+      //capabilityEdge(mode),
+      //capabilityIE(mode),
+      //capabilityiOS(mode),
+      //capabilityAndroid(mode)
+    ]
   }
 
-  config.capabilities = [
-    capabilityFirefox(mode),
-    capabilityChrome(mode),
-    // capabilitySafari(mode),
-    // capabilityEdge(mode),
-    // capabilityIE(mode)
-    //  capabilityiOS(mode),
-    //  capabilityAndroid(mode),
-  ];
-  //
+  // //if we are on local
   if(isLocal){
     let capabilities = config.capabilities;
     let localCapabilities = [];

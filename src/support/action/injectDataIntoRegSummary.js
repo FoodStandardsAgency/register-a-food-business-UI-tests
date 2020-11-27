@@ -1,6 +1,6 @@
 const datasets = {
   "registration-summary": {
-    operator_type: "Sole trader",
+    operator_type: "SOLETRADER",
     operator_address_line_1: "First line",
     operator_address_line_2: "Street",
     operator_address_line_3: "Somewhere",
@@ -11,7 +11,7 @@ const datasets = {
     operator_last_name: "Bloggs",
     operator_primary_number: "01234567890",
     operator_email: "email@email.com",
-    registration_role: "Sole trader",
+    registration_role: "SOLETRADER",
     establishment_trading_name: "Trading name",
     establishment_address_line_1: "First line",
     establishment_address_line_2: "Street",
@@ -19,11 +19,11 @@ const datasets = {
     establishment_town: "Town",
     establishment_postcode: "AA11 1AA",
     establishment_postcode_find: "AA11 1AA",
-    establishment_type: "domestic",
+    establishment_type: "DOMESTIC",
     establishment_primary_number: "01434567890",
     establishment_email: "emfffsfsdfail@email.com",
     business_type: "Livestock farm",
-    customer_type: "End consumer",
+    customer_type: "END_CONSUMER",
     supply_directly: "true",
     supply_other: "true",
     establishment_opening_status: "Establishment is already trading",
@@ -34,12 +34,12 @@ const datasets = {
     opening_days_some: "Monday",
     opening_day_monday: "Monday",
     opening_hours_monday: "09:30 - 19:00",
-    water_supply: "Public",
+    water_supply: "PUBLIC",
     directly_import: "Directly import"
   },
   "registration-summary-charity": {
     registration_role: "Representative",
-    operator_type: "A Charity",
+    operator_type: "CHARITY",
     operator_first_name: "Percy",
     operator_last_name: "McPartnership",
     operator_charity_name: "My charity",
@@ -55,18 +55,18 @@ const datasets = {
     establishment_address_line_2: "Street",
     establishment_town: "Town",
     establishment_postcode: "AA11 1AA",
-    establishment_type: "domestic",
+    establishment_type: "DOMESTIC",
     business_type: "Livestock farm",
     establishment_opening_status: "Establishment is already trading",
     day: "01",
     month: "01",
     year: "2001",
     opening_days_irregular: "Every day",
-    water_supply: "Public"
+    water_supply: "PUBLIC"
   },
   "registration-summary-partnership": {
-    operator_type: "A company",
-    registration_role: "Partnership",
+    operator_type: "COMPANY",
+    registration_role: "PARTNERSHIP",
     operator_first_name: "Percy",
     operator_last_name: "McPartnership",
     operator_address_line_1: "First line",
@@ -80,7 +80,7 @@ const datasets = {
     establishment_address_line_2: "Street",
     establishment_town: "Town",
     establishment_postcode: "AA11 1AA",
-    establishment_type: "domestic",
+    establishment_type: "DOMESTIC",
     business_type: "Livestock farm",
     establishment_opening_status: "Establishment is already trading",
     day: "01",
@@ -89,11 +89,11 @@ const datasets = {
     opening_days_irregular: "Every day",
     partners: ["One", "Two", "Three"],
     main_partnership_contact: "One",
-    water_supply: "Public"
+    water_supply: "PUBLIC"
   },
   "registration-summary-representative": {
     registration_role: "Representative",
-    operator_type: "A person",
+    operator_type: "PERSON",
     operator_first_name: "Rebecca",
     operator_last_name: "McRepresentative",
     operator_address_line_1: "First line",
@@ -111,9 +111,9 @@ const datasets = {
     establishment_postcode_find: "AA11 1AA",
     establishment_primary_number: "01434567890",
     establishment_email: "emfffsfsdfail@email.com",
-    establishment_type: "domestic",
+    establishment_type: "DOMESTIC",
     business_type: "Livestock farm",
-    customer_type: "End consumer",
+    customer_type: "END_CONSUMER",
     supply_directly: "true",
     supply_other: "true",
     establishment_opening_status: "Establishment is already trading",
@@ -121,7 +121,7 @@ const datasets = {
     month: "01",
     year: "2001",
     opening_days_irregular: "Every day",
-    water_supply: "Public",
+    water_supply: "PUBLIC",
     directly_import: "Directly import"
   },
   "registration-summary-trading-every-day": {
@@ -138,7 +138,7 @@ const datasets = {
     operator_town: "London",
     operator_primary_number: "01234567890",
     operator_email: "testemail@email.com",
-    registration_role: "Sole trader",
+    registration_role: "SOLETRADER",
     establishment_trading_name: "Trading name",
     establishment_email: "establishment@email.com",
     establishment_primary_number: "01234567890",
@@ -148,7 +148,7 @@ const datasets = {
     establishment_town: "Town",
     establishment_postcode: "AA11 1AA",
     establishment_postcode_find: "AA11 1AA",
-    establishment_type: "Home or domestic premises",
+    establishment_type: "DOMESTIC",
     establishment_opening_status: "Establishment is already trading",
     opening_days_start: "Some days",
     opening_days_some: "Monday",
@@ -157,18 +157,18 @@ const datasets = {
     supply_directly: "true",
     supply_other: "true",
     business_type: "Livestock farm",
-    customer_type: "End Consumer",
+    customer_type: "END_CONSUMER",
     day: "01",
     month: "01",
     year: "2001",
     directly_import: "Directly import",
-    water_supply: "Public"
+    water_supply: "PUBLIC"
   },
   "blank-partnership": {
-    registration_role: "Partnership"
+    registration_role: "PARTNERSHIP"
   },
   "two-partnership": {
-    registration_role: "Partnership",
+    registration_role: "PARTNERSHIP",
     partners: ["one", "two"]
   }
 };

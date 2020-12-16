@@ -10,6 +10,7 @@ const commonElements = {
   fsaFooter: "#fsaFooter",
   cookiePolicyFooter: "#cookiePolicyFooter",
   privacyPolicyFooter: "#privacyPolicyFooter",
+  languageFooter: "#languageFooter",
   continueButton: "#continue-button",
   error: "#errorSummary",
 };

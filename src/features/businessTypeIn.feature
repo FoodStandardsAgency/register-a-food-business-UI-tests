@@ -42,5 +42,15 @@ Feature: As Catelyn I need to be able to choose my business activities so that m
         Then I expect the url to contain "business-type"
         And I expect that element "businessTypeIn.error" contains the text "You must select a business type before continuing"
 
+    @business_Type_In_Welsh
+    Scenario: testing business type in Welsh
+        Given I open the url "/cleansession"
+        And I open the url "mid-and-east-antrim/business-type"
+        When I click on the element "commonElements.languageFooter"
+        And I set "siop" to the inputfield "businessTypeIn.search"
+        And I click on the element "businessTypeIn.option2"
+        Then I expect that element "businessTypeIn.search" contains the text "Cigydd (siop)"
+        And I click on the element "businessTypeIn.button"
+        Then I expect the url to not contain "business-type"
 
 

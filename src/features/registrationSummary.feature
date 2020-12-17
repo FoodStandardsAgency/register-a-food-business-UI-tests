@@ -23,3 +23,13 @@ Feature: Summary Page
     And I go to a special QA page at url "/qa/mid-and-east-antrim/registration-summary" with injected "registration-summary" data
     Then I expect that element "registrationSummary.tradingName" contains the text "Trading name"
 
+  @SDB-8_full_data_injection_in_welsh
+  Scenario: all possible data is displayed in welsh
+    Given I open the url "/cleansession"
+    And I open the url "mid-and-east-antrim/index"
+    And I click on the element "commonElements.languageFooter"
+    When I go to a special QA page at url "/qa/mid-and-east-antrim/registration-summary" with injected "registration-summary-welsh" data
+    Then I expect that element "registrationSummary.operatorType" contains the text "Unig fasnachwr"
+    And I expect that element "registrationSummary.businessType" contains the text "Fferm da byw"
+    And I click on the element "registrationSummary.button"
+    Then I expect the url to not contain "registration-summary"

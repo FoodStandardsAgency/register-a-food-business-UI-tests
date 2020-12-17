@@ -35,7 +35,7 @@ const datasets = {
     opening_day_monday: "Monday",
     opening_hours_monday: "09:30 - 19:00",
     water_supply: "PUBLIC",
-    directly_import: "Directly import"
+    directly_import: "Directly import",
   },
   "registration-summary-charity": {
     registration_role: "Representative",
@@ -62,7 +62,7 @@ const datasets = {
     month: "01",
     year: "2001",
     opening_days_irregular: "Every day",
-    water_supply: "PUBLIC"
+    water_supply: "PUBLIC",
   },
   "registration-summary-partnership": {
     operator_type: "COMPANY",
@@ -89,7 +89,7 @@ const datasets = {
     opening_days_irregular: "Every day",
     partners: ["One", "Two", "Three"],
     main_partnership_contact: "One",
-    water_supply: "PUBLIC"
+    water_supply: "PUBLIC",
   },
   "registration-summary-representative": {
     registration_role: "Representative",
@@ -122,12 +122,12 @@ const datasets = {
     year: "2001",
     opening_days_irregular: "Every day",
     water_supply: "PUBLIC",
-    directly_import: "Directly import"
+    directly_import: "Directly import",
   },
   "registration-summary-trading-every-day": {
-    opening_days_start: "Every day"
+    opening_days_start: "Every day",
   },
-  "declaration": {
+  declaration: {
     operator_first_name: "Fred",
     operator_last_name: "Bloggs",
     operator_postcode: "AA11 1AA",
@@ -162,15 +162,21 @@ const datasets = {
     month: "01",
     year: "2001",
     directly_import: "Directly import",
-    water_supply: "PUBLIC"
+    water_supply: "PUBLIC",
   },
   "blank-partnership": {
-    registration_role: "PARTNERSHIP"
+    registration_role: "PARTNERSHIP",
   },
   "two-partnership": {
     registration_role: "PARTNERSHIP",
-    partners: ["one", "two"]
-  }
+    partners: ["one", "two"],
+  },
+};
+
+datasets["registration-summary-welsh"] = {
+  ...datasets["registration-summary"],
+  business_type: "Fferm da byw",
+  language: "cy",
 };
 
 module.exports = async (url, selectedDataset) => {
@@ -187,7 +193,7 @@ module.exports = async (url, selectedDataset) => {
 
   // function to create a URL-encoded query string from an object.
   // e.g. {key: value, name: John Smith} is returned as "key=value&name=John%20Smith"
-  const encode = obj => {
+  const encode = (obj) => {
     var str = [];
     for (var p in obj)
       if (p === "partners") {

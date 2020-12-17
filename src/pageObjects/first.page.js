@@ -1,5 +1,6 @@
 const firstpage = {
-  button: "#continue-button"
+  button: "#continue-button",
+  language: "#changeLanguage",
 };
 
 module.exports = firstpage;

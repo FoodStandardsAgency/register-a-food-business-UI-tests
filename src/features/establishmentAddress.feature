@@ -64,7 +64,7 @@ Feature: As Catelyn I need the service to look up my address and I can select th
     Scenario: using manual input - error
         Given I open the url "/cleansession"
         And I open the url "mid-and-east-antrim/establishment-address-manual"
-        When I set "±±±" to the inputfield "estabAddress.firstline"
+        When I set "InvalidLongAddressLine..........................................................................................................................................................................................................................................." to the inputfield "estabAddress.firstline"
         And I set "BS249ST" to the inputfield "estabAddress.manualPostcode"
         And I click on the element "estabAddress.button"
         Then I expect that element "estabAddress.error" contains the text "Not a valid first line of address"
@@ -106,7 +106,7 @@ Feature: As Catelyn I need the service to look up my address and I can select th
         And I open the url "mid-and-east-antrim/establishment-address-manual"
         When I set "First Line" to the inputfield "estabAddress.firstline"
         And I set "BS249ST" to the inputfield "estabAddress.manualPostcode"
-        And I set "±±±" to the inputfield "estabAddress.locality"
+        And I set "InvalidLongAddressLine..........................................................................................................................................................................................................................................." to the inputfield "estabAddress.locality"
         And I click on the element "estabAddress.button"
         Then I expect that element "estabAddress.error" contains the text "Not a valid third line of address"
         And I expect that element "estabAddress.manualPostcode" contains the text "BS249ST"

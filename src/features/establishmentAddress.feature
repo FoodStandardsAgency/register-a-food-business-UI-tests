@@ -69,7 +69,7 @@ Feature: As Catelyn I need the service to look up my address and I can select th
         And I click on the element "estabAddress.button"
         Then I expect that element "estabAddress.error" contains the text "Not a valid first line of address"
         And I expect that element "estabAddress.manualPostcode" contains the text "BS249ST"
-        And I expect that element "estabAddress.firstline" contains the text "±±±"
+        And I expect that element "estabAddress.firstline" contains the text "InvalidLongAddressLine..........................................................................................................................................................................................................................................."
 
     @SDB-12_establishment_address_cant_find_address__error_no_firstline
     Scenario: using manual input - error
@@ -111,7 +111,7 @@ Feature: As Catelyn I need the service to look up my address and I can select th
         Then I expect that element "estabAddress.error" contains the text "Not a valid third line of address"
         And I expect that element "estabAddress.manualPostcode" contains the text "BS249ST"
         And I expect that element "estabAddress.firstline" contains the text "First Line"
-        And I expect that element "estabAddress.locality" contains the text "±±±"
+        And I expect that element "estabAddress.locality" contains the text "InvalidLongAddressLine..........................................................................................................................................................................................................................................."
 
     @establishment_address_cant_find_address_success_with_locality
     Scenario: using manual input - success

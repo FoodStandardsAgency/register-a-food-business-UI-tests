@@ -28,6 +28,7 @@ Feature: Summary Page
     Given I open the url "/cleansession"
     And I open the url "mid-and-east-antrim/index"
     And I click on the element "commonElements.languageFooter"
+    And I pause for 3000ms
     When I go to a special QA page at url "/qa/mid-and-east-antrim/registration-summary" with injected "registration-summary-welsh" data
     Then I expect that element "registrationSummary.operatorType" contains the text "Unig fasnachwr"
     And I expect that element "registrationSummary.businessType" contains the text "Fferm da byw"

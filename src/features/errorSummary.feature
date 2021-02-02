@@ -1,5 +1,5 @@
 @error_summary_SDB-252
-Feature: Back button SDB-252
+Feature: Error Summary SDB-252
 
   Error summary box at the top of pages with multiple questions
 

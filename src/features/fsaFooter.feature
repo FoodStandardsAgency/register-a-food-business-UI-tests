@@ -40,6 +40,8 @@ Feature: As Samantha, I can see the gov.uk footer and link to the privacy policy
         Then I expect that element "commonElements.languageFooter" is visible
         And I expect that element "commonElements.languageFooter" contains the text "Cymraeg"
         Given I click on the element "commonElements.languageFooter"
+        And I pause for 3000ms
         Then I expect that element "commonElements.languageFooter" contains the text "English"
         Given I click on the element "commonElements.languageFooter"
+        And I pause for 3000ms
         Then I expect that element "commonElements.languageFooter" contains the text "Cymraeg"

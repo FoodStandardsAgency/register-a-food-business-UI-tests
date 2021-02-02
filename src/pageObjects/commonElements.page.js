@@ -11,6 +11,8 @@ const commonElements = {
   cookiePolicyFooter: "#cookiePolicyFooter",
   privacyPolicyFooter: "#privacyPolicyFooter",
   languageFooter: "#languageFooter",
+  languageEnHeader: "#languageEnHeader",
+  languageCyHeader: "#languageCyHeader",
   continueButton: "#continue-button",
   error: "#errorSummary",
 };

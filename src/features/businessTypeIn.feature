@@ -47,6 +47,7 @@ Feature: As Catelyn I need to be able to choose my business activities so that m
         Given I open the url "/cleansession"
         And I open the url "mid-and-east-antrim/business-type"
         When I click on the element "commonElements.languageFooter"
+        And I pause for 3000ms
         And I set "siop" to the inputfield "businessTypeIn.search"
         And I click on the element "businessTypeIn.option2"
         Then I expect that element "businessTypeIn.search" contains the text "Cigydd (siop)"

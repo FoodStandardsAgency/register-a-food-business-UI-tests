@@ -12,7 +12,7 @@ Scenario: change language to Welsh, begin registration and then go back and chan
     And I expect that the title is "Register a Food Business"
     And I expect that button "firstpage.button" contains the text "Begin registration"
     When I click on the element "commonElements.languageCyHeader"
-    And I pause for 3000ms
+    And I pause for 10000ms
     And I expect that the title is "Cofrestru Busnesau Bwyd"
     And I expect that button "firstpage.button" contains the text "Dechreuwch gofrestru"
 
@@ -21,5 +21,5 @@ Scenario: change language to Welsh, begin registration and then go back and chan
     When I click on the element "commonElements.backButton"
     And I expect that the title is "Cofrestru Busnesau Bwyd"
     And I click on the element "commonElements.languageEnHeader" 
-    And I pause for 3000ms
+    And I pause for 10000ms
     Then I expect that the title is "Register a Food Business"

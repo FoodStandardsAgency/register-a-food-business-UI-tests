@@ -26,7 +26,7 @@ Feature: Testing charity details page: As Jamie I want to declare the details of
         And I open the url "mid-and-east-antrim/operator-charity-details"
         When I set "12345678" to the inputfield "charityDetails.charityNumber"
         And I click on the element "charityDetails.button"
-        Then I expect that element "charityDetails.error" contains the text "Not a valid charity, organisation or trust name"
+        Then I expect that element "charityDetails.error" contains the text "Enter a valid charity, organisation or trust name"
         And I expect that element "charityDetails.charityNumber" contains the text "12345678"
 
 
@@ -37,7 +37,7 @@ Feature: Testing charity details page: As Jamie I want to declare the details of
         When I set "Charity Name example" to the inputfield "charityDetails.charityName"
         And I set "±±±±" to the inputfield "charityDetails.charityNumber"
         And I click on the element "charityDetails.button"
-        Then I expect that element "charityDetails.error" contains the text "Not a valid charity number"
+        Then I expect that element "charityDetails.error" contains the text "Enter a valid charity number"
         And I expect that element "charityDetails.charityName" contains the text "Charity Name example"
 
     @charity_details_link_SDB-40

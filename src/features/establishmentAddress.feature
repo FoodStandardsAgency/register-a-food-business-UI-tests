@@ -67,7 +67,7 @@ Feature: As Catelyn I need the service to look up my address and I can select th
         When I set "InvalidLongAddressLine..........................................................................................................................................................................................................................................." to the inputfield "estabAddress.firstline"
         And I set "BS249ST" to the inputfield "estabAddress.manualPostcode"
         And I click on the element "estabAddress.button"
-        Then I expect that element "estabAddress.error" contains the text "Not a valid first line of address"
+        Then I expect that element "estabAddress.error" contains the text "Enter a valid first line of address"
         And I expect that element "estabAddress.manualPostcode" contains the text "BS249ST"
         And I expect that element "estabAddress.firstline" contains the text "InvalidLongAddressLine..........................................................................................................................................................................................................................................."
 
@@ -77,7 +77,7 @@ Feature: As Catelyn I need the service to look up my address and I can select th
         And I open the url "mid-and-east-antrim/establishment-address-manual"
         And I set "BS249ST" to the inputfield "estabAddress.manualPostcode"
         And I click on the element "estabAddress.button"
-        Then I expect that element "estabAddress.error" contains the text "Not a valid first line of address"
+        Then I expect that element "estabAddress.error" contains the text "Enter a valid first line of address"
         And I expect that element "estabAddress.manualPostcode" contains the text "BS249ST"
 
     @SDB-12_establishment_address_cant_find_address_error_postcode
@@ -87,7 +87,7 @@ Feature: As Catelyn I need the service to look up my address and I can select th
         When I set "test first line" to the inputfield "estabAddress.firstline"
         And I set "±±±" to the inputfield "estabAddress.manualPostcode"
         And I click on the element "estabAddress.button"
-        Then I expect that element "estabAddress.error" contains the text "Not a valid postcode"
+        Then I expect that element "estabAddress.error" contains the text "Enter a valid postcode"
         And I expect that element "estabAddress.manualPostcode" contains the text "±±±"
         And I expect that element "estabAddress.firstline" contains the text "test first line"
 
@@ -97,7 +97,7 @@ Feature: As Catelyn I need the service to look up my address and I can select th
         And I open the url "mid-and-east-antrim/establishment-address-manual"
         When I set "test first line" to the inputfield "estabAddress.firstline"
         And I click on the element "estabAddress.button"
-        Then I expect that element "estabAddress.error" contains the text "Not a valid postcode"
+        Then I expect that element "estabAddress.error" contains the text "Enter a valid postcode"
         And I expect that element "estabAddress.firstline" contains the text "test first line"
 
     @establishment_address_cant_find_address_error_locality
@@ -108,7 +108,7 @@ Feature: As Catelyn I need the service to look up my address and I can select th
         And I set "BS249ST" to the inputfield "estabAddress.manualPostcode"
         And I set "InvalidLongAddressLine..........................................................................................................................................................................................................................................." to the inputfield "estabAddress.locality"
         And I click on the element "estabAddress.button"
-        Then I expect that element "estabAddress.error" contains the text "Not a valid third line of address"
+        Then I expect that element "estabAddress.error" contains the text "Enter a valid third line of address"
         And I expect that element "estabAddress.manualPostcode" contains the text "BS249ST"
         And I expect that element "estabAddress.firstline" contains the text "First Line"
         And I expect that element "estabAddress.locality" contains the text "InvalidLongAddressLine..........................................................................................................................................................................................................................................."

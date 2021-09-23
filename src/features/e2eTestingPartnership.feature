@@ -4,7 +4,6 @@ Feature: Testing user journey for partnership
     Scenario: Happy path
         Given I open the url "/cleansession"
         And I go to a special QA page at url "/qa/mid-and-east-antrim/partner-name" with injected "blank-partnership" data
-        Then I expect that element "partnerName.addPartnerButton" is enabled
         When I click on the element "partnerName.addPartnerButton"
         Then I expect the url to contain "partnership/partner-details"
         When I set "partner one" to the inputfield "partnerDetails.partner_name"

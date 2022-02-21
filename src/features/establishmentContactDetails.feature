@@ -1,4 +1,4 @@
-@establishment_address_contact_details
+@establishment_address_contact_details 
 Feature: As Samantha I need to be able to fill in the establishment contact details so that Dani can contact the business if needed before or after an inspection
 
     Establishment address simple contact details section validation
@@ -19,7 +19,7 @@ Feature: As Samantha I need to be able to fill in the establishment contact deta
         When I set "valid@email.com" to the inputfield "estabContactDetails.emailAddress"
         And I set "01234567890" to the inputfield "estabContactDetails.primaryPhoneNumber"
         And I set "07788292121" to the inputfield "estabContactDetails.optionalPhoneNumber"
-        And I click on the element "submitRegistration.button"
+        And I click on the element "estabContactDetails.button"
         Then I expect the url to not contain "establishment-contact-details"
 
     @SDB-113_invalid_email
@@ -82,7 +82,7 @@ Feature: As Samantha I need to be able to fill in the establishment contact deta
         When I click on the element "estabContactDetails.reuseButton"
         Then I expect that element "estabContactDetails.emailAddress" contains the text "email@email.com"
         And I expect that element "estabContactDetails.primaryPhoneNumber" contains the text "01234567890"
-        When I click on the element "submitRegistration.button"
+        When I click on the element "estabContactDetails.button"
         Then I expect the url to not contain "establishment-contact-details"
 
     @SDB-113_happy_path_same_as_operator_overwrite
@@ -94,7 +94,7 @@ Feature: As Samantha I need to be able to fill in the establishment contact deta
         And I click on the element "estabContactDetails.reuseButton"
         Then I expect that element "estabContactDetails.emailAddress" contains the text "email@email.com"
         And I expect that element "estabContactDetails.primaryPhoneNumber" contains the text "01234567890"
-        When I click on the element "submitRegistration.button"
+        When I click on the element "estabContactDetails.button"
         Then I expect the url to not contain "establishment-contact-details"
 
     @SDB-113_happy_path_same_as_operator_edit

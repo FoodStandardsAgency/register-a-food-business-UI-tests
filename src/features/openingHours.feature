@@ -1,4 +1,4 @@
-@opening_hours
+@opening_hours 
 Feature: Opening Hours
 
     Opening Hours section validation
@@ -7,6 +7,7 @@ Feature: Opening Hours
     Scenario: happy path for Opening Hours
         Given I open the url "/cleansession"
         And I open the url "mid-and-east-antrim/opening-days-start"
+        And I click on the element "openingDaysStart.button"
         When I click on the element "openingDaysStart.everyday"
         And I click on the element "openingDaysStart.button"
         Then I expect the url to contain "opening-hours"
@@ -20,7 +21,7 @@ Feature: Opening Hours
         And I click on the element "openingHours.button"
         Then I expect the url to not contain "opening-hours"
 
-    @invalid_opening_hours_monday
+          @invalid_opening_hours_monday
     Scenario: opening hours monday empty
         Given I open the url "/cleansession"
         And I open the url "mid-and-east-antrim/opening-days-start"

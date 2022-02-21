@@ -16,10 +16,11 @@ Feature: Establishment opening days SDB-52
     Scenario: happy path for opening-days-start - everyday
         Given I open the url "/cleansession"
         And I open the url "mid-and-east-antrim/opening-days-start"
+        And I click on the element "openingDaysStart.button"
         When I click on the element "openingDaysStart.everyday"
         And I click on the element "openingDaysStart.button"
         Then I expect the url to not contain "opening-days-start"
-
+        
     @happy_path__someDays_SDB-52
     Scenario: happy path for opening-days-start - someDays
         Given I open the url "/cleansession"
@@ -35,7 +36,7 @@ Feature: Establishment opening days SDB-52
         When I click on the element "openingDaysStart.irregularDays"
         And I click on the element "openingDaysStart.button"
         Then I expect the url to contain "opening-days-irregular"
-
+        
     @not_selected_opening_days_start_SDB-52
     Scenario: error shows when no opening-days-start radio button is selected
         Given I open the url "/cleansession"
@@ -90,9 +91,9 @@ Feature: Establishment opening days SDB-52
         And I pause for 1000ms
         And I click on the element "openingDaysSome.button"
         Then I expect the url to not contain "opening-days-some"
-        When I click on the element "commonElements.backButton"
-        Then I expect that element "openingDaysSome.monday" is selected
-        And I expect that element "openingDaysSome.tuesday" is selected
+        When I click on the element "openingHours.backButton"
+        Then I expect that element "openingDaysSome.monday" is not selected
+        And I expect that element "openingDaysSome.tuesday" is not selected
 
     @opening_days_some_registration_summary_SDB-124
     Scenario: selects all options and summary page displays everyday
@@ -124,7 +125,7 @@ Feature: Establishment opening days SDB-52
         When I set "09:00 to 15:00" to the inputfield "openingHours.friday"
         When I set "09:00 to 15:00" to the inputfield "openingHours.saturday"
         When I set "09:00 to 15:00" to the inputfield "openingHours.sunday"
-        And I click on the element "commonElements.continueButton"
+        And I click on the element "openingHours.button"
         Then I expect the url to not contain "opening-hours"
         When I open the url "mid-and-east-antrim/registration-summary"
         Then I expect that element "registrationSummary.openingDays" contains the text "Every day"
@@ -144,4 +145,5 @@ Feature: Establishment opening days SDB-52
         When I click on the element "openingDaysIrregular.button"
         Then I expect that element "openingDaysIrregular.error" contains the text "Please describe when this establishment is open"
         And I expect that element "openingDaysIrregular.otherDaysIrregular" contains the text "This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters. This is a paragraph containing more than 1500 characters."
+
 

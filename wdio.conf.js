@@ -354,13 +354,13 @@ let config = {
   suites: {
     landingpage: ["./src/features/**/landingPage.feature"],
     establishment: [
-      //"./src/features/**/establishmentContactDetails.feature",
-      // "./src/features/**/establishmentOpeningDate.feature",
-      //"./src/features/**/establishmentTradingName.feature",Y
-      // "./src/features/**/establishmentAddress.feature",
-      //"./src/features/**/establishmentAddressType.feature",Y
-       "./src/features/**/establishmentOpeningDays.feature",
-      // "./src/features/**/openingHours.feature" Y
+      "./src/features/**/establishmentContactDetails.feature",
+      "./src/features/**/establishmentOpeningDate.feature",
+      "./src/features/**/establishmentTradingName.feature",
+      "./src/features/**/establishmentAddress.feature",
+      "./src/features/**/establishmentAddressType.feature",
+      "./src/features/**/establishmentOpeningDays.feature",
+      "./src/features/**/openingHours.feature" 
     ],
     operator: [
       "./src/features/**/operatorAddress.feature",

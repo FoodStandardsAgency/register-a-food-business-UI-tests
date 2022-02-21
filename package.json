@@ -3,10 +3,10 @@
   "version": "11.0.0",
   "scripts": {
     "test:accessibility": "pa11y-ci",
-    "selenium:ui": "IS_LOCAL=true MODE=SELENIUM wdio run wdio.conf.js --parallel=true --suite landingpage operator",
+    "selenium:ui": "IS_LOCAL=true MODE=SELENIUM wdio run wdio.conf.js --parallel=true --suite landingpage establishment operator registrationSubmission operatorextra websitefeatures",
     "selenium:e2e": "IS_LOCAL=true MODE=SELENIUM wdio run wdio.conf.js --parallel=true --suite end2end",
     "selenium:wdio": "IS_LOCAL=true MODE=SELENIUM wdio run wdio.conf.js --parallel=true ",
-    "browserstack:ui": "IS_LOCAL=true MODE=BROWSERSTACK wdio run wdio.conf.js --suite establishment",
+    "browserstack:ui": "IS_LOCAL=true MODE=BROWSERSTACK wdio run wdio.conf.js --suite landingpage establishment operator registrationSubmission operatorextra websitefeatures",
     "browserstack:e2e": "IS_LOCAL=true MODE=BROWSERSTACK wdio run wdio.conf.js --suite end2end",
     "browserstack:wdio": "IS_LOCAL=true MODE=BROWSERSTACK wdio run wdio.conf.js",
     "remote:browserstack:ui": "IS_LOCAL= MODE=BROWSERSTACK wdio run wdio.conf.js --suite landingpage establishment operator registrationSubmission operatorextra websitefeatures",

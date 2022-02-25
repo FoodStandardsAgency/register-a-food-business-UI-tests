@@ -8,6 +8,7 @@ Feature: Operator Contact Details
     Scenario: happy path without optional field
         Given I open the url "/cleansession"
         And I open the url "mid-and-east-antrim/operator-contact-details"
+        And I click on the element "opContactDetails.button"
         When I set "valid@email.com" to the inputfield "opContactDetails.emailAddress"
         And I set "07788292373" to the inputfield "opContactDetails.primaryPhoneNumber"
         And I click on the element "opContactDetails.button"
@@ -20,7 +21,7 @@ Feature: Operator Contact Details
         When I set "valid@email.com" to the inputfield "opContactDetails.emailAddress"
         And I set "07788292373" to the inputfield "opContactDetails.primaryPhoneNumber"
         And I set "07788292121" to the inputfield "opContactDetails.optionalPhoneNumber"
-        And I click on the element "submitRegistration.button"
+        And I click on the element "opContactDetails.button"
         Then I expect the url to not contain "operator-contact-details"
 
     @SDB-156_invalid_email

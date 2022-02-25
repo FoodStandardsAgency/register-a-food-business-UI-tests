@@ -7,6 +7,7 @@ Feature: Registration Role SDB-54
     Scenario: able to change registration role
         #Given I open the url "/cleansession"
         Given I open the url "mid-and-east-antrim/registration-role"
+        And I click on the element "regRole.button"
         When I click on the element "regRole.soleTrader"
         And I click on the element "regRole.partnership"
         Then I expect that element "regRole.partnership" is selected

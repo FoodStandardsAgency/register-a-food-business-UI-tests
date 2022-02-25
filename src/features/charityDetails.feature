@@ -7,6 +7,7 @@ Feature: Testing charity details page: As Jamie I want to declare the details of
     Scenario: testing charity details happy path
         Given I open the url "/cleansession"
         And I open the url "mid-and-east-antrim/operator-charity-details"
+        Then I click on the element "charityDetails.button"
         When I set "Charity Name example" to the inputfield "charityDetails.charityName"
         Then I click on the element "charityDetails.button"
         And I expect the url to not contain "operator-charity-details"

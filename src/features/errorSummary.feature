@@ -8,7 +8,8 @@ Feature: Error Summary SDB-252
     Given I open the url "/cleansession"
     And I open the url "mid-and-east-antrim/operator-name"
     When I click on the element "opContactName.button"
-    And I expect that element "opContactName.error" contains the text "There is a problem"
+    When I click on the element "opContactName.button"
+    And I expect that element "opContactName.error" contains the text "Error: Enter a valid first name"
 
   @enter_invalid_data_SDB-252
   Scenario: enter invalid data and select continue
@@ -16,7 +17,7 @@ Feature: Error Summary SDB-252
     And I open the url "mid-and-east-antrim/operator-name"
     And I set "±±±±" to the inputfield "opContactName.firstName"
     When I click on the element "opContactName.button"
-    Then I expect that element "opContactName.error" contains the text "There is a problem"
+    Then I expect that element "opContactName.error" contains the text "Error: Enter a valid first name"
 
   @fix_invalid_entry_SDB-252
   Scenario: enter invalid data, then valid data, then continue

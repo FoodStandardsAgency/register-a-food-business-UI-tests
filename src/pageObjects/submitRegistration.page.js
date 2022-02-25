@@ -2,8 +2,8 @@ const submitRegistration = {
   firstCheckbox: '[name="declaration1"]',
   secondCheckbox: '[name="declaration2"]',
   thirdCheckbox: '[name="declaration3"]',
-  button: "#continue-button",
-  error: "#errorSummary"
+  button: ".govuk-button",
+  error: ".govuk-error-message"
 };
 
 module.exports = submitRegistration;

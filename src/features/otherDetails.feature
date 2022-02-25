@@ -1,11 +1,12 @@
 @business_other_details
 Feature: As Catelyn I need to be able to give any extra information or describe my business with my own words so that Dani can know more about my business prior to an inspection.
 
-    Other details section validation
+    Other details section validation 
 
     @happy_path_SDB-111
     Scenario: Happy path
         Given I open the url "mid-and-east-antrim/business-other-details"
+        And I click on the element "businessOtherDetails.button"
         When I set "Test Trading Name" to the inputfield "businessOtherDetails.otherDetailsInput"
         And I click on the element "businessOtherDetails.button"
         Then I expect the url to not contain "business-other-details"

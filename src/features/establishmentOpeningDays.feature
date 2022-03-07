@@ -1,104 +1,14 @@
-@establishment_opening_days_SDB-52
+@establishment_opening_days_SDB-52 
 Feature: Establishment opening days SDB-52
 
     Establishment opening days section validation
 
-    @change_opening_days_SDB-52
-    Scenario: able to change over all opening days
-        Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/opening-days-start"
-        When I click on the element "openingDaysStart.everyday"
-        And I click on the element "openingDaysStart.someDays"
-        Then I expect that element "openingDaysStart.someDays" is selected
-        And I expect that checkbox "openingDaysStart.everyday" is not checked
-
-    @happy_path_everyday_SDB-52
-    Scenario: happy path for opening-days-start - everyday
-        Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/opening-days-start"
-        And I click on the element "openingDaysStart.button"
-        When I click on the element "openingDaysStart.everyday"
-        And I click on the element "openingDaysStart.button"
-        Then I expect the url to not contain "opening-days-start"
-        
-    @happy_path__someDays_SDB-52
-    Scenario: happy path for opening-days-start - someDays
-        Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/opening-days-start"
-        When I click on the element "openingDaysStart.someDays"
-        And I click on the element "openingDaysStart.button"
-        Then I expect the url to contain "opening-days-some"
-
-    @happy_path_irregularDays_SDB-52
-    Scenario: happy path for opening-days-start - irregularDays
-        Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/opening-days-start"
-        When I click on the element "openingDaysStart.irregularDays"
-        And I click on the element "openingDaysStart.button"
-        Then I expect the url to contain "opening-days-irregular"
-        
-    @not_selected_opening_days_start_SDB-52
-    Scenario: error shows when no opening-days-start radio button is selected
-        Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/opening-days-start"
-        When I click on the element "openingDaysStart.button"
-        Then I expect that element "openingDaysStart.error" contains the text "Please select which days this establishment is open"
-
-    @can_not_deselect_opening_days_start_option_SDB-52
-    Scenario: I can not deselect every day
-        Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/opening-days-start"
-        When I click on the element "openingDaysStart.everyday"
-        And I click on the element "openingDaysStart.everyday"
-        Then I expect that element "openingDaysStart.everyday" is selected
-
-    @opening_days_some_happy_path_SDB-52
-    Scenario: able to select one statement and proceed
-        Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/opening-days-some"
-        When I click on the element "openingDaysSome.monday"
-        And I click on the element "openingDaysSome.button"
-        Then I expect the url to not contain "opening-days-some"
-
-    @opening_days_some_no_selection_SDB-124
-    Scenario: not selected any options and tries to continue
-        Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/opening-days-some"
-        When I click on the element "openingDaysSome.button"
-        Then I expect the url to contain "opening-days-some"
-        And I expect that element "openingDaysSome.error" contains the text "Please select which days this establishment is open"
-
-    @opening_days_some_deselect_SDB-124
-    Scenario: selects one option and then deselects it
-        Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/opening-days-some"
-        When I click on the element "openingDaysSome.saturday"
-        And I pause for 1000ms
-        And I click on the element "openingDaysSome.saturday"
-        Then I expect that element "openingDaysSome.saturday" is not selected
-
-
-    @opening_days_somes_forward_then_back_SDB-52
-    Scenario: selects one option and then deselects it
-        Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/opening-days-start"
-        When I click on the element "openingDaysStart.someDays"
-        And I click on the element "openingDaysStart.button"
-        Then I expect the url to contain "opening-days-some"
-        When I click on the element "openingDaysSome.monday"
-        And I pause for 1000ms
-        And I click on the element "openingDaysSome.tuesday"
-        And I pause for 1000ms
-        And I click on the element "openingDaysSome.button"
-        Then I expect the url to not contain "opening-days-some"
-        When I click on the element "openingHours.backButton"
-        Then I expect that element "openingDaysSome.monday" is not selected
-        And I expect that element "openingDaysSome.tuesday" is not selected
 
     @opening_days_some_registration_summary_SDB-124
     Scenario: selects all options and summary page displays everyday
         Given I open the url "/cleansession"
         And I open the url "mid-and-east-antrim/opening-days-start"
+         And I click on the element "openingDaysStart.button"
         When I click on the element "openingDaysStart.someDays"
         And I click on the element "openingDaysStart.button"
         Then I expect the url to contain "opening-days-some"
@@ -127,9 +37,9 @@ Feature: Establishment opening days SDB-52
         When I set "09:00 to 15:00" to the inputfield "openingHours.sunday"
         And I click on the element "openingHours.button"
         Then I expect the url to not contain "opening-hours"
-        When I open the url "mid-and-east-antrim/registration-summary"
-        Then I expect that element "registrationSummary.openingDays" contains the text "Every day"
-
+        And I go to a special QA page at url "/qa/mid-and-east-antrim/registration-summary" with injected "registration-summary" data
+        Then I expect that element "registrationSummary.openingDays" contains the text "Monday"
+ 
     @happy_path_opening_days_irregular
     Scenario: Types in text in irregular field details
         Given I open the url "mid-and-east-antrim/opening-days-irregular"

@@ -41,7 +41,9 @@ const registrationSummary = {
   changeEstablishmentEmail: "#changeEstablishmentEmailRow",
   changeEstablishmentLocationType: "#changeEstablishmentLocationType",
   changeActivitiesBusinessImportExportRow: "#changeActivitiesBusinessImportExportRow",
-  changeTradingStartDate: "#establishment_opening_date",
+  changeTradingStartDate: "#main-content > div > div > form > dl:nth-child(14) > div > dd.govuk-summary-list__actions > a",
+  changeTradingStartDateEditSummary: "#main-content > div > div > form > dl:nth-child(22) > div > dd.govuk-summary-list__actions > a",
+  changeTradingStartDateEditSummdarysoletrader: "#main-content > div > div > form > dl:nth-child(17) > div > dd.govuk-summary-list__actions > a",
   changeOpeningDays: "#changeEstablishmentOpeningDaysRow",
   waterSupply: "#water_supply"
 };

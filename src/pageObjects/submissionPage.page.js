@@ -6,7 +6,7 @@ const submissionPage = {
   businessGuidanceLink: "#businessGuidanceLink",
   businessSupportHelplineEnglishLink: "#businessSupportHelplineEnglishLink",
   establishmentAddress: "#establishmentAddressRow",
-  establishmentDetailsTable: "#establishmentDetailsTable",
+  establishmentDetailsTable: "#establishmentDetailsTable", 
   operatorDetailsTable: "#operatorDetailsTable",
   foodActivitiesTable: "#foodActivitiesTable",
   declarationTable: "#declarationTable",

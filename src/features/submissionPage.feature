@@ -1,7 +1,7 @@
 @submission_page
 Feature: As Catelyn I need to be able to see the submission page and be able to find out more information about what happens next so that I can be successful in running my business.
 
-    Submission Page with next steps and links
+    Submission Page with next steps and links 
 
     @SDB-121_food_safety
     Scenario: I want to find out about food safety and how to run a food business
@@ -57,6 +57,7 @@ Feature: As Catelyn I need to be able to see the submission page and be able to 
     Scenario: I want to see my registration info
         Given I open the url "/cleansession"
         And I go to a special QA page at url "/qa/mid-and-east-antrim/declaration" with injected "declaration" data
+        When I click on the element "submitRegistration.button"
         And I click on the element "submitRegistration.firstCheckbox"
         And I pause for 1000ms
         And I click on the element "submitRegistration.secondCheckbox"

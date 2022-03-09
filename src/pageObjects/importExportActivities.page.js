@@ -4,8 +4,8 @@ const importExportActivities = {
   none: "#import_export_activities_none",
   hiddenText: "#hiddenTextImportExportActivities",
   link: "#link-fsa-website",
-  button: "#continue-button",
-  error: "#errorSummary"
+  button: ".govuk-button",
+  error: ".govuk-error-message"
 };
 
 module.exports = importExportActivities;

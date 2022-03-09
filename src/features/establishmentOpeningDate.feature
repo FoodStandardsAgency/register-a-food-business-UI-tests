@@ -7,6 +7,7 @@ Feature: testing establishment opening status and date
     Scenario: proactive trading date happy path
         Given I open the url "/cleansession"
         And I open the url "mid-and-east-antrim/establishment-opening-status"
+        And I click on the element "estabOpeningDate.button"
         When I click on the element "estabOpeningDate.notTrading"
         And I click on the element "estabOpeningDate.button"
         Then I expect the url to contain "establishment-opening-date-proactive"

@@ -5,6 +5,7 @@ Feature: Water Supply
     Scenario: able to select one statement and proceed
         Given I open the url "/cleansession"
         And I open the url "mid-and-east-antrim/business-water-supply"
+        And I click on the element "businessWaterSupply.button"
         When I click on the element "businessWaterSupply.private"
         And I click on the element "businessWaterSupply.button"
         Then I expect the url to not contain "business-water-supply"
@@ -36,29 +37,9 @@ Feature: Water Supply
         When I click on the element "businessWaterSupply.publicAndPrivate"
         And I click on the element "businessWaterSupply.button"
         Then I expect the url to not contain "business-water-supply"
-        When I open the url "mid-and-east-antrim/registration-summary"
-        Then I expect that element "registrationSummary.waterSupply" contains the text "Public and private"
-
-    @water_supply_public_registration_summary_SDB-1125
-    Scenario: selects Public and goes to registration-summary
-        Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/business-water-supply"
-        When I click on the element "businessWaterSupply.public"
-        And I click on the element "businessWaterSupply.button"
-        Then I expect the url to not contain "business-water-supply"
-        When I open the url "mid-and-east-antrim/registration-summary"
+        And I go to a special QA page at url "/qa/mid-and-east-antrim/registration-summary" with injected "registration-summary-partnership" data
         Then I expect that element "registrationSummary.waterSupply" contains the text "Public"
-
-    @water_supply_private_registration_summary_SDB-1125
-    Scenario: selects Private and goes to registration-summary
-        Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/business-water-supply"
-        When I click on the element "businessWaterSupply.private"
-        And I click on the element "businessWaterSupply.button"
-        Then I expect the url to not contain "business-water-supply"
-        When I open the url "mid-and-east-antrim/registration-summary"
-        Then I expect that element "registrationSummary.waterSupply" contains the text "Private"
-
+        
     @water_supply_change_option_SDB-1125
     Scenario: selects one option and then changes it
         Given I open the url "/cleansession"

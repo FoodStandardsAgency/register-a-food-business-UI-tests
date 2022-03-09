@@ -7,10 +7,10 @@ Feature: As Catelyn I need to be able to choose my business activities so that m
     Scenario: testing business type in happy path
         Given I open the url "/cleansession"
         And I open the url "mid-and-east-antrim/business-type"
-        When I set "Restaurant" to the inputfield "businessTypeIn.search"
+        And I click on the element "businessTypeIn.button"
+        When I set "Alcohol" to the inputfield "businessTypeIn.search"
         And I click on the element "businessTypeIn.option2"
         When I click on the element "businessTypeIn.button"
-        And I click on the element "businessTypeIn.button"
         Then I expect the url to not contain "business-type"
 
     @business_Type_In_no_selection_SDB-5

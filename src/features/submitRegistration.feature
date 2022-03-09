@@ -5,6 +5,7 @@ Feature: Declaration Page
     Scenario: declaration page flow to application complete
         Given I open the url "/cleansession"
         And I go to a special QA page at url "/qa/mid-and-east-antrim/declaration" with injected "declaration" data
+        When I click on the element "submitRegistration.button"
         And I click on the element "submitRegistration.firstCheckbox"
         And I pause for 1000ms
         And I click on the element "submitRegistration.secondCheckbox"

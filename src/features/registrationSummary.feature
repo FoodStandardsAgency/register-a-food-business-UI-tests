@@ -1,14 +1,15 @@
-@registration_summary
-Feature: Summary Page
+@registration_summary  
+Feature: Summary 
 
   @SDB-8_happy_path_navigation
   Scenario: navigate to declaration page
     Given I open the url "/cleansession"
     And I go to a special QA page at url "/qa/mid-and-east-antrim/registration-summary" with injected "registration-summary" data
     When I click on the element "registrationSummary.button"
+    When I click on the element "registrationSummary.button"
     Then I expect the url to not contain "registration-summary"
 
-  @SDB-8_missing_data
+  @SDB-8_missing_data 
   Scenario: missing data not displayed
     Given I open the url "/cleansession"
     And I open the url "mid-and-east-antrim/establishment-trading-name"

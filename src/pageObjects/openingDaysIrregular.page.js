@@ -1,7 +1,7 @@
 const openingDaysIrregular = {
   otherDaysIrregular: "#opening_days_irregular",
-  button: "#continue-button",
-  error: "#errorSummary"
+  button: ".govuk-button",
+  error: ".govuk-error-message"
 };
 
 module.exports = openingDaysIrregular;

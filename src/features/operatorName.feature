@@ -6,6 +6,7 @@ Feature: Operator Name
     @happy_path_SDB-35
     Scenario: happy path for Operator Name
         Given I open the url "mid-and-east-antrim/operator-name"
+        And I click on the element "opContactName.button"
         When I set "Bob" to the inputfield "opContactName.firstName"
         And I set "Smith" to the inputfield "opContactName.lastName"
         And I click on the element "opContactName.button"

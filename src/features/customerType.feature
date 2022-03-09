@@ -7,6 +7,7 @@ Feature: Customer Type
     Scenario: happy path for selecting supply food to other businesses
         Given I open the url "/cleansession"
         And I open the url "mid-and-east-antrim/customer-type"
+        And I click on the element "custType.button"
         When I click on the element "custType.supplyOther"
         And I click on the element "custType.button"
         Then I expect the url to not contain "customer-type"

@@ -1,4 +1,4 @@
-@establishment_address_type_SDB-50
+@establishment_address_type_SDB-50 
 Feature: As Jamie I need to be able to fill in details about my establishments whereabouts so that Ric can know what access is required when arranging an inspection
 
     Establishment address type section validation

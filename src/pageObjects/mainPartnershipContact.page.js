@@ -5,7 +5,7 @@ const mainPartnershipContact = {
     partnerFour: "#partner-3",
     partnerFive: "#partner-4",
     operatorAddressHeader: "#operator-address-header",
-    error: "#errorSummary",
+    error: ".govuk-error-message"
   };
   
   module.exports = mainPartnershipContact;

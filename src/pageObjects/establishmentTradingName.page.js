@@ -1,7 +1,7 @@
 const estabTradingName = {
-  tradingNameInput: '[name="establishment_trading_name"]',
-  button: "#continue-button",
-  error: "#errorSummary"
+  tradingNameInput: "#establishment_trading_name",
+  button: ".govuk-button",
+  error: ".govuk-error-message"
 };
 
 module.exports = estabTradingName;

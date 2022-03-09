@@ -6,6 +6,7 @@ Feature: Limited Company SDB-36
     @happy_path_SDB-36
     Scenario: happy path
         Given I open the url "mid-and-east-antrim/operator-company-details"
+        And I click on the element "companyDetails.button"
         When I set "Bob's Burgers" to the inputfield "companyDetails.name"
         And I set "12345678" to the inputfield "companyDetails.companiesHouseNumber"
         And I click on the element "companyDetails.button"

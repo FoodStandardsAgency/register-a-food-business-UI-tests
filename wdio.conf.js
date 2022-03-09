@@ -360,7 +360,7 @@ let config = {
       "./src/features/**/establishmentAddress.feature",
       "./src/features/**/establishmentAddressType.feature",
       "./src/features/**/establishmentOpeningDays.feature",
-      "./src/features/**/openingHours.feature"
+      "./src/features/**/openingHours.feature" 
     ],
     operator: [
       "./src/features/**/operatorAddress.feature",

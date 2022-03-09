@@ -7,13 +7,14 @@ Feature: As Jamie I need to declare my import and export activities so that Ric 
     Scenario: able to select one statement and proceed
         Given I open the url "/cleansession"
         And I open the url "mid-and-east-antrim/business-import-export"
+        And I click on the element "importExportActivities.button"
         When I click on the element "importExportActivities.directImport"
         And I click on the element "importExportActivities.button"
         Then I expect the url to not contain "business-import-export"
 
-    @import_export_activities_no_selection_SDB-124
+    @import_export_activities_no_selection_SDB-124 
     Scenario: not selected any options and tries to continue
-        Given I open the url "/cleansession"
+        Given I open the url "/cleansession" 
         And I open the url "mid-and-east-antrim/business-import-export"
         When I click on the element "importExportActivities.button"
         Then I expect the url to contain "business-import-export"

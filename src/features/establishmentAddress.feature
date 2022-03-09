@@ -46,7 +46,7 @@ Feature: As Catelyn I need the service to look up my address and I can select th
         When I click on the element "estabAddress.changePostcode"
         Then I expect the url to contain "establishment-address"
         And I expect that element "estabAddress.postcode" contains the text "BS249ST"
-
+ 
     @SDB-12_establishment_address_cant_find_address
     Scenario: entering postcode, pressing Find Address and then not able to find address in dropdown
         Given I open the url "/cleansession"

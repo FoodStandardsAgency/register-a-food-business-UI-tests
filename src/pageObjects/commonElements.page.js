@@ -16,6 +16,7 @@ const commonElements = {
   button:".govuk-button",
   continuetonextpageButton:"#continue-button",
   continueButton : "#main-content > div > div > fieldset > form:nth-child(7) > button",
+  fullPartnerContinue : "#main-content > div > div > fieldset > form:nth-child(5) > button",
   error: ".govuk-error-message"
 };
 

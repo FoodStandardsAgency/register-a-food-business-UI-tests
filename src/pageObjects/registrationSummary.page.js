@@ -46,7 +46,7 @@ const registrationSummary = {
   changeActivitiesBusinessImportExportRow:
     "#changeActivitiesBusinessImportExportRow",
   changeTradingStartDate:
-    "#main-content > div > div > form > dl:nth-child(14) > div > dd.govuk-summary-list__actions > a",
+    "#main-content > div > div > form > dl:nth-child(12) > div > dd.govuk-summary-list__actions > a",
   changeTradingStartDateEditSummary:
     "#main-content > div > div > form > dl:nth-child(22) > div > dd.govuk-summary-list__actions > a",
   changeTradingStartDateEditSummdarysoletrader:

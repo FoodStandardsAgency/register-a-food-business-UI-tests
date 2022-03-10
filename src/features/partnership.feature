@@ -6,7 +6,6 @@ Feature: partnership
     Scenario: Deleting partner
         Given I open the url "/cleansession"
         And I go to a special QA page at url "/qa/mid-and-east-antrim/partner-name" with injected "two-partnership" data
-        And I click on the element "partnerName.button"
         Then I expect that element "partnerName.partnerOne" contains the text "one"
         And I expect that element "partnerName.partnerTwo" contains the text "two"
         And I expect that element "partnerName.button" does exist

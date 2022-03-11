@@ -5,6 +5,6 @@ const estabOpeningDate = {
   month: '[name="month"]',
   year: '[name="year"]',
   error: ".govuk-error-message",
-  button: ".govuk-button"
+  button: "form .govuk-button",
 };
 module.exports = estabOpeningDate;

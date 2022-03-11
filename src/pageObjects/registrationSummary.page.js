@@ -23,7 +23,8 @@ const registrationSummary = {
   establishmentEmail: "#establishment_email",
   establishmentAddressStreet: "#establishment_address_line_2",
   foodActivities: "#import_export_activities",
-  openingDays: "#opening_day_monday",
+  openingDaysMonday: "#opening_day_monday",
+  openingDaysTuesday: "#opening_day_tuesday",
   tradingStartDate: "#establishment_opening_date",
   customertype: "#customer_type",
   businessType: "#business_type",
@@ -51,7 +52,8 @@ const registrationSummary = {
     "#main-content > div > div > form > dl:nth-child(22) > div > dd.govuk-summary-list__actions > a",
   changeTradingStartDateEditSummdarysoletrader:
     "#main-content > div > div > form > dl:nth-child(17) > div > dd.govuk-summary-list__actions > a",
-  changeOpeningDays: "#changeEstablishmentOpeningDaysRow",
+  changeOpeningDays:
+    "#main-content > div > div > form > dl:nth-child(13) > div > dd.govuk-summary-list__actions > a",
   waterSupply: "#water_supply",
 };
 

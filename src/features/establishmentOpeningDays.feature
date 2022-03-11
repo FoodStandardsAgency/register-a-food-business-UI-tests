@@ -38,7 +38,7 @@ Feature: Establishment opening days SDB-52
         And I click on the element "openingHours.button"
         Then I expect the url to not contain "opening-hours"
         And I go to a special QA page at url "/qa/mid-and-east-antrim/registration-summary" with injected "registration-summary" data
-        Then I expect that element "registrationSummary.openingDays" contains the text "Monday"
+        Then I expect that element "registrationSummary.openingDaysMonday" contains the text "Monday"
  
     @happy_path_opening_days_irregular
     Scenario: Types in text in irregular field details

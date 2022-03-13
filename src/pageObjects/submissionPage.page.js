@@ -6,12 +6,12 @@ const submissionPage = {
   businessGuidanceLink: "#businessGuidanceLink",
   businessSupportHelplineEnglishLink: "#businessSupportHelplineEnglishLink",
   establishmentAddress: "#establishmentAddressRow",
-  establishmentDetailsTable: "#main-content > div > div > fieldset > h2:nth-child(9)", 
-  operatorDetailsTable: "#main-content > div > div > fieldset > h2:nth-child(3)",
-  foodActivitiesTable: "#main-content > div > div > fieldset > h2:nth-child(19)",
-  declarationTable: "#main-content > div > div > fieldset > h2:nth-child(23)",
+  establishmentDetailsTable: "#establishment-details",
+  operatorDetailsTable: "#operator-details",
+  foodActivitiesTable: "#activity-details",
+  declarationTable: "#declaration-details",
   button: "#continue-button",
-  error: "#errorSummary"
+  error: "#errorSummary",
 };
 
 module.exports = submissionPage;

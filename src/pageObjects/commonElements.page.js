@@ -1,6 +1,6 @@
 const commonElements = { 
-  backButton: "body > div > div.govuk-grid-row > div.govuk-grid-column-two-thirds > a",
-  betaLink: "body > div > div.govuk-phase-banner > p > span > a",
+  backButton: "#main-content > div:nth-child(2) > div.govuk-grid-column-two-thirds > a",
+  betaLink: "#main-content > div.govuk-phase-banner > p > span > a",
   cookieBanner: "#cookieBanner",
   cookieInfo: "body > div.govuk-cookie-banner > div > div.govuk-button-group > a:nth-child(3)",
   cookiePolicy: "body > div.govuk-cookie-banner > div > div.govuk-button-group > a:nth-child(4)",

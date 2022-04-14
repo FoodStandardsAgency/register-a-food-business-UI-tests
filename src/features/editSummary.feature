@@ -7,6 +7,7 @@ Feature: As Samantha I need to be able to edit details in the summary of my regi
         Given I open the url "/cleansession"
         And I go to a special QA page at url "/qa/mid-and-east-antrim/registration-summary" with injected "registration-summary" data
         When I click on the element "registrationSummary.button"
+        When I click on the element "registrationSummary.button"
         Then I expect the url to contain "declaration"
 
     @SDB-157_editing_operator_email
@@ -55,4 +56,4 @@ Feature: As Samantha I need to be able to edit details in the summary of my regi
         And I expect that element "commonElements.backButton" is not visible
         When I set "±±±" to the inputfield "opContactDetails.emailAddress"
         And I click on the element "opContactDetails.button"
-        Then I expect that element "opContactDetails.error" contains the text "Not a valid operator email address"
+        Then I expect that element "opContactDetails.error" contains the text "Enter a valid operator email address"

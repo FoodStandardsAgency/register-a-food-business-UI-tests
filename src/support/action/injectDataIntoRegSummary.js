@@ -7,9 +7,10 @@ const datasets = {
     operator_town: "Town",
     operator_postcode: "AA11 1AA",
     operator_postcode_find: "AA11 1AA",
-    operator_first_name: "Joe",
+    operator_first_name: "Fred",
     operator_last_name: "Bloggs",
     operator_primary_number: "01234567890",
+    establishment_secondary_number: "02293928372",
     operator_email: "email@email.com",
     registration_role: "SOLETRADER",
     establishment_trading_name: "Trading name",
@@ -22,6 +23,7 @@ const datasets = {
     establishment_type: "DOMESTIC",
     establishment_primary_number: "01434567890",
     establishment_email: "emfffsfsdfail@email.com",
+    establishment_web_address: "test.com",
     business_type: "Livestock farm",
     customer_type: "END_CONSUMER",
     supply_directly: "true",
@@ -35,7 +37,7 @@ const datasets = {
     opening_day_monday: "Monday",
     opening_hours_monday: "09:30 - 19:00",
     water_supply: "PUBLIC",
-    directly_import: "Directly import"
+    directly_import: "Directly import",
   },
   "registration-summary-charity": {
     registration_role: "Representative",
@@ -62,34 +64,49 @@ const datasets = {
     month: "01",
     year: "2001",
     opening_days_irregular: "Every day",
-    water_supply: "PUBLIC"
+    water_supply: "PUBLIC",
   },
   "registration-summary-partnership": {
     operator_type: "COMPANY",
-    registration_role: "PARTNERSHIP",
-    operator_first_name: "Percy",
-    operator_last_name: "McPartnership",
     operator_address_line_1: "First line",
     operator_address_line_2: "Street",
+    operator_address_line_3: "Somewhere",
     operator_town: "Town",
     operator_postcode: "AA11 1AA",
+    operator_postcode_find: "AA11 1AA",
+    operator_first_name: "Fred",
+    operator_last_name: "Bloggs",
     operator_primary_number: "01234567890",
+    establishment_secondary_number: "02293928372",
     operator_email: "email@email.com",
+    registration_role: "PARTNERSHIP",
     establishment_trading_name: "Trading name",
     establishment_address_line_1: "First line",
     establishment_address_line_2: "Street",
+    establishment_address_line_3: "Somewhere",
     establishment_town: "Town",
     establishment_postcode: "AA11 1AA",
+    establishment_postcode_find: "AA11 1AA",
     establishment_type: "DOMESTIC",
+    establishment_primary_number: "01434567890",
+    establishment_email: "emfffsfsdfail@email.com",
+    establishment_web_address: "test.com",
     business_type: "Livestock farm",
+    customer_type: "END_CONSUMER",
+    supply_directly: "true",
+    supply_other: "true",
     establishment_opening_status: "Establishment is already trading",
     day: "01",
     month: "01",
     year: "2001",
-    opening_days_irregular: "Every day",
+    opening_days_start: "Some days",
+    opening_days_some: "Monday",
+    opening_day_monday: "Monday",
+    opening_hours_monday: "09:30 - 19:00",
+    water_supply: "PUBLIC",
+    directly_import: "Directly import",
     partners: ["One", "Two", "Three"],
     main_partnership_contact: "One",
-    water_supply: "PUBLIC"
   },
   "registration-summary-representative": {
     registration_role: "Representative",
@@ -122,12 +139,12 @@ const datasets = {
     year: "2001",
     opening_days_irregular: "Every day",
     water_supply: "PUBLIC",
-    directly_import: "Directly import"
+    directly_import: "Directly import",
   },
   "registration-summary-trading-every-day": {
-    opening_days_start: "Every day"
+    opening_days_start: "Every day",
   },
-  "declaration": {
+  declaration: {
     operator_first_name: "Fred",
     operator_last_name: "Bloggs",
     operator_postcode: "AA11 1AA",
@@ -162,15 +179,21 @@ const datasets = {
     month: "01",
     year: "2001",
     directly_import: "Directly import",
-    water_supply: "PUBLIC"
+    water_supply: "PUBLIC",
   },
   "blank-partnership": {
-    registration_role: "PARTNERSHIP"
+    registration_role: "PARTNERSHIP",
   },
   "two-partnership": {
     registration_role: "PARTNERSHIP",
-    partners: ["one", "two"]
-  }
+    partners: ["one", "two"],
+  },
+};
+
+datasets["registration-summary-welsh"] = {
+  ...datasets["registration-summary"],
+  business_type: "Fferm da byw",
+  language: "cy",
 };
 
 module.exports = async (url, selectedDataset) => {
@@ -187,7 +210,7 @@ module.exports = async (url, selectedDataset) => {
 
   // function to create a URL-encoded query string from an object.
   // e.g. {key: value, name: John Smith} is returned as "key=value&name=John%20Smith"
-  const encode = obj => {
+  const encode = (obj) => {
     var str = [];
     for (var p in obj)
       if (p === "partners") {

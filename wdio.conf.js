@@ -360,7 +360,7 @@ let config = {
       "./src/features/**/establishmentAddress.feature",
       "./src/features/**/establishmentAddressType.feature",
       "./src/features/**/establishmentOpeningDays.feature",
-      "./src/features/**/openingHours.feature"
+      "./src/features/**/openingHours.feature" 
     ],
     operator: [
       "./src/features/**/operatorAddress.feature",
@@ -376,7 +376,7 @@ let config = {
       "./src/features/**/submitRegistration.feature",
       "./src/features/**/registrationSummary.feature",
       "./src/features/**/editSummary.feature",
-      "./src/features/**/editSummaryMultiPage.feature",
+      "./src/features/**/editSummary/*.feature",
       "./src/features/**/submissionPage.feature",
       "./src/features/**/receiveConfirmationNumber.feature"
     ],

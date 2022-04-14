@@ -7,8 +7,9 @@ Feature: As Catelyn I need the service to look up my address and I can select th
     Scenario: able to find address using lookup service on the operator address page
         Given I open the url "/cleansession"
         And I open the url "mid-and-east-antrim/operator-address"
+        When I click on the element "opAddress.button"
         And I set "BS249ST" to the inputfield "opAddress.postcode"
-        When I click on the element "opAddress.findAddress"
+        When I click on the element "opAddress.button"
         Then I expect the url to contain "operator-address-select"
         When I click on the element "opAddress.button"
         Then I expect the url to not contain "operator-address-select"
@@ -18,7 +19,7 @@ Feature: As Catelyn I need the service to look up my address and I can select th
         Given I open the url "/cleansession"
         And I open the url "mid-and-east-antrim/operator-address"
         And I set "BS249ST" to the inputfield "opAddress.postcode"
-        When I click on the element "opAddress.findAddress"
+        When I click on the element "opAddress.button"
         Then I expect the url to contain "operator-address-select"
         When I select the 2nd option for element "opAddress.postcodeDropdown"
         And I click on the element "opAddress.button"
@@ -29,7 +30,7 @@ Feature: As Catelyn I need the service to look up my address and I can select th
         Given I open the url "/cleansession"
         And I open the url "mid-and-east-antrim/operator-address"
         And I set "§§§" to the inputfield "opAddress.postcode"
-        When I click on the element "opAddress.findAddress"
+        When I click on the element "opAddress.button"
         Then I expect that element "opAddress.error" contains the text "Not a valid postcode"
 
     @SDB-12_operator_address_change_postcode
@@ -37,7 +38,7 @@ Feature: As Catelyn I need the service to look up my address and I can select th
         Given I open the url "/cleansession"
         And I open the url "mid-and-east-antrim/operator-address"
         And I set "BS249ST" to the inputfield "opAddress.postcode"
-        When I click on the element "opAddress.findAddress"
+        When I click on the element "opAddress.button"
         Then I expect the url to contain "operator-address-select"
         And I expect that element "opAddress.postcodeDisplay" contains the text "BS249ST"
         When I click on the element "opAddress.changePostcode"
@@ -49,7 +50,7 @@ Feature: As Catelyn I need the service to look up my address and I can select th
         Given I open the url "/cleansession"
         And I open the url "mid-and-east-antrim/operator-address"
         And I set "BS249ST" to the inputfield "opAddress.postcode"
-        When I click on the element "opAddress.findAddress"
+        When I click on the element "opAddress.button"
         Then I expect the url to contain "operator-address-select"
         And I expect that element "opAddress.postcodeDisplay" contains the text "BS249ST"
         When I click on the element "opAddress.cantFindAddressLink"
@@ -64,12 +65,12 @@ Feature: As Catelyn I need the service to look up my address and I can select th
     Scenario: using manual input - error
         Given I open the url "/cleansession"
         And I open the url "mid-and-east-antrim/operator-address-manual"
-        When I set "±±±" to the inputfield "opAddress.firstline"
+        When I set "InvalidLongAddressLine..........................................................................................................................................................................................................................................." to the inputfield "opAddress.firstline"
         And I set "BS249ST" to the inputfield "opAddress.manualPostcode"
         And I click on the element "opAddress.button"
-        Then I expect that element "opAddress.error" contains the text "Not a valid first line of address"
+        Then I expect that element "opAddress.error" contains the text "Enter a valid first line of address"
         And I expect that element "opAddress.manualPostcode" contains the text "BS249ST"
-        And I expect that element "opAddress.firstline" contains the text "±±±"
+        And I expect that element "opAddress.firstline" contains the text "InvalidLongAddressLine..........................................................................................................................................................................................................................................."
 
     @SDB-12_operator_address_cant_find_address_error_no_firstline
     Scenario: using manual input - error
@@ -77,7 +78,7 @@ Feature: As Catelyn I need the service to look up my address and I can select th
         And I open the url "mid-and-east-antrim/operator-address-manual"
         And I set "BS249ST" to the inputfield "opAddress.manualPostcode"
         And I click on the element "opAddress.button"
-        Then I expect that element "opAddress.error" contains the text "Not a valid first line of address"
+        Then I expect that element "opAddress.error" contains the text "Enter a valid first line of address"
         And I expect that element "opAddress.manualPostcode" contains the text "BS249ST"
 
     @SDB-12_operator_address_cant_find_address_error_postcode
@@ -85,9 +86,10 @@ Feature: As Catelyn I need the service to look up my address and I can select th
         Given I open the url "/cleansession"
         And I open the url "mid-and-east-antrim/operator-address-manual"
         When I set "test first line" to the inputfield "opAddress.firstline"
+        When I set "town" to the inputfield "opAddress.town"
         And I set "±±±" to the inputfield "opAddress.manualPostcode"
         And I click on the element "opAddress.button"
-        Then I expect that element "opAddress.error" contains the text "Not a valid postcode"
+        Then I expect that element "opAddress.error" contains the text "Enter a valid postcode"
         And I expect that element "opAddress.manualPostcode" contains the text "±±±"
         And I expect that element "opAddress.firstline" contains the text "test first line"
 
@@ -96,8 +98,9 @@ Feature: As Catelyn I need the service to look up my address and I can select th
         Given I open the url "/cleansession"
         And I open the url "mid-and-east-antrim/operator-address-manual"
         When I set "test first line" to the inputfield "opAddress.firstline"
+        When I set "town" to the inputfield "opAddress.town"
         And I click on the element "opAddress.button"
-        Then I expect that element "opAddress.error" contains the text "Not a valid postcode"
+        Then I expect that element "opAddress.error" contains the text "Enter a valid postcode"
         And I expect that element "opAddress.firstline" contains the text "test first line"
 
 
@@ -107,12 +110,12 @@ Feature: As Catelyn I need the service to look up my address and I can select th
         And I open the url "mid-and-east-antrim/operator-address-manual"
         When I set "First Line" to the inputfield "opAddress.firstline"
         And I set "BS249ST" to the inputfield "opAddress.manualPostcode"
-        And I set "±±±" to the inputfield "opAddress.locality"
+        And I set "InvalidLongAddressLine..........................................................................................................................................................................................................................................." to the inputfield "opAddress.locality"
         And I click on the element "opAddress.button"
-        Then I expect that element "opAddress.error" contains the text "Not a valid third line of address"
+        Then I expect that element "opAddress.error" contains the text "Enter a valid third line of address"
         And I expect that element "opAddress.manualPostcode" contains the text "BS249ST"
         And I expect that element "opAddress.firstline" contains the text "First Line"
-        And I expect that element "opAddress.locality" contains the text "±±±"
+        And I expect that element "opAddress.locality" contains the text "InvalidLongAddressLine..........................................................................................................................................................................................................................................."
 
     @operator_address_cant_find_address_success_with_locality
     Scenario: using manual input - success

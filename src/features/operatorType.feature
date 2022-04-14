@@ -1,5 +1,5 @@
 @operator_type
-Feature: Operator Type
+Feature: Operator Type 
 
     Operator Type section validation
 
@@ -7,6 +7,7 @@ Feature: Operator Type
     @change_operator_type_SDB-55
     Scenario: able to change Operator Type
         Given I open the url "mid-and-east-antrim/operator-type"
+        And I click on the element "opType.button"
         When I click on the element "opType.operatorPerson"
         And I click on the element "opType.operatorCompany"
         Then I expect that element "opType.operatorCompany" is selected

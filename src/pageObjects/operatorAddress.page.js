@@ -3,15 +3,15 @@ const opAddress = {
   street: '[name="operator_address_line_2"]',
   locality: '[name="operator_address_line_3"]',
   town: '[name="operator_town"]',
-  postcode: '[name="operator_postcode_find"]',
+  postcode: '#operator_postcode_find',
   manualPostcode: '[name="operator_postcode"]',
   findAddress: "#find-address",
-  postcodeDisplay: ".operatorPostcodeDisplay",
-  changePostcode: "#changeOperatorPostcode",
+  postcodeDisplay: "#main-content > div > div > form > dl > div > dd.govuk-summary-list__value",
+  changePostcode: "#main-content > div > div > form > dl > div > dd.govuk-summary-list__actions > a",
   postcodeDropdown: "#operatorAddressDropdown",
   cantFindAddressLink: "#cantFindAddressLink",
-  button: "#continue-button",
-  error: "#errorSummary"
+  button: ".govuk-button",
+  error: ".govuk-error-message"
 };
 
 module.exports = opAddress;

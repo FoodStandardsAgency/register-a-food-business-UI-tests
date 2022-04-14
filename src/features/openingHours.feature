@@ -1,4 +1,4 @@
-@opening_hours
+@opening_hours 
 Feature: Opening Hours
 
     Opening Hours section validation
@@ -7,6 +7,7 @@ Feature: Opening Hours
     Scenario: happy path for Opening Hours
         Given I open the url "/cleansession"
         And I open the url "mid-and-east-antrim/opening-days-start"
+        And I click on the element "openingDaysStart.button"
         When I click on the element "openingDaysStart.everyday"
         And I click on the element "openingDaysStart.button"
         Then I expect the url to contain "opening-hours"
@@ -20,7 +21,7 @@ Feature: Opening Hours
         And I click on the element "openingHours.button"
         Then I expect the url to not contain "opening-hours"
 
-    @invalid_opening_hours_monday
+          @invalid_opening_hours_monday
     Scenario: opening hours monday empty
         Given I open the url "/cleansession"
         And I open the url "mid-and-east-antrim/opening-days-start"
@@ -32,7 +33,7 @@ Feature: Opening Hours
         Then I expect the url to contain "opening-hours"
         When I click on the element "openingHours.button"
         And I pause for 2000ms
-        Then I expect that element "openingHours.error" contains the text "Invalid opening hours on Monday"
+        Then I expect that element "openingHours.error" contains the text "Enter the establishment opening hours for Monday using 24 hour clocks"
 
     @invalid_opening_hours_monday
     Scenario: opening hours monday too long
@@ -46,7 +47,7 @@ Feature: Opening Hours
         Then I expect the url to contain "opening-hours"
         When I set "This is a paragraph containing more than 50 characters" to the inputfield "openingHours.monday"
         When I click on the element "openingHours.button"
-        Then I expect that element "openingHours.error" contains the text "Invalid opening hours on Monday"
+        Then I expect that element "openingHours.error" contains the text "Enter the establishment opening hours for Monday using 24 hour clocks"
 
     @invalid_opening_hours_tuesday
     Scenario: opening hours tuesday empty
@@ -59,7 +60,7 @@ Feature: Opening Hours
         And I click on the element "openingDaysSome.button"
         Then I expect the url to contain "opening-hours"
         When I click on the element "openingHours.button"
-        Then I expect that element "openingHours.error" contains the text "Invalid opening hours on Tuesday"
+        Then I expect that element "openingHours.error" contains the text "Enter the establishment opening hours for Tuesday using 24 hour clocks"
 
     @invalid_opening_hours_tuesday
     Scenario: opening hours tuesday too long
@@ -73,7 +74,7 @@ Feature: Opening Hours
         Then I expect the url to contain "opening-hours"
         When I set "This is a paragraph containing more than 50 characters" to the inputfield "openingHours.tuesday"
         When I click on the element "openingHours.button"
-        Then I expect that element "openingHours.error" contains the text "Invalid opening hours on Tuesday"
+        Then I expect that element "openingHours.error" contains the text "Enter the establishment opening hours for Tuesday using 24 hour clocks"
 
     @invalid_opening_hours_wednesday
     Scenario: opening hours wednesday empty
@@ -86,7 +87,7 @@ Feature: Opening Hours
         And I click on the element "openingDaysSome.button"
         Then I expect the url to contain "opening-hours"
         When I click on the element "openingHours.button"
-        Then I expect that element "openingHours.error" contains the text "Invalid opening hours on Wednesday"
+        Then I expect that element "openingHours.error" contains the text "Enter the establishment opening hours for Wednesday using 24 hour clocks"
 
     @invalid_opening_hours_wednesday
     Scenario: opening hours wednesday too long
@@ -100,7 +101,7 @@ Feature: Opening Hours
         Then I expect the url to contain "opening-hours"
         When I set "This is a paragraph containing more than 50 characters" to the inputfield "openingHours.wednesday"
         When I click on the element "openingHours.button"
-        Then I expect that element "openingHours.error" contains the text "Invalid opening hours on Wednesday"
+        Then I expect that element "openingHours.error" contains the text "Enter the establishment opening hours for Wednesday using 24 hour clocks"
 
     @invalid_opening_hours_thursday
     Scenario: opening hours thursday empty
@@ -113,7 +114,7 @@ Feature: Opening Hours
         And I click on the element "openingDaysSome.button"
         Then I expect the url to contain "opening-hours"
         When I click on the element "openingHours.button"
-        Then I expect that element "openingHours.error" contains the text "Invalid opening hours on Thursday"
+        Then I expect that element "openingHours.error" contains the text "Enter the establishment opening hours for Thursday using 24 hour clocks"
 
     @invalid_opening_hours_thursday
     Scenario: opening hours thursday too long
@@ -127,7 +128,7 @@ Feature: Opening Hours
         Then I expect the url to contain "opening-hours"
         When I set "This is a paragraph containing more than 50 characters" to the inputfield "openingHours.thursday"
         When I click on the element "openingHours.button"
-        Then I expect that element "openingHours.error" contains the text "Invalid opening hours on Thursday"
+        Then I expect that element "openingHours.error" contains the text "Enter the establishment opening hours for Thursday using 24 hour clocks"
 
     @invalid_opening_hours_friday
     Scenario: opening hours friday empty
@@ -140,7 +141,7 @@ Feature: Opening Hours
         And I click on the element "openingDaysSome.button"
         Then I expect the url to contain "opening-hours"
         When I click on the element "openingHours.button"
-        Then I expect that element "openingHours.error" contains the text "Invalid opening hours on Friday"
+        Then I expect that element "openingHours.error" contains the text "Enter the establishment opening hours for Friday using 24 hour clocks"
 
     @invalid_opening_hours_friday
     Scenario: opening hours friday too long
@@ -154,7 +155,7 @@ Feature: Opening Hours
         Then I expect the url to contain "opening-hours"
         When I set "This is a paragraph containing more than 50 characters" to the inputfield "openingHours.friday"
         When I click on the element "openingHours.button"
-        Then I expect that element "openingHours.error" contains the text "Invalid opening hours on Friday"
+        Then I expect that element "openingHours.error" contains the text "Enter the establishment opening hours for Friday using 24 hour clocks"
 
     @invalid_opening_hours_saturday
     Scenario: opening hours saturday empty
@@ -167,7 +168,7 @@ Feature: Opening Hours
         And I click on the element "openingDaysSome.button"
         Then I expect the url to contain "opening-hours"
         When I click on the element "openingHours.button"
-        Then I expect that element "openingHours.error" contains the text "Invalid opening hours on Saturday"
+        Then I expect that element "openingHours.error" contains the text "Enter the establishment opening hours for Saturday using 24 hour clocks"
 
     @invalid_opening_hours_saturday
     Scenario: opening hours saturday too long
@@ -181,7 +182,7 @@ Feature: Opening Hours
         Then I expect the url to contain "opening-hours"
         When I set "This is a paragraph containing more than 50 characters" to the inputfield "openingHours.saturday"
         When I click on the element "openingHours.button"
-        Then I expect that element "openingHours.error" contains the text "Invalid opening hours on Saturday"
+        Then I expect that element "openingHours.error" contains the text "Enter the establishment opening hours for Saturday using 24 hour clocks"
 
     @invalid_opening_hours_sunday
     Scenario: opening hours sunday empty
@@ -194,7 +195,7 @@ Feature: Opening Hours
         And I click on the element "openingDaysSome.button"
         Then I expect the url to contain "opening-hours"
         When I click on the element "openingHours.button"
-        Then I expect that element "openingHours.error" contains the text "Invalid opening hours on Sunday"
+        Then I expect that element "openingHours.error" contains the text "Enter the establishment opening hours for Sunday using 24 hour clocks"
 
     @invalid_opening_hours_sunday
     Scenario: opening hours sunday too long
@@ -208,4 +209,4 @@ Feature: Opening Hours
         Then I expect the url to contain "opening-hours"
         When I set "This is a paragraph containing more than 50 characters" to the inputfield "openingHours.sunday"
         When I click on the element "openingHours.button"
-        Then I expect that element "openingHours.error" contains the text "Invalid opening hours on Sunday"
+        Then I expect that element "openingHours.error" contains the text "Enter the establishment opening hours for Sunday using 24 hour clocks"

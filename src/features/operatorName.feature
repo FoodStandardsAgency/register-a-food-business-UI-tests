@@ -6,6 +6,7 @@ Feature: Operator Name
     @happy_path_SDB-35
     Scenario: happy path for Operator Name
         Given I open the url "mid-and-east-antrim/operator-name"
+        And I click on the element "opContactName.button"
         When I set "Bob" to the inputfield "opContactName.firstName"
         And I set "Smith" to the inputfield "opContactName.lastName"
         And I click on the element "opContactName.button"
@@ -18,7 +19,7 @@ Feature: Operator Name
         And I set "Smith" to the inputfield "opContactName.lastName"
         And I click on the element "opContactName.button"
         Then I expect that element "opContactName.lastName" contains the text "Smith"
-        And I expect that element "opContactName.error" contains the text "Not a valid first name"
+        And I expect that element "opContactName.error" contains the text "Enter a valid first name"
 
     @no_last_name_SDB-35
     Scenario: no last name input
@@ -27,7 +28,7 @@ Feature: Operator Name
         When I set "Bob" to the inputfield "opContactName.firstName"
         And I click on the element "opContactName.button"
         Then I expect that element "opContactName.firstName" contains the text "Bob"
-        And I expect that element "opContactName.error" contains the text "Not a valid last name"
+        And I expect that element "opContactName.error" contains the text "Enter a valid last name"
 
     @invalid_last_name_SDB-35
     Scenario: invalid last name input
@@ -38,7 +39,7 @@ Feature: Operator Name
         And I click on the element "opContactName.button"
         Then I expect that element "opContactName.firstName" contains the text "Bob"
         And I expect that element "opContactName.lastName" contains the text "This is text containing more than 255 characters. This is text containing more than 255 characters. This is text containing more than 255 characters. This is text containing more than 255 characters. This is text containing more than 255 characters. 012345"
-        And I expect that element "opContactName.error" contains the text "Not a valid last name"
+        And I expect that element "opContactName.error" contains the text "Enter a valid last name"
 
     @invalid_first_name_SDB-35
     Scenario: invalid first name input
@@ -47,7 +48,7 @@ Feature: Operator Name
         When I set "This is text containing more than 255 characters. This is text containing more than 255 characters. This is text containing more than 255 characters. This is text containing more than 255 characters. This is text containing more than 255 characters. 012345" to the inputfield "opContactName.firstName"
         And I set "Smith" to the inputfield "opContactName.lastName"
         And I click on the element "opContactName.button"
-        Then I expect that element "opContactName.error" contains the text "Not a valid first name"
+        Then I expect that element "opContactName.error" contains the text "Enter a valid first name"
         And I expect that element "opContactName.firstName" contains the text "This is text containing more than 255 characters. This is text containing more than 255 characters. This is text containing more than 255 characters. This is text containing more than 255 characters. This is text containing more than 255 characters. 012345"
         And I expect that element "opContactName.lastName" contains the text "Smith"
 

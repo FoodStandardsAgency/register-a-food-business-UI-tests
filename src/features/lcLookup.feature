@@ -2,11 +2,12 @@
 Feature: Local Council Lookup
 
     Local Council Lookup section validation
-
+ 
     @LC_Lookup_SDB-6
     Scenario: happy path
         Given I open the url "/cleansession"
         And I go to a special QA page at url "/qa/mid-and-east-antrim/declaration" with injected "declaration" data
+        When I click on the element "submitRegistration.button"
         And I click on the element "submitRegistration.firstCheckbox"
         And I pause for 1000ms
         And I click on the element "submitRegistration.secondCheckbox"

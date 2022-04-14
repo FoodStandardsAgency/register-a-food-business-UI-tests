@@ -1,17 +1,18 @@
 const submissionPage = {
   foodSafetyLink: "#foodSafetyLink",
   safetyManagementLink: "#safetyManagementLink",
+  safeCateringLink: "#safeCateringLink",
   fhrsScoreLink: "#fhrsScoreLink",
   foodLabellingLink: "#foodLabellingLink",
   businessGuidanceLink: "#businessGuidanceLink",
   businessSupportHelplineEnglishLink: "#businessSupportHelplineEnglishLink",
   establishmentAddress: "#establishmentAddressRow",
-  establishmentDetailsTable: "#establishmentDetailsTable",
-  operatorDetailsTable: "#operatorDetailsTable",
-  foodActivitiesTable: "#foodActivitiesTable",
-  declarationTable: "#declarationTable",
+  establishmentDetailsTable: "#establishment-details",
+  operatorDetailsTable: "#operator-details",
+  foodActivitiesTable: "#activity-details",
+  declarationTable: "#declaration-details",
   button: "#continue-button",
-  error: "#errorSummary"
+  error: "#errorSummary",
 };
 
 module.exports = submissionPage;

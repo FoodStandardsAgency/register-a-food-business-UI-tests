@@ -1,15 +1,15 @@
-const estabAddress = {
+const estabAddress = { 
   firstline: '[name="establishment_address_line_1"]',
   postcode: '[name="establishment_postcode_find"]',
   manualPostcode: '[name="establishment_postcode"]',
   findAddress: "#find-address",
-  postcodeDisplay: ".establishmentPostcodeDisplay",
-  changePostcode: "#changeEstablishmentPostcode",
+  postcodeDisplay: "#main-content > div > div > form > dl > div > dd.govuk-summary-list__value",
+  changePostcode: "#main-content > div > div > form > dl > div > dd.govuk-summary-list__actions > a",
   postcodeDropdown: "#establishmentAddressDropdown",
-  street: '[name="establishment_address_line_2"]',
+  street: '[name="establishment_address_line_2"]', 
   town: '[name="establishment_town"]',
-  button: "#continue-button",
-  error: "#errorSummary",
+  button: ".govuk-button",
+  error: ".govuk-error-message",
   cantFindAddressLink: "#cantFindAddressLink",
   locality: '[name="establishment_address_line_3"]'
 };

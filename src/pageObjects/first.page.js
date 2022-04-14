@@ -1,5 +1,5 @@
 const firstpage = {
-  button: "#continue-button"
+  button: ".govuk-button"
 };
 
 module.exports = firstpage;

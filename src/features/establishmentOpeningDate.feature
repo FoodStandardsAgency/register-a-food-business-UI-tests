@@ -7,6 +7,7 @@ Feature: testing establishment opening status and date
     Scenario: proactive trading date happy path
         Given I open the url "/cleansession"
         And I open the url "mid-and-east-antrim/establishment-opening-status"
+        And I click on the element "estabOpeningDate.button"
         When I click on the element "estabOpeningDate.notTrading"
         And I click on the element "estabOpeningDate.button"
         Then I expect the url to contain "establishment-opening-date-proactive"
@@ -25,7 +26,7 @@ Feature: testing establishment opening status and date
         Then I expect the url to contain "establishment-opening-date-proactive"
         And I click on the element "estabOpeningDate.button"
         And I expect the url to contain "establishment-opening-date-proactive"
-        Then I expect that element "estabOpeningDate.error" contains the text "Not a valid opening date"
+        Then I expect that element "estabOpeningDate.error" contains the text "Enter a valid opening date"
 
     @SDB-114_trading_date_proactive_past_date
     Scenario: proactive trading date past date
@@ -39,7 +40,7 @@ Feature: testing establishment opening status and date
         And I set "1999" to the inputfield "estabOpeningDate.year"
         And I click on the element "estabOpeningDate.button"
         And I expect the url to contain "establishment-opening-date-proactive"
-        Then I expect that element "estabOpeningDate.error" contains the text "Not a valid opening date"
+        Then I expect that element "estabOpeningDate.error" contains the text "Enter a valid opening date"
 
     @SDB-114_trading_date_proactive_invalid_date
     Scenario: proactive trading date invalid date
@@ -53,7 +54,7 @@ Feature: testing establishment opening status and date
         And I set "1234" to the inputfield "estabOpeningDate.year"
         And I click on the element "estabOpeningDate.button"
         And I expect the url to contain "establishment-opening-date-proactive"
-        Then I expect that element "estabOpeningDate.error" contains the text "Not a valid opening date"
+        Then I expect that element "estabOpeningDate.error" contains the text "Enter a valid opening date"
 
     @SDB-115_trading_date_retroactive_happy_path
     Scenario: retroactive trading date happy path
@@ -77,7 +78,7 @@ Feature: testing establishment opening status and date
         Then I expect the url to contain "establishment-opening-date-retroactive"
         And I click on the element "estabOpeningDate.button"
         And I expect the url to contain "establishment-opening-date-retroactive"
-        Then I expect that element "estabOpeningDate.error" contains the text "Not a valid opening date"
+        Then I expect that element "estabOpeningDate.error" contains the text "Enter a valid opening date"
 
     @SDB-115_trading_date_retroactive_future_date
     Scenario: retroactive trading date future date
@@ -91,7 +92,7 @@ Feature: testing establishment opening status and date
         And I set "2999" to the inputfield "estabOpeningDate.year"
         And I click on the element "estabOpeningDate.button"
         And I expect the url to contain "establishment-opening-date-retroactive"
-        Then I expect that element "estabOpeningDate.error" contains the text "Not a valid opening date"
+        Then I expect that element "estabOpeningDate.error" contains the text "Enter a valid opening date"
 
     @SDB-115_trading_date_retroactive_invalid_date
     Scenario: retroactive trading date invalid date
@@ -105,4 +106,4 @@ Feature: testing establishment opening status and date
         And I set "1234" to the inputfield "estabOpeningDate.year"
         And I click on the element "estabOpeningDate.button"
         And I expect the url to contain "establishment-opening-date-retroactive"
-        Then I expect that element "estabOpeningDate.error" contains the text "Not a valid opening date"
+        Then I expect that element "estabOpeningDate.error" contains the text "Enter a valid opening date"

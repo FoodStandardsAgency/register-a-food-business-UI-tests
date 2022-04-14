@@ -2,11 +2,11 @@
 
 The User Interface (UI) and End-to-End (E2E) tests are automated to run by default on Azure Devops via Browserstack in Chrome. However you may want to run them manually when, for example, developing a new feature or if you want to test on a different browser.
 
-How to test :
+How to test:
 
 1. run in root: `./reset.sh && ./init_docker.sh` - Spin up full env (it needs to work)
 2. if you are running selenium - run in root: `./init_selenium.sh`
-3. shell in to the front-end-UI-test container in docker. `docker-compose exec front-end-UI-test bash`
+3. shell in to the front-end-UI-test container in docker. `docker-compose exec front-end-ui-tests bash`
 4. run one of the scripts in package.json under `scripts`
 
 Using this functionality - you can:

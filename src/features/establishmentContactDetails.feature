@@ -1,4 +1,4 @@
-@establishment_address_contact_details
+@establishment_address_contact_details 
 Feature: As Samantha I need to be able to fill in the establishment contact details so that Dani can contact the business if needed before or after an inspection
 
     Establishment address simple contact details section validation
@@ -7,9 +7,10 @@ Feature: As Samantha I need to be able to fill in the establishment contact deta
     Scenario: happy path without optional field
         Given I open the url "/cleansession"
         And I open the url "mid-and-east-antrim/establishment-contact-details"
+        And I click on the element "estabContactDetails.button"
         When I set "valid@email.com" to the inputfield "estabContactDetails.emailAddress"
         And I set "01234567890" to the inputfield "estabContactDetails.primaryPhoneNumber"
-        And I click on the element "estabContactDetails.button"
+        And I click on the element "estabContactDetails.continueButton"
         Then I expect the url to not contain "establishment-contact-details"
 
     @SDB-113_happy_path_all_fields
@@ -19,7 +20,7 @@ Feature: As Samantha I need to be able to fill in the establishment contact deta
         When I set "valid@email.com" to the inputfield "estabContactDetails.emailAddress"
         And I set "01234567890" to the inputfield "estabContactDetails.primaryPhoneNumber"
         And I set "07788292121" to the inputfield "estabContactDetails.optionalPhoneNumber"
-        And I click on the element "submitRegistration.button"
+        And I click on the element "estabContactDetails.continueButton"
         Then I expect the url to not contain "establishment-contact-details"
 
     @SDB-113_invalid_email
@@ -28,8 +29,8 @@ Feature: As Samantha I need to be able to fill in the establishment contact deta
         And I open the url "mid-and-east-antrim/establishment-contact-details"
         When I set "invalidemail" to the inputfield "estabContactDetails.emailAddress"
         And I set "01234567890" to the inputfield "estabContactDetails.primaryPhoneNumber"
-        And I click on the element "estabContactDetails.button"
-        Then I expect that element "estabContactDetails.error" contains the text "Not a valid establishment email address"
+        And I click on the element "estabContactDetails.continueButton"
+        Then I expect that element "estabContactDetails.error" contains the text "Enter a valid establishment email address"
         And I expect that element "estabContactDetails.emailAddress" contains the text "invalidemail"
         And I expect that element "estabContactDetails.primaryPhoneNumber" contains the text "01234567890"
 
@@ -39,8 +40,8 @@ Feature: As Samantha I need to be able to fill in the establishment contact deta
         Given I open the url "mid-and-east-antrim/establishment-contact-details"
         When I set "invalidnumber" to the inputfield "estabContactDetails.primaryPhoneNumber"
         And I set "valid@email.com" to the inputfield "estabContactDetails.emailAddress"
-        And I click on the element "estabContactDetails.button"
-        Then I expect that element "estabContactDetails.error" contains the text "Not a valid establishment phone number"
+        And I click on the element "estabContactDetails.continueButton"
+        Then I expect that element "estabContactDetails.error" contains the text "Enter a valid establishment phone number"
         And I expect that element "estabContactDetails.emailAddress" contains the text "valid@email.com"
         And I expect that element "estabContactDetails.primaryPhoneNumber" contains the text "invalidnumber"
 
@@ -49,8 +50,8 @@ Feature: As Samantha I need to be able to fill in the establishment contact deta
         Given I open the url "/cleansession"
         And I open the url "mid-and-east-antrim/establishment-contact-details"
         When I set "01234567890" to the inputfield "estabContactDetails.primaryPhoneNumber"
-        And I click on the element "estabContactDetails.button"
-        Then I expect that element "estabContactDetails.error" contains the text "Not a valid establishment email address"
+        And I click on the element "estabContactDetails.continueButton"
+        Then I expect that element "estabContactDetails.error" contains the text "Enter a valid establishment email address"
         And I expect that element "estabContactDetails.primaryPhoneNumber" contains the text "01234567890"
 
     @SDB-113_no_phone_number
@@ -58,8 +59,8 @@ Feature: As Samantha I need to be able to fill in the establishment contact deta
         Given I open the url "/cleansession"
         And I open the url "mid-and-east-antrim/establishment-contact-details"
         When I set "valid@email.com" to the inputfield "estabContactDetails.emailAddress"
-        And I click on the element "estabContactDetails.button"
-        Then I expect that element "estabContactDetails.error" contains the text "Not a valid establishment phone number"
+        And I click on the element "estabContactDetails.continueButton"
+        Then I expect that element "estabContactDetails.error" contains the text "Enter a valid establishment phone number"
         And I expect that element "estabContactDetails.emailAddress" contains the text "valid@email.com"
 
     @SDB-113_invalid_optional_phone_number
@@ -69,8 +70,8 @@ Feature: As Samantha I need to be able to fill in the establishment contact deta
         When I set "valid@email.com" to the inputfield "estabContactDetails.emailAddress"
         And I set "01234567890" to the inputfield "estabContactDetails.primaryPhoneNumber"
         And I set "§§§§" to the inputfield "estabContactDetails.optionalPhoneNumber"
-        And I click on the element "estabContactDetails.button"
-        Then I expect that element "estabContactDetails.error" contains the text "Not a valid establishment phone number"
+        And I click on the element "estabContactDetails.continueButton"
+        Then I expect that element "estabContactDetails.error" contains the text "Enter a valid establishment phone number"
         And I expect that element "estabContactDetails.emailAddress" contains the text "valid@email.com"
         And I expect that element "estabContactDetails.primaryPhoneNumber" contains the text "01234567890"
         And I expect that element "estabContactDetails.optionalPhoneNumber" contains the text "§§§§"
@@ -82,7 +83,7 @@ Feature: As Samantha I need to be able to fill in the establishment contact deta
         When I click on the element "estabContactDetails.reuseButton"
         Then I expect that element "estabContactDetails.emailAddress" contains the text "email@email.com"
         And I expect that element "estabContactDetails.primaryPhoneNumber" contains the text "01234567890"
-        When I click on the element "submitRegistration.button"
+        When I click on the element "estabContactDetails.continueButton"
         Then I expect the url to not contain "establishment-contact-details"
 
     @SDB-113_happy_path_same_as_operator_overwrite
@@ -94,7 +95,7 @@ Feature: As Samantha I need to be able to fill in the establishment contact deta
         And I click on the element "estabContactDetails.reuseButton"
         Then I expect that element "estabContactDetails.emailAddress" contains the text "email@email.com"
         And I expect that element "estabContactDetails.primaryPhoneNumber" contains the text "01234567890"
-        When I click on the element "submitRegistration.button"
+        When I click on the element "estabContactDetails.continueButton"
         Then I expect the url to not contain "establishment-contact-details"
 
     @SDB-113_happy_path_same_as_operator_edit
@@ -107,7 +108,6 @@ Feature: As Samantha I need to be able to fill in the establishment contact deta
         And I expect that element "estabContactDetails.primaryPhoneNumber" contains the text "01234567890"
         When I set "different@email.com" to the inputfield "estabContactDetails.emailAddress"
         And I set "09876543210" to the inputfield "estabContactDetails.primaryPhoneNumber"
-        And I click on the element "estabContactDetails.reuseButton"
         And I click on the element "estabContactDetails.reuseButton"
         Then I expect that element "estabContactDetails.emailAddress" not contains the text "different@email.com"
         And I expect that element "estabContactDetails.primaryPhoneNumber" not contains the text "09876543210"
@@ -125,5 +125,5 @@ Feature: As Samantha I need to be able to fill in the establishment contact deta
         Then I expect that element "estabContactDetails.emailAddress" contains the text "different@email.com"
         And I expect that element "estabContactDetails.primaryPhoneNumber" contains the text "09876543210"
         When I click on the element "estabContactDetails.reuseButton"
-        Then I expect that element "estabContactDetails.emailAddress" contains the text "different@email.com"
-        And I expect that element "estabContactDetails.primaryPhoneNumber" contains the text "09876543210"
+        Then I expect that element "estabContactDetails.emailAddress" contains the text "email@email.com"
+        And I expect that element "estabContactDetails.primaryPhoneNumber" contains the text "01234567890"

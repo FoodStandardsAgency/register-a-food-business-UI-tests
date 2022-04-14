@@ -8,6 +8,7 @@ Feature: Representative Operator Contact Details
     Scenario: happy path without optional field
         Given I open the url "/cleansession"
         And I open the url "mid-and-east-antrim/contact-representative"
+        And I click on the element "repOpContactDetails.button"
         When I set "Test McTestface" to the inputfield "repOpContactDetails.contactName"
         And I set "07788292373" to the inputfield "repOpContactDetails.primaryPhoneNumber"
         And I set "representative@email.com" to the inputfield "repOpContactDetails.emailAddress"
@@ -33,7 +34,7 @@ Feature: Representative Operator Contact Details
         And I set "07788292373" to the inputfield "repOpContactDetails.primaryPhoneNumber"
         And I set "±±±§§§§" to the inputfield "repOpContactDetails.emailAddress"
         And I click on the element "repOpContactDetails.button"
-        Then I expect that element "repOpContactDetails.error" contains the text "Not a valid representative email address"
+        Then I expect that element "repOpContactDetails.error" contains the text "Enter a valid representative email address"
         And I expect that element "repOpContactDetails.emailAddress" contains the text "±±±§§§§"
         And I expect that element "repOpContactDetails.primaryPhoneNumber" contains the text "07788292373"
         And I expect that element "repOpContactDetails.contactName" contains the text "Test McTestface"
@@ -46,7 +47,7 @@ Feature: Representative Operator Contact Details
         And I set "§§§±±" to the inputfield "repOpContactDetails.primaryPhoneNumber"
         And I set "representative@email.com" to the inputfield "repOpContactDetails.emailAddress"
         And I click on the element "repOpContactDetails.button"
-        Then I expect that element "repOpContactDetails.error" contains the text "Not a valid representative phone number"
+        Then I expect that element "repOpContactDetails.error" contains the text "Enter a valid representative phone number"
         And I expect that element "repOpContactDetails.contactName" contains the text "Test McTestface"
         And I expect that element "repOpContactDetails.primaryPhoneNumber" contains the text "§§§±±"
         And I expect that element "repOpContactDetails.emailAddress" contains the text "representative@email.com"
@@ -58,7 +59,7 @@ Feature: Representative Operator Contact Details
         When I set "Test McTestface" to the inputfield "repOpContactDetails.contactName"
         And I set "07788292373" to the inputfield "repOpContactDetails.primaryPhoneNumber"
         And I click on the element "repOpContactDetails.button"
-        Then I expect that element "repOpContactDetails.error" contains the text "Not a valid representative email address"
+        Then I expect that element "repOpContactDetails.error" contains the text "Enter a valid representative email address"
         And I expect that element "repOpContactDetails.primaryPhoneNumber" contains the text "07788292373"
         And I expect that element "repOpContactDetails.contactName" contains the text "Test McTestface"
 
@@ -69,7 +70,7 @@ Feature: Representative Operator Contact Details
         When I set "Test McTestface" to the inputfield "repOpContactDetails.contactName"
         And I set "representative@email.com" to the inputfield "repOpContactDetails.emailAddress"
         And I click on the element "repOpContactDetails.button"
-        Then I expect that element "repOpContactDetails.error" contains the text "Not a valid representative phone number"
+        Then I expect that element "repOpContactDetails.error" contains the text "Enter a valid representative phone number"
         And I expect that element "repOpContactDetails.contactName" contains the text "Test McTestface"
         And I expect that element "repOpContactDetails.emailAddress" contains the text "representative@email.com"
 

@@ -6,8 +6,8 @@ const openingDaysSome = {
   friday: "#opening_day_friday",
   saturday: "#opening_day_saturday",
   sunday: "#opening_day_sunday",
-  button: "#continue-button",
-  error: "#errorSummary"
+  button: ".govuk-button",
+  error: ".govuk-error-message"
 };
 
 module.exports = openingDaysSome;

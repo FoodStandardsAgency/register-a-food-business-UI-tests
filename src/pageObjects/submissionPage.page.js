@@ -1,6 +1,7 @@
 const submissionPage = {
   foodSafetyLink: "#foodSafetyLink",
   safetyManagementLink: "#safetyManagementLink",
+  safeCateringLink: "#safeCateringLink",
   fhrsScoreLink: "#fhrsScoreLink",
   foodLabellingLink: "#foodLabellingLink",
   businessGuidanceLink: "#businessGuidanceLink",

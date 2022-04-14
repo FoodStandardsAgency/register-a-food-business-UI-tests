@@ -7,7 +7,7 @@ Feature: As Catelyn I need to be able to see the submission page and be able to 
     Scenario: I want to find out about food safety and how to run a food business
         Given I open the url "/cleansession"
         And I open the url "mid-and-east-antrim/summary-confirmation"
-        Then I expect that the attribute "href" from element "submissionPage.foodSafetyLink" is "https://www.food.gov.uk/business-guidance"
+        Then I expect that the attribute "href" from element "submissionPage.foodSafetyLink" is "https://www.food.gov.uk/register-a-food-business#support-for-new-food-businesses"
         Given I click on the element "submissionPage.foodSafetyLink"
         And I pause for 1000ms
         Then I expect a new tab has been opened
@@ -27,8 +27,8 @@ Feature: As Catelyn I need to be able to see the submission page and be able to 
     Scenario: I want to find out about information on the food safety management system
         Given I open the url "/cleansession"
         And I open the url "mid-and-east-antrim/summary-confirmation"
-        And I expect that the attribute "href" from element "submissionPage.safetyManagementLink" is "https://www.food.gov.uk/business-guidance/safer-food-better-business"
-        Given I click on the element "submissionPage.safetyManagementLink"
+        And I expect that the attribute "href" from element "submissionPage.safeCateringLink" is "https://www.food.gov.uk/business-guidance/safe-catering"
+        Given I click on the element "submissionPage.safeCateringLink"
         And I pause for 1000ms
         Then I expect a new tab has been opened
         And I switch to the first tab

@@ -1,12 +1,12 @@
 @back_button_SDB-232
 Feature: Back button SDB-232
 
-  Back button functionality with multiple paths 
+  Back button functionality with multiple paths  
 
   @select_sole_trader_direct_route_SDB-232
   Scenario: go directly to operator name then return to registration role1
     Given I open the url "/cleansession"
-    And I open the url "mid-and-east-antrim/registration-role"
+    And I open the url "registration-role"
     And I click on the element "regRole.button"
     When I click on the element "regRole.soleTrader"
     And I click on the element "regRole.button"
@@ -18,7 +18,7 @@ Feature: Back button SDB-232
   @select_representative_indirect_route_SDB-232
   Scenario: go directly to operator name then return to registration role2
     Given I open the url "/cleansession"
-    And I open the url "mid-and-east-antrim/registration-role"
+    And I open the url "registration-role"
     When I click on the element "regRole.representative"
     And I click on the element "regRole.button"
     Then I expect the url to contain "operator-type"
@@ -36,7 +36,7 @@ Feature: Back button SDB-232
   @same_page_via_different_routes_SDB-232
   Scenario: go directly to operator name then return to registration role3
     Given I open the url "/cleansession"
-    And I open the url "mid-and-east-antrim/registration-role"
+    And I open the url "registration-role"
     When I click on the element "regRole.soleTrader"
     And I click on the element "regRole.button"
     Then I expect the url to contain "operator-name"
@@ -69,7 +69,7 @@ Feature: Back button SDB-232
   @different_page_via_different_routes_SDB-232
   Scenario: go directly to operator name then return to registration role4
     Given I open the url "/cleansession"
-    And I open the url "mid-and-east-antrim/registration-role"
+    And I open the url "registration-role"
     When I click on the element "regRole.soleTrader"
     And I click on the element "regRole.button"
     Then I expect the url to contain "operator-name"
@@ -84,11 +84,11 @@ Feature: Back button SDB-232
     And I expect that element "opContactName.firstName" contains the text "Bob"
     And I expect that element "opContactName.lastName" contains the text "Smith"
 
-    And I go to a special QA page at url "/qa/mid-and-east-antrim/registration-summary" with injected "registration-summary" data
+    And I go to a special QA page at url "/qa/registration-summary" with injected "registration-summary" data
     Then I expect that element "registrationSummary.operatorFirstName" contains the text "Fred"
     And I expect that element "registrationSummary.operatorLastName" contains the text "Bloggs"
 
-    Given I open the url "mid-and-east-antrim/registration-role"
+    Given I open the url "registration-role"
     Then I expect that checkbox "regRole.soleTrader" is checked
 
     Given I click on the element "regRole.representative"
@@ -99,6 +99,6 @@ Feature: Back button SDB-232
     And I click on the element "opType.button"
     Then I expect the url to contain "operator-company-details"
 
-    Given I open the url "mid-and-east-antrim/registration-summary"
+    Given I open the url "registration-summary"
     Then I expect that element "registrationSummary.operatorFirstName" does not exist
     And I expect that element "registrationSummary.operatorLastName" does not exist

@@ -6,7 +6,7 @@ Feature: As Catelyn I need the service to look up my address and I can select th
     @SDB-12_happy_path_operator_address
     Scenario: able to find address using lookup service on the operator address page
         Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/operator-address"
+        And I open the url "operator-address"
         When I click on the element "opAddress.button"
         And I set "BS249ST" to the inputfield "opAddress.postcode"
         When I click on the element "opAddress.button"
@@ -17,18 +17,17 @@ Feature: As Catelyn I need the service to look up my address and I can select th
     @SDB-12_happy_path_operator_address_select_2nd_option
     Scenario: able to find address using lookup service on the operator address page
         Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/operator-address"
+        And I open the url "operator-address"
         And I set "BS249ST" to the inputfield "opAddress.postcode"
         When I click on the element "opAddress.button"
         Then I expect the url to contain "operator-address-select"
-        When I select the 2nd option for element "opAddress.postcodeDropdown"
         And I click on the element "opAddress.button"
         Then I expect the url to not contain "operator-address-select"
 
     @SDB-12_error_operator_address
     Scenario: entering postcode in invalid format and pressing Find Address
         Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/operator-address"
+        And I open the url "operator-address"
         And I set "§§§" to the inputfield "opAddress.postcode"
         When I click on the element "opAddress.button"
         Then I expect that element "opAddress.error" contains the text "Not a valid postcode"
@@ -36,7 +35,7 @@ Feature: As Catelyn I need the service to look up my address and I can select th
     @SDB-12_operator_address_change_postcode
     Scenario: entering postcode, pressing Find Address and then changing postcode
         Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/operator-address"
+        And I open the url "operator-address"
         And I set "BS249ST" to the inputfield "opAddress.postcode"
         When I click on the element "opAddress.button"
         Then I expect the url to contain "operator-address-select"
@@ -48,7 +47,7 @@ Feature: As Catelyn I need the service to look up my address and I can select th
     @SDB-12_establishment_address_cant_find_address
     Scenario: entering postcode, pressing Find Address and then not able to find address in dropdown
         Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/operator-address"
+        And I open the url "operator-address"
         And I set "BS249ST" to the inputfield "opAddress.postcode"
         When I click on the element "opAddress.button"
         Then I expect the url to contain "operator-address-select"
@@ -64,7 +63,7 @@ Feature: As Catelyn I need the service to look up my address and I can select th
     @SDB-12_operator_address_cant_find_address_error_firstline
     Scenario: using manual input - error
         Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/operator-address-manual"
+        And I open the url "operator-address-manual"
         When I set "InvalidLongAddressLine..........................................................................................................................................................................................................................................." to the inputfield "opAddress.firstline"
         And I set "BS249ST" to the inputfield "opAddress.manualPostcode"
         And I click on the element "opAddress.button"
@@ -75,7 +74,7 @@ Feature: As Catelyn I need the service to look up my address and I can select th
     @SDB-12_operator_address_cant_find_address_error_no_firstline
     Scenario: using manual input - error
         Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/operator-address-manual"
+        And I open the url "operator-address-manual"
         And I set "BS249ST" to the inputfield "opAddress.manualPostcode"
         And I click on the element "opAddress.button"
         Then I expect that element "opAddress.error" contains the text "Enter a valid first line of address"
@@ -84,7 +83,7 @@ Feature: As Catelyn I need the service to look up my address and I can select th
     @SDB-12_operator_address_cant_find_address_error_postcode
     Scenario: using manual input - error
         Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/operator-address-manual"
+        And I open the url "operator-address-manual"
         When I set "test first line" to the inputfield "opAddress.firstline"
         When I set "town" to the inputfield "opAddress.town"
         And I set "±±±" to the inputfield "opAddress.manualPostcode"
@@ -96,7 +95,7 @@ Feature: As Catelyn I need the service to look up my address and I can select th
     @SDB-12_operator_address_cant_find_address_error_no_postcode
     Scenario: using manual input - error
         Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/operator-address-manual"
+        And I open the url "operator-address-manual"
         When I set "test first line" to the inputfield "opAddress.firstline"
         When I set "town" to the inputfield "opAddress.town"
         And I click on the element "opAddress.button"
@@ -107,7 +106,7 @@ Feature: As Catelyn I need the service to look up my address and I can select th
     @operator_address_cant_find_address_error_locality
     Scenario: using manual input - error
         Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/operator-address-manual"
+        And I open the url "operator-address-manual"
         When I set "First Line" to the inputfield "opAddress.firstline"
         And I set "BS249ST" to the inputfield "opAddress.manualPostcode"
         And I set "InvalidLongAddressLine..........................................................................................................................................................................................................................................." to the inputfield "opAddress.locality"
@@ -120,7 +119,7 @@ Feature: As Catelyn I need the service to look up my address and I can select th
     @operator_address_cant_find_address_success_with_locality
     Scenario: using manual input - success
         Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/operator-address-manual"
+        And I open the url "operator-address-manual"
         When I set "First Line" to the inputfield "opAddress.firstline"
         And I set "BS249ST" to the inputfield "opAddress.manualPostcode"
         And I set "Locality" to the inputfield "opAddress.locality"

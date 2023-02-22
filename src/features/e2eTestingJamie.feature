@@ -6,10 +6,11 @@ Feature: Testing user journey for Jamie
     @happy_path_
     Scenario: happy path
         Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/index"
+        And I open the url "index"
         When I click on the element "firstpage.button"
         When I click on the element "firstpage.button"
-        Then I expect the url to contain "registration-role"
+        Then I expect the url to contain "establishment-address"
+        When I set "PE12 8JA" to the inputfield "opAddress.postcode" 
         When I click on the element "regRole.representative"
         And I click on the element "regRole.button"
         Then I expect the url to contain "operator-type"

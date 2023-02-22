@@ -6,7 +6,7 @@ Feature: Opening Hours
     @happy_path
     Scenario: happy path for Opening Hours
         Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/opening-days-start"
+        And I open the url "opening-days-start"
         And I click on the element "openingDaysStart.button"
         When I click on the element "openingDaysStart.everyday"
         And I click on the element "openingDaysStart.button"
@@ -24,7 +24,7 @@ Feature: Opening Hours
           @invalid_opening_hours_monday
     Scenario: opening hours monday empty
         Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/opening-days-start"
+        And I open the url "opening-days-start"
         When I click on the element "openingDaysStart.someDays"
         And I click on the element "openingDaysStart.button"
         Then I expect the url to contain "opening-days-some"
@@ -38,7 +38,7 @@ Feature: Opening Hours
     @invalid_opening_hours_monday
     Scenario: opening hours monday too long
         Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/opening-days-start"
+        And I open the url "opening-days-start"
         When I click on the element "openingDaysStart.someDays"
         And I click on the element "openingDaysStart.button"
         Then I expect the url to contain "opening-days-some"
@@ -52,7 +52,7 @@ Feature: Opening Hours
     @invalid_opening_hours_tuesday
     Scenario: opening hours tuesday empty
         Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/opening-days-start"
+        And I open the url "opening-days-start"
         When I click on the element "openingDaysStart.someDays"
         And I click on the element "openingDaysStart.button"
         Then I expect the url to contain "opening-days-some"
@@ -65,7 +65,7 @@ Feature: Opening Hours
     @invalid_opening_hours_tuesday
     Scenario: opening hours tuesday too long
         Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/opening-days-start"
+        And I open the url "opening-days-start"
         When I click on the element "openingDaysStart.someDays"
         And I click on the element "openingDaysStart.button"
         Then I expect the url to contain "opening-days-some"
@@ -79,7 +79,7 @@ Feature: Opening Hours
     @invalid_opening_hours_wednesday
     Scenario: opening hours wednesday empty
         Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/opening-days-start"
+        And I open the url "opening-days-start"
         When I click on the element "openingDaysStart.someDays"
         And I click on the element "openingDaysStart.button"
         Then I expect the url to contain "opening-days-some"
@@ -92,7 +92,7 @@ Feature: Opening Hours
     @invalid_opening_hours_wednesday
     Scenario: opening hours wednesday too long
         Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/opening-days-start"
+        And I open the url "opening-days-start"
         When I click on the element "openingDaysStart.someDays"
         And I click on the element "openingDaysStart.button"
         Then I expect the url to contain "opening-days-some"
@@ -106,7 +106,7 @@ Feature: Opening Hours
     @invalid_opening_hours_thursday
     Scenario: opening hours thursday empty
         Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/opening-days-start"
+        And I open the url "opening-days-start"
         When I click on the element "openingDaysStart.someDays"
         And I click on the element "openingDaysStart.button"
         Then I expect the url to contain "opening-days-some"
@@ -119,7 +119,7 @@ Feature: Opening Hours
     @invalid_opening_hours_thursday
     Scenario: opening hours thursday too long
         Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/opening-days-start"
+        And I open the url "opening-days-start"
         When I click on the element "openingDaysStart.someDays"
         And I click on the element "openingDaysStart.button"
         Then I expect the url to contain "opening-days-some"
@@ -133,7 +133,7 @@ Feature: Opening Hours
     @invalid_opening_hours_friday
     Scenario: opening hours friday empty
         Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/opening-days-start"
+        And I open the url "opening-days-start"
         When I click on the element "openingDaysStart.someDays"
         And I click on the element "openingDaysStart.button"
         Then I expect the url to contain "opening-days-some"
@@ -146,7 +146,7 @@ Feature: Opening Hours
     @invalid_opening_hours_friday
     Scenario: opening hours friday too long
         Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/opening-days-start"
+        And I open the url "opening-days-start"
         When I click on the element "openingDaysStart.someDays"
         And I click on the element "openingDaysStart.button"
         Then I expect the url to contain "opening-days-some"
@@ -160,7 +160,7 @@ Feature: Opening Hours
     @invalid_opening_hours_saturday
     Scenario: opening hours saturday empty
         Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/opening-days-start"
+        And I open the url "opening-days-start"
         When I click on the element "openingDaysStart.someDays"
         And I click on the element "openingDaysStart.button"
         Then I expect the url to contain "opening-days-some"
@@ -173,7 +173,7 @@ Feature: Opening Hours
     @invalid_opening_hours_saturday
     Scenario: opening hours saturday too long
         Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/opening-days-start"
+        And I open the url "opening-days-start"
         When I click on the element "openingDaysStart.someDays"
         And I click on the element "openingDaysStart.button"
         Then I expect the url to contain "opening-days-some"
@@ -187,7 +187,7 @@ Feature: Opening Hours
     @invalid_opening_hours_sunday
     Scenario: opening hours sunday empty
         Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/opening-days-start"
+        And I open the url "opening-days-start"
         When I click on the element "openingDaysStart.someDays"
         And I click on the element "openingDaysStart.button"
         Then I expect the url to contain "opening-days-some"
@@ -200,7 +200,7 @@ Feature: Opening Hours
     @invalid_opening_hours_sunday
     Scenario: opening hours sunday too long
         Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/opening-days-start"
+        And I open the url "opening-days-start"
         When I click on the element "openingDaysStart.someDays"
         And I click on the element "openingDaysStart.button"
         Then I expect the url to contain "opening-days-some"

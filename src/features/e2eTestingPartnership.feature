@@ -3,7 +3,7 @@ Feature: Testing user journey for partnership
     @happy_path_SDB-111
     Scenario: Happy path
         Given I open the url "/cleansession"
-        And I go to a special QA page at url "/qa/mid-and-east-antrim/partner-name" with injected "blank-partnership" data
+        And I go to a special QA page at url "/qa/partner-name" with injected "blank-partnership" data
         And I click on the element "commonElements.button"
         When I click on the element "partnerName.addPartnerButton"
         Then I expect the url to contain "partnership/partner-details"
@@ -52,7 +52,7 @@ Feature: Testing user journey for partnership
     @happy_path_
     Scenario: happy path
         Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/index"
+        And I open the url "index"
         When I click on the element "firstpage.button"
         Then I expect the url to contain "registration-role"
         When I click on the element "regRole.partnership"

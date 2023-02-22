@@ -6,7 +6,7 @@ Feature: As Catelyn I need to know that cookies are being used in this service, 
     @cookie_banner_SDB-500_happy_path
     Scenario: happy path for accepting
         Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/index"
+        And I open the url "index"
         Then I expect that element "commonElements.cookieBanner" does exist
         When I click on the element "commonElements.button"
         Then I expect that cookie "acceptAllCookies" exists
@@ -18,7 +18,7 @@ Feature: As Catelyn I need to know that cookies are being used in this service, 
     Scenario: happy path for rejecting
         Given I open the url "/cleansession"
         And I delete the cookie "acceptAllCookies"
-        And I open the url "mid-and-east-antrim/index"
+        And I open the url "index"
         And I pause for 2000ms
         Then I expect that element "commonElements.cookieBanner" does exist
         When I click on the element "commonElements.cookieReject"
@@ -32,7 +32,7 @@ Feature: As Catelyn I need to know that cookies are being used in this service, 
     Scenario: wanting to find more info on cookies
         Given I open the url "/cleansession"
         And I delete the cookie "acceptAllCookies"
-        When I open the url "mid-and-east-antrim/index"
+        When I open the url "index"
         Then I expect that element "commonElements.cookieBanner" does exist
         And I expect that the attribute "href" from element "commonElements.cookieInfo" is "https://www.gov.uk/help/cookies"
         Given I click on the element "commonElements.cookieInfo"
@@ -44,7 +44,7 @@ Feature: As Catelyn I need to know that cookies are being used in this service, 
     Scenario: wanting to find more info on cookie policy
         Given I open the url "/cleansession"
         And I delete the cookie "acceptAllCookies"
-        When I open the url "mid-and-east-antrim/index"
+        When I open the url "index"
         Then I expect that element "commonElements.cookieBanner" does exist
         And I expect that the attribute "href" from element "commonElements.cookiePolicy" is "https://www.food.gov.uk/cookie-policy"
         Given I click on the element "commonElements.cookiePolicy"

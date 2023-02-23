@@ -6,7 +6,7 @@ Feature: As Samantha I need to be able to fill in the establishment contact deta
     @SDB-1113_happy_path
     Scenario: happy path without optional field
         Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/establishment-contact-details"
+        And I open the url "establishment-contact-details"
         And I click on the element "estabContactDetails.button"
         When I set "valid@email.com" to the inputfield "estabContactDetails.emailAddress"
         And I set "01234567890" to the inputfield "estabContactDetails.primaryPhoneNumber"
@@ -16,7 +16,7 @@ Feature: As Samantha I need to be able to fill in the establishment contact deta
     @SDB-113_happy_path_all_fields
     Scenario: happy path with optional field
         Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/establishment-contact-details"
+        And I open the url "establishment-contact-details"
         When I set "valid@email.com" to the inputfield "estabContactDetails.emailAddress"
         And I set "01234567890" to the inputfield "estabContactDetails.primaryPhoneNumber"
         And I set "07788292121" to the inputfield "estabContactDetails.optionalPhoneNumber"
@@ -26,7 +26,7 @@ Feature: As Samantha I need to be able to fill in the establishment contact deta
     @SDB-113_invalid_email
     Scenario: invalid email address
         Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/establishment-contact-details"
+        And I open the url "establishment-contact-details"
         When I set "invalidemail" to the inputfield "estabContactDetails.emailAddress"
         And I set "01234567890" to the inputfield "estabContactDetails.primaryPhoneNumber"
         And I click on the element "estabContactDetails.continueButton"
@@ -37,7 +37,7 @@ Feature: As Samantha I need to be able to fill in the establishment contact deta
     @SDB-113_invalid_phone_number
     Scenario: invalid phone number
         Given I open the url "/cleansession"
-        Given I open the url "mid-and-east-antrim/establishment-contact-details"
+        Given I open the url "establishment-contact-details"
         When I set "invalidnumber" to the inputfield "estabContactDetails.primaryPhoneNumber"
         And I set "valid@email.com" to the inputfield "estabContactDetails.emailAddress"
         And I click on the element "estabContactDetails.continueButton"
@@ -48,7 +48,7 @@ Feature: As Samantha I need to be able to fill in the establishment contact deta
     @SDB-113_no_email_address
     Scenario: no email address
         Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/establishment-contact-details"
+        And I open the url "establishment-contact-details"
         When I set "01234567890" to the inputfield "estabContactDetails.primaryPhoneNumber"
         And I click on the element "estabContactDetails.continueButton"
         Then I expect that element "estabContactDetails.error" contains the text "Enter a valid establishment email address"
@@ -57,7 +57,7 @@ Feature: As Samantha I need to be able to fill in the establishment contact deta
     @SDB-113_no_phone_number
     Scenario: no phone number
         Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/establishment-contact-details"
+        And I open the url "establishment-contact-details"
         When I set "valid@email.com" to the inputfield "estabContactDetails.emailAddress"
         And I click on the element "estabContactDetails.continueButton"
         Then I expect that element "estabContactDetails.error" contains the text "Enter a valid establishment phone number"
@@ -66,7 +66,7 @@ Feature: As Samantha I need to be able to fill in the establishment contact deta
     @SDB-113_invalid_optional_phone_number
     Scenario: invalid secondary phone number
         Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/establishment-contact-details"
+        And I open the url "establishment-contact-details"
         When I set "valid@email.com" to the inputfield "estabContactDetails.emailAddress"
         And I set "01234567890" to the inputfield "estabContactDetails.primaryPhoneNumber"
         And I set "§§§§" to the inputfield "estabContactDetails.optionalPhoneNumber"
@@ -79,7 +79,7 @@ Feature: As Samantha I need to be able to fill in the establishment contact deta
     @SDB-113_happy_path_same_as_operator
     Scenario: happy path using operator details
         Given I open the url "/cleansession"
-        And I go to a special QA page at url "/qa/mid-and-east-antrim/establishment-contact-details" with injected "declaration" data
+        And I go to a special QA page at url "/qa/establishment-contact-details" with injected "declaration" data
         When I click on the element "estabContactDetails.reuseButton"
         Then I expect that element "estabContactDetails.emailAddress" contains the text "email@email.com"
         And I expect that element "estabContactDetails.primaryPhoneNumber" contains the text "01234567890"
@@ -89,7 +89,7 @@ Feature: As Samantha I need to be able to fill in the establishment contact deta
     @SDB-113_happy_path_same_as_operator_overwrite
     Scenario: happy path using operator details overwriting
         Given I open the url "/cleansession"
-        And I go to a special QA page at url "/qa/mid-and-east-antrim/establishment-contact-details" with injected "declaration" data
+        And I go to a special QA page at url "/qa/establishment-contact-details" with injected "declaration" data
         When I set "valid2nd@email.com" to the inputfield "estabContactDetails.emailAddress"
         And I set "07766292321" to the inputfield "estabContactDetails.primaryPhoneNumber"
         And I click on the element "estabContactDetails.reuseButton"
@@ -101,8 +101,8 @@ Feature: As Samantha I need to be able to fill in the establishment contact deta
     @SDB-113_happy_path_same_as_operator_edit
     Scenario: happy path using operator details
         Given I open the url "/cleansession"
-        And I go to a special QA page at url "/qa/mid-and-east-antrim/establishment-contact-details" with injected "declaration" data
-        And I open the url "mid-and-east-antrim/establishment-contact-details"
+        And I go to a special QA page at url "/qa/establishment-contact-details" with injected "declaration" data
+        And I open the url "establishment-contact-details"
         When I click on the element "estabContactDetails.reuseButton"
         Then I expect that element "estabContactDetails.emailAddress" contains the text "email@email.com"
         And I expect that element "estabContactDetails.primaryPhoneNumber" contains the text "01234567890"
@@ -115,8 +115,8 @@ Feature: As Samantha I need to be able to fill in the establishment contact deta
     @SDB-113_same_as_operator_try_deselect
     Scenario: happy path using operator details deselect
         Given I open the url "/cleansession"
-        And I go to a special QA page at url "/qa/mid-and-east-antrim/establishment-contact-details" with injected "declaration" data
-        And I open the url "mid-and-east-antrim/establishment-contact-details"
+        And I go to a special QA page at url "/qa/establishment-contact-details" with injected "declaration" data
+        And I open the url "establishment-contact-details"
         And I click on the element "estabContactDetails.reuseButton"
         Then I expect that element "estabContactDetails.emailAddress" contains the text "email@email.com"
         And I expect that element "estabContactDetails.primaryPhoneNumber" contains the text "01234567890"

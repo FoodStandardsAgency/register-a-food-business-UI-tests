@@ -6,7 +6,7 @@ Feature: Local Council Lookup
     @LC_Lookup_SDB-6
     Scenario: happy path
         Given I open the url "/cleansession"
-        And I go to a special QA page at url "/qa/mid-and-east-antrim/declaration" with injected "declaration" data
+        And I go to a special QA page at url "/qa/declaration" with injected "declaration" data
         When I click on the element "submitRegistration.button"
         And I click on the element "submitRegistration.firstCheckbox"
         And I pause for 1000ms
@@ -22,7 +22,7 @@ Feature: Local Council Lookup
     @LC_Lookup_SDB-6_district_and_county
     Scenario: happy path with a district and county council
         Given I open the url "/cleansession"
-        And I go to a special QA page at url "/qa/west-dorset/declaration" with injected "declaration" data
+        And I go to a special QA page at url "/qa/declaration" with injected "declaration" data
         And I click on the element "submitRegistration.firstCheckbox"
         And I pause for 1000ms
         And I click on the element "submitRegistration.secondCheckbox"

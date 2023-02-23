@@ -7,6 +7,7 @@ const estabAddress = {
   postcodeDisplay: "#main-content > div > div > form > fieldset > legend > h1",
   cannotFindPostcodeHeading: "#main-content > div > div > fieldset > legend > h1",
   postcodeLocator:"#local_authority",
+  estabPostcodeFind: "#establishment_postcode_find",
   noCouncilHeading:"#main-heading",
   changePostcode: "#main-content > div > div > form > dl > div > dd.govuk-summary-list__actions > a",
   postcodeDropdown: "#establishmentAddressDropdown",
@@ -18,5 +19,4 @@ const estabAddress = {
   locality: '[name="establishment_address_line_3"]',
   backButton: "body > div.govuk-width-container > nav > div.govuk-grid-row > div.govuk-grid-column-two-thirds > a"
 };
-
 module.exports = estabAddress;

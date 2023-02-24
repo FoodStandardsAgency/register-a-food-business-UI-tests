@@ -1,4 +1,4 @@
-const estabAddress = { 
+const laselector = { 
   firstline: '[name="establishment_address_line_1"]',
   postcode: '[name="establishment_postcode_find"]',
   manualPostcode: '[name="establishment_postcode"]',
@@ -17,7 +17,6 @@ const estabAddress = {
   error: ".govuk-error-message",
   cantFindAddressLink: "#cantFindAddressLink",
   locality: '[name="establishment_address_line_3"]',
-  backButton: "body > div.govuk-width-container > nav > div.govuk-grid-row > div.govuk-grid-column-two-thirds > a",
-  backButtonEstablished:"body > div > nav > div.govuk-grid-row > div.govuk-grid-column-two-thirds > a"
+  backButton: "body > div > nav > div.govuk-grid-row > div.govuk-grid-column-two-thirds > a"
 };
-module.exports = estabAddress;
+module.exports = laselector;

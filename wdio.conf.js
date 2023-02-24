@@ -354,13 +354,14 @@ let config = {
   suites: {
     landingpage: ["./src/features/**/landingPage.feature"],
     establishment: [
-        "./src/features/**/establishmentContactDetails.feature",
-        "./src/features/**/establishmentOpeningDate.feature", 
-        "./src/features/**/establishmentTradingName.feature",
-        "./src/features/**/establishmentAddress.feature",
-        "./src/features/**/establishmentAddressType.feature",
+      "./src/features/**/establishmentContactDetails.feature",
+      "./src/features/**/establishmentOpeningDate.feature", 
+      "./src/features/**/establishmentTradingName.feature",
+      "./src/features/**/establishmentAddress.feature",
+      "./src/features/**/establishmentAddressType.feature",
       "./src/features/**/establishmentOpeningDays.feature",
-        "./src/features/**/openingHours.feature" 
+      "./src/features/**/openingHours.feature",
+      "./src/features/**/laselector.feature"
     ],
     operator: [
       "./src/features/**/operatorAddress.feature",
@@ -382,12 +383,12 @@ let config = {
     ],
     operatorextra: [
       "./src/features/**/charityDetails.feature",
-       "./src/features/**/customerType.feature",
-       "./src/features/**/limitedCompanyDetails.feature",
-        "./src/features/**/importExportActivities.feature",
-        "./src/features/**/businessTypeIn.feature",
-        "./src/features/**/otherDetails.feature",
-        "./src/features/**/waterSupply.feature"
+      "./src/features/**/customerType.feature",
+      "./src/features/**/limitedCompanyDetails.feature",
+      "./src/features/**/importExportActivities.feature",
+      "./src/features/**/businessTypeIn.feature",
+      "./src/features/**/otherDetails.feature",
+      "./src/features/**/waterSupply.feature"
     ],
     websitefeatures: [
       "./src/features/**/backButton.feature",

@@ -18,6 +18,11 @@ const estabAddress = {
   cantFindAddressLink: "#cantFindAddressLink",
   locality: '[name="establishment_address_line_3"]',
   backButton: "body > div.govuk-width-container > nav > div.govuk-grid-row > div.govuk-grid-column-two-thirds > a",
-  backButtonEstablished:"body > div > nav > div.govuk-grid-row > div.govuk-grid-column-two-thirds > a"
+  backButtonEstablished:"body > div > nav > div.govuk-grid-row > div.govuk-grid-column-two-thirds > a",
+  cantFindLA:"#main-content > div > div > form > div:nth-child(2) > div > div > label",
+  postcodeFinder:"#postcode",
+  errorPostcode:"#error-summary-ba73298e > div > h2",
+  LAnotOnboarded: "#content > h1.heading-large",
+  LAInvalidError: "#error-summary-title"
 };
 module.exports = estabAddress;

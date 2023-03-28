@@ -33,7 +33,7 @@ Feature: As Robert I need the service to locate my council after ive inserted my
         And I set "§§§" to the inputfield "estabAddress.postcodeLocator"
         When I click on the element "estabAddress.button"
         When I click on the element "estabAddress.button"
-        Then I expect the url to contain "la-not-onboarded"
+        And I expect that element "estabAddress.LAInvalidError" contains the text "There is a problem"
 
     @SDB-12_la_selector_change_postcode
     Scenario: entering postcode, pressing continue and then changing postcode
@@ -70,6 +70,35 @@ Feature: As Robert I need the service to locate my council after ive inserted my
         When I set "invalid council" to the inputfield "estabAddress.postcodeLocator"
         And I click on the element "estabAddress.button"
         And I click on the element "estabAddress.button"
-        Then I expect the url to contain "la-not-onboarded"
-        And I expect that element "estabAddress.noCouncilHeading" contains the text "Unfortunately, you cannot use this service" 
+        And I expect that element "estabAddress.LAInvalidError" contains the text "There is a problem"
 
+            @SDB-12_la_selector_cant_find_address_with_lookup
+    Scenario: entering postcode, then choosing "i cant find my council"
+        Given I open the url "/cleansession"
+        And I open the url "establishment-address"
+        And I set "BS29ST" to the inputfield "estabAddress.postcode"
+        When I click on the element "estabAddress.button"
+        Then I expect the url to contain "la-selector"
+        And I expect that element "estabAddress.cannotFindPostcodeHeading" contains the text "We couldn't find your Local Authority"
+
+            @SDB-12_la_selector_cant_find_address_with_lookup
+    Scenario: entering postcode, then choosing "i cant find my council" and entering the false postcode into the council finder
+        Given I open the url "/cleansession"
+        And I open the url "establishment-address"
+        And I set "BS29ST" to the inputfield "estabAddress.postcode"
+        When I click on the element "estabAddress.button"
+        Then I expect the url to contain "la-selector"
+        And I expect that element "estabAddress.cannotFindPostcodeHeading" contains the text "We couldn't find your Local Authority"
+        And I set "cardiff" to the inputfield "estabAddress.postcodeLocator"
+        When I click on the element "estabAddress.button"
+        When I click on the element "estabAddress.button"
+        Then I expect the url to not contain "la-selector"
+
+    Scenario: entering postcode, then choosing "i cant find my council" and entering the false postcode into the council finder
+        Given I open the url "/cleansession"
+        And I open the url "establishment-address"
+        And I set "SS7 1TF" to the inputfield "estabAddress.postcode"
+        When I click on the element "estabAddress.button"
+        Then I expect the url to contain "https://www.gov.uk/apply-for-a-licence/food-premises-registration/castle-point/apply-1"
+        And I expect that element "estabAddress.LAnotOnboarded" contains the text "Registration of a food business establishment from Castle Point Borough Council"
+        

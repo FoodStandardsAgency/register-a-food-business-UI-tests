@@ -1,13 +1,13 @@
 require("dotenv").config();
-const video = require('wdio-video-reporter');
-const fs = require('fs-extra');
+const video = require("wdio-video-reporter");
+const fs = require("fs-extra");
 const deepMergeArrays = (...arguments) => {
   let target = {};
   // Merge the object into the target object
   let merger = (obj) => {
     for (let prop in obj) {
       if (obj.hasOwnProperty(prop)) {
-        if (Object.prototype.toString.call(obj[prop]) === '[object Object]'){
+        if (Object.prototype.toString.call(obj[prop]) === "[object Object]") {
           // If we're doing a deep merge
           // and the property is an object
           target[prop] = deepMergeArrays(target[prop], obj[prop]);
@@ -32,220 +32,192 @@ const LOCALITY_LOCAL = "LOCAL";
 const LOCALITY_REMOTE = "REMOTE";
 
 const localiseCapability = (config, mode) => {
-  switch(mode) {
+  switch (mode) {
     case MODE_BROWSERSTACK:
-      if(!config['bstack:options']) {
-        config['bstack:options'] = {};
+      if (!config["bstack:options"]) {
+        config["bstack:options"] = {};
       }
-      config['bstack:options']['local'] ="true";
-      config['maxInstances'] = 2;
+      config["bstack:options"]["local"] = "true";
+      config["maxInstances"] = 2;
 
       break;
     case MODE_SELENIUM:
-      delete config['bstack:options'];
-      delete config['browserVersion'];
-      config['maxInstances'] = 2;
+      delete config["bstack:options"];
+      delete config["browserVersion"];
+      config["maxInstances"] = 2;
       break;
   }
 
   return config;
-}
+};
 
 const defaultCapabilitiesMobile = (mode, props = {}) => {
-  let {
-    osVersion = '10'
-  } = props;
+  let { osVersion = "10" } = props;
 
-  switch(mode){
+  switch (mode) {
     case MODE_BROWSERSTACK:
-
       return {
-        "bstack:options":{
+        "bstack:options": {
           osVersion: osVersion,
           projectName: "RAFB",
           buildName: generateBuildName(),
-          realMobile : "true",
-          appiumVersion : "1.14.0",
+          realMobile: "true",
+          appiumVersion: "1.14.0",
           accessKey: process.env.BROWSERSTACK_KEY,
-          userName: process.env.BROWSERSTACK_USER
-        }
+          userName: process.env.BROWSERSTACK_USER,
+        },
       };
 
     default:
       return {};
   }
-
-}
+};
 
 const defaultCapabilities = (mode, props = {}) => {
   let {
-    os="Windows",
-    osVersion = '10',
-    resolution="1920x1080",
-    debug=false
+    os = "Windows",
+    osVersion = "10",
+    resolution = "1920x1080",
+    debug = false,
   } = props;
 
-  switch(mode){
+  switch (mode) {
     case MODE_BROWSERSTACK:
-
       return {
-        "bstack:options":{
-          os:os,
+        "bstack:options": {
+          os: os,
           osVersion: osVersion,
           projectName: "RAFB",
           buildName: generateBuildName(),
           // seleniumVersion: "4",
-          seleniumVersion : "3.141.59",
+          seleniumVersion: "3.141.59",
           accessKey: process.env.BROWSERSTACK_KEY,
-          userName: process.env.BROWSERSTACK_USER
-        }
+          userName: process.env.BROWSERSTACK_USER,
+        },
       };
 
     default:
       return {};
   }
-
-}
+};
 
 const capabilityAndroid = (mode, osConfig = {}) => {
-  let {
-    osVersion = "10.0"
-  } = osConfig;
+  let { osVersion = "10.0" } = osConfig;
 
   return deepMergeArrays(
-      {
-        "browserName" : "Android",
-        "bstack:options" : {
-          "osVersion" : "10.0",
-          "deviceName" : "Google Pixel 4 XL",
-        }
+    {
+      browserName: "Android",
+      "bstack:options": {
+        osVersion: "10.0",
+        deviceName: "Google Pixel 4 XL",
       },
-      defaultCapabilitiesMobile(mode, {osVersion})
+    },
+    defaultCapabilitiesMobile(mode, { osVersion })
   );
 };
 
 const capabilityiOS = (mode, osConfig = {}) => {
-  let {
-    osVersion = "13"
-  } = osConfig;
+  let { osVersion = "13" } = osConfig;
 
   return deepMergeArrays(
-      {
-        "browserName" : "iPhone",
-        "bstack:options" : {
-          "osVersion" : "13",
-          "deviceName" : "iPhone XS",
-        }
+    {
+      browserName: "iPhone",
+      "bstack:options": {
+        osVersion: "13",
+        deviceName: "iPhone XS",
       },
-      defaultCapabilitiesMobile(mode, {osVersion})
+    },
+    defaultCapabilitiesMobile(mode, { osVersion })
   );
 };
 
 const capabilityIE = (mode, osConfig = {}) => {
-  let {
-    os="Windows",
-    osVersion = "10"
-  } = osConfig;
+  let { os = "Windows", osVersion = "10" } = osConfig;
 
   return deepMergeArrays(
-      {
-        "browserName" : "ie",
-        "browser_version" : "11.0"
-      },
-      defaultCapabilities(mode, {os, osVersion})
+    {
+      browserName: "ie",
+      browser_version: "11.0",
+    },
+    defaultCapabilities(mode, { os, osVersion })
   );
 };
 
 const capabilityFirefox = (mode, osConfig = {}) => {
-  let {
-    os="WINDOWS",
-    osVersion = "10"
-  } = osConfig;
+  let { os = "WINDOWS", osVersion = "10" } = osConfig;
 
   return deepMergeArrays(
-      {
-        "browserName" : "firefox",
-        "browserVersion": "76"
-      },
-      defaultCapabilities(mode, {os, osVersion})
+    {
+      browserName: "firefox",
+      browserVersion: "76",
+    },
+    defaultCapabilities(mode, { os, osVersion })
   );
 };
 
 const capabilityChrome = (mode, osConfig = {}) => {
-  let {
-    os="Windows",
-    osVersion = "10"
-  } = osConfig;
+  let { os = "Windows", osVersion = "10" } = osConfig;
 
   return deepMergeArrays(
-      {
-        "browserName" : "chrome",
-        "browserVersion": "83.0"
-      },
-      defaultCapabilities(mode, {os, osVersion})
+    {
+      browserName: "chrome",
+      browserVersion: "83.0",
+    },
+    defaultCapabilities(mode, { os, osVersion })
   );
 };
 
 const capabilityEdge = (mode, osConfig = {}) => {
-  let {
-    os="Windows",
-    osVersion = "10"
-  } = osConfig;
+  let { os = "Windows", osVersion = "10" } = osConfig;
 
   return deepMergeArrays(
-      {
-        "browserName" : "Edge",
-        "browserVersion": "83.0"
-      },
-      defaultCapabilities(mode, {os, osVersion})
-  );
-}
-
-const capabilitySafari = (mode, osConfig = {}) => {
-  let {
-    os="OS X",
-    osVersion="Mojave"
-  } = osConfig;
-
-  return deepMergeArrays(
-      {
-        "browserName" : "safari",
-        "browserVersion": "12.0"
-      },
-      defaultCapabilities(mode, {os, osVersion})
+    {
+      browserName: "Edge",
+      browserVersion: "83.0",
+    },
+    defaultCapabilities(mode, { os, osVersion })
   );
 };
 
-const generateBuildName  = () => {
+const capabilitySafari = (mode, osConfig = {}) => {
+  let { os = "OS X", osVersion = "Mojave" } = osConfig;
+
+  return deepMergeArrays(
+    {
+      browserName: "safari",
+      browserVersion: "12.0",
+    },
+    defaultCapabilities(mode, { os, osVersion })
+  );
+};
+
+const generateBuildName = () => {
   if (process.env.RELEASE_RELEASENAME) {
     return `azure-${process.env.RELEASE_RELEASENAME}`;
   } else {
     return `${process.env.BROWSERSTACK_USER}-${Date.now()}`;
   }
-}
+};
 
 const initSeleniumConfig = (isLocal, config = {}) => {
   let mode = MODE_SELENIUM;
 
-  config.hostname='selenium-hub';
-  config.port=4444;
-  config.path='/wd/hub'; //for selenium 3.*
+  config.hostname = "selenium-hub";
+  config.port = 4444;
+  config.path = "/wd/hub"; //for selenium 3.*
   // config.path='/'; //For selenium * 4.* *
 
-  config.capabilities = [
-    capabilityChrome(mode),
-    capabilityFirefox(mode),
-  ];
+  config.capabilities = [capabilityChrome(mode), capabilityFirefox(mode)];
 
   config.maxInstances = 4;
 
-  if(isLocal){
+  if (isLocal) {
     let capabilities = config.capabilities;
     let localCapabilities = [];
-    capabilities.forEach((item, index)=>{
+    capabilities.forEach((item, index) => {
       localCapabilities.push(localiseCapability(item, mode));
     });
-    
+
     config.capabilities = localCapabilities;
   }
 
@@ -259,17 +231,17 @@ const initBrowserStackConfig = (isLocal, config = {}) => {
   config.user = process.env.BROWSERSTACK_USER;
   config.key = process.env.BROWSERSTACK_KEY;
 
-  let bsOptions = isLocal ? {
-    browserstackLocal: isLocal
-  } : {};
-  config.services = [
-      ['browserstack', bsOptions]
-  ];
+  let bsOptions = isLocal
+    ? {
+        browserstackLocal: isLocal,
+      }
+    : {};
+  config.services = [["browserstack", bsOptions]];
 
   config.maxInstances = 2;
   config.specFileRetries = 10;
 
-  if(runAll){
+  if (runAll) {
     config.capabilities = [
       capabilityFirefox(mode),
       capabilityChrome(mode),
@@ -277,11 +249,10 @@ const initBrowserStackConfig = (isLocal, config = {}) => {
       capabilityEdge(mode),
       //capabilityIE(mode),
       //capabilityiOS(mode),
-      capabilityAndroid(mode)
+      capabilityAndroid(mode),
     ];
-  }
-  else {
-    config.capabilities = [ 
+  } else {
+    config.capabilities = [
       //capabilityFirefox(mode),
       capabilityChrome(mode),
       //capabilitySafari(mode),
@@ -289,16 +260,16 @@ const initBrowserStackConfig = (isLocal, config = {}) => {
       //capabilityIE(mode),
       //capabilityiOS(mode),
       //capabilityAndroid(mode)
-    ]
+    ];
   }
 
   // //if we are on local
-  if(isLocal){
+  if (isLocal) {
     let capabilities = config.capabilities;
     let localCapabilities = [];
-    capabilities.forEach((item, index)=>{
+    capabilities.forEach((item, index) => {
       localCapabilities.push(localiseCapability(item, mode));
-    })
+    });
 
     config.capabilities = localCapabilities;
   }
@@ -306,12 +277,10 @@ const initBrowserStackConfig = (isLocal, config = {}) => {
   return config;
 };
 
-
-
 const argv = require("yargs").argv;
-const wdioParallel = require('wdio-cucumber-parallel-execution');
+const wdioParallel = require("wdio-cucumber-parallel-execution");
 // The below module is used for cucumber html report generation
-const reporter = require('cucumber-html-reporter');
+const reporter = require("cucumber-html-reporter");
 const currentTime = new Date().toJSON().replace(/:/g, "-");
 
 const sourceSpecDirectory = `./src/features`;
@@ -321,14 +290,14 @@ let featureFilePath = `${sourceSpecDirectory}/*.feature`;
 
 // If parallel execution is set to true, then create the Split the feature files
 // And store then in a tmp spec directory (created inside `the source spec directory)
-if (argv.parallel === 'true') {
+if (argv.parallel === "true") {
   tmpSpecDirectory = `${sourceSpecDirectory}/tmp`;
   wdioParallel.performSetup({
     sourceSpecDirectory: sourceSpecDirectory,
     tmpSpecDirectory: tmpSpecDirectory,
-    cleanTmpSpecDirectory: true
+    cleanTmpSpecDirectory: true,
   });
-  featureFilePath = `${tmpSpecDirectory}/**/*.feature`
+  featureFilePath = `${tmpSpecDirectory}/**/*.feature`;
 }
 
 let config = {
@@ -342,10 +311,8 @@ let config = {
   //
   // WebdriverIO allows it to run your tests in arbitrary locations (e.g. locally or
   // on a remote machine).
-  runner: 'local',
-  specs: [
-    './src/features/**/*.feature'
-  ],
+  runner: "local",
+  specs: ["./src/features/**/*.feature"],
   // Patterns to exclude.
   exclude: [
     // 'path/to/excluded/files'
@@ -355,13 +322,13 @@ let config = {
     landingpage: ["./src/features/**/landingPage.feature"],
     establishment: [
       "./src/features/**/establishmentContactDetails.feature",
-      "./src/features/**/establishmentOpeningDate.feature", 
+      "./src/features/**/establishmentOpeningDate.feature",
       "./src/features/**/establishmentTradingName.feature",
       "./src/features/**/establishmentAddress.feature",
       "./src/features/**/establishmentAddressType.feature",
       "./src/features/**/establishmentOpeningDays.feature",
       "./src/features/**/openingHours.feature",
-      "./src/features/**/laselector.feature"
+      "./src/features/**/laselector.feature",
     ],
     operator: [
       "./src/features/**/operatorAddress.feature",
@@ -371,15 +338,15 @@ let config = {
       "./src/features/**/representativeOperatorContactDetails.feature",
       "./src/features/**/registrationRole.feature",
       "./src/features/**/partnership.feature",
-      "./src/features/**/partnershipChange.feature"
+      "./src/features/**/partnershipChange.feature",
     ],
     registrationSubmission: [
-       "./src/features/**/submitRegistration.feature",
-       "./src/features/**/registrationSummary.feature",
-       "./src/features/**/editSummary.feature",
-       "./src/features/**/editSummary/*.feature",
-       "./src/features/**/submissionPage.feature"//,
-      // "./src/features/**/receiveConfirmationNumber.feature"// issues with qa
+      "./src/features/**/submitRegistration.feature",
+      "./src/features/**/registrationSummary.feature",
+      "./src/features/**/editSummary.feature",
+      "./src/features/**/editSummary/*.feature",
+      "./src/features/**/submissionPage.feature",
+      "./src/features/**/receiveConfirmationNumber.feature",
     ],
     operatorextra: [
       "./src/features/**/charityDetails.feature",
@@ -388,21 +355,21 @@ let config = {
       "./src/features/**/importExportActivities.feature",
       "./src/features/**/businessTypeIn.feature",
       "./src/features/**/otherDetails.feature",
-      "./src/features/**/waterSupply.feature"
+      "./src/features/**/waterSupply.feature",
     ],
     websitefeatures: [
       "./src/features/**/backButton.feature",
       "./src/features/**/betaBanner.feature",
       "./src/features/**/errorSummary.feature",
       "./src/features/**/cookieBanner.feature",
-     //"./src/features/**/lcLookup.feature"//, issues with qa
-      "./src/features/**/fsaFooter.feature"
+      "./src/features/**/lcLookup.feature",
+      "./src/features/**/fsaFooter.feature",
     ],
     end2end: [
       "./src/features/**/e2eTestingCatelyn.feature",
       "./src/features/**/e2eTestingJamie.feature",
-      "./src/features/**/e2eTestingPartnership.feature"
-    ]
+      "./src/features/**/e2eTestingPartnership.feature",
+    ],
   },
   // First, you can define how many instances should be started at the same time. Let's
   // say you have 3 different capabilities (Chrome, Firefox, and Safari) and you have
@@ -412,14 +379,13 @@ let config = {
   // from the same test should run tests.
   //
 
-
   // ===================
   // Test Configurations
   // ===================
   // Define all options that are relevant for the WebdriverIO instance here
   //
   // Level of logging verbosity: trace | debug | info | warn | error | silent
-  logLevel: 'error',
+  logLevel: "error",
   // If you only want to run your tests until a specific amount of tests have failed use
   // bail (default is 0 - don't bail, run all tests).
   bail: 0,
@@ -446,7 +412,7 @@ let config = {
   //
   // Make sure you have the wdio adapter package for the specific framework installed
   // before running any tests.
-  framework: 'cucumber',
+  framework: "cucumber",
   //
   // The number of times to retry the entire specfile when it fails as a whole
   specFileRetries: 0,
@@ -458,18 +424,25 @@ let config = {
   // The only one supported by default is 'dot'
   reporters: [
     "dot",
-    ["allure", {
-      outputDir: "allure-results",
-      disableWebdriverStepsReporting: true,
-      disableWebdriverScreenshotsReporting: true,
-      useCucumberStepReporter: true
-    }],
-    ["junit", {
-      outputDir: "./reports",
-      outputFileFormat: function(opts){
-        // console.log(opts);
-        return `WDIO-${opts.buildName}-${opts.cid}-${opts.name}.xml`}
-    }],
+    [
+      "allure",
+      {
+        outputDir: "allure-results",
+        disableWebdriverStepsReporting: true,
+        disableWebdriverScreenshotsReporting: true,
+        useCucumberStepReporter: true,
+      },
+    ],
+    [
+      "junit",
+      {
+        outputDir: "./reports",
+        outputFileFormat: function (opts) {
+          // console.log(opts);
+          return `WDIO-${opts.buildName}-${opts.cid}-${opts.name}.xml`;
+        },
+      },
+    ],
     // [
     //   video,
     //   {
@@ -483,17 +456,17 @@ let config = {
   // If you are using Cucumber you need to specify the location of your step definitions.
   cucumberOpts: {
     timeout: 340000,
-    require: ['./src/steps/*'],        // <string[]> (file/dir) require files before executing features
-    backtrace: true,   // <boolean> show full backtrace for errors
-    requireModule: ['@babel/register'],  // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
-    dryRun: false,      // <boolean> invoke formatters without executing steps
-    failFast: false,    // <boolean> abort the run on first failure
+    require: ["./src/steps/*"], // <string[]> (file/dir) require files before executing features
+    backtrace: true, // <boolean> show full backtrace for errors
+    requireModule: ["@babel/register"], // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
+    dryRun: false, // <boolean> invoke formatters without executing steps
+    failFast: false, // <boolean> abort the run on first failure
     // format: ['pretty'], // <string[]> (type[:path]) specify the output format, optionally supply PATH to redirect formatter output (repeatable)
-    snippets: true,     // <boolean> hide step definition snippets for pending steps
-    source: false,       // <boolean> hide source uris
-    profile: [],        // <string[]> (name) specify the profile to use
-    strict: true,      // <boolean> fail if there are any undefined or pending steps
-    tagExpression: "not @Pending"  // <string> (expression) only execute the features or scenarios with tags matching the expression
+    snippets: true, // <boolean> hide step definition snippets for pending steps
+    source: false, // <boolean> hide source uris
+    profile: [], // <string[]> (name) specify the profile to use
+    strict: true, // <boolean> fail if there are any undefined or pending steps
+    tagExpression: "not @Pending", // <string> (expression) only execute the features or scenarios with tags matching the expression
   },
   //
   // =====
@@ -504,7 +477,6 @@ let config = {
   // methods to it. If one of them returns with a promise, WebdriverIO will wait until that promise got
   // resolved to continue.
   //afterStep: function afterStep(stepResult, blah, result) {}
-
 
   /**
    * Gets executed once before all workers get launched.
@@ -542,15 +514,11 @@ let config = {
    * @param {Array.<String>} specs List of spec file paths that are to be run
    */
   before: function (capabilities, specs) {
-
-    browser.overwriteCommand('url', function (origUrlFunction, url) {
-
+    browser.overwriteCommand("url", function (origUrlFunction, url) {
       origUrlFunction(url);
 
       browser.pause(1000);
-
     });
-
   },
   /**
    * Runs before a WebdriverIO command gets executed.
@@ -627,10 +595,9 @@ let config = {
    * @param {<Object>} results object containing test results
    */
   onComplete: () => {
-
-    try{
+    try {
       let consolidatedJsonArray = wdioParallel.getConsolidatedData({
-        parallelExecutionReportDirectory: parallelExecutionReportDirectory
+        parallelExecutionReportDirectory: parallelExecutionReportDirectory,
       });
 
       let jsonFile = `./parallel-report.json`;
@@ -639,18 +606,18 @@ let config = {
       // The below code is not part of wdio-cucumber-parallel-execution module
       // but is mentioned to show, how it can be used with other reporting modules
       var options = {
-        theme: 'bootstrap',
+        theme: "bootstrap",
         jsonFile: jsonFile,
         output: `tests/reports/html/report-${currentTime}.html`,
         reportSuiteAsScenarios: true,
         scenarioTimestamp: true,
         launchReport: true,
-        ignoreBadJsonFile: true
+        ignoreBadJsonFile: true,
       };
 
       reporter.generate(options);
-    } catch(err){
-      console.log('err', err);
+    } catch (err) {
+      console.log("err", err);
     }
   },
   /**
@@ -658,19 +625,18 @@ let config = {
    * @param {String} oldSessionId session ID of the old session
    * @param {String} newSessionId session ID of the new session
    */
-  onReload: function(oldSessionId, newSessionId) {
+  onReload: function (oldSessionId, newSessionId) {
     console.log(`session refresh ${oldSessionId}->${newSessionId}`);
-  }
+  },
 };
 
-
 let isLocal = process.env.IS_LOCAL !== "";
-switch(process.env.MODE){
+switch (process.env.MODE) {
   case MODE_BROWSERSTACK:
-      config = initBrowserStackConfig(isLocal, config);
+    config = initBrowserStackConfig(isLocal, config);
     break;
   case MODE_SELENIUM:
-      config = initSeleniumConfig(isLocal, config);
+    config = initSeleniumConfig(isLocal, config);
     break;
   default:
     throw new Error(`Specify a MODE env`);

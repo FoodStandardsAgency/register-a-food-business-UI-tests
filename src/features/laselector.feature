@@ -33,6 +33,7 @@ Feature: As Robert I need the service to locate my council after ive inserted my
         And I set "§§§" to the inputfield "estabAddress.postcodeLocator"
         When I click on the element "estabAddress.button"
         When I click on the element "estabAddress.button"
+        Adding in a pause step
         And I expect that element "estabAddress.LAInvalidError" contains the text "There is a problem"
 
     @SDB-12_la_selector_change_postcode

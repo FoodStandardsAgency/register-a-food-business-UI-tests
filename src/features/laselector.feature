@@ -70,6 +70,7 @@ Feature: As Robert I need the service to locate my council after ive inserted my
         When I set "invalid council" to the inputfield "estabAddress.postcodeLocator"
         And I click on the element "estabAddress.button"
         And I click on the element "estabAddress.button"
+        And I pause for 1000ms
         And I expect that element "estabAddress.LAInvalidError" contains the text "There is a problem"
 
             @SDB-12_la_selector_cant_find_address_with_lookup

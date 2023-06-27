@@ -5,6 +5,7 @@ Feature: As Catelyn I need to know that cookies are being used in this service, 
 
     @cookie_banner_SDB-500_happy_path
     Scenario: happy path for accepting
+        Given I delete all my cookies
         Given I open the url "/cleansession"
         And I open the url "index"
         And I pause for 2000ms
@@ -17,6 +18,7 @@ Feature: As Catelyn I need to know that cookies are being used in this service, 
 
     @cookie_banner_SDB-500_reject
     Scenario: happy path for rejecting
+        Given I delete all my cookies
         Given I open the url "/cleansession"
         And I delete the cookie "acceptAllCookies"
         And I open the url "index"
@@ -31,6 +33,7 @@ Feature: As Catelyn I need to know that cookies are being used in this service, 
 
     @cookie_banner_SDB-500_cookie_info
     Scenario: wanting to find more info on cookies
+        Given I delete all my cookies
         Given I open the url "/cleansession"
         And I delete the cookie "acceptAllCookies"
         When I open the url "index"
@@ -43,6 +46,7 @@ Feature: As Catelyn I need to know that cookies are being used in this service, 
 
     @cookie_banner_SDB-500_cookie_policy
     Scenario: wanting to find more info on cookie policy
+        Given I delete all my cookies
         Given I open the url "/cleansession"
         And I delete the cookie "acceptAllCookies"
         When I open the url "index"

@@ -161,7 +161,7 @@ const capabilityChrome = (mode, osConfig = {}) => {
   return deepMergeArrays(
     {
       browserName: "chrome",
-      browserVersion: "83.0",
+      browserVersion: "113.0",
     },
     defaultCapabilities(mode, { os, osVersion })
   );

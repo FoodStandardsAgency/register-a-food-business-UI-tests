@@ -7,6 +7,7 @@ Feature: As Catelyn I need to know that cookies are being used in this service, 
     Scenario: happy path for accepting
         Given I open the url "/cleansession"
         And I open the url "index"
+        And I pause for 2000ms
         Then I expect that element "commonElements.cookieBanner" does exist
         When I click on the element "commonElements.button"
         Then I expect that cookie "acceptAllCookies" exists

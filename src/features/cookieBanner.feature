@@ -13,7 +13,7 @@ Feature: As Catelyn I need to know that cookies are being used in this service, 
         When I click on the element "commonElements.button"
         Then I expect that cookie "acceptAllCookies" exists
         And I expect that cookie "connect.sid" exists
-        Then I expect that element "commonElements.cookieBanner" is not visible
+        Then I expect that element "#cookieBanner" does not exist
 
 
     @cookie_banner_SDB-500_reject
@@ -25,7 +25,7 @@ Feature: As Catelyn I need to know that cookies are being used in this service, 
         And I pause for 2000ms
         Then I expect that element "commonElements.cookieBanner" is visible
         When I click on the element "commonElements.cookieReject"
-        Then I expect that element "commonElements.cookieBanner" is not visible
+        Then I expect that element "#cookieBanner" does not exist
         And I expect that cookie "acceptAllCookies" exists
         And I expect that cookie "connect.sid" exists
         And I expect that cookie "_ga" not exists

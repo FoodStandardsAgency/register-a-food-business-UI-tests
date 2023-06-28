@@ -8,7 +8,7 @@ export default (selector, falseCase) => {
      * Elements found in the DOM
      * @type {Object}
      */
-    const elements = browser.elements(selector).value;
+    const elements = $(selector);
 
     if (falseCase) {
       expect(elements).to.have.lengthOf(

@@ -5,7 +5,7 @@ Feature: Operator Name
 
     @happy_path_SDB-35
     Scenario: happy path for Operator Name
-        Given I open the url "mid-and-east-antrim/operator-name"
+        Given I open the url "operator-name"
         And I click on the element "opContactName.button"
         When I set "Bob" to the inputfield "opContactName.firstName"
         And I set "Smith" to the inputfield "opContactName.lastName"
@@ -15,7 +15,7 @@ Feature: Operator Name
     @no_first_name_SDB-35
     Scenario: no first name input
         Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/operator-name"
+        And I open the url "operator-name"
         And I set "Smith" to the inputfield "opContactName.lastName"
         And I click on the element "opContactName.button"
         Then I expect that element "opContactName.lastName" contains the text "Smith"
@@ -24,7 +24,7 @@ Feature: Operator Name
     @no_last_name_SDB-35
     Scenario: no last name input
         Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/operator-name"
+        And I open the url "operator-name"
         When I set "Bob" to the inputfield "opContactName.firstName"
         And I click on the element "opContactName.button"
         Then I expect that element "opContactName.firstName" contains the text "Bob"
@@ -33,7 +33,7 @@ Feature: Operator Name
     @invalid_last_name_SDB-35
     Scenario: invalid last name input
         Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/operator-name"
+        And I open the url "operator-name"
         When I set "Bob" to the inputfield "opContactName.firstName"
         And I set "This is text containing more than 255 characters. This is text containing more than 255 characters. This is text containing more than 255 characters. This is text containing more than 255 characters. This is text containing more than 255 characters. 012345" to the inputfield "opContactName.lastName"
         And I click on the element "opContactName.button"
@@ -44,7 +44,7 @@ Feature: Operator Name
     @invalid_first_name_SDB-35
     Scenario: invalid first name input
         Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/operator-name"
+        And I open the url "operator-name"
         When I set "This is text containing more than 255 characters. This is text containing more than 255 characters. This is text containing more than 255 characters. This is text containing more than 255 characters. This is text containing more than 255 characters. 012345" to the inputfield "opContactName.firstName"
         And I set "Smith" to the inputfield "opContactName.lastName"
         And I click on the element "opContactName.button"

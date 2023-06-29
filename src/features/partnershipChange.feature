@@ -5,7 +5,7 @@ Feature: As Samantha I need to be able to change the partnership details
   @SDB-130_Change_Operator_Type_Partnership_Change_details
   Scenario: Change details within Partnership path
     Given I open the url "/cleansession"
-    And I go to a special QA page at url "/qa/mid-and-east-antrim/registration-summary" with injected "registration-summary-partnership" data
+    And I go to a special QA page at url "/qa/registration-summary" with injected "registration-summary-partnership" data
     When I click on the element "regRole.button"
     When I click on the element "registrationSummary.changeOperatorType"
     Then I expect the url to contain "registration-role?edit=registration-role"

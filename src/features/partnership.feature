@@ -5,7 +5,7 @@ Feature: partnership
 
     Scenario: Deleting partner
         Given I open the url "/cleansession"
-        And I go to a special QA page at url "/qa/mid-and-east-antrim/partner-name" with injected "two-partnership" data
+        And I go to a special QA page at url "/qa/partner-name" with injected "two-partnership" data
         Then I expect that element "partnerName.partnerOne" contains the text "one"
         And I expect that element "partnerName.partnerTwo" contains the text "two"
         And I expect that element "partnerName.button" does exist
@@ -18,7 +18,7 @@ Feature: partnership
 @unhappy_paths
     Scenario: no selection on main-partnership-contact
         Given I open the url "/cleansession"
-        And I go to a special QA page at url "/qa/mid-and-east-antrim/main-partnership-contact" with injected "two-partnership" data
+        And I go to a special QA page at url "/qa/main-partnership-contact" with injected "two-partnership" data
         And I click on the element "commonElements.button"
         Then I expect that element "mainPartnershipContact.partnerOne" contains the text "one"
         And I expect that element "mainPartnershipContact.partnerTwo" contains the text "two"
@@ -28,7 +28,7 @@ Feature: partnership
 
     Scenario: no name on partner details
         Given I open the url "/cleansession"
-        And I go to a special QA page at url "/qa/mid-and-east-antrim/partner-details" with injected "two-partnership" data
+        And I go to a special QA page at url "/qa/partner-details" with injected "two-partnership" data
         And I click on the element "commonElements.button"
         When I set " " to the inputfield "partnerDetails.partner_name"
         And I click on the element "commonElements.button"
@@ -36,7 +36,7 @@ Feature: partnership
 
     Scenario: Very long name on partner details
         Given I open the url "/cleansession"
-        And I go to a special QA page at url "/qa/mid-and-east-antrim/partner-details" with injected "two-partnership" data
+        And I go to a special QA page at url "/qa/partner-details" with injected "two-partnership" data
         And I click on the element "commonElements.button"
         When I set "This is text containing more than 255 characters. This is text containing more than 255 characters. This is text containing more than 255 characters. This is text containing more than 255 characters. This is text containing more than 255 characters. 012345" to the inputfield "partnerDetails.partner_name"
         And I click on the element "commonElements.button"

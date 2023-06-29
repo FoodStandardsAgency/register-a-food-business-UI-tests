@@ -3,7 +3,7 @@ Feature: Testing user journey for partnership
     @happy_path_SDB-111
     Scenario: Happy path
         Given I open the url "/cleansession"
-        And I go to a special QA page at url "/qa/mid-and-east-antrim/partner-name" with injected "blank-partnership" data
+        And I go to a special QA page at url "/qa/partner-name" with injected "blank-partnership" data
         And I click on the element "commonElements.button"
         When I click on the element "partnerName.addPartnerButton"
         Then I expect the url to contain "partnership/partner-details"
@@ -52,8 +52,14 @@ Feature: Testing user journey for partnership
     @happy_path_
     Scenario: happy path
         Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/index"
+        And I open the url "index"
         When I click on the element "firstpage.button"
+        Then I expect the url to contain "establishment-address"
+        When I set "BS24 9ST" to the inputfield "estabAddress.estabPostcodeFind" 
+        When I click on the element "estabAddress.button"
+        Then I expect the url to contain "la-established"
+        And I expect that element "estabAddress.postcodeDisplay" contains the text "You are registering with North Somerset Council" 
+        When I click on the element "estabAddress.button"
         Then I expect the url to contain "registration-role"
         When I click on the element "regRole.partnership"
         And I click on the element "regRole.button"
@@ -107,9 +113,6 @@ Feature: Testing user journey for partnership
         And I click on the element "estabTradingName.button"
         Then I expect the url to contain "establishment-address-type"
         When I click on the element "estabAddressType.businessCommercial"
-        And I click on the element "estabAddressType.button"
-        Then I expect the url to contain "establishment-address"
-        And I set "BS24 9ST" to the inputfield "estabAddress.postcode"
         When I click on the element "estabAddress.button"
         Then I expect the url to contain "establishment-address-select"
         When I click on the element "estabAddress.button"

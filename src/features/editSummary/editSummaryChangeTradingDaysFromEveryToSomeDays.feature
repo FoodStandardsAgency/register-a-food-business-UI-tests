@@ -4,7 +4,7 @@ Feature: Change trading days from every day to some days a week
   @SDB-1091_Change_Trading_Days_Every_Day_to_Some_Days
   Scenario: Change trading days from every day to some days a week
     Given I open the url "/cleansession"
-    And I go to a special QA page at url "/qa/mid-and-east-antrim/registration-summary" with injected "registration-summary-trading-every-day" data
+    And I go to a special QA page at url "/qa/registration-summary" with injected "registration-summary-trading-every-day" data
     And I click on the element "commonElements.button"
     When I click on the element "registrationSummary.changeOpeningDays"
     Then I expect the url to contain "opening-days-start?edit=opening-days-start"

@@ -6,7 +6,7 @@ Feature: As Jamie I need to declare my import and export activities so that Ric 
     @import_export_activities_happy_path_SDB-124
     Scenario: able to select one statement and proceed
         Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/business-import-export"
+        And I open the url "business-import-export"
         And I click on the element "importExportActivities.button"
         When I click on the element "importExportActivities.directImport"
         And I click on the element "importExportActivities.button"
@@ -15,7 +15,7 @@ Feature: As Jamie I need to declare my import and export activities so that Ric 
     @import_export_activities_no_selection_SDB-124 
     Scenario: not selected any options and tries to continue
         Given I open the url "/cleansession" 
-        And I open the url "mid-and-east-antrim/business-import-export"
+        And I open the url "business-import-export"
         When I click on the element "importExportActivities.button"
         Then I expect the url to contain "business-import-export"
         And I expect that element "importExportActivities.error" contains the text "You must select a valid import or export option(s) before continuing"
@@ -23,7 +23,7 @@ Feature: As Jamie I need to declare my import and export activities so that Ric 
     @import_export_activities_direct_import_forward_then_back_SDB-124
     Scenario: selects one option and then deselects it
         Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/business-import-export"
+        And I open the url "business-import-export"
         When I click on the element "importExportActivities.directImport"
         And I click on the element "importExportActivities.button"
         Then I expect the url to not contain "business-import-export"
@@ -35,11 +35,11 @@ Feature: As Jamie I need to declare my import and export activities so that Ric 
     @import_export_activities_none_registration_summary_SDB-124
     Scenario: selects one option and then deselects it
         Given I open the url "/cleansession"
-        And I open the url "mid-and-east-antrim/business-import-export"
+        And I open the url "business-import-export"
         And I click on the element "importExportActivities.none"
         And I click on the element "importExportActivities.button"
         Then I expect the url to not contain "business-import-export"
-        When I open the url "mid-and-east-antrim/registration-summary"
+        When I open the url "registration-summary"
         Then I expect that element "registrationSummary.foodActivities" contains the text "None"
 
 

@@ -15,6 +15,18 @@ Feature: As Robert I need the service to locate my council after ive inserted my
         When I click on the element "estabAddress.button"
         Then I expect the url to not contain "la-established"
 
+         @SDB-12_happy_path_la_selector_wrongLA
+    Scenario: happy path where the council is found on la-established
+        Given I open the url "/cleansession"
+        And I open the url "establishment-address"
+        When I click on the element "estabAddress.button"
+        And I set "BS249ST" to the inputfield "estabAddress.postcode"
+        When I click on the element "estabAddress.button"
+        Then I expect the url to contain "la-established"
+        When I click on the element "estabAddress.cantFindLA"
+        Then I expect the url to not contain "la-established"
+        Then I expect the url to contain "la-selector?back=/wrong-la"
+
         
     @SDB-12_happy_path_la_selector_select_2nd_option
     Scenario: able to find address using lookup service on the la selector page

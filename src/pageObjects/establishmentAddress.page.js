@@ -23,8 +23,7 @@ const estabAddress = {
     "body > div.govuk-width-container > nav > div.govuk-grid-row > div.govuk-grid-column-two-thirds > a",
   backButtonEstablished:
     "body > div > nav > div.govuk-grid-row > div.govuk-grid-column-two-thirds > a",
-  cantFindLA:
-    "#main-content > div > div > form > div:nth-child(2) > div > div > label",
+  cantFindLA: "#cantFindLA",
   postcodeFinder: "#postcode",
   errorPostcode: "#error-summary-ba73298e > div > h2",
   LAnotOnboarded: "#main-content > h1.govuk-heading-l",

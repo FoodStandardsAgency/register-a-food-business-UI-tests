@@ -1,7 +1,7 @@
-require("dotenv").config();
-const video = require("wdio-video-reporter");
-const fs = require("fs-extra");
-const deepMergeArrays = (...arguments) => {
+require("dotenv").config({ path: "register-a-food-business-UI-tests/.env" });
+const video = import("wdio-video-reporter");
+const fs = import("fs-extra");
+const deepMergeArrays = (...args) => {
   let target = {};
   // Merge the object into the target object
   let merger = (obj) => {
@@ -19,8 +19,8 @@ const deepMergeArrays = (...arguments) => {
     }
   };
   //Loop through each object and conduct a merge
-  for (let i = 0; i < arguments.length; i++) {
-    merger(arguments[i]);
+  for (let i = 0; i < args.length; i++) {
+    merger(args[i]);
   }
   return target;
 };

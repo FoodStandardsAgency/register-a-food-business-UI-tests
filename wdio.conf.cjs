@@ -161,7 +161,7 @@ const capabilityChrome = (mode, osConfig = {}) => {
   return deepMergeArrays(
     {
       browserName: "chrome",
-      browserVersion: "83.0",
+      browserVersion: "123.0.4",
     },
     defaultCapabilities(mode, { os, osVersion })
   );
@@ -412,7 +412,7 @@ let config = {
   //
   // Make sure you have the wdio adapter package for the specific framework installed
   // before running any tests.
-  framework: "cucumber",
+  framework: "@cucumber/cucumber",
   //
   // The number of times to retry the entire specfile when it fails as a whole
   specFileRetries: 0,

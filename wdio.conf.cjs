@@ -1,6 +1,6 @@
 require("dotenv").config({ path: "register-a-food-business-UI-tests/.env" });
 const video = import("wdio-video-reporter");
-const fs = import("fs-extra");
+const fs = require("fs-extra");
 const deepMergeArrays = (...args) => {
   let target = {};
   // Merge the object into the target object

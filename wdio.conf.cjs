@@ -1,6 +1,12 @@
 require("dotenv").config({ path: "register-a-food-business-UI-tests/.env" });
-const video = import("wdio-video-reporter");
+require = require("esm")(module /*, options */);
+const os = require("os");
+//const video = import("wdio-video-reporter");
 const fs = require("fs-extra");
+
+console.log("here");
+console.log("MODE:", process.env.MODE);
+console.log("IS_LOCAL:", process.env.IS_LOCAL);
 const deepMergeArrays = (...args) => {
   let target = {};
   // Merge the object into the target object
@@ -65,6 +71,7 @@ const defaultCapabilitiesMobile = (mode, props = {}) => {
           appiumVersion: "1.14.0",
           accessKey: process.env.BROWSERSTACK_KEY,
           userName: process.env.BROWSERSTACK_USER,
+          local: local,
         },
       };
 
@@ -385,7 +392,7 @@ let config = {
   // Define all options that are relevant for the WebdriverIO instance here
   //
   // Level of logging verbosity: trace | debug | info | warn | error | silent
-  logLevel: "error",
+  logLevel: "trace",
   // If you only want to run your tests until a specific amount of tests have failed use
   // bail (default is 0 - don't bail, run all tests).
   bail: 0,
@@ -405,6 +412,7 @@ let config = {
   //
   // Default request retries count
   connectionRetryCount: 3,
+  os: "Windows",
 
   // Framework you want to run your specs with.
   // The following are supported: Mocha, Jasmine, and Cucumber
@@ -412,7 +420,7 @@ let config = {
   //
   // Make sure you have the wdio adapter package for the specific framework installed
   // before running any tests.
-  framework: "@cucumber/cucumber",
+  framework: "cucumber",
   //
   // The number of times to retry the entire specfile when it fails as a whole
   specFileRetries: 0,
@@ -629,17 +637,25 @@ let config = {
     console.log(`session refresh ${oldSessionId}->${newSessionId}`);
   },
 };
+console.log(config);
+console.log("Initializing configuration...");
+let isLocal = process.env.IS_LOCAL === "true";
+console.log("isLocal:", isLocal);
 
-let isLocal = process.env.IS_LOCAL !== "";
 switch (process.env.MODE) {
   case MODE_BROWSERSTACK:
+    console.log("Using BrowserStack configuration");
     config = initBrowserStackConfig(isLocal, config);
     break;
   case MODE_SELENIUM:
+    console.log("Using Selenium configuration");
     config = initSeleniumConfig(isLocal, config);
     break;
   default:
     throw new Error(`Specify a MODE env`);
 }
+
+console.log("Specs pattern:", ["./tests/**/*.js"]);
+console.log("Suite end2end:", ["./tests/end2end/**/*.js"]);
 
 exports.config = config;

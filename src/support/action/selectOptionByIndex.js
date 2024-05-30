@@ -1,4 +1,4 @@
-import getSelector from "../../pageObjects/page";
+import getSelector from "../../pageObjects/page.js";
 
 /**
  * Select a option from a select element by it's index
@@ -9,13 +9,13 @@ import getSelector from "../../pageObjects/page";
  * @todo  merge with selectOption
  */
 export default (index, obsolete, selector) => {
-    selector = getSelector(selector);
-    /**
-     * The index of the option to select
-     * @type {Int}
-     */
-    const optionIndex = parseInt(index, 10);
+  selector = getSelector(selector);
+  /**
+   * The index of the option to select
+   * @type {Int}
+   */
+  const optionIndex = parseInt(index, 10);
 
-    $(selector).scrollIntoView();
-    $(selector).selectByIndex(optionIndex);
+  $(selector).scrollIntoView();
+  $(selector).selectByIndex(optionIndex);
 };

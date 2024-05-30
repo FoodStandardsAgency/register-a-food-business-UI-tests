@@ -242,7 +242,7 @@ datasets["registration-summary-welsh"] = {
   language: "cy",
 };
 
-module.exports = async (url, selectedDataset) => {
+export default async (url, selectedDataset) => {
   const dataToInject = datasets[selectedDataset];
 
   // Add the QA key to the dataToInject object prior to encoding

@@ -57,4 +57,4 @@ const registrationSummary = {
   waterSupply: "#water_supply",
 };
 
-module.exports = registrationSummary;
+export default registrationSummary;

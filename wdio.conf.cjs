@@ -1,8 +1,13 @@
+const path = require("path");
 require("dotenv").config({ path: "register-a-food-business-UI-tests/.env" });
 require = require("esm")(module /*, options */);
 const os = require("os");
 //const video = import("wdio-video-reporter");
 const fs = require("fs-extra");
+
+exports.resolve = {
+  modules: [path.resolve(__dirname, "src"), "node_modules"],
+};
 
 console.log("here");
 console.log("MODE:", process.env.MODE);
@@ -474,8 +479,9 @@ let config = {
     source: false, // <boolean> hide source uris
     profile: [], // <string[]> (name) specify the profile to use
     strict: true, // <boolean> fail if there are any undefined or pending steps
-    tagExpression: "not @Pending", // <string> (expression) only execute the features or scenarios with tags matching the expression
+    tags: "not @Pending", // <string> (expression) only execute the features or scenarios with tags matching the expression
   },
+
   //
   // =====
   // Hooks
@@ -522,6 +528,7 @@ let config = {
    * @param {Array.<String>} specs List of spec file paths that are to be run
    */
   before: function (capabilities, specs) {
+    require("ts-node").register({ transpileOnly: true });
     browser.overwriteCommand("url", function (origUrlFunction, url) {
       origUrlFunction(url);
 
@@ -654,8 +661,5 @@ switch (process.env.MODE) {
   default:
     throw new Error(`Specify a MODE env`);
 }
-
-console.log("Specs pattern:", ["./tests/**/*.js"]);
-console.log("Suite end2end:", ["./tests/end2end/**/*.js"]);
 
 exports.config = config;

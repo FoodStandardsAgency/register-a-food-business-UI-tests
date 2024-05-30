@@ -1,4 +1,4 @@
-import checkIfElementExists from './isExisting';
+import checkIfElementExists from "./isExisting.js";
 
 /**
  * Check if the given element exists
@@ -7,15 +7,15 @@ import checkIfElementExists from './isExisting';
  * @param  {String}   selector       Element selector
  */
 export default (isExisting, selector) => {
-    /**
-     * Falsecase assertion
-     * @type {Boolean}
-     */
-    let falseCase = true;
+  /**
+   * Falsecase assertion
+   * @type {Boolean}
+   */
+  let falseCase = true;
 
-    if (isExisting === 'an') {
-        falseCase = false;
-    }
+  if (isExisting === "an") {
+    falseCase = false;
+  }
 
-    checkIfElementExists(selector, falseCase);
+  checkIfElementExists(selector, falseCase);
 };

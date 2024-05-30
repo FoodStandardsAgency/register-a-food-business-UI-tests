@@ -1,5 +1,5 @@
-import getSelector from "../../pageObjects/page";
-import checkIfElementExists from '../check/isExisting';
+import getSelector from "../../pageObjects/page.js";
+import checkIfElementExists from "../check/isExisting.js";
 
 /**
  * Set the value of the given input field to a new value or add a value to the
@@ -9,28 +9,24 @@ import checkIfElementExists from '../check/isExisting';
  * @param  {String}   selector Element selector
  */
 export default (method, value, selector) => {
+  selector = getSelector(selector);
 
+  /**
+   * The command to perform on the browser object (addValue or setValue)
+   * @type {String}
+   */
+  const command = method === "add" ? "addValue" : "setValue";
 
+  let checkValue = value;
 
-    selector = getSelector(selector);
+  checkIfElementExists(selector, false);
 
+  if (!value) {
+    checkValue = "";
+  }
+  const elements = $(selector);
+  elements.waitForExist({ reverse: false });
 
-    /**
-     * The command to perform on the browser object (addValue or setValue)
-     * @type {String}
-     */
-    const command = (method === 'add') ? 'addValue' : 'setValue';
-
-    let checkValue = value;
-
-    checkIfElementExists(selector, false);
-
-    if (!value) {
-        checkValue = '';
-    }
-    const elements = $(selector);
-    elements.waitForExist({reverse:false});
-
-    elements.scrollIntoView();
-    elements[command](checkValue);
+  elements.scrollIntoView();
+  elements[command](checkValue);
 };

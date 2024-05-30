@@ -3,7 +3,7 @@ const opContactDetails = {
   optionalPhoneNumber: '[name="operator_secondary_number"]',
   emailAddress: '[name="operator_email"]',
   button: ".govuk-button",
-  error: ".govuk-error-message"
+  error: ".govuk-error-message",
 };
 
-module.exports = opContactDetails;
+export default opContactDetails;

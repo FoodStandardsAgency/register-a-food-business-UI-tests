@@ -5,7 +5,7 @@ const importExportActivities = {
   hiddenText: "#hiddenTextImportExportActivities",
   link: "#link-fsa-website",
   button: ".govuk-button",
-  error: ".govuk-error-message"
+  error: ".govuk-error-message",
 };
 
-module.exports = importExportActivities;
+export default importExportActivities;

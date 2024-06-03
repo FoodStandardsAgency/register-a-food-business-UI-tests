@@ -23,7 +23,7 @@
     "@babel/cli": "^7.24.6",
     "@babel/plugin-proposal-export-default-from": "^7.24.6",
     "@babel/register": "^7.24.6",
-    "@cucumber/cucumber": "^9.1.2",
+    "@cucumber/cucumber": "9.1.2",
     "@wdio/browserstack-service": "^8.38.0",
     "@wdio/dot-reporter": "^8.38.0",
     "@wdio/sync": "^7.27.0",

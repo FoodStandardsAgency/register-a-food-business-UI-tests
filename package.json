@@ -16,7 +16,7 @@
     "test:locally:ui": "yarn run selenium:ui",
     "test:locally:e2e": "yarn run selenium:e2e",
     "test:browserstack:ui": "yarn run remote:browserstack:ui",
-    "test:browserstack:e2e": "yarn run browserstack:e2e"
+    "test:browserstack:e2e": "yarn run remote:browserstack:e2e"
   },
   "license": "MIT",
   "dependencies": {
@@ -26,7 +26,6 @@
     "@cucumber/cucumber": "8.11.1",
     "@wdio/browserstack-service": "^8.38.0",
     "@wdio/dot-reporter": "^8.38.0",
-    "@wdio/sync": "^7.27.0",
     "babel-preset-env": "^1.7.0",
     "browserstack-local": "^1.5.5",
     "cucumber-html-reporter": "5.5.0",

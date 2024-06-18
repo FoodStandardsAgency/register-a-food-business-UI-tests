@@ -10,4 +10,7 @@ export default async (type, page) => {
    */
   const url = type === "url" ? page : browser.options.baseUrl + page;
   await browser.url(url);
+  await browser.waitUntil(async () => {
+    return (await browser.getUrl()).includes(page);
+  });
 };

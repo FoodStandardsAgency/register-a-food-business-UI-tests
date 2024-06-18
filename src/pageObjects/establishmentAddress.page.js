@@ -27,7 +27,7 @@ const estabAddress = {
     "#main-content > div > div > form > div:nth-child(2) > div > div > label",
   postcodeFinder: "#postcode",
   errorPostcode: "#error-summary-ba73298e > div > h2",
-  LAnotOnboarded: "#content > h1.heading-large",
+  LAnotOnboarded: "#main-content > h1.govuk-heading-l",
   LAInvalidError:
     "#main-content > div > div > form > div.govuk-error-summary > div > h2",
 };

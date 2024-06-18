@@ -8,7 +8,7 @@ import getSelector from "../../pageObjects/page.js";
  *                                  given text or not
  * @param  {String}   expectedText  The text to validate against
  */
-export default (elementType, selector, falseCase, expectedText) => {
+export default async (elementType, selector, falseCase, expectedText) => {
   selector = getSelector(selector);
   /**
    * The command to perform on the browser object
@@ -16,10 +16,10 @@ export default (elementType, selector, falseCase, expectedText) => {
    */
   let command = "getValue";
 
-  const elem = $(selector);
-  elem.waitForExist();
+  const elem = await $(selector);
+  await elem.waitForExist();
 
-  if (elementType === "button" || elem.getAttribute("value") === null) {
+  if (elementType === "button" || (await elem.getAttribute("value")) === null) {
     command = "getText";
   }
 

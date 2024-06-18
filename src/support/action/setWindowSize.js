@@ -3,11 +3,11 @@
  * @param  {String}   screenWidth  The width of the window to resize to
  * @param  {String}   screenHeight The height of the window to resize to
  */
-export default (screenWidth, screenHeight) => {
-    browser.setWindowSize(
-        parseInt(screenWidth, 10),
-        parseInt(screenHeight, 10)
-    );
+export default async (screenWidth, screenHeight) => {
+  await browser.setWindowSize(
+    parseInt(screenWidth, 10),
+    parseInt(screenHeight, 10)
+  );
 
-    browser.pause(500);
+  await browser.pause(500);
 };

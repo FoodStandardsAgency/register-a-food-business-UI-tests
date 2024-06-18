@@ -5,17 +5,17 @@ import getSelector from "../../pageObjects/page.js";
  * @param  {String}   falseCase Whether to check if the given selector
  *                              is enabled or not
  */
-export default (selector, falseCase) => {
+export default async (selector, falseCase) => {
   selector = getSelector(selector);
   /**
    * The enabled state of the given selector
    * @type {Boolean}
    */
 
-  const elements = $(selector);
-  elements.waitForExist({ reverse: falseCase });
+  const elements = await $(selector);
+  await elements.waitForExist({ reverse: falseCase });
 
-  const isEnabled = elements.isEnabled();
+  const isEnabled = await elements.isEnabled();
 
   if (falseCase) {
     expect(isEnabled).not.toEqual(

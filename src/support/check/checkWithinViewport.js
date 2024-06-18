@@ -5,13 +5,13 @@ import getSelector from "../../pageObjects/page.js";
  * @param  {String}   falseCase Whether to check if the element is visible
  *                              within the current viewport or not
  */
-export default (selector, falseCase) => {
+export default async (selector, falseCase) => {
   selector = getSelector(selector);
   /**
    * The state of visibility of the given element inside the viewport
    * @type {Boolean}
    */
-  const isDisplayed = $(selector).isDisplayedInViewport();
+  const isDisplayed = await $(selector).then((e) => e.isDisplayedInViewport());
 
   if (falseCase) {
     expect(isDisplayed).not.toEqual(

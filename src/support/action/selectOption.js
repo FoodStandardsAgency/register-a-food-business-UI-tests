@@ -6,7 +6,7 @@ import getSelector from "../../pageObjects/page.js";
  * @param  {String}   selectionValue Value to select by
  * @param  {String}   selector     Element selector
  */
-export default (selectionType, selectionValue, selector) => {
+export default async (selectionType, selectionValue, selector) => {
   /**
    * The method to use for selecting the option
    * @type {String}
@@ -46,5 +46,6 @@ export default (selectionType, selectionValue, selector) => {
     }
   }
 
-  $(selector)[command](...commandArguments);
+  const element = await $(selector);
+  await element[command](...commandArguments);
 };

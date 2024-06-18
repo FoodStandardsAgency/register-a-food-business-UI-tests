@@ -2,7 +2,7 @@
  * Submit the given form
  * @param  {String}   formSelector Form element selector
  */
-export default (formSelector) => {
-  const form = $(formSelector);
-  form.submit();
+export default async (formSelector) => {
+  const form = await $(formSelector);
+  await form.submit();
 };

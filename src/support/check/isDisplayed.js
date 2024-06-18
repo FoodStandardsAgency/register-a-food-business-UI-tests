@@ -5,14 +5,14 @@ import getSelector from "../../pageObjects/page.js";
  * @param  {String}   selector   Element selector
  * @param  {String}   falseCase Check for a visible or a hidden element
  */
-export default (selector, falseCase) => {
+export default async (selector, falseCase) => {
   selector = getSelector(selector);
 
   /**
    * Visible state of the give element
    * @type {String}
    */
-  const isDisplayed = $(selector).isDisplayed();
+  const isDisplayed = await $(selector).then((e) => e.isDisplayed());
 
   if (falseCase) {
     expect(isDisplayed).not.toEqual(

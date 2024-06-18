@@ -7,7 +7,7 @@ import getSelector from "../../pageObjects/page.js";
  *                                  the given text or not
  * @param  {String}   expectedText  The text to check against
  */
-export default (elementType, selector, falseCase, expectedText) => {
+export default async (elementType, selector, falseCase, expectedText) => {
   selector = getSelector(selector);
   /**
    * The command to perform on the browser object
@@ -19,12 +19,12 @@ export default (elementType, selector, falseCase, expectedText) => {
    * The text of the element
    * @type {String}
    */
-  const elem = $(selector);
-  elem.waitForExist();
+  const elem = await $(selector);
+  await elem.waitForExist();
 
   if (
     ["button", "container"].includes(elementType) ||
-    elem.getAttribute("value") === null
+    (await elem.getAttribute("value")) === null
   ) {
     command = "getText";
   }
@@ -41,7 +41,7 @@ export default (elementType, selector, falseCase, expectedText) => {
    */
   let stringExpectedText = expectedText;
 
-  const text = elem[command]();
+  const text = await elem[command]();
 
   if (typeof expectedText === "undefined") {
     stringExpectedText = falseCase;

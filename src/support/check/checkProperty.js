@@ -9,7 +9,7 @@ import getSelector from "../../pageObjects/page.js";
  *                                  attribute matches or not
  * @param  {String}   expectedValue The value to match against
  */
-export default (isCSS, attrName, selector, falseCase, expectedValue) => {
+export default async (isCSS, attrName, selector, falseCase, expectedValue) => {
   selector = getSelector(selector);
   /**
    * The command to use for fetching the expected value
@@ -28,10 +28,10 @@ export default (isCSS, attrName, selector, falseCase, expectedValue) => {
    * @type {Mixed}
    */
 
-  let elem = $(selector);
-  elem.waitForExist();
+  let elem = await $(selector);
+  await elem.waitForExist();
 
-  let attributeValue = elem[command](attrName);
+  let attributeValue = await elem[command](attrName);
 
   // eslint-disable-next-line
   expectedValue = isFinite(expectedValue)

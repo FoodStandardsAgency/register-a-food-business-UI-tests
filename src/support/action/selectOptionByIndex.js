@@ -8,7 +8,7 @@ import getSelector from "../../pageObjects/page.js";
  *
  * @todo  merge with selectOption
  */
-export default (index, obsolete, selector) => {
+export default async (index, obsolete, selector) => {
   selector = getSelector(selector);
   /**
    * The index of the option to select
@@ -16,6 +16,6 @@ export default (index, obsolete, selector) => {
    */
   const optionIndex = parseInt(index, 10);
 
-  $(selector).scrollIntoView();
-  $(selector).selectByIndex(optionIndex);
+  await $(selector).then((e) => e.scrollIntoView());
+  await $(selector).then((e) => e.selectByIndex(optionIndex));
 };

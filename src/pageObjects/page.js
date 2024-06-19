@@ -1,48 +1,46 @@
-const commonElements = require("./commonElements.page.js");
+import commonElements from "./commonElements.page.js";
+import firstpage from "./first.page.js";
 
-const firstpage = require("./first.page.js");
+import estabAddress from "./establishmentAddress.page.js";
+import estabAddressType from "./establishmentAddressType.page.js";
+import estabTradingName from "./establishmentTradingName.page.js";
+import estabContactDetails from "./establishmentContactDetails.page.js";
+import estabOpeningDate from "./establishmentOpeningDate.page.js";
 
-const estabAddress = require("./establishmentAddress.page.js");
-const estabAddressType = require("./establishmentAddressType.page.js");
-const estabTradingName = require("./establishmentTradingName.page.js");
-const estabContactDetails = require("./establishmentContactDetails.page.js");
-const estabOpeningDate = require("./establishmentOpeningDate.page.js");
+import regRole from "./registrationRole.page.js";
 
-const regRole = require("./registrationRole.page.js");
+import opType from "./operatorType.page.js";
+import opContactDetails from "./operatorContactDetails.page.js";
+import opContactName from "./operatorContactName.page.js";
+import opAddress from "./operatorAddress.page.js";
+import repOpContactDetails from "./representativeOperatorContactDetails.page.js";
 
-const opType = require("./operatorType.page.js");
-const opContactDetails = require("./operatorContactDetails.page.js");
-const opContactName = require("./operatorContactName.page.js");
-const opAddress = require("./operatorAddress.page.js");
-const repOpContactDetails = require("./representativeOperatorContactDetails.page.js");
+import custType from "./customerType.page.js";
+import importExportActivities from "./importExportActivities.page.js";
 
-const custType = require("./customerType.page.js");
-const importExportActivities = require("./importExportActivities.page.js");
+import businessWaterSupply from "./businessWaterSupply.page.js";
+import businessTypeIn from "./businessTypeIn.page.js";
 
-const businessWaterSupply = require("./businessWaterSupply.page.js");
-const businessTypeIn = require("./businessTypeIn.page.js");
+import companyDetails from "./limitedCompanyDetails.page.js";
+import charityDetails from "./charityDetails.page.js";
 
-const companyDetails = require("./limitedCompanyDetails.page.js");
-const charityDetails = require("./charityDetails.page.js");
+import submitRegistration from "./submitRegistration.page.js";
+import submissionPage from "./submissionPage.page.js";
+import registrationSummary from "./registrationSummary.page.js";
+import summaryConfirmation from "./summaryConfirmation.page.js";
+import businessOtherDetails from "./businessOtherDetails.page.js";
 
-const submitRegistration = require("./submitRegistration.page.js");
-const submissionPage = require("./submissionPage.page.js");
-const registrationSummary = require("./registrationSummary.page.js");
-const summaryConfirmation = require("./summaryConfirmation.page.js");
-const businessOtherDetails = require("./businessOtherDetails.page.js");
+import openingDaysStart from "./openingDaysStart.page.js";
+import openingDaysSome from "./openingDaysSome.page.js";
+import openingDaysIrregular from "./openingDaysIrregular.page.js";
 
-const openingDaysStart = require("./openingDaysStart.page.js");
-const openingDaysSome = require("./openingDaysSome.page.js");
-const openingDaysIrregular = require("./openingDaysIrregular.page.js");
+import partnerName from "./partnerName.page.js";
+import partnerDetails from "./partnerDetails.page.js";
+import mainPartnershipContact from "./mainPartnershipContact.page.js";
 
-const partnerName = require("./partnerName.page.js");
-const partnerDetails = require("./partnerDetails.page.js");
-const mainPartnershipContact = require("./mainPartnershipContact.page.js");
-
-const openingHours = require("./openingHours.page.js");
-
+import openingHours from "./openingHours.page.js";
 function getSelector(elem) {
   return eval(elem);
 }
 
-module.exports = getSelector;
+export default getSelector;

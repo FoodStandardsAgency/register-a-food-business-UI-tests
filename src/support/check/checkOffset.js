@@ -6,34 +6,34 @@
  * @param  {String}   expectedPosition  The position to check against
  * @param  {String}   axis              The axis to check on (x or y)
  */
-export default (selector, falseCase, expectedPosition, axis) => {
-    /**
-     * Get the location of the element on the given axis
-     * @type {[type]}
-     */
-    let elem = $(selector);
-    elem.waitForExist();
+export default async (selector, falseCase, expectedPosition, axis) => {
+  /**
+   * Get the location of the element on the given axis
+   * @type {[type]}
+   */
+  let elem = await $(selector);
+  await elem.waitForExist();
 
-    const location = elem.getLocation(axis);
+  const location = await elem.getLocation(axis);
 
-    /**
-     * Parsed expected position
-     * @type {Int}
-     */
-    const intExpectedPosition = parseFloat(expectedPosition);
+  /**
+   * Parsed expected position
+   * @type {Int}
+   */
+  const intExpectedPosition = parseFloat(expectedPosition);
 
-    if (falseCase) {
-        expect(location).not.toEqual(
-            intExpectedPosition,
-            `Element "${selector}" should not be positioned at `
-            + `${intExpectedPosition}px on the ${axis} axis`
-        );
-    } else {
-        expect(location).toEqual(
-            intExpectedPosition,
-            `Element "${selector}" should be positioned at `
-            + `${intExpectedPosition}px on the ${axis} axis, but was found `
-            + `at ${location}px`
-        );
-    }
+  if (falseCase) {
+    expect(location).not.toEqual(
+      intExpectedPosition,
+      `Element "${selector}" should not be positioned at ` +
+        `${intExpectedPosition}px on the ${axis} axis`
+    );
+  } else {
+    expect(location).toEqual(
+      intExpectedPosition,
+      `Element "${selector}" should be positioned at ` +
+        `${intExpectedPosition}px on the ${axis} axis, but was found ` +
+        `at ${location}px`
+    );
+  }
 };

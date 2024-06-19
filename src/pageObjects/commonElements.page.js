@@ -28,4 +28,4 @@ const commonElements = {
   error: ".govuk-error-message",
 };
 
-module.exports = commonElements;
+export default commonElements;

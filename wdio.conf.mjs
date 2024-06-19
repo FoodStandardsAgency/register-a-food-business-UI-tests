@@ -1,7 +1,17 @@
-require("dotenv").config();
-const video = require("wdio-video-reporter");
-const fs = require("fs-extra");
-const deepMergeArrays = (...arguments) => {
+import path from "path";
+import dotenv from "dotenv";
+import fs from "fs-extra";
+
+// Configure dotenv with the specific path
+dotenv.config({ path: path.resolve("register-a-food-business-UI-tests/.env") });
+
+// Dynamic import for wdio-video-reporter if needed
+const videoReporter = await import("wdio-video-reporter");
+
+console.log("here");
+console.log("MODE:", process.env.MODE);
+console.log("IS_LOCAL:", process.env.IS_LOCAL);
+const deepMergeArrays = (...args) => {
   let target = {};
   // Merge the object into the target object
   let merger = (obj) => {
@@ -19,8 +29,8 @@ const deepMergeArrays = (...arguments) => {
     }
   };
   //Loop through each object and conduct a merge
-  for (let i = 0; i < arguments.length; i++) {
-    merger(arguments[i]);
+  for (let i = 0; i < args.length; i++) {
+    merger(args[i]);
   }
   return target;
 };
@@ -65,6 +75,7 @@ const defaultCapabilitiesMobile = (mode, props = {}) => {
           appiumVersion: "1.14.0",
           accessKey: process.env.BROWSERSTACK_KEY,
           userName: process.env.BROWSERSTACK_USER,
+          local: local,
         },
       };
 
@@ -78,7 +89,7 @@ const defaultCapabilities = (mode, props = {}) => {
     os = "Windows",
     osVersion = "10",
     resolution = "1920x1080",
-    debug = false,
+    debug = true,
   } = props;
 
   switch (mode) {
@@ -90,9 +101,12 @@ const defaultCapabilities = (mode, props = {}) => {
           projectName: "RAFB",
           buildName: generateBuildName(),
           // seleniumVersion: "4",
-          seleniumVersion: "3.141.59",
+          seleniumVersion: "4.6.0",
           accessKey: process.env.BROWSERSTACK_KEY,
           userName: process.env.BROWSERSTACK_USER,
+          debug: true,
+          consoleLogs: "verbose", // Capture console logs
+          networkLogs: true, // Enable network logs
         },
       };
 
@@ -161,7 +175,7 @@ const capabilityChrome = (mode, osConfig = {}) => {
   return deepMergeArrays(
     {
       browserName: "chrome",
-      browserVersion: "83.0",
+      browserVersion: "125.0.6422",
     },
     defaultCapabilities(mode, { os, osVersion })
   );
@@ -277,27 +291,35 @@ const initBrowserStackConfig = (isLocal, config = {}) => {
   return config;
 };
 
-const argv = require("yargs").argv;
-const wdioParallel = require("wdio-cucumber-parallel-execution");
-// The below module is used for cucumber html report generation
-const reporter = require("cucumber-html-reporter");
+import yargs from "yargs";
+import { hideBin } from "yargs/helpers";
+import wdioParallel from "wdio-cucumber-parallel-execution";
+import reporter from "cucumber-html-reporter";
+import { register } from "ts-node";
+
+const argv = yargs(hideBin(process.argv)).argv;
 const currentTime = new Date().toJSON().replace(/:/g, "-");
 
 const sourceSpecDirectory = `./src/features`;
+let tmpSpecDirectory = sourceSpecDirectory;
 const parallelExecutionReportDirectory = `./parallel/tmp`;
 
 let featureFilePath = `${sourceSpecDirectory}/*.feature`;
 
 // If parallel execution is set to true, then create the Split the feature files
 // And store then in a tmp spec directory (created inside `the source spec directory)
+console.log("argv.parallel:", argv.parallel);
+
 if (argv.parallel === "true") {
   tmpSpecDirectory = `${sourceSpecDirectory}/tmp`;
+  console.log("Setting up parallel execution...");
   wdioParallel.performSetup({
     sourceSpecDirectory: sourceSpecDirectory,
     tmpSpecDirectory: tmpSpecDirectory,
     cleanTmpSpecDirectory: true,
   });
   featureFilePath = `${tmpSpecDirectory}/**/*.feature`;
+  console.log("featureFilePath:", featureFilePath);
 }
 
 let config = {
@@ -385,7 +407,7 @@ let config = {
   // Define all options that are relevant for the WebdriverIO instance here
   //
   // Level of logging verbosity: trace | debug | info | warn | error | silent
-  logLevel: "error",
+  logLevel: "debug",
   // If you only want to run your tests until a specific amount of tests have failed use
   // bail (default is 0 - don't bail, run all tests).
   bail: 0,
@@ -405,6 +427,7 @@ let config = {
   //
   // Default request retries count
   connectionRetryCount: 3,
+  os: "Windows",
 
   // Framework you want to run your specs with.
   // The following are supported: Mocha, Jasmine, and Cucumber
@@ -438,7 +461,7 @@ let config = {
       {
         outputDir: "./reports",
         outputFileFormat: function (opts) {
-          // console.log(opts);
+          console.log(opts);
           return `WDIO-${opts.buildName}-${opts.cid}-${opts.name}.xml`;
         },
       },
@@ -466,8 +489,9 @@ let config = {
     source: false, // <boolean> hide source uris
     profile: [], // <string[]> (name) specify the profile to use
     strict: true, // <boolean> fail if there are any undefined or pending steps
-    tagExpression: "not @Pending", // <string> (expression) only execute the features or scenarios with tags matching the expression
+    tags: "not @Pending", // <string> (expression) only execute the features or scenarios with tags matching the expression
   },
+
   //
   // =====
   // Hooks
@@ -514,6 +538,7 @@ let config = {
    * @param {Array.<String>} specs List of spec file paths that are to be run
    */
   before: function (capabilities, specs) {
+    register({ transpileOnly: true });
     browser.overwriteCommand("url", function (origUrlFunction, url) {
       origUrlFunction(url);
 
@@ -630,16 +655,23 @@ let config = {
   },
 };
 
-let isLocal = process.env.IS_LOCAL !== "";
+console.log("Initializing configuration...");
+let isLocal = process.env.IS_LOCAL === "true";
+console.log("isLocal:", isLocal);
+
 switch (process.env.MODE) {
   case MODE_BROWSERSTACK:
+    console.log("Using BrowserStack configuration");
     config = initBrowserStackConfig(isLocal, config);
     break;
   case MODE_SELENIUM:
+    console.log("Using Selenium configuration");
     config = initSeleniumConfig(isLocal, config);
     break;
   default:
     throw new Error(`Specify a MODE env`);
 }
+console.log("sourceSpecDirectory:", sourceSpecDirectory);
+console.log("tmpSpecDirectory:", tmpSpecDirectory);
 
-exports.config = config;
+export default config = { config };

@@ -8,7 +8,7 @@ const openingHours = {
   sunday: "#opening_hours_sunday",
   button: ".govuk-button",
   error: ".govuk-error-message",
-  backButton: ".govuk-back-link"
+  backButton: ".govuk-back-link",
 };
 
-module.exports = openingHours;
+export default openingHours;

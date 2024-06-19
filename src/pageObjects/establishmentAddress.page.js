@@ -30,4 +30,4 @@ const estabAddress = {
   LAInvalidError:
     "#main-content > div > div > form > div.govuk-error-summary > div > h2",
 };
-module.exports = estabAddress;
+export default estabAddress;

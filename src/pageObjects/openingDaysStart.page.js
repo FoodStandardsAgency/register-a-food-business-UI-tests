@@ -3,7 +3,7 @@ const openingDaysStart = {
   someDays: "#opening_days_start_some_days",
   irregularDays: "#opening_days_start_irregular_days",
   button: ".govuk-button",
-  error: ".govuk-error-message"
+  error: ".govuk-error-message",
 };
 
-module.exports = openingDaysStart;
+export default openingDaysStart;

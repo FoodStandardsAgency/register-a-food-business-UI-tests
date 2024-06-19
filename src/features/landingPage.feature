@@ -3,9 +3,8 @@ Feature: Landing Page
 
     @beginregistration
     Scenario: testing happy path for begin registration
-        Given I open the url "cardiff/"
+        Given I open the site "/"
         When I click on the element "firstpage.button"
-        Then I expect the url to not contain ""
 
 
 

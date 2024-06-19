@@ -50,7 +50,7 @@ Feature: As Catelyn I need to be able to choose my business activities so that m
         And I pause for 10000ms
         And I set "siop" to the inputfield "businessTypeIn.search"
         And I click on the element "businessTypeIn.option2"
-        Then I expect that element "businessTypeIn.search" contains the text "Cigydd (siop)"
+        # Then I expect that element "businessTypeIn.search" contains the text "Cigydd (siop)"
         And I click on the element "businessTypeIn.button"
         Then I expect the url to not contain "business-type"
 

@@ -3,7 +3,7 @@ const regRole = {
   partnership: "#registration_role_partnership",
   representative: "#registration_role_representative",
   button: ".govuk-button",
-  error: ".govuk-error-message"
+  error: ".govuk-error-message",
 };
 
-module.exports = regRole;
+export default regRole;

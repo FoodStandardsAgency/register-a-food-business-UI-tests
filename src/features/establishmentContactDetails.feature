@@ -83,6 +83,7 @@ Feature: As Samantha I need to be able to fill in the establishment contact deta
         When I click on the element "estabContactDetails.reuseButton"
         Then I expect that element "estabContactDetails.emailAddress" contains the text "email@email.com"
         And I expect that element "estabContactDetails.primaryPhoneNumber" contains the text "01234567890"
+        And I expect that element "estabContactDetails.reuseButton" contains the text "Re-use operator contact details"
         When I click on the element "estabContactDetails.continueButton"
         Then I expect the url to not contain "establishment-contact-details"
 
@@ -127,3 +128,14 @@ Feature: As Samantha I need to be able to fill in the establishment contact deta
         When I click on the element "estabContactDetails.reuseButton"
         Then I expect that element "estabContactDetails.emailAddress" contains the text "email@email.com"
         And I expect that element "estabContactDetails.primaryPhoneNumber" contains the text "01234567890"
+
+        @SDB-113_happy_path_partnership
+        Scenario: happy path using operator details
+        Given I open the url "/cleansession"
+        And I go to a special QA page at url "/qa/establishment-contact-details" with injected "registration-summary-partnership-2" data
+        When I click on the element "estabContactDetails.reuseButton"
+        Then I expect that element "estabContactDetails.emailAddress" contains the text "email@email.com"
+        And I expect that element "estabContactDetails.primaryPhoneNumber" contains the text "01234567890"
+        And I expect that element "estabContactDetails.reuseButton" contains the text "Re-use partnership contact details"
+        When I click on the element "estabContactDetails.continueButton"
+        Then I expect the url to not contain "establishment-contact-details"

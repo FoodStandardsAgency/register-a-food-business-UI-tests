@@ -361,6 +361,7 @@ let config = {
       "./src/features/**/registrationRole.feature",
       "./src/features/**/partnership.feature",
       "./src/features/**/partnershipChange.feature",
+      "./src/features/**/partnershipContactDetails.feature",
     ],
     registrationSubmission: [
       "./src/features/**/submitRegistration.feature",
@@ -378,6 +379,9 @@ let config = {
       "./src/features/**/businessTypeIn.feature",
       "./src/features/**/otherDetails.feature",
       "./src/features/**/waterSupply.feature",
+      "./src/features/**/businessScale.feature",
+      "./src/features/**/foodType.feature",
+      "./src/features/**/processingActivites.feature",
     ],
     websitefeatures: [
       "./src/features/**/backButton.feature",

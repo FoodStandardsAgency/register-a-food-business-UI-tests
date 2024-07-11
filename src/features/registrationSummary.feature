@@ -35,3 +35,11 @@ Feature: Summary
     And I expect that element "registrationSummary.businessType" contains the text "Fferm da byw"
     And I click on the element "registrationSummary.button"
     Then I expect the url to not contain "registration-summary"
+
+  @SDB-8_happy_path_navigation
+  Scenario: navigate to declaration page
+    Given I open the url "/cleansession"
+    And I go to a special QA page at url "/qa/registration-summary" with injected "registration-summary-partnership-2" data
+    Then I expect the business scale element to contain the text "Don't know"  
+    Then I expect the food type element to contain the text "Don't know"  
+    Then I expect the processing activities element to contain the text "Don't know" "  

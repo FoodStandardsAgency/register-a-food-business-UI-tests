@@ -20,6 +20,9 @@ import importExportActivities from "./importExportActivities.page.js";
 
 import businessWaterSupply from "./businessWaterSupply.page.js";
 import businessTypeIn from "./businessTypeIn.page.js";
+import businessScale from "./businessScale.page.js";
+import foodType from "./foodType.page.js";
+import processingActivities from "./processingActivities.page.js";
 
 import companyDetails from "./limitedCompanyDetails.page.js";
 import charityDetails from "./charityDetails.page.js";
@@ -37,6 +40,7 @@ import openingDaysIrregular from "./openingDaysIrregular.page.js";
 import partnerName from "./partnerName.page.js";
 import partnerDetails from "./partnerDetails.page.js";
 import mainPartnershipContact from "./mainPartnershipContact.page.js";
+import partnerContactDetails from "./partnershipContactDetails.page.js";
 
 import openingHours from "./openingHours.page.js";
 function getSelector(elem) {

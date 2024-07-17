@@ -9,6 +9,14 @@ Feature: Summary
     When I click on the element "registrationSummary.button"
     Then I expect the url to not contain "registration-summary"
 
+  @SDB-8_happy_path_navigation
+  Scenario: navigate to declaration page
+    Given I open the url "/cleansession"
+    And I go to a special QA page at url "/qa/registration-summary" with injected "registration-summary-partnership-2" data
+    Then I expect the business scale element to contain the text "Don't know"  
+    Then I expect the food type element to contain the text "Don't know"  
+    Then I expect the processing activities element to contain the text "Don't know"
+
   @SDB-8_missing_data 
   Scenario: missing data not displayed
     Given I open the url "/cleansession"
@@ -36,10 +44,3 @@ Feature: Summary
     And I click on the element "registrationSummary.button"
     Then I expect the url to not contain "registration-summary"
 
-  @SDB-8_happy_path_navigation
-  Scenario: navigate to declaration page
-    Given I open the url "/cleansession"
-    And I go to a special QA page at url "/qa/registration-summary" with injected "registration-summary-partnership-2" data
-    Then I expect the business scale element to contain the text "Don't know"  
-    Then I expect the food type element to contain the text "Don't know"  
-    Then I expect the processing activities element to contain the text "Don't know" "  

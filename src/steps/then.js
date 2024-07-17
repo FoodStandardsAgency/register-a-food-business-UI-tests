@@ -165,7 +165,6 @@ Then(
 Then(
   "I expect the business scale element to contain the text {string}",
   async function (text) {
-    // Using a more specific CSS selector to locate the element
     const businessScaleElement = await $("dt=Business scale").nextElement();
     const elementText = await businessScaleElement.getText();
     expect(elementText).toContain(text);
@@ -175,7 +174,6 @@ Then(
 Then(
   "I expect the food type element to contain the text {string}",
   async function (text) {
-    // Using a more specific CSS selector to locate the element
     const foodTypeElement = await $("dt=Food type").nextElement();
     const elementText = await foodTypeElement.getText();
     expect(elementText).toContain(text);
@@ -185,7 +183,6 @@ Then(
 Then(
   "I expect the processing activities element to contain the text {string}",
   async function (text) {
-    // Using a more specific CSS selector to locate the element
     const processingActivitiesElement = await $(
       "dt=Processing Activities"
     ).nextElement();

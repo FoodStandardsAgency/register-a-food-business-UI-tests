@@ -26,5 +26,8 @@ Feature: Error Summary SDB-252
     And I click on the element "opContactName.button"
     And I set "First Line" to the inputfield "opContactName.lastName"
     And I set "Bob" to the inputfield "opContactName.firstName"
+    And I set "10" to the inputfield "opContactName.day"
+    And I set "10" to the inputfield "opContactName.month"
+    And I set "1990" to the inputfield "opContactName.year"
     When I click on the element "opContactName.button"
     Then I expect the url to not contain "operator-name"

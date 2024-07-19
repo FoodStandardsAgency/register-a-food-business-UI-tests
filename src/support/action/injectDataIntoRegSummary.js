@@ -1,7 +1,6 @@
 const datasets = {
   "registration-summary": {
     la_id: 6008,
-    operator_type: "SOLETRADER",
     operator_address_line_1: "First line",
     operator_address_line_2: "Street",
     operator_address_line_3: "Somewhere",
@@ -10,8 +9,12 @@ const datasets = {
     operator_postcode_find: "AA11 1AA",
     operator_first_name: "Fred",
     operator_last_name: "Bloggs",
+    operator_birthdate: "1989 02 01",
+    operator_birthdate_day: "01",
+    operator_birthdate_month: "02",
+    operator_birthdate_year: "1989",
     operator_primary_number: "01234567890",
-    establishment_secondary_number: "02293928372",
+    operator_secondary_number: "02293928372",
     operator_email: "email@email.com",
     registration_role: "SOLETRADER",
     establishment_trading_name: "Trading name",
@@ -23,10 +26,10 @@ const datasets = {
     establishment_postcode_find: "AA11 1AA",
     establishment_type: "DOMESTIC",
     establishment_primary_number: "01434567890",
+    establishment_secondary_number: "01234567890",
     establishment_email: "emfffsfsdfail@email.com",
     establishment_web_address: "test.com",
     business_type: "Livestock farm",
-    customer_type: "END_CONSUMER",
     supply_directly: "true",
     supply_other: "true",
     establishment_opening_status: "Establishment is already trading",
@@ -35,10 +38,12 @@ const datasets = {
     year: "2001",
     opening_days_start: "Some days",
     opening_days_some: "Monday",
-    opening_day_monday: "Monday",
+    opening_day_monday: "true",
     opening_hours_monday: "09:30 - 19:00",
+    business_scale: ["FBO"],
+    food_type: ["DONT_KNOW"],
+    processing_activities: ["DONT_KNOW"],
     water_supply: "PUBLIC",
-    directly_import: "Directly import",
   },
   "registration-summary-charity": {
     la_id: 6008,
@@ -46,6 +51,10 @@ const datasets = {
     operator_type: "CHARITY",
     operator_first_name: "Percy",
     operator_last_name: "McPartnership",
+    operator_birthdate: "1989-02-01",
+    operator_birthdate_day: "01",
+    operator_birthdate_month: "02",
+    operator_birthdate_year: "1989",
     operator_charity_name: "My charity",
     operator_charity_number: "123456",
     operator_address_line_1: "First line",
@@ -66,6 +75,9 @@ const datasets = {
     month: "01",
     year: "2001",
     opening_days_irregular: "Every day",
+    business_scale: ["DONT_KNOW"],
+    food_type: ["DONT_KNOW"],
+    processing_activities: ["DONT_KNOW"],
     water_supply: "PUBLIC",
   },
   "registration-summary-partnership": {
@@ -79,7 +91,13 @@ const datasets = {
     operator_postcode_find: "AA11 1AA",
     operator_first_name: "Fred",
     operator_last_name: "Bloggs",
+    operator_birthdate: "1989-02-01",
+    operator_birthdate_day: "01",
+    operator_birthdate_month: "02",
+    operator_birthdate_year: "1989",
     operator_primary_number: "01234567890",
+    main_partner_primary_number: "01234567890",
+    main_partner_email: "email@email.com",
     establishment_secondary_number: "02293928372",
     operator_email: "email@email.com",
     registration_role: "PARTNERSHIP",
@@ -106,6 +124,60 @@ const datasets = {
     opening_days_some: "Monday",
     opening_day_monday: "Monday",
     opening_hours_monday: "09:30 - 19:00",
+    business_scale: ["DONT_KNOW"],
+    food_type: ["DONT_KNOW"],
+    processing_activities: ["DONT_KNOW"],
+    water_supply: "PUBLIC",
+    directly_import: "Directly import",
+    partners: ["One", "Two", "Three"],
+    main_partnership_contact: "One",
+  },
+  "registration-summary-partnership-2": {
+    la_id: 6008,
+    operator_type: "PARTNERSHIP",
+    operator_address_line_1: "First line",
+    operator_address_line_2: "Street",
+    operator_address_line_3: "Somewhere",
+    operator_town: "Town",
+    operator_postcode: "AA11 1AA",
+    operator_postcode_find: "AA11 1AA",
+    operator_first_name: "Fred",
+    operator_last_name: "Bloggs",
+    operator_birthdate: "1989-02-01",
+    operator_birthdate_day: "01",
+    operator_birthdate_month: "02",
+    operator_birthdate_year: "1989",
+    main_partner_primary_number: "01234567890",
+    establishment_secondary_number: "02293928372",
+    main_partner_email: "email@email.com",
+    main_partner_secondary_number: "02134567890",
+    registration_role: "PARTNERSHIP",
+    establishment_trading_name: "Trading name",
+    establishment_address_line_1: "First line",
+    establishment_address_line_2: "Street",
+    establishment_address_line_3: "Somewhere",
+    establishment_town: "Town",
+    establishment_postcode: "AA11 1AA",
+    establishment_postcode_find: "AA11 1AA",
+    establishment_type: "DOMESTIC",
+    establishment_primary_number: "01434567890",
+    establishment_email: "emfffsfsdfail@email.com",
+    establishment_web_address: "test.com",
+    business_type: "Livestock farm",
+    customer_type: "END_CONSUMER",
+    supply_directly: "true",
+    supply_other: "true",
+    establishment_opening_status: "Establishment is already trading",
+    day: "01",
+    month: "01",
+    year: "2001",
+    opening_days_start: "Some days",
+    opening_days_some: "Monday",
+    opening_day_monday: "Monday",
+    opening_hours_monday: "09:30 - 19:00",
+    business_scale: ["LOCAL", "NATIONAL"],
+    food_type: ["RAW_MEAT_FISH_SHELLFISH", "READY_TO_EAT"],
+    processing_activities: ["VACUUM_PACKING", "PASTEURISING"],
     water_supply: "PUBLIC",
     directly_import: "Directly import",
     partners: ["One", "Two", "Three"],
@@ -117,6 +189,10 @@ const datasets = {
     operator_type: "PERSON",
     operator_first_name: "Rebecca",
     operator_last_name: "McRepresentative",
+    operator_birthdate: "1989-02-01",
+    operator_birthdate_day: "01",
+    operator_birthdate_month: "02",
+    operator_birthdate_year: "1989",
     operator_address_line_1: "First line",
     operator_address_line_2: "Street",
     operator_town: "Town",
@@ -142,6 +218,9 @@ const datasets = {
     month: "01",
     year: "2001",
     opening_days_irregular: "Every day",
+    business_scale: ["DONT_KNOW"],
+    food_type: ["DONT_KNOW"],
+    processing_activities: ["DONT_KNOW"],
     water_supply: "PUBLIC",
     directly_import: "Directly import",
   },
@@ -151,8 +230,13 @@ const datasets = {
   },
   declaration: {
     la_id: 6008,
+    operator_type: "SOLETRADER",
     operator_first_name: "Fred",
     operator_last_name: "Bloggs",
+    operator_birthdate: "1989-02-01",
+    operator_birthdate_day: "01",
+    operator_birthdate_month: "02",
+    operator_birthdate_year: "1989",
     operator_postcode: "AA11 1AA",
     operator_postcode_find: "AA11 1AA",
     operator_address_line_1: "11",
@@ -165,6 +249,7 @@ const datasets = {
     establishment_trading_name: "Trading name",
     establishment_email: "establishment@email.com",
     establishment_primary_number: "01234567890",
+    establishment_secondary_number: "01234567890",
     establishment_address_line_1: "First line",
     establishment_address_line_2: "Street",
     establishment_address_line_3: "Locality",
@@ -175,7 +260,7 @@ const datasets = {
     establishment_opening_status: "Establishment is already trading",
     opening_days_start: "Some days",
     opening_days_some: "Monday",
-    opening_day_monday: "Monday",
+    opening_day_monday: "true",
     opening_hours_monday: "09:30 - 19:00",
     supply_directly: "true",
     supply_other: "true",
@@ -185,12 +270,20 @@ const datasets = {
     month: "01",
     year: "2001",
     directly_import: "Directly import",
+    business_scale: ["DONT_KNOW"],
+    food_type: ["DONT_KNOW"],
+    processing_activities: ["DONT_KNOW"],
     water_supply: "PUBLIC",
   },
   declaration_seperate_standardsCouncil: {
     la_id: 4221,
+    operator_type: "SOLETRADER",
     operator_first_name: "Fred",
     operator_last_name: "Bloggs",
+    operator_birthdate: "1989-02-01",
+    operator_birthdate_day: "01",
+    operator_birthdate_month: "02",
+    operator_birthdate_year: "1989",
     operator_postcode: "AA11 1AA",
     operator_postcode_find: "AA11 1AA",
     operator_address_line_1: "11",
@@ -223,6 +316,9 @@ const datasets = {
     month: "01",
     year: "2001",
     directly_import: "Directly import",
+    business_scale: ["DONT_KNOW"],
+    food_type: ["DONT_KNOW"],
+    processing_activities: ["DONT_KNOW"],
     water_supply: "PUBLIC",
   },
   "blank-partnership": {
@@ -242,6 +338,21 @@ datasets["registration-summary-welsh"] = {
   language: "cy",
 };
 
+// function to allow arrays to be passed through QA route
+function objectToUrlParams(obj) {
+  return Object.entries(obj)
+    .flatMap(([key, value]) => {
+      if (Array.isArray(value)) {
+        return value.map(
+          (item) => `${encodeURIComponent(key)}[]=${encodeURIComponent(item)}`
+        );
+      } else {
+        return `${encodeURIComponent(key)}=${encodeURIComponent(value)}`;
+      }
+    })
+    .join("&");
+}
+
 export default async (url, selectedDataset) => {
   const dataToInject = datasets[selectedDataset];
 
@@ -254,26 +365,11 @@ export default async (url, selectedDataset) => {
     );
   }
 
-  // function to create a URL-encoded query string from an object.
-  // e.g. {key: value, name: John Smith} is returned as "key=value&name=John%20Smith"
-  const encode = (obj) => {
-    var str = [];
-    for (var p in obj)
-      if (p === "partners") {
-        for (var partner in obj[p]) {
-          str.push(
-            encodeURIComponent(p) + "=" + encodeURIComponent(obj[p][partner])
-          );
-        }
-      } else {
-        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
-      }
-    return str.join("&");
-  };
+  const params = objectToUrlParams(dataToInject);
 
   // go to the QA URL with the query appended
-  console.error(`${url}?${encode(dataToInject)}`);
-  await browser.url(`${url}?${encode(dataToInject)}`);
+  console.error(`${url}?${params}`);
+  await browser.url(`${url}?${params}`);
 
   //browser.pause(3000);
 };

@@ -161,3 +161,110 @@ Then(
   /^I expect that a (alertbox|confirmbox|prompt)( not)* contains the text "([^"]*)?"$/,
   checkModalText
 );
+
+Then(
+  "I expect the business scale element to contain the text {string}",
+  async function (text) {
+    const businessScaleElement = await $("dt=Business scale").nextElement();
+    const elementText = await businessScaleElement.getText();
+    expect(elementText).toContain(text);
+  }
+);
+
+Then(
+  "I expect the business scale element to contain {string} and {string}",
+  async function (text1, text2) {
+    const businessScaleDd = await $("dt=Business scale").nextElement();
+    console.log("businessScaleDd", await businessScaleDd.getHTML());
+    // Check if divElement exists before accessing its text content
+    const divElement = await businessScaleDd.$("div");
+    let divText = "";
+    if (divElement) {
+      divText = await divElement.getText();
+    }
+
+    // Verify presence of both expected texts
+    expect(divText).toContain(text1.trim());
+    expect(divText).toContain(text2.trim());
+  }
+);
+Then(
+  "I expect the food type element to contain {string} and {string}",
+  async function (text1, text2) {
+    const foodTypeDd = await $("dt=Food type").nextElement();
+
+    const divElement = await foodTypeDd.$("div");
+    let divText = "";
+    if (divElement) {
+      divText = await divElement.getText();
+    }
+
+    // Verify presence of both expected texts
+    expect(divText).toContain(text1.trim());
+    expect(divText).toContain(text2.trim());
+  }
+);
+Then(
+  "I expect the processing activities element to contain {string} and {string}",
+  async function (text1, text2) {
+    const processingActivitiesDd = await $(
+      "dt=Processing activities"
+    ).nextElement();
+
+    const divElement = await processingActivitiesDd.$("div");
+    let divText = "";
+    if (divElement) {
+      divText = await divElement.getText();
+    }
+
+    // Verify presence of both expected texts
+    expect(divText).toContain(text1.trim());
+    expect(divText).toContain(text2.trim());
+  }
+);
+Then(
+  "I expect the food type element to contain the text {string}",
+  async function (text) {
+    const foodTypeElement = await $("dt=Food type").nextElement();
+    const elementText = await foodTypeElement.getText();
+    expect(elementText).toContain(text);
+  }
+);
+
+Then(
+  "I expect the processing activities element to contain the text {string}",
+  async function (text) {
+    const processingActivitiesElement = await $(
+      "dt=Processing activities"
+    ).nextElement();
+    const elementText = await processingActivitiesElement.getText();
+    expect(elementText).toContain(text);
+  }
+);
+
+Then(
+  "I expect the welsh business scale element to contain the text {string}",
+  async function (text) {
+    const foodTypeElement = await $("dt=Graddfa'r Busnes").nextElement();
+    const elementText = await foodTypeElement.getText();
+    expect(elementText).toContain(text);
+  }
+);
+
+Then(
+  "I expect the welsh processing activities element to contain the text {string}",
+  async function (text) {
+    const foodTypeElement = await $("dt=Gweithgareddau prosesu").nextElement();
+    const elementText = await foodTypeElement.getText();
+    expect(elementText).toContain(text);
+  }
+);
+
+Then(
+  "I expect the welsh food type element to contain the text {string}",
+  async function (text) {
+    const foodTypeElement = await $("dt=Math o fwyd").nextElement();
+    const elementText = await foodTypeElement.getText();
+    expect(elementText).toContain(text);
+  }
+);

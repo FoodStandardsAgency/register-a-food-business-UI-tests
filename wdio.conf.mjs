@@ -8,7 +8,6 @@ dotenv.config({ path: path.resolve("register-a-food-business-UI-tests/.env") });
 // Dynamic import for wdio-video-reporter if needed
 const videoReporter = await import("wdio-video-reporter");
 
-console.log("here");
 console.log("MODE:", process.env.MODE);
 console.log("IS_LOCAL:", process.env.IS_LOCAL);
 const deepMergeArrays = (...args) => {
@@ -361,6 +360,7 @@ let config = {
       "./src/features/**/registrationRole.feature",
       "./src/features/**/partnership.feature",
       "./src/features/**/partnershipChange.feature",
+      "./src/features/**/partnershipContactDetails.feature",
     ],
     registrationSubmission: [
       "./src/features/**/submitRegistration.feature",
@@ -372,12 +372,13 @@ let config = {
     ],
     operatorextra: [
       "./src/features/**/charityDetails.feature",
-      "./src/features/**/customerType.feature",
       "./src/features/**/limitedCompanyDetails.feature",
-      "./src/features/**/importExportActivities.feature",
       "./src/features/**/businessTypeIn.feature",
       "./src/features/**/otherDetails.feature",
       "./src/features/**/waterSupply.feature",
+      "./src/features/**/businessScale.feature",
+      "./src/features/**/foodType.feature",
+      "./src/features/**/processingActivities.feature",
     ],
     websitefeatures: [
       "./src/features/**/backButton.feature",
@@ -655,9 +656,7 @@ let config = {
   },
 };
 
-console.log("Initializing configuration...");
 let isLocal = process.env.IS_LOCAL === "true";
-console.log("isLocal:", isLocal);
 
 switch (process.env.MODE) {
   case MODE_BROWSERSTACK:
@@ -671,7 +670,5 @@ switch (process.env.MODE) {
   default:
     throw new Error(`Specify a MODE env`);
 }
-console.log("sourceSpecDirectory:", sourceSpecDirectory);
-console.log("tmpSpecDirectory:", tmpSpecDirectory);
 
 export default config = { config };

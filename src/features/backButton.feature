@@ -43,6 +43,9 @@ Feature: Back button SDB-232
 
     Given I set "Bob" to the inputfield "opContactName.firstName"
     And I set "Smith" to the inputfield "opContactName.lastName"
+    And I set "10" to the inputfield "opContactName.day"
+    And I set "10" to the inputfield "opContactName.month"
+    And I set "1990" to the inputfield "opContactName.year"
     And I click on the element "opContactName.button"
     Then I expect the url to not contain "operator-name"
 
@@ -76,6 +79,9 @@ Feature: Back button SDB-232
 
     Given I set "Bob" to the inputfield "opContactName.firstName"
     And I set "Smith" to the inputfield "opContactName.lastName"
+    And I set "10" to the inputfield "opContactName.day"
+    And I set "10" to the inputfield "opContactName.month"
+    And I set "1990" to the inputfield "opContactName.year"
     And I click on the element "opContactName.button"
     Then I expect the url to not contain "operator-name"
 

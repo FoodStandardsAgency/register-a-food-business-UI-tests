@@ -378,7 +378,7 @@ let config = {
       "./src/features/**/waterSupply.feature",
       "./src/features/**/businessScale.feature",
       "./src/features/**/foodType.feature",
-      "./src/features/**/processingActivites.feature",
+      "./src/features/**/processingActivities.feature",
     ],
     websitefeatures: [
       "./src/features/**/backButton.feature",

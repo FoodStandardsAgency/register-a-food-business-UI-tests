@@ -40,7 +40,7 @@ const datasets = {
     opening_days_some: "Monday",
     opening_day_monday: "true",
     opening_hours_monday: "09:30 - 19:00",
-    business_scale: ["DONT_KNOW"],
+    business_scale: ["FBO"],
     food_type: ["DONT_KNOW"],
     processing_activities: ["DONT_KNOW"],
     water_supply: "PUBLIC",
@@ -175,9 +175,9 @@ const datasets = {
     opening_days_some: "Monday",
     opening_day_monday: "Monday",
     opening_hours_monday: "09:30 - 19:00",
-    business_scale: ["DONT_KNOW"],
-    food_type: ["DONT_KNOW"],
-    processing_activities: ["DONT_KNOW"],
+    business_scale: ["LOCAL", "NATIONAL"],
+    food_type: ["RAW_MEAT_FISH_SHELLFISH", "READY_TO_EAT"],
+    processing_activities: ["VACUUM_PACKING", "PASTEURISING"],
     water_supply: "PUBLIC",
     directly_import: "Directly import",
     partners: ["One", "Two", "Three"],
@@ -338,6 +338,21 @@ datasets["registration-summary-welsh"] = {
   language: "cy",
 };
 
+// function to allow arrays to be passed through QA route
+function objectToUrlParams(obj) {
+  return Object.entries(obj)
+    .flatMap(([key, value]) => {
+      if (Array.isArray(value)) {
+        return value.map(
+          (item) => `${encodeURIComponent(key)}[]=${encodeURIComponent(item)}`
+        );
+      } else {
+        return `${encodeURIComponent(key)}=${encodeURIComponent(value)}`;
+      }
+    })
+    .join("&");
+}
+
 export default async (url, selectedDataset) => {
   const dataToInject = datasets[selectedDataset];
 
@@ -350,26 +365,11 @@ export default async (url, selectedDataset) => {
     );
   }
 
-  // function to create a URL-encoded query string from an object.
-  // e.g. {key: value, name: John Smith} is returned as "key=value&name=John%20Smith"
-  const encode = (obj) => {
-    var str = [];
-    for (var p in obj)
-      if (p === "partners") {
-        for (var partner in obj[p]) {
-          str.push(
-            encodeURIComponent(p) + "=" + encodeURIComponent(obj[p][partner])
-          );
-        }
-      } else {
-        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
-      }
-    return str.join("&");
-  };
+  const params = objectToUrlParams(dataToInject);
 
   // go to the QA URL with the query appended
-  console.error(`${url}?${encode(dataToInject)}`);
-  await browser.url(`${url}?${encode(dataToInject)}`);
+  console.error(`${url}?${params}`);
+  await browser.url(`${url}?${params}`);
 
   //browser.pause(3000);
 };

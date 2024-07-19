@@ -51,8 +51,8 @@ Feature: Processing-Activities Page
         And I pause for 1000ms
         Then I expect the url to not contain "processing-activities"
 
-         @processing_activities_pageS_invalid
-    Scenario: processing activities page check invalid selection
+         @processing_activities_page_happy
+    Scenario: processing activities page check check first checkbox is unchecked after dont know checkbox is checked
         Given I open the url "/cleansession"
         And I open the url "processing-activities"
         When I click on the element "processingActivities.button"
@@ -60,6 +60,20 @@ Feature: Processing-Activities Page
         Then I expect that checkbox "processingActivities.firstCheckbox" is checked
         And I click on the element "processingActivities.eigthCheckbox"
         Then I expect that checkbox "processingActivities.eigthCheckbox" is checked
+        And I expect that checkbox "processingActivities.firstCheckbox" is not checked
+        When I click on the element "processingActivities.button"
+        And I pause for 1000ms
+        Then I expect the url to not contain "processing-activities"
+
+        @processing_activities_page_happy
+    Scenario: processing activities page check check first checkbox is unchecked after none checkbox is checked
+        Given I open the url "/cleansession"
+        And I open the url "processing-activities"
+        When I click on the element "processingActivities.button"
+        And I click on the element "processingActivities.firstCheckbox"
+        Then I expect that checkbox "processingActivities.firstCheckbox" is checked
+        And I click on the element "processingActivities.seventhCheckbox"
+        Then I expect that checkbox "processingActivities.seventhCheckbox" is checked
         And I expect that checkbox "processingActivities.firstCheckbox" is not checked
         When I click on the element "processingActivities.button"
         And I pause for 1000ms

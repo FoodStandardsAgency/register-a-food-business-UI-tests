@@ -51,8 +51,8 @@ Feature: Food Type Page
         And I pause for 1000ms
         Then I expect the url to not contain "food-type"
 
-         @food_type_page_invalid
-    Scenario: food type page check invalid selection
+         @food_type_page_happy
+    Scenario: food type page check first checkbox is unchecked after dont know checkbox is checked
         Given I open the url "/cleansession"
         And I open the url "food-type"
         When I click on the element "foodType.button"
@@ -60,6 +60,20 @@ Feature: Food Type Page
         Then I expect that checkbox "foodType.firstCheckbox" is checked
         And I click on the element "foodType.sixthCheckbox"
         Then I expect that checkbox "foodType.sixthCheckbox" is checked
+        And I expect that checkbox "foodType.firstCheckbox" is not checked
+        When I click on the element "foodType.button"
+        And I pause for 1000ms
+        Then I expect the url to not contain "food-type"
+
+         @food_type_page_happy
+    Scenario: food type page check first checkbox is unchecked after none checkbox is checked
+        Given I open the url "/cleansession"
+        And I open the url "food-type"
+        When I click on the element "foodType.button"
+        And I click on the element "foodType.firstCheckbox"
+        Then I expect that checkbox "foodType.firstCheckbox" is checked
+        And I click on the element "foodType.fifthCheckbox"
+        Then I expect that checkbox "foodType.fifthCheckbox" is checked
         And I expect that checkbox "foodType.firstCheckbox" is not checked
         When I click on the element "foodType.button"
         And I pause for 1000ms

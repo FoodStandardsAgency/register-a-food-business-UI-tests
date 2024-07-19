@@ -5,7 +5,7 @@ const processingActivities = {
   fourthCheckbox: "#PASTEURISING",
   fifthCheckbox: "#ANIMAL_UNCOOKED",
   sixthCheckbox: "#REWRAPPING_OR_RELABELLING",
-  sevethCheckbox: "#NONE",
+  seventhCheckbox: "#NONE",
   eigthCheckbox: "#DONT_KNOW",
   button: ".govuk-button",
   error: ".govuk-error-message",

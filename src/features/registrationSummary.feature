@@ -9,13 +9,13 @@ Feature: Summary
     When I click on the element "registrationSummary.button"
     Then I expect the url to not contain "registration-summary"
 
-  @SDB-8_happy_path_navigation
+   @SDB-8_happy_path_navigation
   Scenario: navigate to declaration page
     Given I open the url "/cleansession"
     And I go to a special QA page at url "/qa/registration-summary" with injected "registration-summary-partnership-2" data
-    Then I expect the business scale element to contain the text "Don't know"  
-    Then I expect the food type element to contain the text "Don't know"  
-    Then I expect the processing activities element to contain the text "Don't know"
+    Then I expect the business scale element to contain "To local customers (who live or work in the local area)" and "To national customers (who live or work across the UK)" 
+    And I expect the food type element to contain "Raw unwrapped meat, fish and shellfish" and "Ready to eat food (food that will not be cooked or reheated before serving)"
+    And I expect the processing activities element to contain "Vacuum packing" and "Pasteurisation"
 
   @SDB-8_missing_data 
   Scenario: missing data not displayed
@@ -41,6 +41,9 @@ Feature: Summary
     When I go to a special QA page at url "/qa/registration-summary" with injected "registration-summary-welsh" data
     Then I expect that element "registrationSummary.operatorType" contains the text "Unig fasnachwr"
     And I expect that element "registrationSummary.businessType" contains the text "Fferm da byw"
+    Then I expect the welsh business scale element to contain the text "I ddarparu bwyd yn uniongyrchol i fusnesau bwyd eraill"
+    Then I expect the welsh food type element to contain the text "Ddim yn gwybod"  
+    Then I expect the welsh processing activities element to contain the text "Ddim yn gwybod"
     And I click on the element "registrationSummary.button"
     Then I expect the url to not contain "registration-summary"
 

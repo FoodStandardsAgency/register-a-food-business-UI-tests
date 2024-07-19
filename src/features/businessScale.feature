@@ -57,8 +57,8 @@ Feature: Business Scale Page
         And I pause for 1000ms
         Then I expect the url to not contain "business-scale"
 
-         @business_scale_page_invalid
-    Scenario: business scale page check invalid selection
+         @business_scale_page_happy
+    Scenario: business scale page check first checkbox is unchecked after dont know checkbox is checked
         Given I open the url "/cleansession"
         And I open the url "business-scale"
         When I click on the element "businessScale.button"
@@ -66,6 +66,20 @@ Feature: Business Scale Page
         Then I expect that checkbox "businessScale.firstCheckbox" is checked
         And I click on the element "businessScale.ninthCheckbox"
         Then I expect that checkbox "businessScale.ninthCheckbox" is checked
+        And I expect that checkbox "businessScale.firstCheckbox" is not checked
+        When I click on the element "businessScale.button"
+        And I pause for 1000ms
+        Then I expect the url to not contain "business-scale"
+
+         @business_scale_page_happy
+    Scenario: business scale page check first checkbox is unchecked after none checkbox is checked
+        Given I open the url "/cleansession"
+        And I open the url "business-scale"
+        When I click on the element "businessScale.button"
+        And I click on the element "businessScale.firstCheckbox"
+        Then I expect that checkbox "businessScale.firstCheckbox" is checked
+        And I click on the element "businessScale.eigthCheckbox"
+        Then I expect that checkbox "businessScale.eigthCheckbox" is checked
         And I expect that checkbox "businessScale.firstCheckbox" is not checked
         When I click on the element "businessScale.button"
         And I pause for 1000ms

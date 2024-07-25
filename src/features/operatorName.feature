@@ -40,7 +40,7 @@ Feature: Operator Name
         And I expect that element "opContactName.error" contains the text "Enter a valid last name"
 
     @no_birth_date_SDB-35
-    Scenario: no birth date input
+    Scenario: no birthdate input
         Given I open the url "/cleansession"
         And I open the url "operator-name"
         When I set "Bob" to the inputfield "opContactName.firstName"
@@ -48,7 +48,7 @@ Feature: Operator Name
         And I click on the element "opContactName.button"
         Then I expect that element "opContactName.firstName" contains the text "Bob"
         And I expect that element "opContactName.lastName" contains the text "Smith"
-        And I expect that element "opContactName.error" contains the text "Enter a valid birth date"
+        And I expect that element "opContactName.error" contains the text "Enter a valid birthdate"
 
     @invalid_last_name_SDB-35
     Scenario: invalid last name input
@@ -74,7 +74,7 @@ Feature: Operator Name
         And I expect that element "opContactName.lastName" contains the text "Smith"
         
         @invalid_birth_date_SDB-35
-    Scenario: invalid birth date input
+    Scenario: invalid birthdate input
         Given I open the url "/cleansession"
         And I open the url "operator-name"
         When I set "Bob" to the inputfield "opContactName.firstName"
@@ -83,7 +83,7 @@ Feature: Operator Name
         And I set "100" to the inputfield "opContactName.month"
         And I set "20000" to the inputfield "opContactName.year"
         And I click on the element "opContactName.button"
-        And I expect that element "opContactName.error" contains the text "Enter a valid birth date"
+        And I expect that element "opContactName.error" contains the text "Enter a valid birthdate"
         Then I expect that element "opContactName.firstName" contains the text "Bob"
         And I expect that element "opContactName.lastName" contains the text "Smith"
 

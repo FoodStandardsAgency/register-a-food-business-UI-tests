@@ -99,14 +99,14 @@ Feature: Partnership Contact Details
         And I expect that element "partnerContactDetails.emailAddress" contains the text "valid@email.com"
 
 @no_birth_date_SDB-35
-    Scenario: no birth date input
+    Scenario: no birthdate input
         Given I open the url "/cleansession"
         And I open the url "partnership-contact-details"
         And I click on the element "partnerContactDetails.button"
         When I set "01234567890" to the inputfield "partnerContactDetails.primaryPhoneNumber"
         And I set "valid@email.com" to the inputfield "partnerContactDetails.emailAddress"
         And I click on the element "partnerContactDetails.continueButton"
-        And I expect that element "partnerContactDetails.error" contains the text "Enter a valid birth date"
+        And I expect that element "partnerContactDetails.error" contains the text "Enter a valid birthdate"
         And I expect that element "partnerContactDetails.emailAddress" contains the text "valid@email.com"
         And I expect that element "partnerContactDetails.primaryPhoneNumber" contains the text "01234567890"
 

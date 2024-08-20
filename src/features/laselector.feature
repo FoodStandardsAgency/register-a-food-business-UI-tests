@@ -70,6 +70,8 @@ Feature: As Robert I need the service to locate my council after ive inserted my
         When I click on the element "estabAddress.changePostcode"
         And I set "BT31 9JD" to the inputfield "estabAddress.postcode"
         When I click on the element "estabAddress.button"
+        Then I expect the url to contain "establishment-address-select"
+        When I click on the element "estabAddress.button"
         Then I expect the url to contain "la-established"
         And I expect that element "estabAddress.heading" contains the text "You are registering with Newry, Mourne and Down District Council"
 		

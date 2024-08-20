@@ -55,7 +55,7 @@ Feature: Testing user journey for partnership
         And I open the url "index"
         When I click on the element "firstpage.button"
         Then I expect the url to contain "establishment-address"
-        When I set "BS24 9ST" to the inputfield "estabAddress.estabPostcodeFind" 
+        When I set "NR1 4DH" to the inputfield "estabAddress.estabPostcodeFind" 
         When I click on the element "estabAddress.button"
         Then I expect the url to contain "establishment-address-select"
         When I click on the element "estabAddress.button"
@@ -101,7 +101,7 @@ Feature: Testing user journey for partnership
         When I click on the element "mainPartnershipContact.partnerTwo"
         And I click on the element "commonElements.button"
         
-        When I set "BS24 9ST" to the inputfield "opAddress.postcode"
+        When I set "NR1 4DH" to the inputfield "opAddress.postcode"
         And I click on the element "opAddress.button"
         Then I expect the url to contain "operator-address-select"
         When I click on the element "opAddress.button"

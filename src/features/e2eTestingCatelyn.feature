@@ -15,7 +15,7 @@ Feature: Testing user journey for Catelyn
         Then I expect the url to contain "establishment-address-select"
         When I click on the element "estabAddress.button"
         Then I expect the url to contain "la-established"
-        And I expect that element "estabAddress.postcodeDisplay" contains the text "You are registering with North Somerset Council" 
+        And I expect that element "estabAddress.heading" contains the text "You are registering with North Somerset Council" 
         When I click on the element "estabAddress.button"
         Then I expect the url to contain "registration-role"
         When I click on the element "regRole.soleTrader"

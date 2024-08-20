@@ -4,7 +4,11 @@ const estabAddress = {
   manualPostcode: '[name="establishment_postcode"]',
   findAddress: "#find-address",
   firstOption: "#local_authority__option--0",
-  postcodeDisplay: "#main-content > div > div > form > fieldset > legend > h1",
+  changePostcode:
+    "#main-content > div > div > form > dl > div > dd.govuk-summary-list__actions > a",
+  postcodeDisplay:
+    "#main-content > div > div > form > dl > div > dd.govuk-summary-list__value",
+  heading: "#main-content > div > div > form > fieldset > legend > h1",
   cannotFindPostcodeHeading:
     "#main-content > div > div > fieldset > legend > h1",
   postcodeLocator: "#local_authority",

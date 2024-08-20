@@ -42,7 +42,7 @@ Feature: As Robert I need the service to locate my council after ive inserted my
         When I select the 2nd option for element "estabAddress.postcodeDropdown" 
         When I click on the element "estabAddress.button"
         Then I expect the url to contain "la-established"
-        And I expect that element "estabAddress.postcodeDisplay" contains the text "You are registering with North Somerset Council"
+        And I expect that element "estabAddress.heading" contains the text "You are registering with North Somerset Council"
 
     @SDB-12_error_la_selector
     Scenario: entering postcode in invalid format and pressing continue
@@ -63,7 +63,7 @@ Feature: As Robert I need the service to locate my council after ive inserted my
         Then I expect the url to contain "establishment-address-select"
         When I click on the element "estabAddress.button"
         Then I expect the url to contain "la-established"
-        And I expect that element "estabAddress.postcodeDisplay" contains the text "You are registering with North Somerset Council"
+        And I expect that element "estabAddress.heading" contains the text "You are registering with North Somerset Council"
         When I click on the element "estabAddress.backButtonEstablished"
         Then I expect the url to contain "establishment-address-select"
         And I expect that element "estabAddress.postcodeDisplay" contains the text "BS249ST"
@@ -71,7 +71,7 @@ Feature: As Robert I need the service to locate my council after ive inserted my
         And I set "BT31 9JD" to the inputfield "estabAddress.postcode"
         When I click on the element "estabAddress.button"
         Then I expect the url to contain "la-established"
-        And I expect that element "estabAddress.postcodeDisplay" contains the text "You are registering with Newry, Mourne and Down District Council"
+        And I expect that element "estabAddress.heading" contains the text "You are registering with Newry, Mourne and Down District Council"
 		
            @SDB-12_la_selector_cant_find_address
     Scenario: entering postcode, then choosing my own council
@@ -89,7 +89,7 @@ Feature: As Robert I need the service to locate my council after ive inserted my
         When I click on the element "estabAddress.button"
         When I click on the element "estabAddress.button"
         Then I expect the url to contain "la-established"
-        And I expect that element "estabAddress.postcodeDisplay" contains the text "You are registering with City of Cardiff Council"
+        And I expect that element "estabAddress.heading" contains the text "You are registering with City of Cardiff Council"
 
           @SDB-12_la_selector_cant_find_address_error_firstline
     Scenario: using manual input - error

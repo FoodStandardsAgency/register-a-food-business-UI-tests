@@ -73,7 +73,7 @@ Feature: As Robert I need the service to locate my council after ive inserted my
         Then I expect the url to contain "establishment-address-select"
         When I click on the element "estabAddress.button"
         Then I expect the url to contain "la-established"
-        And I expect that element "estabAddress.heading" contains the text "You are registering with Shropshire Council"
+        And I expect that element "estabAddress.heading" contains the text "You are registering with Newry, Mourne and Down District Council"
 		
            @SDB-12_la_selector_cant_find_address
     Scenario: entering postcode, then choosing my own council

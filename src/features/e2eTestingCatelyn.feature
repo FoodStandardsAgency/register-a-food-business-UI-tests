@@ -6,7 +6,7 @@ Feature: Testing user journey for Catelyn
     @happy_path_
     Scenario: happy path
         Given I open the url "/cleansession"
-        And I open the url "index"
+        And I open the url "new/index"
         When I click on the element "firstpage.button"
         When I click on the element "firstpage.button"
         Then I expect the url to contain "establishment-address"
@@ -17,6 +17,10 @@ Feature: Testing user journey for Catelyn
         Then I expect the url to contain "la-established"
         And I expect that element "estabAddress.heading" contains the text "You are registering with North Somerset Council" 
         When I click on the element "estabAddress.button"
+        Then I expect the url to contain "new-or-update-registration"
+        And I expect that element "newOrUpdateReg.heading" contains the text "What do you want to do today?" 
+        And I click on the element "newOrUpdateReg.newRegistration"
+        And I click on the element "newOrUpdateReg.button"
         Then I expect the url to contain "registration-role"
         When I click on the element "regRole.soleTrader"
         And I click on the element "regRole.button"

@@ -8,6 +8,7 @@ import estabContactDetails from "./establishmentContactDetails.page.js";
 import estabOpeningDate from "./establishmentOpeningDate.page.js";
 
 import regRole from "./registrationRole.page.js";
+import newOrUpdateReg from "./newOrUpdateReg.page.js";
 
 import opType from "./operatorType.page.js";
 import opContactDetails from "./operatorContactDetails.page.js";

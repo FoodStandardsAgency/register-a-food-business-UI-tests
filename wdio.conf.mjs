@@ -363,6 +363,8 @@ let config = {
       "./src/features/**/partnershipContactDetails.feature",
     ],
     registrationSubmission: [
+      "./src/features/**/newOrUpdateRegistration.feature",
+      "./src/features/**/updateRegistration.feature",
       "./src/features/**/submitRegistration.feature",
       "./src/features/**/registrationSummary.feature",
       "./src/features/**/editSummary.feature",

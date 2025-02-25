@@ -1,6 +1,6 @@
 const estabTradingName = {
   tradingNameInput: "#establishment_trading_name",
-  button: ".govuk-button",
+  button: "#continue-button",
   error: ".govuk-error-message",
 };
 

@@ -41,7 +41,7 @@ Feature: Summary
     When I go to a special QA page at url "/qa/registration-summary" with injected "registration-summary-welsh" data
     Then I expect that element "registrationSummary.operatorType" contains the text "Unig fasnachwr"
     And I expect that element "registrationSummary.businessType" contains the text "Fferm da byw"
-    Then I expect the welsh business scale element to contain the text "I ddarparu bwyd yn uniongyrchol i fusnesau bwyd eraill"
+    Then I expect the welsh business scale element to contain the text "Yn uniongyrchiol i fusnesau bwyd eraill"
     Then I expect the welsh food type element to contain the text "Ddim yn gwybod"  
     Then I expect the welsh processing activities element to contain the text "Ddim yn gwybod"
     And I click on the element "registrationSummary.button"

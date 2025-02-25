@@ -37,6 +37,26 @@ Feature: As Samantha I need to be able to edit details in the summary of my regi
         And I expect that element "registrationSummary.tradingName" contains the text "Changed Trading Name"
 
 
+    @editing_additional_trading_names
+    Scenario: editing establishment trading name
+        Given I open the url "/cleansession"
+        And I go to a special QA page at url "/qa/registration-summary" with injected "registration-summary" data
+        When I click on the element "registrationSummary.changeAdditionalTradingNames"
+        Then I expect the url to contain "establishment-trading-name?edit=establishment-trading-name"
+        And I expect that element "estabTradingName.tradingNameInput" contains the text "Trading name"
+        When I click on the element "estabTradingName.deleteFirstAdditionalTradingNameBtn"
+        And I expect that element "estabTradingName.firstAdditionalTradingNameLabel" contains the text "Trading name 2"
+        Then I click on the element "estabTradingName.changeFirstTradingNameLink"
+        And I expect that element "estabTradingName.additionalTradingNameInput" contains the text "Trading name 2"
+        When I set "Changed Additional Trading name" to the inputfield "estabTradingName.additionalTradingNameInput"
+        And I click on the element "estabTradingName.button"
+        Then I expect the url to contain "establishment-trading-name"
+        And I expect that element "estabTradingName.firstAdditionalTradingNameLabel" contains the text "Changed Additional Trading name"
+        When I click on the element "estabTradingName.button"
+        Then I expect the url to contain "registration-summary"
+        And I expect that element "registrationSummary.additionalTradingNames" contains the text "Changed Additional Trading name"
+
+
     @SDB-157_back_button_not_visible
     Scenario: when editing page the back button is not visible
         Given I open the url "/cleansession"

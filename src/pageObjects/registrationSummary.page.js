@@ -17,6 +17,7 @@ const registrationSummary = {
   representativeNumber: "#designated_contact",
   representativeEmail: "#designated_contact",
   tradingName: "#establishment_trading_name",
+  additionalTradingNames: "#establishment_additional_trading_names",
   establishmentType: "#establishment_type",
   establishmentPrimaryNumber: "#establishment_primary_number",
   establishmentSecondaryNumber: "#establishment_secondary_number",

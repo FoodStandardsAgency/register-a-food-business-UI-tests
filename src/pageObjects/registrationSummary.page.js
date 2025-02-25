@@ -40,9 +40,9 @@ const registrationSummary = {
   changeOperatorEmail:
     "#main-content > div > div > form > dl:nth-child(9) > div > dd.govuk-summary-list__actions > a",
   changeTradingName:
-    "#main-content > div > div > form > dl:nth-child(11) > div > dd.govuk-summary-list__actions",
+    "#main-content > div > div > form > dl:nth-child(11) > div > dd.govuk-summary-list__actions > a",
   changeAdditionalTradingNames:
-    "#main-content > div > div > form > dl:nth-child(12) > div > dd.govuk-summary-list__actions",
+    "#main-content > div > div > form > dl:nth-child(12) > div > dd.govuk-summary-list__actions > a",
   changeEstablishmentAddress: "#changeEstablishmentAddressRow",
   changeEstablishmentContactDetails: "#changeEstablishmentContactDetailsRow",
   changeEstablishmentEmail: "#changeEstablishmentEmailRow",

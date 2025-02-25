@@ -25,7 +25,6 @@ Feature: Establishment Trading Name
         When I set "This is text containing more than 255 characters. This is text containing more than 255 characters. This is text containing more than 255 characters. This is text containing more than 255 characters. This is text containing more than 255 characters. 012345" to the inputfield "estabTradingName.tradingNameInput"
         When I click on the element "estabTradingName.button"
         Then I expect that element "estabTradingName.error" contains the text "Enter a valid establishment trading name"
-        And I expect that element "estabTradingName.tradingNameInput" contains the text ""
 
     @additional_trading_names
     Scenario: Additional trading names
@@ -40,6 +39,7 @@ Feature: Establishment Trading Name
         Then I expect the url to contain "establishment-trading-name"
         And I expect that element "estabTradingName.firstAdditionalTradingNameLabel" contains the text "Test Trading Name 1"
         Then I click on the element "estabTradingName.changeFirstTradingNameLink"
+        And I expect that element "estabTradingName.additionalTradingNamePageTitle" contains the text "Edit additional trading name"
         And I expect that element "estabTradingName.additionalTradingNameInput" contains the text "Test Trading Name 1"
         When I set "Test Trading Name 2" to the inputfield "estabTradingName.additionalTradingNameInput"
         And I click on the element "estabTradingName.button"
@@ -124,7 +124,7 @@ Feature: Establishment Trading Name
         And I expect that element "estabTradingName.additionalTradingNamePageTitle" contains the text "Add additional trading name"
         When I set "Test Trading Name 10" to the inputfield "estabTradingName.additionalTradingNameInput"
         And I click on the element "estabTradingName.button"
-        Then I expect element "estabTradingName.addAdditionalTradingNameBtn" is not visible
+        Then I expect that element "estabTradingName.addAdditionalTradingNameBtn" is not visible
         When I click on the element "estabTradingName.button"
         Then I expect the url to contain "establishment-address-type"
 

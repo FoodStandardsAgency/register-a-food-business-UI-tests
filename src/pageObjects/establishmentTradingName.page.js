@@ -8,7 +8,7 @@ const estabTradingName = {
     "#establishment_trading_name_form > div > div > div > ul > li > a",
   additionalTradingNamePageTitle: "h1",
   addAdditionalTradingNameBtn: "#addTradingNameLink",
-  changeFirstTradingNameLink: "tradingName0RowChange",
+  changeFirstTradingNameLink: "#tradingName0RowChange",
   deleteFirstAdditionalTradingNameBtn: "#deleteTradingNameButton0",
   firstAdditionalTradingNameLabel: "#tradingName0",
 };

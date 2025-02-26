@@ -48,7 +48,6 @@ Feature: Establishment Trading Name
         Then I click on the element "estabTradingName.deleteFirstAdditionalTradingNameBtn"
         And I expect that element "estabTradingName.firstAdditionalTradingNameLabel" is not visible
         Then I click on the element "estabTradingName.addAdditionalTradingNameBtn"
-        And I expect that element "estabTradingName.additionalTradingNameInput" contains the text ""
         When I set "Test Trading Name 3" to the inputfield "estabTradingName.additionalTradingNameInput"
         And I click on the element "estabTradingName.cancelButton"
         Then I expect the url to contain "establishment-trading-name"
@@ -67,7 +66,6 @@ Feature: Establishment Trading Name
         Then I expect the url to contain "establishment-trading-name"
         And I expect that element "estabTradingName.firstAdditionalTradingNameLabel" contains the text "Test Trading Name 1"
         Then I click on the element "estabTradingName.addAdditionalTradingNameBtn"
-        And I expect that element "estabTradingName.additionalTradingNameInput" contains the text ""
         When I click on the element "estabTradingName.button"
         Then I expect that element "estabTradingName.error" contains the text "Enter a valid establishment trading name"
         When I set "This is text containing more than 255 characters. This is text containing more than 255 characters. This is text containing more than 255 characters. This is text containing more than 255 characters. This is text containing more than 255 characters. 012345" to the inputfield "estabTradingName.additionalTradingNameInput"

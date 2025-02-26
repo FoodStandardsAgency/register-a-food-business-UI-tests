@@ -1,5 +1,6 @@
 const datasets = {
   "registration-summary": {
+    new_or_update_registration: "NEW_REGISTRATION",
     la_id: 6008,
     operator_address_line_1: "First line",
     operator_address_line_2: "Street",
@@ -18,6 +19,10 @@ const datasets = {
     operator_email: "email@email.com",
     registration_role: "SOLETRADER",
     establishment_trading_name: "Trading name",
+    establishment_additional_trading_names: [
+      "Trading name 1",
+      "Trading name 2",
+    ],
     establishment_address_line_1: "First line",
     establishment_address_line_2: "Street",
     establishment_address_line_3: "Somewhere",
@@ -46,6 +51,7 @@ const datasets = {
     water_supply: "PUBLIC",
   },
   "registration-summary-charity": {
+    new_or_update_registration: "NEW_REGISTRATION",
     la_id: 6008,
     registration_role: "Representative",
     operator_type: "CHARITY",
@@ -64,6 +70,10 @@ const datasets = {
     operator_primary_number: "01234567890",
     operator_email: "email@email.com",
     establishment_trading_name: "Trading name",
+    establishment_additional_trading_names: [
+      "Trading name 1",
+      "Trading name 2",
+    ],
     establishment_address_line_1: "First line",
     establishment_address_line_2: "Street",
     establishment_town: "Town",
@@ -81,6 +91,7 @@ const datasets = {
     water_supply: "PUBLIC",
   },
   "registration-summary-partnership": {
+    new_or_update_registration: "NEW_REGISTRATION",
     la_id: 6008,
     operator_type: "COMPANY",
     operator_address_line_1: "First line",
@@ -102,6 +113,10 @@ const datasets = {
     operator_email: "email@email.com",
     registration_role: "PARTNERSHIP",
     establishment_trading_name: "Trading name",
+    establishment_additional_trading_names: [
+      "Trading name 1",
+      "Trading name 2",
+    ],
     establishment_address_line_1: "First line",
     establishment_address_line_2: "Street",
     establishment_address_line_3: "Somewhere",
@@ -133,6 +148,7 @@ const datasets = {
     main_partnership_contact: "One",
   },
   "registration-summary-partnership-2": {
+    new_or_update_registration: "NEW_REGISTRATION",
     la_id: 6008,
     operator_type: "PARTNERSHIP",
     operator_address_line_1: "First line",
@@ -153,6 +169,10 @@ const datasets = {
     main_partner_secondary_number: "02134567890",
     registration_role: "PARTNERSHIP",
     establishment_trading_name: "Trading name",
+    establishment_additional_trading_names: [
+      "Trading name 1",
+      "Trading name 2",
+    ],
     establishment_address_line_1: "First line",
     establishment_address_line_2: "Street",
     establishment_address_line_3: "Somewhere",
@@ -184,6 +204,7 @@ const datasets = {
     main_partnership_contact: "One",
   },
   "registration-summary-representative": {
+    new_or_update_registration: "NEW_REGISTRATION",
     la_id: 6008,
     registration_role: "Representative",
     operator_type: "PERSON",
@@ -201,6 +222,10 @@ const datasets = {
     operator_primary_number: "01234567890",
     operator_email: "email@email.com",
     establishment_trading_name: "Trading name",
+    establishment_additional_trading_names: [
+      "Trading name 1",
+      "Trading name 2",
+    ],
     establishment_address_line_1: "First line",
     establishment_address_line_2: "Street",
     establishment_town: "Town",
@@ -225,10 +250,12 @@ const datasets = {
     directly_import: "Directly import",
   },
   "registration-summary-trading-every-day": {
+    new_or_update_registration: "NEW_REGISTRATION",
     la_id: 6008,
     opening_days_start: "Every day",
   },
   declaration: {
+    new_or_update_registration: "NEW_REGISTRATION",
     la_id: 6008,
     operator_type: "SOLETRADER",
     operator_first_name: "Fred",
@@ -247,6 +274,10 @@ const datasets = {
     operator_email: "testemail@email.com",
     registration_role: "SOLETRADER",
     establishment_trading_name: "Trading name",
+    establishment_additional_trading_names: [
+      "Trading name 1",
+      "Trading name 2",
+    ],
     establishment_email: "establishment@email.com",
     establishment_primary_number: "01234567890",
     establishment_secondary_number: "01234567890",
@@ -276,6 +307,7 @@ const datasets = {
     water_supply: "PUBLIC",
   },
   declaration_seperate_standardsCouncil: {
+    new_or_update_registration: "NEW_REGISTRATION",
     la_id: 4221,
     operator_type: "SOLETRADER",
     operator_first_name: "Fred",
@@ -294,6 +326,10 @@ const datasets = {
     operator_email: "testemail@email.com",
     registration_role: "SOLETRADER",
     establishment_trading_name: "Trading name",
+    establishment_additional_trading_names: [
+      "Trading name 1",
+      "Trading name 2",
+    ],
     establishment_email: "establishment@email.com",
     establishment_primary_number: "01234567890",
     establishment_address_line_1: "First line",
@@ -322,10 +358,12 @@ const datasets = {
     water_supply: "PUBLIC",
   },
   "blank-partnership": {
+    new_or_update_registration: "NEW_REGISTRATION",
     la_id: 6008,
     registration_role: "PARTNERSHIP",
   },
   "two-partnership": {
+    new_or_update_registration: "NEW_REGISTRATION",
     la_id: 6008,
     registration_role: "PARTNERSHIP",
     partners: ["one", "two"],

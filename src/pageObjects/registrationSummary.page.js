@@ -17,7 +17,8 @@ const registrationSummary = {
   representativeNumber: "#designated_contact",
   representativeEmail: "#designated_contact",
   tradingName: "#establishment_trading_name",
-  additionalTradingNames: "#establishment_additional_trading_names",
+  additionalTradingNames:
+    "#main-content > div > div > form > dl:nth-child(12) > div > dd.govuk-summary-list__value > ul > li",
   establishmentType: "#establishment_type",
   establishmentPrimaryNumber: "#establishment_primary_number",
   establishmentSecondaryNumber: "#establishment_secondary_number",

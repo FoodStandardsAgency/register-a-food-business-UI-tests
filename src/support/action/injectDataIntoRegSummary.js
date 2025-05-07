@@ -382,7 +382,7 @@ function objectToUrlParams(obj) {
     .flatMap(([key, value]) => {
       if (Array.isArray(value)) {
         return value.map(
-          (item) => `${encodeURIComponent(key)}[]=${encodeURIComponent(item)}`
+          (item) => `${encodeURIComponent(key)}=${encodeURIComponent(item)}`
         );
       } else {
         return `${encodeURIComponent(key)}=${encodeURIComponent(value)}`;

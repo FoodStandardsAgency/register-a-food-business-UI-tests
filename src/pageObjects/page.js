@@ -1,5 +1,6 @@
 import commonElements from "./commonElements.page.js";
 import firstpage from "./first.page.js";
+import landingPage from "./landingPage.page.js";
 
 import estabAddress from "./establishmentAddress.page.js";
 import estabAddressType from "./establishmentAddressType.page.js";

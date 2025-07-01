@@ -34,7 +34,7 @@ Given(
 Given(/^I delete all my cookies$/, deleteAllCookies);
 
 Given(
-  /^I open the (url|site) "([^"]*)?"$/,
+  /^I open the (url|site|adminportal) "([^"]*)?"$/,
   { wrapperOptions: { retry: 2 } },
   openWebsite
 );

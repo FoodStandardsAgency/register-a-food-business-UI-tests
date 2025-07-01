@@ -8,7 +8,14 @@ export default async (type, page) => {
    * The URL to navigate to
    * @type {String}
    */
-  const url = type === "url" ? page : browser.options.baseUrl + page;
+  let url;
+  if (type === "url") {
+    url = page;
+  } else if (type === "adminportal") {
+    url = global.testConfig.baseAdminUrl + page;
+  } else {
+    url = browser.options.baseUrl + page;
+  }
   await browser.url(url);
   await browser.waitUntil(async () => {
     return (await browser.getUrl()).includes(page);

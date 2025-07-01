@@ -10,6 +10,7 @@
     "browserstack:ui": "IS_LOCAL=true MODE=BROWSERSTACK wdio run wdio.conf.mjs --suite landingpage establishment operator registrationSubmission operatorextra websitefeatures",
     "browserstack:e2e": "IS_LOCAL=true MODE=BROWSERSTACK wdio run wdio.conf.mjs --suite end2end",
     "browserstack:wdio": "IS_LOCAL=true MODE=BROWSERSTACK wdio run wdio.conf.mjs",
+    "browserstack:adminportal": "IS_LOCAL=true MODE=BROWSERSTACK wdio run wdio.conf.mjs --suite adminportal",
     "remote:browserstack:ui": "IS_LOCAL= MODE=BROWSERSTACK wdio run wdio.conf.mjs --suite landingpage establishment operator registrationSubmission operatorextra websitefeatures",
     "remote:browserstack:e2e": "IS_LOCAL= MODE=BROWSERSTACK wdio run wdio.conf.mjs --suite end2end",
     "remote:browserstack:wdio": "IS_LOCAL= MODE=BROWSERSTACK wdio run wdio.conf.mjs",

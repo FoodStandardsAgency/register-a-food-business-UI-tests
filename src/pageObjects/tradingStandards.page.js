@@ -12,6 +12,7 @@ const tradingStandards = {
   viewCouncil: "#latable > td:nth-child(2) > p:nth-child(1) > a",
   viewInitialCheck: "#main-content > div > table > tbody > tr:nth-child(14) > td > table > tbody > tr > td:nth-child(1)",
   viewRegularCheck: "#main-content > div > table > tbody > tr:nth-child(14) > td > table > tbody > tr > td:nth-child(2)",
- 
+  chaseCheck: ".govuk-tag",
+  chaseCheckbox: '[name="local_council_chase_check"]',
   };
 export default tradingStandards;

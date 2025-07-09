@@ -1,6 +1,6 @@
 Feature: Trading standards checks Page
 
-    @addtradingstandcheckvalues - happy path
+    @addtradingstandcheckvalues-happypath
     Scenario: Adding values to the trading standard checks section
         Given I open the adminportal "/"
         Then I expect that element "tradingStandards.heading" contains the text "Welcome to the Register a Food Business Administration Portal"
@@ -29,7 +29,7 @@ Feature: Trading standards checks Page
         Then I expect that element "tradingStandards.viewRegularCheck" contains the text "8"
 
 
-    @addtradingstandcheckvalues - unhappy path
+    @addtradingstandcheckvalues-unhappypath
     Scenario: Entering an invalid character to the trading standard checks section
         Given I open the adminportal "/"
         Then I expect that element "tradingStandards.heading" contains the text "Welcome to the Register a Food Business Administration Portal"

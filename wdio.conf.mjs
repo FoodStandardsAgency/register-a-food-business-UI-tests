@@ -398,7 +398,7 @@ let config = {
       "./src/features/**/e2eTestingJamie.feature",
       "./src/features/**/e2eTestingPartnership.feature",
     ],
-    adminportal: ["./src/features/**/landingPageAdmin.feature"],
+    adminportal: ["./src/features/**/tradingStandardChecks.feature"],
 
   },
   // First, you can define how many instances should be started at the same time. Let's

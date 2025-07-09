@@ -5,7 +5,7 @@ const landingPage = {
   editHeading: ".govuk-heading-l",
   editButton:"#latable > td:nth-child(4) > a:nth-child(1)",
   countyName:'[name="local_council"]',
-  successMessage: ".govuk-panel__title",
+  successMessage: "#main-content > div > div > div > h1",
   button:".govuk-button",
   newCouncilName: ".govuk-panel__body",
   emailField: '[name="local_council_email"]',

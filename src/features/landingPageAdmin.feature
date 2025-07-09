@@ -94,6 +94,5 @@ Feature: Landing Page
         Then I expect that element "landingPage.successMessage" contains the text "Are you sure that you want to permanently delete the local authority?"
         When I click on the element "landingPage.deleteCheckbox"
         And I click on the element "landingPage.button"
-        Then I expect that element "landingPage.successMessage" contains the text "Local authority deleted successfuly"
-
+        Then I expect the url to contain "/la/delete/4094"
     

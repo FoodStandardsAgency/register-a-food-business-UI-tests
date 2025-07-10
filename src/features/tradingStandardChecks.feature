@@ -1,3 +1,4 @@
+@trading_standards_check_section
 Feature: Trading standards checks Page
 
     @addtradingstandcheckvalues-happypath

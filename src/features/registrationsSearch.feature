@@ -40,7 +40,7 @@
         Then I expect that element "registrationsSearch.resultCount" contains the text "Showing 1-1 of 1 registrations"
         Then I expect that element "registrationsSearch.businessName" contains the text "Failed registration 2"
 
-    @search_registration_number
+    @search_registration_number_happy_path
     Scenario: Searching for registration FSA RN
         Given I open the adminportal "/"
         Then I expect that element "registrationsSearch.heading" contains the text "Welcome to the Register a Food Business Administration Portal"
@@ -50,3 +50,34 @@
         And I click on the element "registrationsSearch.button"
         Then I expect that element "registrationsSearch.resultCount" contains the text "Showing 1-1 of 1 registrations"
         Then I expect that element "registrationsSearch.businessName" contains the text "Failed registration 3"
+
+    @search_registration_number_unhappy_path
+    Scenario: Searching for registration FSA RN
+        Given I open the adminportal "/"
+        Then I expect that element "registrationsSearch.heading" contains the text "Welcome to the Register a Food Business Administration Portal"
+        When I click on the element "registrationsSearch.registrationsLink"
+        Then I expect that element "registrationsSearch.largeHeading" contains the text "Registrations"
+        When I set "0004-EMAILS-FAILEDNOTIFICAONS3" to the inputfield "registrationsSearch.registrationNumber"
+        And I click on the element "registrationsSearch.button"
+        Then I expect that element "registrationsSearch.resultCount" contains the text "Showing 1-0 of 0 registrations"
+
+    @search_submission_date
+    Scenario: Searching for registration by submission date rage
+        Given I open the adminportal "/"
+        Then I expect that element "registrationsSearch.heading" contains the text "Welcome to the Register a Food Business Administration Portal"
+        When I click on the element "registrationsSearch.registrationsLink"
+        Then I expect that element "registrationsSearch.largeHeading" contains the text "Registrations"
+        When I set "0004-EMAILS-NOFAILEDSTATUSES" to the inputfield "registrationsSearch.registrationNumber"
+        When I click on the element "registrationsSearch.editRegistration"
+        Then I expect that element "registrationsSearch.largeHeading" contains the text "Edit Registration
+        When I set "10022020" to the inputfield "registrationsSearch.dateFromInput"
+        When I set "13022020" to the inputfield "registrationsSearch.dateToInput"
+        And I click on the element "registrationsSearch.button"
+        Then I expect that element "registrationsSearch.businessName" contains the text "Failed Registration 1"
+        Then I expect that element "registrationsSearch.resultCount" contains the text "Showing 1-1 of 1 registrations"
+
+    
+
+
+
+

@@ -9,5 +9,8 @@ const registrationsSearch = {
   searchOperator: '[name="operatorName_search"]',
   registrationNumber: '[name= "fsaRN_search"]',
   searchBusinessName: '[name="businessName_search"]',
+  editRegistration: "#registrationtable > td:nth-child(4) > a",
+  dateFromInput: '[name="last_confirmed_trading"]',
+  dateToInput: '[name="submission_date_to"]',
   };
 export default registrationsSearch;

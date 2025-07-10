@@ -1,6 +1,7 @@
 import commonElements from "./commonElements.page.js";
 import firstpage from "./first.page.js";
-import tradingStandards from "./tradingStandards.page.js";
+import landingPage from "./landingPage.page.js";
+import tradingStandardsChecks from "./tradingStandards.page.js";
 import registrationsSearch from "./registrationsSearch.page.js";
 
 import estabAddress from "./establishmentAddress.page.js";

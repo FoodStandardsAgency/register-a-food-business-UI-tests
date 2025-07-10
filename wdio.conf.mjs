@@ -400,7 +400,7 @@ let config = {
     ],
     adminportal: [
       "./src/features/**/tradingStandardChecks.feature",
-      "./src/features/**/registrationsSearch.feature"
+      "./src/features/**/registrationsSearch.feature",
     ],
 
   },

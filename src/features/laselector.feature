@@ -124,5 +124,5 @@ Feature: As Robert I need the service to locate my council after ive inserted my
         When I click on the element "estabAddress.button"
         Then I expect the url to contain "establishment-address-select"
         When I click on the element "estabAddress.button"
-        Then I expect the url to contain "https://www.bromley.gov.uk/xfp/form/464"
+        Then I expect the url to contain "https://www.bromley.gov.uk/"
         

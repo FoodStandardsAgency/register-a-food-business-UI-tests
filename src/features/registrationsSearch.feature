@@ -29,7 +29,7 @@ Feature: Registrations search page
         Then I expect the url to contain "registration"        
         When I set "NR14 7PZ" to the inputfield "registrationsSearch.searchPostcode"
         And I click on the element "registrationsSearch.button"
-        Then I expect that element "registrationsSearch.resultCount" contains the text "Showing 1-5 of 5 registrations"
+        Then I expect that element "registrationsSearch.resultCount" contains the text "Showing 1-6 of 6 registrations"
         When I set "NR14 7PZ" to the inputfield "registrationsSearch.searchPostcode"
         And I set "Sammy Healey" to the inputfield "registrationsSearch.searchOperator"
         And I set "0101-FAILED-REG2" to the inputfield "registrationsSearch.registrationNumber"

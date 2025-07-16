@@ -1,5 +1,5 @@
 const path = require("path");
-require("dotenv").config({ path: "register-a-food-business-UI-tests/.env" });
+require("dotenv").config({ path: "../.env" });
 require = require("esm")(module /*, options */);
 const os = require("os");
 //const video = import("wdio-video-reporter");

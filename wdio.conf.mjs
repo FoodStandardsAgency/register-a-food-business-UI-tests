@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import fs from "fs-extra";
 
 // Configure dotenv with the specific path
-dotenv.config({ path: path.resolve("register-a-food-business-UI-tests/.env") });
+dotenv.config({ path: path.resolve("../.env") });
 
 // Dynamic import for wdio-video-reporter if needed
 const videoReporter = await import("wdio-video-reporter");
@@ -324,6 +324,9 @@ if (argv.parallel === "true") {
 let config = {
   automationProtocol: "webdriver",
   baseUrl: process.env.BASE_URL,
+  testConfig: {
+    baseAdminUrl: process.env.BASE_ADMIN_URL,
+  },
   buildName: generateBuildName(),
   //
   // ====================
@@ -395,6 +398,11 @@ let config = {
       "./src/features/**/e2eTestingJamie.feature",
       "./src/features/**/e2eTestingPartnership.feature",
     ],
+    adminportal: [
+      "./src/features/**/tradingStandardChecks.feature",
+      "./src/features/**/registrationsSearch.feature",
+    ],
+
   },
   // First, you can define how many instances should be started at the same time. Let's
   // say you have 3 different capabilities (Chrome, Firefox, and Safari) and you have
@@ -541,6 +549,7 @@ let config = {
    * @param {Array.<String>} specs List of spec file paths that are to be run
    */
   before: function (capabilities, specs) {
+    global.testConfig = this.testConfig;
     register({ transpileOnly: true });
     browser.overwriteCommand("url", function (origUrlFunction, url) {
       origUrlFunction(url);

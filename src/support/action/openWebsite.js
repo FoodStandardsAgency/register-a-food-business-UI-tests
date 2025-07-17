@@ -17,7 +17,11 @@ export default async (type, page) => {
     const password = process.env.DEV_PASSWORD || "BursesDolesTomtit";
 
     // Parse the base admin URL to insert credentials
-    const baseAdminUrl = global.testConfig.baseAdminUrl;
+    const baseAdminUrl =
+      global.testConfig?.baseAdminUrl || process.env.BASE_ADMIN;
+    if (!baseAdminUrl) {
+      throw new Error("baseAdminUrl is not defined");
+    }
     const urlObj = new URL(baseAdminUrl);
 
     // Add basic auth credentials to the URL

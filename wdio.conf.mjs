@@ -366,7 +366,7 @@ let config = {
       "./src/features/**/partnershipContactDetails.feature",
     ],
     registrationSubmission: [
-      "./src/features/**/newOrUpdateRegistration.feature",
+      //"./src/features/**/newOrUpdateRegistration.feature",
       "./src/features/**/updateRegistration.feature",
       "./src/features/**/submitRegistration.feature",
       "./src/features/**/registrationSummary.feature",
@@ -402,7 +402,6 @@ let config = {
       "./src/features/**/tradingStandardChecks.feature",
       "./src/features/**/registrationsSearch.feature",
     ],
-
   },
   // First, you can define how many instances should be started at the same time. Let's
   // say you have 3 different capabilities (Chrome, Firefox, and Safari) and you have

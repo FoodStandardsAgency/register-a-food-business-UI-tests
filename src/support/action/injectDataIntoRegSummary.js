@@ -1,6 +1,6 @@
 const datasets = {
   "registration-summary": {
-    new_or_update_registration: "NEW_REGISTRATION",
+    //new_or_update_registration: "NEW_REGISTRATION",
     la_id: 6008,
     operator_address_line_1: "First line",
     operator_address_line_2: "Street",
@@ -51,7 +51,7 @@ const datasets = {
     water_supply: "PUBLIC",
   },
   "registration-summary-charity": {
-    new_or_update_registration: "NEW_REGISTRATION",
+    //new_or_update_registration: "NEW_REGISTRATION",
     la_id: 6008,
     registration_role: "Representative",
     operator_type: "CHARITY",
@@ -91,7 +91,7 @@ const datasets = {
     water_supply: "PUBLIC",
   },
   "registration-summary-partnership": {
-    new_or_update_registration: "NEW_REGISTRATION",
+    //new_or_update_registration: "NEW_REGISTRATION",
     la_id: 6008,
     operator_type: "COMPANY",
     operator_address_line_1: "First line",
@@ -148,7 +148,7 @@ const datasets = {
     main_partnership_contact: "One",
   },
   "registration-summary-partnership-2": {
-    new_or_update_registration: "NEW_REGISTRATION",
+    //new_or_update_registration: "NEW_REGISTRATION",
     la_id: 6008,
     operator_type: "PARTNERSHIP",
     operator_address_line_1: "First line",
@@ -204,7 +204,7 @@ const datasets = {
     main_partnership_contact: "One",
   },
   "registration-summary-representative": {
-    new_or_update_registration: "NEW_REGISTRATION",
+    //new_or_update_registration: "NEW_REGISTRATION",
     la_id: 6008,
     registration_role: "Representative",
     operator_type: "PERSON",
@@ -255,7 +255,7 @@ const datasets = {
     opening_days_start: "Every day",
   },
   declaration: {
-    new_or_update_registration: "NEW_REGISTRATION",
+    //new_or_update_registration: "NEW_REGISTRATION",
     la_id: 6008,
     operator_type: "SOLETRADER",
     operator_first_name: "Fred",
@@ -307,7 +307,7 @@ const datasets = {
     water_supply: "PUBLIC",
   },
   declaration_seperate_standardsCouncil: {
-    new_or_update_registration: "NEW_REGISTRATION",
+    //new_or_update_registration: "NEW_REGISTRATION",
     la_id: 4221,
     operator_type: "SOLETRADER",
     operator_first_name: "Fred",
@@ -358,12 +358,12 @@ const datasets = {
     water_supply: "PUBLIC",
   },
   "blank-partnership": {
-    new_or_update_registration: "NEW_REGISTRATION",
+    //new_or_update_registration: "NEW_REGISTRATION",
     la_id: 6008,
     registration_role: "PARTNERSHIP",
   },
   "two-partnership": {
-    new_or_update_registration: "NEW_REGISTRATION",
+    //new_or_update_registration: "NEW_REGISTRATION",
     la_id: 6008,
     registration_role: "PARTNERSHIP",
     partners: ["one", "two"],

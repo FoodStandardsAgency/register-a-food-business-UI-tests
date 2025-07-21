@@ -479,7 +479,7 @@ let config = {
     source: false, // <boolean> hide source uris
     profile: [], // <string[]> (name) specify the profile to use
     strict: true, // <boolean> fail if there are any undefined or pending steps
-    tags: "not @Pending", // <string> (expression) only execute the features or scenarios with tags matching the expression
+    tagExpression: "not @Pending", // <string> (expression) only execute the features or scenarios with tags matching the expression
   },
 
   //

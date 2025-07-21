@@ -681,4 +681,4 @@ switch (process.env.MODE) {
     throw new Error(`Specify a MODE env`);
 }
 
-export default config;
+export { config };

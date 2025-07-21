@@ -39,7 +39,7 @@ Feature: As Catelyn I need the service to look up my address and I can select th
         When I click on the element "estabAddress.button"
         Then I expect that element "estabAddress.error" contains the text "Not a valid postcode"
 
-    @SDB-12_establishment_address_change_postcode
+    @SDB-12_establishment_address_change_postcode @Requires-Postcoder
     Scenario: entering postcode, pressing Find Address and then changing postcode
         Given I open the url "/cleansession"
         And I open the url "establishment-address"

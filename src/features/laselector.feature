@@ -4,7 +4,7 @@ Feature: As Robert I need the service to locate my council after ive inserted my
     la selector section validation
 
 
-     @SDB-12_happy_path_la_selector
+    @SDB-12_happy_path_la_selector
     Scenario: happy path where the council is found on la-established
         Given I open the url "/cleansession"
         And I open the url "establishment-address"
@@ -17,7 +17,7 @@ Feature: As Robert I need the service to locate my council after ive inserted my
         When I click on the element "estabAddress.button"
         Then I expect the url to not contain "la-established"
 
-         @SDB-12_happy_path_la_selector_wrongLA
+    @SDB-12_happy_path_la_selector_wrongLA
     Scenario: happy path where the council is found on la-established
         Given I open the url "/cleansession"
         And I open the url "establishment-address"
@@ -32,7 +32,7 @@ Feature: As Robert I need the service to locate my council after ive inserted my
         Then I expect the url to contain "la-selector?back=wrong-la"
 
         
-    @SDB-12_happy_path_la_selector_select_2nd_option
+    @SDB-12_happy_path_la_selector_select_2nd_option @Requires-Postcoder
     Scenario: able to find address using lookup service on the la selector page
         Given I open the url "/cleansession"
         And I open the url "establishment-address"
@@ -54,7 +54,7 @@ Feature: As Robert I need the service to locate my council after ive inserted my
         And I pause for 1000ms
         And I expect that element "estabAddress.LAInvalidError" contains the text "There is a problem"
 
-    @SDB-12_la_selector_change_postcode
+    @SDB-12_la_selector_change_postcode @Requires-Postcoder
     Scenario: entering postcode, pressing continue and then changing postcode
         Given I open the url "/cleansession"
         And I open the url "establishment-address"
@@ -75,7 +75,7 @@ Feature: As Robert I need the service to locate my council after ive inserted my
         Then I expect the url to contain "la-established"
         And I expect that element "estabAddress.heading" contains the text "You are registering with Newry, Mourne and Down District Council"
 		
-           @SDB-12_la_selector_cant_find_address
+    @SDB-12_la_selector_cant_find_address @Requires-Postcoder
     Scenario: entering postcode, then choosing my own council
         Given I open the url "/cleansession"
         And I open the url "establishment-address"
@@ -93,7 +93,7 @@ Feature: As Robert I need the service to locate my council after ive inserted my
         Then I expect the url to contain "la-established"
         And I expect that element "estabAddress.heading" contains the text "You are registering with City of Cardiff Council"
 
-          @SDB-12_la_selector_cant_find_address_error_firstline
+    @SDB-12_la_selector_cant_find_address_error_firstline
     Scenario: using manual input - error
         Given I open the url "/cleansession"
         And I open the url "la-selector"
@@ -103,7 +103,7 @@ Feature: As Robert I need the service to locate my council after ive inserted my
         And I pause for 1000ms
         And I expect that element "estabAddress.LAInvalidError" contains the text "There is a problem"
 
-            @SDB-12_la_selector_cant_find_address_with_lookup
+    @SDB-12_la_selector_cant_find_address_with_lookup @Requires-Postcoder
     Scenario: entering postcode, then choosing "i cant find my council"
         Given I open the url "/cleansession"
         And I open the url "establishment-address"
@@ -116,7 +116,7 @@ Feature: As Robert I need the service to locate my council after ive inserted my
         Then I expect the url to contain "la-selector"
         And I expect that element "estabAddress.cannotFindPostcodeHeading" contains the text "We couldn't find your Local Authority"
 
-            @SDB-12_la_selector_cant_find_address_with_lookup
+    @SDB-12_la_selector_cant_find_address_with_lookup @Requires-Postcoder
     Scenario: entering postcode for not onboarded LA, then redirected to LA own registration page
         Given I open the url "/cleansession"
         And I open the url "establishment-address"

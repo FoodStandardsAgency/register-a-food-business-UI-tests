@@ -1,4 +1,4 @@
-@registration_summary  
+@registration_summary
 Feature: Summary 
 
   @SDB-8_happy_path_navigation
@@ -17,7 +17,7 @@ Feature: Summary
     And I expect the food type element to contain "Raw unwrapped meat, fish and shellfish" and "Ready to eat food (food that will not be cooked or reheated before serving)"
     And I expect the processing activities element to contain "Vacuum packing" and "Pasteurisation"
 
-  @SDB-8_missing_data 
+  @SDB-8_missing_data
   Scenario: missing data not displayed
     Given I open the url "/cleansession"
     And I open the url "establishment-trading-name"

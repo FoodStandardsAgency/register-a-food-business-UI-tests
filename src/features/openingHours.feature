@@ -1,4 +1,4 @@
-@opening_hours 
+@opening_hours
 Feature: Opening Hours
 
     Opening Hours section validation

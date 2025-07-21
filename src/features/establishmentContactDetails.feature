@@ -1,4 +1,4 @@
-@establishment_address_contact_details 
+@establishment_address_contact_details
 Feature: As Samantha I need to be able to fill in the establishment contact details so that Dani can contact the business if needed before or after an inspection
 
     Establishment address simple contact details section validation

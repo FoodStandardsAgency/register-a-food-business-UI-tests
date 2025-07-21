@@ -1,4 +1,4 @@
-@establishment_opening_days_SDB-52 
+@establishment_opening_days_SDB-52
 Feature: Establishment opening days SDB-52
 
     Establishment opening days section validation

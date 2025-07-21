@@ -43,7 +43,7 @@ Feature: As Catelyn I need to see that the service is in beta phase so that I ca
         And I pause for 1000ms
         Then I expect a new tab has been opened
 
-    @beta_banner_SDB-373_summary_confirmation 
+    @beta_banner_SDB-373_summary_confirmation
     Scenario: I want to fill in the feedback form
         Given I open the url "/cleansession"
         Given I open the url "summary-confirmation"

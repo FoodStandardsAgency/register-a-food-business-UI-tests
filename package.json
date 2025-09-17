@@ -46,7 +46,7 @@
     "pa11y-ci": "^4.0.1",
     "path": "^0.12.7",
     "wdio-cucumber-parallel-execution": "^3.6.15",
-    "wdio-video-reporter": "^^5.2.0"
+    "wdio-video-reporter": "^5.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.28.4",

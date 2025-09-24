@@ -17,12 +17,12 @@
     "remote:browserstack:e2e": "IS_LOCAL= MODE=BROWSERSTACK wdio run wdio.conf.mjs --suite end2end",
     "remote:browserstack:wdio": "IS_LOCAL= MODE=BROWSERSTACK wdio run wdio.conf.mjs",
     "remote:browserstack:adminportal": "IS_LOCAL= MODE=BROWSERSTACK wdio run wdio.conf.mjs --suite adminportal",
-    "test:locally:ui": "yarn run selenium:ui",
-    "test:locally:e2e": "yarn run selenium:e2e",
+    "test:locally:ui": "npm run selenium:ui",
+    "test:locally:e2e": "npm run selenium:e2e",
     "test:browserstack:ui": "yarn run remote:browserstack:ui",
-    "test:browserstack:ui:test-env": "yarn run remote:browserstack:ui:test-env",
-    "test:browserstack:e2e": "yarn run remote:browserstack:e2e",
-    "test:browserstack:adminportal": "yarn run remote:browserstack:adminportal"
+    "test:browserstack:ui:test-env": "npm run remote:browserstack:ui:test-env",
+    "test:browserstack:e2e": "npm run remote:browserstack:e2e",
+    "test:browserstack:adminportal": "npm run remote:browserstack:adminportal"
   },
   "license": "MIT",
   "dependencies": {

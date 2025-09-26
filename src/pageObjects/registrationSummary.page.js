@@ -57,7 +57,7 @@ const registrationSummary = {
   changeTradingStartDateEditSummdarysoletrader:
     "#main-content > div > div > form > dl:nth-child(18) > div > dd.govuk-summary-list__actions > a",
   changeOpeningDays:
-    "#main-content > div > div > form > dl:nth-child(13) > div > dd.govuk-summary-list__actions > a",
+    "#main-content > div > div > form > dl:nth-child(14) > div > dd.govuk-summary-list__actions > a",
   waterSupply: "#water_supply",
 };
 

@@ -1,6 +1,7 @@
 const registrationSummary = {
   button: ".govuk-button",
   error: ".govuk-error-message",
+  errorSummary: ".govuk-error-summary__list li a",
   operatorType: "#operator_type",
   companyName: "#operator_company_name",
   companiesNumber: "#operator_companies_house_number",
@@ -57,7 +58,7 @@ const registrationSummary = {
   changeTradingStartDateEditSummdarysoletrader:
     "#main-content > div > div > form > dl:nth-child(18) > div > dd.govuk-summary-list__actions > a",
   changeOpeningDays:
-    "#main-content > div > div > form > dl:nth-child(14) > div > dd.govuk-summary-list__actions > a",
+    "#main-content > div > div > form > dl:nth-child(19) > div > dd.govuk-summary-list__actions > a",
   waterSupply: "#water_supply",
 };
 

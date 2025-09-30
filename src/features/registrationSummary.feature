@@ -9,6 +9,7 @@ Feature: Summary
     When I click on the element "registrationSummary.button"
     Then I expect the url to not contain "registration-summary"
 
+    
    @SDB-8_happy_path_navigation
   Scenario: navigate to declaration page
     Given I open the url "/cleansession"
@@ -47,3 +48,20 @@ Feature: Summary
     And I click on the element "registrationSummary.button"
     Then I expect the url to not contain "registration-summary"
 
+  @SDB-8_editing_error
+  Scenario: forcing an error to appear
+    Given I open the url "/cleansession"
+    And I go to a special QA page at url "/qa/registration-summary" with injected "registration-summary" data
+    When I click on the element "registrationSummary.changeOpeningDays"
+    Then I expect the url to contain "opening-days-start?edit=opening-days-start"
+    When I click on the element "openingDaysStart.someDays"
+    And I click on the element "openingDaysStart.button"
+    Then I expect the url to contain "opening-days-some"
+    When I click on the element "openingDaysSome.sunday"
+    And I click on the element "openingDaysSome.button"
+    Then I expect the url to contain "opening-hours"
+    Then I go back in the browser
+    Then I go back in the browser
+    Then I go back in the browser
+    When I click on the element "registrationSummary.button"
+    Then I expect that element "registrationSummary.errorSummary" contains the text "Enter the establishment opening hours for Sunday using 24 hour clocks"

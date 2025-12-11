@@ -1,0 +1,46 @@
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+
+# Test results
+test-results/
+playwright-report/
+playwright/.cache/
+
+# Reports
+allure-results/
+allure-report/
+*.xml
+
+# Videos and screenshots
+videos/
+screenshots/
+traces/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Temporary files
+tmp/
+temp/
+*.tmp

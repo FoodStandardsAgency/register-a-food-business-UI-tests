@@ -1,0 +1,39 @@
+{
+  "name": "rafb-playwright-tests",
+  "version": "1.0.0",
+  "description": "Playwright tests for Register a Food Business",
+  "type": "module",
+  "scripts": {
+    "test": "playwright test",
+    "test:chromium": "playwright test --project=chromium",
+    "test:firefox": "playwright test --project=firefox",
+    "test:webkit": "playwright test --project=webkit",
+    "test:all": "playwright test --project=chromium --project=firefox --project=webkit",
+    "test:landingpage": "playwright test tests/landingpage/",
+    "test:establishment": "playwright test tests/establishment/",
+    "test:operator": "playwright test tests/operator/",
+    "test:business": "playwright test tests/business/",
+    "test:registration": "playwright test tests/registration/",
+    "test:edit-summary": "playwright test tests/edit-summary/",
+    "test:ui-features": "playwright test tests/ui-features/",
+    "test:e2e": "playwright test tests/e2e/",
+    "test:admin": "playwright test tests/admin/",
+    "test:debug": "playwright test --debug",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "show-report": "playwright show-report",
+    "test:update-snapshots": "playwright test --update-snapshots"
+  },
+  "keywords": [
+    "playwright",
+    "testing",
+    "e2e",
+    "automation"
+  ],
+  "author": "Food Standards Agency",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.48.0",
+    "dotenv": "^16.4.5"
+  }
+}

@@ -5,7 +5,8 @@ export class OpeningDaysIrregular extends BasePage {
     super(page);
     this.selectors = {
       otherDaysIrregular: "#opening_days_irregular",
-      button: ".govuk-button",
+      button:
+        "#main-content button.govuk-button[type='submit'], #main-content .govuk-button",
       error: ".govuk-error-message",
     };
   }
@@ -15,7 +16,7 @@ export class OpeningDaysIrregular extends BasePage {
   }
 
   async clickContinue() {
-    await this.page.locator(this.selectors.button).click();
+    await this.page.locator(this.selectors.button).first().click();
   }
 
   async hasError() {

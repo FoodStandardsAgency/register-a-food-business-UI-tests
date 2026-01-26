@@ -4,28 +4,55 @@
 # https://aka.ms/yaml
 
 pool:
-  vmImage: 'Ubuntu 18.04'
+  vmImage: 'ubuntu-latest'
 
 steps:
 
 - task: NodeTool@0
   inputs:
-    versionSpec: '12.14'
-
-- script: npm -v
-  displayName: 'Npm version'
-
-- script: 'rm -rf ~/.node-gyp'
-  displayName: 'Install build essential'
+    versionSpec: '18.x'
+  displayName: 'Install Node.js'
 
 - script: npm install
-  displayName: 'Install'
+  displayName: 'Install App Dependencies'
+
+- script: |
+    cd playwright-tests
+    npm ci
+    npx playwright install --with-deps
+  displayName: 'Install Playwright Dependencies'
+
+- script: |
+    cd playwright-tests
+    npx playwright test
+  displayName: 'Run Playwright Tests'
+  env:
+    CI: 'true'
+    BASE_URL: $(BASE_URL)
+    BASE_ADMIN_URL: $(BASE_ADMIN_URL)
+    QA_KEY: $(QA_KEY)
+
+- task: PublishTestResults@2
+  condition: succeededOrFailed()
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: 'playwright-tests/test-results/junit.xml'
+    testRunTitle: 'Playwright Tests'
+
+- task: PublishPipelineArtifact@1
+  condition: succeededOrFailed()
+  inputs:
+    targetPath: 'playwright-tests/playwright-report'
+    artifact: 'playwright-report'
+    publishLocation: 'pipeline'
 
 - task: ArchiveFiles@2
+  condition: succeeded()
   inputs:
     rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
     includeRootFolder: false
 
 - task: PublishBuildArtifacts@1
+  condition: succeeded()
 
 

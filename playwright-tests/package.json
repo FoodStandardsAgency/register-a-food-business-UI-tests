@@ -18,11 +18,14 @@
     "test:ui-features": "playwright test tests/ui-features/",
     "test:e2e": "playwright test tests/e2e/",
     "test:admin": "playwright test tests/admin/",
-    "test:debug": "playwright test --debug",
-    "test:headed": "playwright test --headed",
-    "test:ui": "playwright test --ui",
+    "test:debug": "env -u WAYLAND_DISPLAY XDG_SESSION_TYPE=x11 DISPLAY=:99 playwright test --debug",
+    "test:headed": "env -u WAYLAND_DISPLAY XDG_SESSION_TYPE=x11 DISPLAY=:99 playwright test --headed",
+    "test:ui": "env -u WAYLAND_DISPLAY XDG_SESSION_TYPE=x11 DISPLAY=:99 playwright test --ui",
+    "test:headed:chromium": "env -u WAYLAND_DISPLAY XDG_SESSION_TYPE=x11 DISPLAY=:99 playwright test --project=chromium --headed --workers=1",
+    "test:headed:pause": "env -u WAYLAND_DISPLAY XDG_SESSION_TYPE=x11 DISPLAY=:99 PWDEBUG=1 playwright test --project=chromium --headed --workers=1",
     "show-report": "playwright show-report",
-    "test:update-snapshots": "playwright test --update-snapshots"
+    "test:update-snapshots": "playwright test --update-snapshots",
+    "vnc:demo": "env -u WAYLAND_DISPLAY XDG_SESSION_TYPE=x11 DISPLAY=:99 node scripts/vnc-demo.mjs"
   },
   "keywords": [
     "playwright",

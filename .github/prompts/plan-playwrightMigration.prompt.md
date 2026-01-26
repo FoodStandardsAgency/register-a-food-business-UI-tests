@@ -54,149 +54,149 @@ This plan migrates 53 feature files from WebdriverIO/Cucumber to Playwright Test
 
 - [x] Port `commonElements.page.js`
 - [x] Port `landingPage.page.js`
-- [ ] Port `establishmentAddress.page.js`
-- [ ] Port `establishmentAddressType.page.js`
-- [ ] Port `establishmentContactDetails.page.js`
-- [ ] Port `establishmentOpeningDate.page.js`
-- [ ] Port `establishmentOpeningDays.page.js`
-- [ ] Port `establishmentTradingName.page.js`
-- [ ] Port `openingHours.page.js`
-- [ ] Port `laselector.page.js`
-- [ ] Port `operatorAddress.page.js`
-- [ ] Port `operatorContactDetails.page.js`
-- [ ] Port `operatorName.page.js`
-- [ ] Port `operatorType.page.js`
-- [ ] Port `registrationRole.page.js`
-- [ ] Port `representativeOperatorContactDetails.page.js`
-- [ ] Port `partnership.page.js`
-- [ ] Port `partnershipChange.page.js`
-- [ ] Port `partnershipContactDetails.page.js`
-- [ ] Port `businessScale.page.js`
-- [ ] Port `businessTypeIn.page.js`
-- [ ] Port `charityDetails.page.js`
-- [ ] Port `limitedCompanyDetails.page.js`
-- [ ] Port `businessOtherDetails.page.js`
-- [ ] Port `businessWaterSupply.page.js`
-- [ ] Port `foodType.page.js`
-- [ ] Port `processingActivities.page.js`
-- [ ] Port `importExportActivities.page.js`
-- [ ] Port `customerType.page.js`
-- [ ] Port `newOrUpdateRegistration.page.js`
-- [ ] Port `updateRegistration.page.js`
-- [ ] Port `registrationSummary.page.js`
-- [ ] Port `submissionPage.page.js`
-- [ ] Port `receiveConfirmationNumber.page.js`
-- [ ] Port `editSummary.page.js` (and subdirectory pages)
-- [ ] Port `backButton.page.js`
-- [ ] Port `betaBanner.page.js`
-- [ ] Port `cookieBanner.page.js`
-- [ ] Port `errorSummary.page.js`
-- [ ] Port `lcLookup.page.js`
-- [ ] Port `fsaFooter.page.js`
-- [ ] Port `languageLink.page.js`
-- [ ] Port admin portal page objects (2 files)
+- [x] Port `establishmentAddress.page.js`
+- [x] Port `establishmentAddressType.page.js`
+- [x] Port `establishmentContactDetails.page.js`
+- [x] Port `establishmentOpeningDate.page.js`
+- [x] Port `establishmentOpeningDays.page.js`
+- [x] Port `establishmentTradingName.page.js`
+- [x] Port `openingHours.page.js`
+- [x] Port `laselector.page.js`
+- [x] Port `operatorAddress.page.js`
+- [x] Port `operatorContactDetails.page.js`
+- [x] Port `operatorName.page.js`
+- [x] Port `operatorType.page.js`
+- [x] Port `registrationRole.page.js`
+- [x] Port `representativeOperatorContactDetails.page.js`
+- [x] Port `partnership.page.js`
+- [x] Port `partnershipChange.page.js`
+- [x] Port `partnershipContactDetails.page.js`
+- [x] Port `businessScale.page.js`
+- [x] Port `businessTypeIn.page.js`
+- [x] Port `charityDetails.page.js`
+- [x] Port `limitedCompanyDetails.page.js`
+- [x] Port `businessOtherDetails.page.js`
+- [x] Port `businessWaterSupply.page.js`
+- [x] Port `foodType.page.js`
+- [x] Port `processingActivities.page.js`
+- [ ] Port `importExportActivities.page.js`  # intentionally removed earlier
+- [x] Port `customerType.page.js`
+- [x] Port `newOrUpdateRegistration.page.js`
+- [ ] Port `updateRegistration.page.js`  # page object not required/created (tests use navigation helper)
+- [x] Port `registrationSummary.page.js`
+- [x] Port `submissionPage.page.js`
+- [ ] Port `receiveConfirmationNumber.page.js`  # page object not created separately
+- [x] Port `editSummary.page.js` (and subdirectory pages)
+- [ ] Port `backButton.page.js`  # handled via `CommonElements`
+- [ ] Port `betaBanner.page.js`  # handled via `CommonElements`
+- [ ] Port `cookieBanner.page.js`  # handled via `CommonElements`
+- [ ] Port `errorSummary.page.js`  # handled via `CommonElements`
+- [ ] Port `lcLookup.page.js`      # not added as separate page object
+- [ ] Port `fsaFooter.page.js`    # handled via `CommonElements`
+- [ ] Port `languageLink.page.js` # handled via `CommonElements`
+- [x] Port admin portal page objects (2 files)
 
 ### Phase 4: Test Suite - Landing & Navigation (1 test)
 
-- [ ] `landingPage.spec.js`
+- [x] `landingPage.spec.js`
 
 ### Phase 5: Test Suite - Establishment (8 tests)
 
-- [ ] `establishmentAddress.spec.js`
-- [ ] `establishmentAddressType.spec.js`
-- [ ] `establishmentContactDetails.spec.js`
-- [ ] `establishmentOpeningDate.spec.js`
-- [ ] `establishmentOpeningDays.spec.js`
-- [ ] `establishmentTradingName.spec.js`
-- [ ] `openingHours.spec.js`
-- [ ] `laselector.spec.js`
+- [x] `establishmentAddress.spec.js`
+- [x] `establishmentAddressType.spec.js`
+- [x] `establishmentContactDetails.spec.js`
+- [x] `establishmentOpeningDate.spec.js`
+- [x] `establishmentOpeningDays.spec.js`
+- [x] `establishmentTradingName.spec.js`
+- [x] `openingHours.spec.js`
+- [x] `laselector.spec.js`
 
 ### Phase 6: Test Suite - Operator (9 tests)
 
-- [ ] `operatorAddress.spec.js`
-- [ ] `operatorContactDetails.spec.js`
-- [ ] `operatorName.spec.js`
-- [ ] `operatorType.spec.js`
-- [ ] `registrationRole.spec.js`
-- [ ] `representativeOperatorContactDetails.spec.js`
-- [ ] `partnership.spec.js`
-- [ ] `partnershipChange.spec.js`
-- [ ] `partnershipContactDetails.spec.js`
+- [x] `operatorAddress.spec.js`
+- [x] `operatorContactDetails.spec.js`
+- [x] `operatorName.spec.js`
+- [x] `operatorType.spec.js`
+- [x] `registrationRole.spec.js`
+- [x] `representativeOperatorContactDetails.spec.js`
+- [x] `partnership.spec.js`
+- [x] `partnershipChange.spec.js`
+- [x] `partnershipContactDetails.spec.js`
 
 ### Phase 7: Test Suite - Business Details (10 tests)
 
-- [ ] `businessScale.spec.js`
-- [ ] `businessTypeIn.spec.js`
-- [ ] `charityDetails.spec.js`
-- [ ] `limitedCompanyDetails.spec.js`
-- [ ] `otherDetails.spec.js`
-- [ ] `waterSupply.spec.js`
-- [ ] `foodType.spec.js`
-- [ ] `processingActivities.spec.js`
-- [ ] `importExportActivities.spec.js`
-- [ ] `customerType.spec.js`
+- [x] `businessScale.spec.js`
+- [x] `businessTypeIn.spec.js`
+- [x] `charityDetails.spec.js`
+- [x] `limitedCompanyDetails.spec.js`
+- [x] `otherDetails.spec.js`
+- [x] `waterSupply.spec.js`
+- [x] `foodType.spec.js`
+- [x] `processingActivities.spec.js`
+- [ ] `importExportActivities.spec.js`  # intentionally removed
+- [x] `customerType.spec.js`
 
 ### Phase 8: Test Suite - Registration & Submission (6 tests)
 
-- [ ] `newOrUpdateRegistration.spec.js`
-- [ ] `updateRegistration.spec.js`
-- [ ] `registrationSummary.spec.js`
-- [ ] `submissionPage.spec.js`
-- [ ] `receiveConfirmationNumber.spec.js`
-- [ ] `submitRegistration.spec.js`
+- [x] `newOrUpdateRegistration.spec.js`
+- [x] `updateRegistration.spec.js`
+- [x] `registrationSummary.spec.js`
+- [x] `submissionPage.spec.js`
+- [x] `receiveConfirmationNumber.spec.js`
+- [x] `submitRegistration.spec.js`
 
 ### Phase 9: Test Suite - Edit Summary (7 tests)
 
-- [ ] `editSummary.spec.js`
-- [ ] `editSummary/editEstablishmentContactDetails.spec.js`
-- [ ] `editSummary/editEstablishmentOpeningHoursDetails.spec.js`
-- [ ] `editSummary/editPartnershipDetails.spec.js`
-- [ ] `editSummary/editPartnershipOtherPartners.spec.js`
-- [ ] `editSummary/editRegistrationDetails.spec.js`
-- [ ] `editSummary/editRepresentativeOtherContactDetails.spec.js`
+- [x] `editSummary.spec.js`
+- [x] `editSummary/editEstablishmentContactDetails.spec.js`
+- [x] `editSummary/editEstablishmentOpeningHoursDetails.spec.js`
+- [x] `editSummary/editPartnershipDetails.spec.js`
+- [x] `editSummary/editPartnershipOtherPartners.spec.js`
+- [x] `editSummary/editRegistrationDetails.spec.js`
+- [x] `editSummary/editRepresentativeOtherContactDetails.spec.js`
 
 ### Phase 10: Test Suite - UI/UX Features (7 tests)
 
-- [ ] `backButton.spec.js`
-- [ ] `betaBanner.spec.js`
-- [ ] `cookieBanner.spec.js`
-- [ ] `errorSummary.spec.js`
-- [ ] `lcLookup.spec.js`
-- [ ] `fsaFooter.spec.js`
-- [ ] `languageLink.spec.js`
+- [x] `backButton.spec.js`
+- [x] `betaBanner.spec.js`
+- [x] `cookieBanner.spec.js`
+- [x] `errorSummary.spec.js`
+- [x] `lcLookup.spec.js`
+- [x] `fsaFooter.spec.js`
+- [x] `languageLink.spec.js`
 
 ### Phase 11: Test Suite - End-to-End (3 tests)
 
-- [ ] `e2eTestingCatelyn.spec.js`
-- [ ] `e2eTestingJamie.spec.js`
-- [ ] `e2eTestingPartnership.spec.js`
+- [x] `e2eTestingCatelyn.spec.js`
+- [x] `e2eTestingJamie.spec.js`
+- [x] `e2eTestingPartnership.spec.js`
 
 ### Phase 12: Test Suite - Admin Portal (2 tests)
 
-- [ ] `registrationsSearch.spec.js`
-- [ ] `tradingStandardChecks.spec.js`
+- [x] `registrationsSearch.spec.js`
+- [x] `tradingStandardChecks.spec.js`
 
 ### Phase 13: Pipeline Integration
 
-- [ ] Update `azure-pipelines.yml` with Playwright installation
-- [ ] Install Playwright browsers in pipeline (`npx playwright install --with-deps`)
-- [ ] Add Playwright test execution step
-- [ ] Configure JUnit reporter for Azure DevOps test results
-- [ ] Set up artifact publishing for HTML reports and traces
-- [ ] Add environment variable injection for secrets (QA_KEY, BASE_URL)
+- [x] Update `azure-pipelines.yml` with Playwright installation
+- [x] Install Playwright browsers in pipeline (`npx playwright install --with-deps`)
+- [x] Add Playwright test execution step
+- [x] Configure JUnit reporter for Azure DevOps test results
+- [x] Set up artifact publishing for HTML reports and traces
+- [x] Add environment variable injection for secrets (QA_KEY, BASE_URL)
 - [ ] Create separate pipeline jobs for parallel suite execution
 - [ ] Configure retry logic for flaky tests
 
 ### Phase 14: Documentation & Scripts
 
-- [ ] Create `playwright-tests/README.md` with setup instructions
-- [ ] Add `run_playwright_local.sh` for local execution
-- [ ] Add npm scripts for running test suites
-- [ ] Document QA route usage in Playwright context
-- [ ] Update Docker configuration for Playwright browsers
-- [ ] Create migration guide in `docs/playwright-migration.md`
-- [ ] Add troubleshooting guide
-- [ ] Create `MIGRATION_PROGRESS.md` with checkboxes
+- [x] Create `playwright-tests/README.md` with setup instructions
+- [x] Add `run_playwright_local.sh` for local execution
+- [x] Add npm scripts for running test suites
+- [x] Document QA route usage in Playwright context
+- [x] Update Docker configuration for Playwright browsers
+- [x] Create migration guide in `docs/playwright-migration.md`
+- [x] Add troubleshooting guide
+- [x] Create `MIGRATION_PROGRESS.md` with checkboxes
 
 ### Phase 15: Validation & Cleanup
 

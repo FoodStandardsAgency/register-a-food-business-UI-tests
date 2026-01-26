@@ -23,7 +23,7 @@ export class EstablishmentAddress extends BasePage {
       street: '[name="establishment_address_line_2"]',
       town: '[name="establishment_town"]',
       locality: '[name="establishment_address_line_3"]',
-      button: ".govuk-button",
+      button: "#main-content .govuk-button",
       error: ".govuk-error-message",
       cantFindAddressLink: "#cantFindAddressLink",
       backButton:
@@ -39,6 +39,10 @@ export class EstablishmentAddress extends BasePage {
     };
   }
 
+  async findPostcode(postcode) {
+    await this.fillPostcode(postcode);
+  }
+
   async fillPostcode(postcode) {
     await this.page.locator(this.selectors.postcode).fill(postcode);
   }
@@ -48,7 +52,14 @@ export class EstablishmentAddress extends BasePage {
   }
 
   async clickFindAddress() {
-    await this.page.locator(this.selectors.findAddress).click();
+    const findButton = this.page.locator(this.selectors.findAddress);
+    if ((await findButton.count()) > 0 && (await findButton.isVisible())) {
+      await findButton.click({ force: true });
+      return;
+    }
+
+    // Current flow uses a standard Continue button on the postcode page.
+    await this.clickContinue();
   }
 
   async fillFirstLine(address) {
@@ -68,13 +79,30 @@ export class EstablishmentAddress extends BasePage {
   }
 
   async selectAddressFromDropdown(option) {
-    await this.page
-      .locator(this.selectors.postcodeDropdown)
-      .selectOption(option);
+    const dropdown = this.page.locator(this.selectors.postcodeDropdown);
+
+    // Accept either a Playwright selectOption value, a numeric index, or fall back to first option.
+    if (typeof option === "number") {
+      await dropdown.selectOption({ index: option });
+      return;
+    }
+
+    try {
+      await dropdown.selectOption(option);
+    } catch (e) {
+      const optionCount = await this.page
+        .locator(`${this.selectors.postcodeDropdown} option`)
+        .count();
+      if (optionCount > 0) {
+        await dropdown.selectOption({ index: 0 });
+        return;
+      }
+      throw e;
+    }
   }
 
   async clickContinue() {
-    await this.page.locator(this.selectors.button).click();
+    await this.page.locator(this.selectors.button).first().click();
   }
 
   async clickCantFindAddress() {

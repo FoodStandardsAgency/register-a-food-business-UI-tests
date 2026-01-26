@@ -7,7 +7,7 @@ export class EstablishmentContactDetails extends BasePage {
       primaryPhoneNumber: '[name="establishment_primary_number"]',
       optionalPhoneNumber: '[name="establishment_secondary_number"]',
       emailAddress: '[name="establishment_email"]',
-      button: ".govuk-button",
+      button: "#main-content .govuk-button",
       reuseButton:
         "#main-content > div > div > form > fieldset > div.govuk-inset-text > button",
       continueButton: "#main-content > div > div > form > button",
@@ -23,12 +23,20 @@ export class EstablishmentContactDetails extends BasePage {
     await this.page.locator(this.selectors.optionalPhoneNumber).fill(phone);
   }
 
+  async fillOptionalPhoneNumber(phone) {
+    await this.fillSecondaryPhoneNumber(phone);
+  }
+
   async fillEmail(email) {
     await this.page.locator(this.selectors.emailAddress).fill(email);
   }
 
   async clickReuseButton() {
     await this.page.locator(this.selectors.reuseButton).click();
+  }
+
+  async clickReuseDetails() {
+    await this.clickReuseButton();
   }
 
   async clickContinue() {

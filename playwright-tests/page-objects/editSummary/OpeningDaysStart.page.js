@@ -7,7 +7,8 @@ export class OpeningDaysStart extends BasePage {
       everyday: "#opening_days_start_everyday",
       someDays: "#opening_days_start_some_days",
       irregularDays: "#opening_days_start_irregular_days",
-      button: ".govuk-button",
+      button:
+        "#main-content button.govuk-button[type='submit'], #main-content .govuk-button",
       error: ".govuk-error-message",
     };
   }
@@ -25,7 +26,7 @@ export class OpeningDaysStart extends BasePage {
   }
 
   async clickContinue() {
-    await this.page.locator(this.selectors.button).click();
+    await this.page.locator(this.selectors.button).first().click();
   }
 
   async hasError() {

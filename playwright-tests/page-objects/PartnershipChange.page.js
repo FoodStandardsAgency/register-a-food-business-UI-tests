@@ -5,9 +5,7 @@ export class PartnershipChange extends BasePage {
     super(page);
     this.selectors = {
       addPartnerButton: "#addPartnerButton",
-      partnerOne: "#partner0",
-      partnerTwo: "#partner1",
-      partnerOneRowChange: "#partner0RowChange",
+      partnersTable: "table[aria-label=\"Partners\"]",
       deleteButton0: "#deletePartnerButton0",
       deleteButton1: "#deletePartnerButton1",
       deleteButton2: "#deletePartnerButton2",
@@ -21,8 +19,10 @@ export class PartnershipChange extends BasePage {
     await this.page.locator(this.selectors.addPartnerButton).click();
   }
 
-  async clickChangePartnerOne() {
-    await this.page.locator(this.selectors.partnerOneRowChange).click();
+  async clickChangePartner(partnerName) {
+    const table = this.page.getByRole("table", { name: /partners/i });
+    const row = table.getByRole("row", { name: new RegExp(partnerName, "i") });
+    await row.getByRole("link", { name: /change partner name/i }).click();
   }
 
   async deletePartner(index) {

@@ -69,3 +69,7 @@ errorShots
 coverage
 allure-results
 reports
+
+# Playwright artifacts (repo root)
+test-results/
+playwright-report/

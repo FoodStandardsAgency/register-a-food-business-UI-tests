@@ -15,6 +15,18 @@ export class FoodType extends BasePage {
     };
   }
 
+  async checkFirstCheckbox() {
+    await this.checkRawMeat();
+  }
+
+  async checkSecondCheckbox() {
+    await this.checkReadyToEat();
+  }
+
+  async checkThirdCheckbox() {
+    await this.checkCookedOrReheated();
+  }
+
   async checkRawMeat() {
     await this.page.locator(this.selectors.firstCheckbox).check();
   }

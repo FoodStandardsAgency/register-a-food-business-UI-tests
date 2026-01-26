@@ -7,7 +7,7 @@ export class RegistrationRole extends BasePage {
       soleTrader: "#registration_role_sole_trader",
       partnership: "#registration_role_partnership",
       representative: "#registration_role_representative",
-      button: ".govuk-button",
+      button: "#main-content .govuk-button",
       error: ".govuk-error-message",
     };
   }

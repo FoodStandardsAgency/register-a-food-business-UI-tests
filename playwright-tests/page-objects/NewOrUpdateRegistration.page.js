@@ -5,8 +5,7 @@ export class NewOrUpdateRegistration extends BasePage {
     super(page);
     this.selectors = {
       button: ".govuk-button",
-      heading:
-        "#main-content > div > div > form > div > fieldset > legend > h1",
+      heading: "#main-content h1",
       newRegistration: "#new_registration",
       updateReg: "#update_registration",
     };

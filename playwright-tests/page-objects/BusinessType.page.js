@@ -17,12 +17,24 @@ export class BusinessType extends BasePage {
     await this.page.locator(this.selectors.search).fill(text);
   }
 
+  async fillSearch(text) {
+    await this.searchBusinessType(text);
+  }
+
   async selectFirstOption() {
     await this.page.locator(this.selectors.option1).click();
   }
 
+  async selectOption1() {
+    await this.selectFirstOption();
+  }
+
   async selectSecondOption() {
     await this.page.locator(this.selectors.option2).click();
+  }
+
+  async selectOption2() {
+    await this.selectSecondOption();
   }
 
   async clickContinue() {

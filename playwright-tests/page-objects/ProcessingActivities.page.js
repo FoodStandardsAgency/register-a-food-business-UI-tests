@@ -17,6 +17,18 @@ export class ProcessingActivities extends BasePage {
     };
   }
 
+  async checkFirstCheckbox() {
+    await this.checkVacuumPacking();
+  }
+
+  async checkSecondCheckbox() {
+    await this.checkSousVide();
+  }
+
+  async checkThirdCheckbox() {
+    await this.checkFermenting();
+  }
+
   async checkVacuumPacking() {
     await this.page.locator(this.selectors.firstCheckbox).check();
   }

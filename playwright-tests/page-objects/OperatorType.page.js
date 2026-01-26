@@ -7,7 +7,7 @@ export class OperatorType extends BasePage {
       operatorPerson: "#operator_type_person",
       operatorCompany: "#operator_type_company",
       operatorCharity: "#operator_type_charity",
-      button: ".govuk-button",
+      button: "#main-content .govuk-button",
       error: ".govuk-error-message",
     };
   }
@@ -18,6 +18,10 @@ export class OperatorType extends BasePage {
 
   async selectCompany() {
     await this.page.locator(this.selectors.operatorCompany).check();
+  }
+
+  async selectLimitedCompany() {
+    await this.selectCompany();
   }
 
   async selectCharity() {

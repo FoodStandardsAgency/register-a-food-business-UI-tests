@@ -177,4 +177,19 @@ export class LandingPage extends BasePage {
   async isTableVisible() {
     return await this.page.locator(this.selectors.tableField).isVisible();
   }
+
+  async clickStartNow() {
+    // Try multiple strategies to find the start button
+    const startButton = this.page.locator(".govuk-button--start");
+    if (await startButton.isVisible()) {
+        await startButton.click();
+    } else {
+        // Fallback to role
+        await this.page.getByRole('button', { name: 'Begin registration' }).click();
+    }
+  }
+
+  async clickStartButton() {
+    await this.clickStartNow();
+  }
 }

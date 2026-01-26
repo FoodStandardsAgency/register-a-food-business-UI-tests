@@ -18,6 +18,18 @@ export class BusinessScale extends BasePage {
     };
   }
 
+  async checkFirstCheckbox() {
+    await this.checkLocal();
+  }
+
+  async checkSecondCheckbox() {
+    await this.checkNational();
+  }
+
+  async checkThirdCheckbox() {
+    await this.checkExport();
+  }
+
   async checkLocal() {
     await this.page.locator(this.selectors.firstCheckbox).check();
   }

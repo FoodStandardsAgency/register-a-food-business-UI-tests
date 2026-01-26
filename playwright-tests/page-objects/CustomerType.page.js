@@ -6,7 +6,7 @@ export class CustomerType extends BasePage {
     this.selectors = {
       supplyOther: "#customer_type_supply_other",
       supplyDirectly: "#customer_type_supply_directly",
-      button: ".govuk-button",
+      button: "#main-content .govuk-button",
       error: ".govuk-error-message",
     };
   }
@@ -20,7 +20,7 @@ export class CustomerType extends BasePage {
   }
 
   async clickContinue() {
-    await this.page.locator(this.selectors.button).click();
+    await this.page.locator(this.selectors.button).first().click();
   }
 
   async hasError() {

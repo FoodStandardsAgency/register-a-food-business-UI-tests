@@ -6,7 +6,7 @@ export class OperatorName extends BasePage {
     this.selectors = {
       firstName: "#operator_first_name",
       lastName: "#operator_last_name",
-      button: ".govuk-button",
+      button: "#main-content .govuk-button",
       error: ".govuk-error-message",
       day: "#operator_birthdate_day",
       month: "#operator_birthdate_month",

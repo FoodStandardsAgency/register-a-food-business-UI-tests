@@ -5,13 +5,19 @@ export class BusinessOtherDetails extends BasePage {
     super(page);
     this.selectors = {
       webAddress: '[name="establishment_web_address"]',
-      button: ".govuk-button",
+      otherDetails: '[name="business_other_details"]',
+      button: "#main-content .govuk-button",
       error: ".govuk-error-message",
     };
   }
 
   async fillWebAddress(url) {
     await this.page.locator(this.selectors.webAddress).fill(url);
+  }
+
+  async fillOtherDetails(details) {
+    // Only if selector exists/visible, but fill handles waiting
+    await this.page.locator(this.selectors.otherDetails).fill(details);
   }
 
   async clickContinue() {

@@ -10,8 +10,41 @@ export class EstablishmentOpeningDate extends BasePage {
       month: '[name="month"]',
       year: '[name="year"]',
       error: ".govuk-error-message",
-      button: "form .govuk-button",
+      button:
+        "#main-content button.govuk-button[type='submit'], #main-content .govuk-button",
     };
+  }
+
+  async setDay(day) {
+    await this.page.locator(this.selectors.day).fill(day);
+  }
+
+  async setMonth(month) {
+    await this.page.locator(this.selectors.month).fill(month);
+  }
+
+  async setYear(year) {
+    await this.page.locator(this.selectors.year).fill(year);
+  }
+
+  async fillDay(day) {
+    await this.setDay(day);
+  }
+
+  async fillMonth(month) {
+    await this.setMonth(month);
+  }
+
+  async fillYear(year) {
+    await this.setYear(year);
+  }
+
+  async chooseAlreadyTrading() {
+    await this.selectAlreadyTrading();
+  }
+
+  async chooseNotTrading() {
+    await this.selectNotTrading();
   }
 
   async selectAlreadyTrading() {
@@ -29,7 +62,7 @@ export class EstablishmentOpeningDate extends BasePage {
   }
 
   async clickContinue() {
-    await this.page.locator(this.selectors.button).click();
+    await this.page.locator(this.selectors.button).first().click();
   }
 
   async hasError() {

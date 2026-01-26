@@ -10,28 +10,26 @@ export class CommonElements extends BasePage {
 
     // Selectors
     this.selectors = {
-      backButton:
-        "body > div.govuk-width-container > nav > div.govuk-grid-row > div.govuk-grid-column-two-thirds > a",
-      betaLink: "body > div > nav > div.govuk-phase-banner > p > span > a",
-      cookieBanner: "#cookieBanner",
-      cookieInfo:
-        "body > div.govuk-cookie-banner > div > div.govuk-button-group > a:nth-child(3)",
-      cookiePolicy:
-        "body > div.govuk-cookie-banner > div > div.govuk-button-group > a:nth-child(4)",
-      cookieAccept: "#cookieAccept",
+      backButton: "a.govuk-back-link",
+      betaLink: ".govuk-phase-banner a[href*='forms.office.com']",
+
+      cookieBanner: ".govuk-cookie-banner",
+      cookieInfo: ".govuk-cookie-banner a[href='https://www.gov.uk/help/cookies']",
+      cookiePolicy: ".govuk-cookie-banner a[href='https://www.food.gov.uk/cookie-policy']",
+      cookieAccept:
+        ".govuk-cookie-banner button:has-text('Accept'), .govuk-cookie-banner a[href*='acceptAllCookies/true']",
       cookieReject:
-        "body > div.govuk-cookie-banner > div > div.govuk-button-group > a:nth-child(2)",
-      cookieClose: "#cookieClose",
+        ".govuk-cookie-banner button:has-text('Reject'), .govuk-cookie-banner a[href*='acceptAllCookies/false']",
+      cookieClose:
+        ".govuk-cookie-banner button:has-text('Hide'), .govuk-cookie-banner button:has-text('Close')",
       fsaFooter: ".govuk-footer",
-      cookiePolicyFooter:
-        "body > footer > div > div > div > ul > li:nth-child(1) > a",
+      cookiePolicyFooter: ".govuk-footer a[href='https://www.food.gov.uk/cookie-policy']",
       privacyPolicyFooter:
-        "body > footer > div > div > div > ul > li:nth-child(2) > a",
-      languageFooter:
-        "body > footer > div > div > div > ul > li:nth-child(5) > a",
+        ".govuk-footer a[href='https://www.food.gov.uk/about-us/register-a-food-business-privacy-notice']",
+      languageFooter: ".govuk-footer a[href*='lang=cy'], .govuk-footer a[href*='lang=en']",
       languageEnHeader: "#languageEnHeader",
       languageCyHeader: "#languageCyHeader",
-      button: ".govuk-button",
+      button: "#main-content .govuk-button",
       continueToNextPageButton: "#continue-button",
       continueButton:
         "#main-content > div > div > fieldset > form:nth-child(7) > button",
@@ -60,15 +58,15 @@ export class CommonElements extends BasePage {
   }
 
   async acceptCookies() {
-    await this.page.locator(this.selectors.cookieAccept).click();
+    await this.page.locator(this.selectors.cookieAccept).first().click();
   }
 
   async rejectCookies() {
-    await this.page.locator(this.selectors.cookieReject).click();
+    await this.page.locator(this.selectors.cookieReject).first().click();
   }
 
   async closeCookieBanner() {
-    await this.page.locator(this.selectors.cookieClose).click();
+    await this.page.locator(this.selectors.cookieClose).first().click();
   }
 
   async clickCookieInfo() {

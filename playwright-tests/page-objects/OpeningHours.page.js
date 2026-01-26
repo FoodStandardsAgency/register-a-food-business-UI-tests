@@ -24,9 +24,37 @@ export class OpeningHours extends BasePage {
       fridayHours: '[name="opening_hours_friday"]',
       saturdayHours: '[name="opening_hours_saturday"]',
       sundayHours: '[name="opening_hours_sunday"]',
-      button: ".govuk-button",
+      button: "#main-content .govuk-button",
       error: ".govuk-error-message",
     };
+  }
+
+  async enterMondayOpeningHours(hours) {
+    await this.fillDayHours("monday", hours);
+  }
+
+  async enterTuesdayOpeningHours(hours) {
+    await this.fillDayHours("tuesday", hours);
+  }
+
+  async enterWednesdayOpeningHours(hours) {
+    await this.fillDayHours("wednesday", hours);
+  }
+
+  async enterThursdayOpeningHours(hours) {
+    await this.fillDayHours("thursday", hours);
+  }
+
+  async enterFridayOpeningHours(hours) {
+    await this.fillDayHours("friday", hours);
+  }
+
+  async enterSaturdayOpeningHours(hours) {
+    await this.fillDayHours("saturday", hours);
+  }
+
+  async enterSundayOpeningHours(hours) {
+    await this.fillDayHours("sunday", hours);
   }
 
   async selectEveryday() {
@@ -55,8 +83,57 @@ export class OpeningHours extends BasePage {
     }
   }
 
+  async fillMonday(start, end) {
+    await this.fillDayHours(
+      "monday",
+      end === undefined ? start : `${start} to ${end}`
+    );
+  }
+
+  async fillTuesday(start, end) {
+    await this.fillDayHours(
+      "tuesday",
+      end === undefined ? start : `${start} to ${end}`
+    );
+  }
+
+  async fillWednesday(start, end) {
+    await this.fillDayHours(
+      "wednesday",
+      end === undefined ? start : `${start} to ${end}`
+    );
+  }
+
+  async fillThursday(start, end) {
+    await this.fillDayHours(
+      "thursday",
+      end === undefined ? start : `${start} to ${end}`
+    );
+  }
+
+  async fillFriday(start, end) {
+    await this.fillDayHours(
+      "friday",
+      end === undefined ? start : `${start} to ${end}`
+    );
+  }
+
+  async fillSaturday(start, end) {
+    await this.fillDayHours(
+      "saturday",
+      end === undefined ? start : `${start} to ${end}`
+    );
+  }
+
+  async fillSunday(start, end) {
+    await this.fillDayHours(
+      "sunday",
+      end === undefined ? start : `${start} to ${end}`
+    );
+  }
+
   async clickContinue() {
-    await this.page.locator(this.selectors.button).click();
+    await this.page.locator(this.selectors.button).first().click();
   }
 
   async hasError() {

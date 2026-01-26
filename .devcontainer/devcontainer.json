@@ -1,0 +1,51 @@
+
+{
+  "name": "Register-a-food-business UI Tests",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "..",
+    "args": {
+      "NODE_VERSION": "20"
+    }
+  },
+  "image": null,
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+  "remoteUser": "node",
+  "containerEnv": {
+    "GITHUB_USER": ""
+  },
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash",
+    "terminal.integrated.env.linux": {
+      "FORCE_COLOR": "1"
+    }
+  },
+  "extensions": [
+    "dbaeumer.vscode-eslint",
+    "ms-playwright.playwright",
+    "eg2.vscode-npm-script"
+  ],
+  "postCreateCommand": "echo 'Installing workspace dependencies and Playwright browsers...' && chmod +x /workspace/.devcontainer/scripts/start-vnc.sh && (cd /workspace && (yarn install --frozen-lockfile || npm install)) && (cd /workspace/playwright-tests && (yarn install --frozen-lockfile || npm install)) && (cd /workspace/playwright-tests && npx --yes playwright install)",
+  "postStartCommand": "bash /workspace/.devcontainer/scripts/start-vnc.sh",
+  "mounts": [
+    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+  ],
+  "forwardPorts": [9222, 9229, 5900, 7900],
+  "portsAttributes": {
+    "7900": {
+      "label": "noVNC (Playwright headed)",
+      "onAutoForward": "openBrowser"
+    },
+    "5900": {
+      "label": "VNC (raw)",
+      "onAutoForward": "ignore"
+    }
+  },
+  "onCreateCommand": "",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "20"
+    }
+  }
+}

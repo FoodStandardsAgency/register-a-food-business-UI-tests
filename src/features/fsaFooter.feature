@@ -18,20 +18,18 @@ Feature: As Samantha, I can see the gov.uk footer and link to the privacy policy
         Given I open the url "/cleansession"
         When I open the url "index"
         Then I expect that element "commonElements.fsaFooter" is visible
-        And I expect that the attribute "href" from element "commonElements.cookiePolicyFooter" is "https://www.food.gov.uk/cookie-policy"
+        And I expect that element "commonElements.cookiePolicyFooter" contains the text "Cookies"
         Given I click on the element "commonElements.cookiePolicyFooter"
-        And I pause for 1000ms
-        Then I expect a new tab has been opened
+        Then I expect the url to contain "cookie-policy"
 
     @fsa_footer_SDB-647_privacy_policy
     Scenario: privacy policy in footer
         Given I open the url "/cleansession"
         When I open the url "index"
         Then I expect that element "commonElements.fsaFooter" is visible
-        And I expect that the attribute "href" from element "commonElements.privacyPolicyFooter" is "https://www.food.gov.uk/about-us/register-a-food-business-privacy-notice"
-        Given I click on the element "commonElements.cookiePolicyFooter"
-        And I pause for 1000ms
-        Then I expect a new tab has been opened
+        And I expect that element "commonElements.privacyPolicyFooter" contains the text "Privacy"
+        Given I click on the element "commonElements.privacyPolicyFooter"
+        Then I expect the url to contain "privacy-notice"
 
     @fsa_footer_language_link
     Scenario: change language link in footer

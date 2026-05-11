@@ -125,7 +125,7 @@ const capabilityAndroid = (mode, osConfig = {}) => {
         deviceName: "Google Pixel 4 XL",
       },
     },
-    defaultCapabilitiesMobile(mode, { osVersion })
+    defaultCapabilitiesMobile(mode, { osVersion }),
   );
 };
 
@@ -140,7 +140,7 @@ const capabilityiOS = (mode, osConfig = {}) => {
         deviceName: "iPhone XS",
       },
     },
-    defaultCapabilitiesMobile(mode, { osVersion })
+    defaultCapabilitiesMobile(mode, { osVersion }),
   );
 };
 
@@ -152,7 +152,7 @@ const capabilityIE = (mode, osConfig = {}) => {
       browserName: "ie",
       browser_version: "11.0",
     },
-    defaultCapabilities(mode, { os, osVersion })
+    defaultCapabilities(mode, { os, osVersion }),
   );
 };
 
@@ -164,7 +164,7 @@ const capabilityFirefox = (mode, osConfig = {}) => {
       browserName: "firefox",
       browserVersion: "76",
     },
-    defaultCapabilities(mode, { os, osVersion })
+    defaultCapabilities(mode, { os, osVersion }),
   );
 };
 
@@ -176,7 +176,7 @@ const capabilityChrome = (mode, osConfig = {}) => {
       browserName: "chrome",
       browserVersion: "125.0.6422",
     },
-    defaultCapabilities(mode, { os, osVersion })
+    defaultCapabilities(mode, { os, osVersion }),
   );
 };
 
@@ -188,7 +188,7 @@ const capabilityEdge = (mode, osConfig = {}) => {
       browserName: "Edge",
       browserVersion: "83.0",
     },
-    defaultCapabilities(mode, { os, osVersion })
+    defaultCapabilities(mode, { os, osVersion }),
   );
 };
 
@@ -200,7 +200,7 @@ const capabilitySafari = (mode, osConfig = {}) => {
       browserName: "safari",
       browserVersion: "12.0",
     },
-    defaultCapabilities(mode, { os, osVersion })
+    defaultCapabilities(mode, { os, osVersion }),
   );
 };
 
@@ -387,7 +387,6 @@ let config = {
     ],
     websitefeatures: [
       "./src/features/**/backButton.feature",
-      "./src/features/**/betaBanner.feature",
       "./src/features/**/errorSummary.feature",
       "./src/features/**/cookieBanner.feature",
       "./src/features/**/lcLookup.feature",

@@ -24,14 +24,14 @@
 
 - `wdio.conf.js`
 
-  This is the config file. More information can be found [here](.the-config-file.md).
+  This is the config file. More information can be found [here](./the-config-file.md).
 
 - `run_ui.sh`
   This is the bash script to run the UI tests. It runs the UI tests one test suite at a time and by default on the Azure test environment URL.
 
 - `run_e2e.sh`
 
-  This is the bash script to run the UI tests. It runs only the end2end test suite and by default on the Azure test environment URL.
+  This is the bash script to run the end to end (e2e) UI tests. 
 
 ## `/src`
 
@@ -47,10 +47,6 @@ All of the UI and E2E tests can be found in the [features](../../src/features) f
 
 * `src/support`
   This directory contains the functions that are used by the predefined steps. Note that those actions that required selecting an element have been edited to incorporate using page objects (for example [`clickElement.js`](../../src/support/action/clickElement.js)).
-
-## `/errorShots`
-
-[errorShots](../../errorShots) is the directory within which screenshots get saved if a command fails. This directory is chosen in the [config file](../../wdio.conf.js).
 
 ## Non-committed and other directories
 

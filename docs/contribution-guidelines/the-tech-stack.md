@@ -2,7 +2,7 @@
 
 ## Selenium Webdriver
 
-Selenium is a tool used for automating browsers. Selenium Webdriver are a set of APIs to automate the testing of web applications. For more information on Selenium Webdriver, see https://www.seleniumhq.org/projects/webdriver/.
+Selenium is a tool used for automating browsers. Selenium Webdriver are a set of APIs to automate the testing of web applications. For more information on Selenium Webdriver, see https://www.selenium.dev/projects/.
 
 ## Webdriver.io
 

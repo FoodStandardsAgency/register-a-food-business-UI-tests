@@ -36,10 +36,13 @@ Feature: Select customer type
 
 ## Step definitions
 
-- Feature files call step definitions from `src/steps/given.js`.
+- Feature files use steps defined across three files in `src/steps/`:
+  - `given.js` — `Given` steps (setup and navigation)
+  - `when.js` — `When` steps (actions and interactions)
+  - `then.js` — `Then` steps (assertions and checks)
 - Reuse existing steps wherever possible.
 - Keep step text readable and aligned with the existing style.
-- If you need a new step, add it to `src/steps/given.js` and keep it generic enough to be reused by future scenarios.
+- If you need a new step, add it to the file that matches its keyword (`Given`, `When`, or `Then`) and keep it generic enough to be reused by future scenarios.
 
 ## Tags and scenario grouping
 
@@ -67,7 +70,7 @@ Feature: Select customer type
 To run the new feature file locally:
 
 ```bash
-npx wdio run wdio.conf.mjs --spec src/features/<your-feature-file>.feature
+npx wdio run wdio.conf.cjs --spec src/features/<your-feature-file>.feature
 ```
 
 Or run the full local UI suite:

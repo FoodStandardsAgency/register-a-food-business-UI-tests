@@ -22,7 +22,7 @@
 
   Create a `.env` file in the root directory to store environment variables. The `.env` file is included in the `.gitignore` file for security purposes because many environment variables are passwords, which should not be made public in an open-source repository.
 
-- `wdio.conf.js`
+- `wdio.conf.cjs`
 
   This is the config file. More information can be found [here](./the-config-file.md).
 

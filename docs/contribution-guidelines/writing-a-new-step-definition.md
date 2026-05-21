@@ -1,24 +1,27 @@
 # Writing a new step definition
 
-1. Open `src/steps/given.js`.
-2. Find the existing `Given(...)` style steps.
-3. Add a new `Given`, `When` or `Then` entry with a regex and a handler.
+1. Open the step file that matches your keyword:
+   - `src/steps/given.js` for `Given` steps
+   - `src/steps/when.js` for `When` steps
+   - `src/steps/then.js` for `Then` steps
 
-Example:
+2. Add a new entry with a regex and a handler.
 
-```js
-import myAction from "../support/action/myAction.js";
+    Example (`When` step):
 
-Given(
-  /^I do something custom "([^"]*)"$/,
-  { wrapperOptions: { retry: 2 } },
-  myAction
-);
-```
+    ```js
+    import myAction from "../support/action/myAction.js";
+    When(
+    /^I do something custom "([^"]*)"$/,
+    { wrapperOptions: { retry: 2 } },
+    myAction
+    );
 
-4. Implement the action in `src/support/action/`.
-5. Keep step text reusable and avoid page-specific details.
-6. Reuse existing support actions when possible.
-7. If the step needs a new selector, add it to `src/pageObjects`.
+3. Implement the handler in the correct support directory:
+    src/support/action/ for Given and When steps (actions)
+    src/support/check/ for Then steps (assertions)
 
-Run the new step by executing the relevant feature file or suite.
+4. Keep step text reusable and avoid page-specific details.
+5. Reuse existing support functions when possible.
+6. If the step needs a new selector, add it to src/pageObjects.
+7. Run the new step by executing the relevant feature file or suite.

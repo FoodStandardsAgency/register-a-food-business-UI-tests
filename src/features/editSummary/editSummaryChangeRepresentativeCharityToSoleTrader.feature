@@ -4,7 +4,7 @@ Feature: Change from Representative Charity to Sole Trader
   @SDB-130_Change_Operator_Type_Charity_Rep_to_Sole_Trader
   Scenario: Change from Representative Charity to Sole Trader
     Given I open the url "/cleansession"
-    And I go to a special QA page at url "/qa/mid-and-east-antrim/registration-summary" with injected "registration-summary-charity" data
+    And I go to a special QA page at url "/qa/registration-summary" with injected "registration-summary-charity" data
     And I click on the element "commonElements.button"
     When I click on the element "registrationSummary.changeOperatorType"
     Then I expect the url to contain "registration-role?edit=registration-role"

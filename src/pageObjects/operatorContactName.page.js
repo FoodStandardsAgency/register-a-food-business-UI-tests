@@ -1,8 +1,11 @@
-const opContactName = { 
+const opContactName = {
   firstName: "#operator_first_name",
   lastName: "#operator_last_name",
   button: ".govuk-button",
-  error: ".govuk-error-message"
+  error: ".govuk-error-message",
+  day: "#operator_birthdate_day",
+  month: "#operator_birthdate_month",
+  year: "#operator_birthdate_year",
 };
 
-module.exports = opContactName;
+export default opContactName;

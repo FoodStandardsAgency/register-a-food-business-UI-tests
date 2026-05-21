@@ -5,7 +5,7 @@ Feature: As Samantha I need to be able to change the partnership details
   @SDB-130_Change_Operator_Type_Partnership_Change_details
   Scenario: Change details within Partnership path
     Given I open the url "/cleansession"
-    And I go to a special QA page at url "/qa/mid-and-east-antrim/registration-summary" with injected "registration-summary-partnership" data
+    And I go to a special QA page at url "/qa/registration-summary" with injected "registration-summary-partnership" data
     When I click on the element "regRole.button"
     When I click on the element "registrationSummary.changeOperatorType"
     Then I expect the url to contain "registration-role?edit=registration-role"
@@ -26,10 +26,10 @@ Feature: As Samantha I need to be able to change the partnership details
     And I expect that element "mainPartnershipContact.partnerTwo" is not selected
     When I click on the element "mainPartnershipContact.partnerThree"
     And I click on the element "commonElements.button"
-    Then I expect the url to contain "operator-contact-details?edit=main-partnership-contact"
-    And I expect that element "opContactDetails.primaryPhoneNumber" contains the text "01234567890"
-    And I expect that element "opContactDetails.emailAddress" contains the text "email@email.com"
-    When I click on the element "opContactDetails.button"
+    Then I expect the url to contain "partnership-contact-details?edit=main-partnership-contact"
+    And I expect that element "partnerContactDetails.primaryPhoneNumber" contains the text "01234567890"
+    And I expect that element "partnerContactDetails.emailAddress" contains the text "email@email.com"
+    When I click on the element "partnerContactDetails.button"
     Then I expect the url to contain "registration-summary"
     And I expect that element "registrationSummary.operatorType" contains the text "Partnership"
     And I expect that element "registrationSummary.operatorPrimaryNumber" contains the text "01234567890"

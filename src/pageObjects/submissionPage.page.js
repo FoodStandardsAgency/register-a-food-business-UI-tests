@@ -15,4 +15,4 @@ const submissionPage = {
   error: "#errorSummary",
 };
 
-module.exports = submissionPage;
+export default submissionPage;

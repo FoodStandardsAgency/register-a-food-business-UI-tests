@@ -4,7 +4,7 @@ const charityDetails = {
   questionsCharityReference: "#hiddenTextCharityNumbers > summary > span",
   link: "#link-charity-commission",
   button: ".govuk-button",
-  error: ".govuk-error-message"
+  error: ".govuk-error-message",
 };
 
-module.exports = charityDetails;
+export default charityDetails;

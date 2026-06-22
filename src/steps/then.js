@@ -268,3 +268,7 @@ Then(
     expect(elementText).toContain(text);
   }
 );
+
+Then("I go back in the browser", async function () {
+  await browser.back();
+});

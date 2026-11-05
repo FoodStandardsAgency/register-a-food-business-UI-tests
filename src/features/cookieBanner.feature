@@ -51,7 +51,7 @@ Feature: As Catelyn I need to know that cookies are being used in this service, 
         And I delete the cookie "acceptAllCookies"
         When I open the url "index"
         Then I expect that element "commonElements.cookieBanner" is visible
-        And I expect that the attribute "href" from element "commonElements.cookiePolicy" is "https://www.food.gov.uk/cookie-policy"
+        And I expect that the attribute "href" from element "commonElements.cookiePolicy" is "/cookie-policy"
         Given I click on the element "commonElements.cookiePolicy"
         And I pause for 1000ms
         Then I expect a new tab has been opened

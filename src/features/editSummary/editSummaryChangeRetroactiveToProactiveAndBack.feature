@@ -4,7 +4,7 @@ Feature: Change retroactive to proactive, continue, then navigate back and chang
   @SDB-828_retroactive_proactive_back_navigation
   Scenario: Change retroactive to proactive, continue, then navigate back and change to retroactive
     Given I open the url "/cleansession"
-    And I go to a special QA page at url "/qa/mid-and-east-antrim/registration-summary" with injected "registration-summary" data
+    And I go to a special QA page at url "/qa/registration-summary" with injected "registration-summary" data
     When I click on the element "registrationSummary.changeTradingStartDate"
     Then I expect the url to contain "establishment-opening-status?edit=establishment-opening-status"
     And I expect that element "commonElements.backButton" does not exist

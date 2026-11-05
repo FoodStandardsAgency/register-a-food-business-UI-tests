@@ -1,7 +1,7 @@
 /**
  * Switch to the first tab
  */
-module.exports = () => {
-    const tabs = browser.getWindowHandles();
-    browser.switchToWindow(tabs[0]);
+export default async () => {
+  const tabs = await browser.getWindowHandles();
+  await browser.switchToWindow(tabs[0]);
 };

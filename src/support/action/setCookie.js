@@ -4,9 +4,9 @@
  * @param  {String}   cookieName    The name of the cookie
  * @param  {String}   cookieContent The value of the cookie
  */
-export default (cookieName, cookieContent) => {
-    browser.setCookies({
-        name: cookieName,
-        value: cookieContent,
-    });
+export default async (cookieName, cookieContent) => {
+  await browser.setCookies({
+    name: cookieName,
+    value: cookieContent,
+  });
 };

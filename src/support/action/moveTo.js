@@ -4,18 +4,18 @@
  * @param  {String}   x        X coordinate to move to
  * @param  {String}   y        Y coordinate to move to
  */
-export default (selector, x, y) => {
-    /**
-     * X coordinate
-     * @type {Int}
-     */
-    const intX = parseInt(x, 10) || undefined;
+export default async (selector, x, y) => {
+  /**
+   * X coordinate
+   * @type {Int}
+   */
+  const intX = parseInt(x, 10) || undefined;
 
-    /**
-     * Y coordinate
-     * @type {Int}
-     */
-    const intY = parseInt(y, 10) || undefined;
+  /**
+   * Y coordinate
+   * @type {Int}
+   */
+  const intY = parseInt(y, 10) || undefined;
 
-    $(selector).moveTo(intX, intY);
+  await $(selector).then((e) => e.moveTo(intX, intY));
 };

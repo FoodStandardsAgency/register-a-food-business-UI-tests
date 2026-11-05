@@ -7,4 +7,4 @@ const estabOpeningDate = {
   error: ".govuk-error-message",
   button: "form .govuk-button",
 };
-module.exports = estabOpeningDate;
+export default estabOpeningDate;

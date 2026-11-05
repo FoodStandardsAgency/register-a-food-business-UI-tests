@@ -7,7 +7,7 @@ const openingDaysSome = {
   saturday: "#opening_day_saturday",
   sunday: "#opening_day_sunday",
   button: ".govuk-button",
-  error: ".govuk-error-message"
+  error: ".govuk-error-message",
 };
 
-module.exports = openingDaysSome;
+export default openingDaysSome;

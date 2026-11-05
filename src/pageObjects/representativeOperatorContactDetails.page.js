@@ -4,7 +4,7 @@ const repOpContactDetails = {
   primaryPhoneNumber: '[name="contact_representative_number"]',
   emailAddress: '[name="contact_representative_email"]',
   button: ".govuk-button",
-  error: ".govuk-error-message"
+  error: ".govuk-error-message",
 };
 
-module.exports = repOpContactDetails;
+export default repOpContactDetails;

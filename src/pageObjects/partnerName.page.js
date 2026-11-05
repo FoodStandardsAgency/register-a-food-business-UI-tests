@@ -11,4 +11,4 @@ const partnerName = {
   error: ".govuk-error-message",
 };
 
-module.exports = partnerName;
+export default partnerName;

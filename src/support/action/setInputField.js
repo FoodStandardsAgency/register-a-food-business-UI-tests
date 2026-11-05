@@ -1,5 +1,5 @@
-import getSelector from "../../pageObjects/page";
-import checkIfElementExists from '../check/isExisting';
+import getSelector from "../../pageObjects/page.js";
+import checkIfElementExists from "../lib/checkIfElementExists.js";
 
 /**
  * Set the value of the given input field to a new value or add a value to the
@@ -8,29 +8,22 @@ import checkIfElementExists from '../check/isExisting';
  * @param  {String}   value   The value to set the selector to
  * @param  {String}   selector Element selector
  */
-export default (method, value, selector) => {
+export default async (method, value, selector) => {
+  selector = getSelector(selector);
 
+  /**
+   * The command to perform on the browser object (addValue or setValue)
+   * @type {String}
+   */
+  const command = method === "add" ? "addValue" : "setValue";
 
+  let checkValue = value;
+  if (!value) {
+    checkValue = "";
+  }
 
-    selector = getSelector(selector);
-
-
-    /**
-     * The command to perform on the browser object (addValue or setValue)
-     * @type {String}
-     */
-    const command = (method === 'add') ? 'addValue' : 'setValue';
-
-    let checkValue = value;
-
-    checkIfElementExists(selector, false);
-
-    if (!value) {
-        checkValue = '';
-    }
-    const elements = $(selector);
-    elements.waitForExist({reverse:false});
-
-    elements.scrollIntoView();
-    elements[command](checkValue);
+  await checkIfElementExists(selector, false);
+  const elements = await $(selector);
+  await elements.scrollIntoView();
+  await elements[command](checkValue);
 };

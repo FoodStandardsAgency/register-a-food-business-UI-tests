@@ -1,10 +1,12 @@
-import getSelector from "../../pageObjects/page";
+import getSelector from "../../pageObjects/page.js";
 
 /**
  * Clear a given input field (placeholder for WDIO's clearElement)
  * @param  {String}   selector Element selector
  */
-export default (selector) => {
-    selector = getSelector(selector);
-    $(selector).clearValue();
+const clearInputField = async (selector) => {
+  selector = getSelector(selector);
+  await $(selector).then((e) => e.clearValue());
 };
+
+export default clearInputField;

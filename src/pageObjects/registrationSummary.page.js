@@ -17,6 +17,8 @@ const registrationSummary = {
   representativeNumber: "#designated_contact",
   representativeEmail: "#designated_contact",
   tradingName: "#establishment_trading_name",
+  additionalTradingNames:
+    "#main-content > div > div > form > dl:nth-child(12) > div > dd.govuk-summary-list__value > ul > li",
   establishmentType: "#establishment_type",
   establishmentPrimaryNumber: "#establishment_primary_number",
   establishmentSecondaryNumber: "#establishment_secondary_number",
@@ -37,9 +39,11 @@ const registrationSummary = {
   changeOperatorName: "#changeOperatorNameRow",
   changeOperatorContactDetails: "#changeOperatorContactDetailsRow",
   changeOperatorEmail:
-    "#main-content > div > div > form > dl:nth-child(8) > div > dd.govuk-summary-list__actions > a",
+    "#main-content > div > div > form > dl:nth-child(9) > div > dd.govuk-summary-list__actions > a",
   changeTradingName:
-    "#main-content > div > div > form > dl:nth-child(10) > div > dd.govuk-summary-list__actions",
+    "#main-content > div > div > form > dl:nth-child(11) > div > dd.govuk-summary-list__actions > a",
+  changeAdditionalTradingNames:
+    "#main-content > div > div > form > dl:nth-child(12) > div > dd.govuk-summary-list__actions > a",
   changeEstablishmentAddress: "#changeEstablishmentAddressRow",
   changeEstablishmentContactDetails: "#changeEstablishmentContactDetailsRow",
   changeEstablishmentEmail: "#changeEstablishmentEmailRow",
@@ -47,14 +51,14 @@ const registrationSummary = {
   changeActivitiesBusinessImportExportRow:
     "#changeActivitiesBusinessImportExportRow",
   changeTradingStartDate:
-    "#main-content > div > div > form > dl:nth-child(16) > div > dd.govuk-summary-list__actions > a",
+    "#main-content > div > div > form > dl:nth-child(18) > div > dd.govuk-summary-list__actions > a",
   changeTradingStartDateEditSummary:
-    "#main-content > div > div > form > dl:nth-child(22) > div > dd.govuk-summary-list__actions > a",
+    "#main-content > div > div > form > dl:nth-child(23) > div > dd.govuk-summary-list__actions > a",
   changeTradingStartDateEditSummdarysoletrader:
-    "#main-content > div > div > form > dl:nth-child(17) > div > dd.govuk-summary-list__actions > a",
+    "#main-content > div > div > form > dl:nth-child(18) > div > dd.govuk-summary-list__actions > a",
   changeOpeningDays:
     "#main-content > div > div > form > dl:nth-child(13) > div > dd.govuk-summary-list__actions > a",
   waterSupply: "#water_supply",
 };
 
-module.exports = registrationSummary;
+export default registrationSummary;

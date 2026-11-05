@@ -1,15 +1,15 @@
-import checkContainsAnyText from './checkContainsAnyText';
-import getSelector from "../../pageObjects/page";
+import checkContainsAnyText from "./checkContainsAnyText.js";
+import getSelector from "../../pageObjects/page.js";
 
-export default (elementType, element, falseCase) => {
-    element = getSelector(element);
-    let newFalseCase = true;
+export default async (elementType, element, falseCase) => {
+  element = await getSelector(element);
+  let newFalseCase = true;
 
-    if (typeof falseCase === 'function') {
-        newFalseCase = false;
-    } else if (falseCase === ' not') {
-        newFalseCase = false;
-    }
+  if (typeof falseCase === "function") {
+    newFalseCase = false;
+  } else if (falseCase === " not") {
+    newFalseCase = false;
+  }
 
-    checkContainsAnyText(elementType, element, newFalseCase);
+  await checkContainsAnyText(elementType, element, newFalseCase);
 };

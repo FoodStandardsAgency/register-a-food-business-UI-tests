@@ -5,7 +5,7 @@ const summaryConfirmation = {
   error: "#errorSummary",
   hygieneAndStandardsCouncil: "#hygieneAndStandardsCouncil",
   hygieneCouncil: "#hygieneCouncil",
-  standardsCouncil: "#standardsCouncil"
+  standardsCouncil: "#standardsCouncil",
 };
 
-module.exports = summaryConfirmation;
+export default summaryConfirmation;

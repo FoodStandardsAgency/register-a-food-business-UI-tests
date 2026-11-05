@@ -1,4 +1,4 @@
-import getSelector from "../../pageObjects/page";
+import getSelector from "../../pageObjects/page.js";
 /**
  * Check the given property of the given element
  * @param  {String}   isCSS         Whether to check for a CSS property or an
@@ -9,53 +9,53 @@ import getSelector from "../../pageObjects/page";
  *                                  attribute matches or not
  * @param  {String}   expectedValue The value to match against
  */
-export default (isCSS, attrName, selector, falseCase, expectedValue) => {
-    selector = getSelector(selector);
-    /**
-     * The command to use for fetching the expected value
-     * @type {String}
-     */
-    const command = isCSS ? 'getCSSProperty' : 'getAttribute';
+export default async (isCSS, attrName, selector, falseCase, expectedValue) => {
+  selector = getSelector(selector);
+  /**
+   * The command to use for fetching the expected value
+   * @type {String}
+   */
+  const command = isCSS ? "getCSSProperty" : "getAttribute";
 
-    /**
-     * Te label to identify the attribute by
-     * @type {String}
-     */
-    const attrType = (isCSS ? 'CSS attribute' : 'Attribute');
+  /**
+   * Te label to identify the attribute by
+   * @type {String}
+   */
+  const attrType = isCSS ? "CSS attribute" : "Attribute";
 
-    /**
-     * The actual attribute value
-     * @type {Mixed}
-     */
+  /**
+   * The actual attribute value
+   * @type {Mixed}
+   */
 
-    let elem = $(selector);
-    elem.waitForExist();
+  let elem = await $(selector);
+  await elem.waitForExist();
 
-    let attributeValue = elem[command](attrName);
+  let attributeValue = await elem[command](attrName);
 
-    // eslint-disable-next-line
-    expectedValue = isFinite(expectedValue) ?
-        parseFloat(expectedValue)
-        : expectedValue;
+  // eslint-disable-next-line
+  expectedValue = isFinite(expectedValue)
+    ? parseFloat(expectedValue)
+    : expectedValue;
 
-    /**
-     * when getting something with a color or font-weight WebdriverIO returns a
-     * object but we want to assert against a string
-     */
-    if (attrName.match(/(color|font-weight)/)) {
-        attributeValue = attributeValue.value;
-    }
-    if (falseCase) {
-        expect(attributeValue).not.toEqual(
-            expectedValue,
-            `${attrType}: ${attrName} of element "${selector}" should `
-            + `not contain "${attributeValue}"`
-        );
-    } else {
-        expect(attributeValue).toEqual(
-            expectedValue,
-            `${attrType}: ${attrName} of element "${selector}" should `
-            + `contain "${attributeValue}", but "${expectedValue}"`
-        );
-    }
+  /**
+   * when getting something with a color or font-weight WebdriverIO returns a
+   * object but we want to assert against a string
+   */
+  if (attrName.match(/(color|font-weight)/)) {
+    attributeValue = attributeValue.value;
+  }
+  if (falseCase) {
+    expect(attributeValue).not.toEqual(
+      expectedValue,
+      `${attrType}: ${attrName} of element "${selector}" should ` +
+        `not contain "${attributeValue}"`
+    );
+  } else {
+    expect(attributeValue).toEqual(
+      expectedValue,
+      `${attrType}: ${attrName} of element "${selector}" should ` +
+        `contain "${attributeValue}", but "${expectedValue}"`
+    );
+  }
 };

@@ -18,7 +18,7 @@ steps:
 - script: 'rm -rf ~/.node-gyp'
   displayName: 'Install build essential'
 
-- script: yarn install
+- script: npm install
   displayName: 'Install'
 
 - task: ArchiveFiles@2
